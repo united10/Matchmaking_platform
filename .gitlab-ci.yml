@@ -19,19 +19,19 @@
       paths:
       - target/*.jar
 
-  test:
-      stage: test
-      script: "mvn clean test"
-      artifacts:
-        paths:
-            -target/jacoco-ut/*.html
+#  test:
+#      stage: test
+#      script: "mvn clean test"
+#      artifacts:
+#        paths:
+#            -target/jacoco-ut/*.html
   pages:
       stage: deploy
       dependencies:
-      - test
+      - maven-build
       script:
       - mkdir public
-      - mv target/*.html public
+      - mv target/jacoco-ut/*.html public
       artifacts:
           paths:
           - public
