@@ -20,7 +20,7 @@
 
   test:
       script: 
-      -"cat target/site/jacoco/index.html"
+      - cat target/site/jacoco/index.html
 
 
 
