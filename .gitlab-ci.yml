@@ -9,6 +9,7 @@
   stages:
   - build
   - test
+  - code_quality
 
   maven-build:
     image: maven:3-jdk-10
