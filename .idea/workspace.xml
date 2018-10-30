@@ -1,13 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
+<<<<<<< HEAD
     <list default="true" id="1a6910ff-b3da-4d7a-a5dc-584e8bf1459d" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
+=======
+    <list default="true" id="81c0c12d-746d-48ba-a2fb-2a2f81335506" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config-server/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/config-server/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/eureka-registry/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/eureka-registry/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/zuulgateway/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/zuulgateway/pom.xml" afterDir="false" />
+>>>>>>> a83d026b916dd2681e56fd62d52d52f66408e5e7
     </list>
+    <ignored path="$PROJECT_DIR$/zuulgateway/target/" />
+    <ignored path="$PROJECT_DIR$/target/" />
     <ignored path="$PROJECT_DIR$/config-server/target/" />
     <ignored path="$PROJECT_DIR$/eureka-registry/target/" />
-    <ignored path="$PROJECT_DIR$/zuulgateway/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -15,22 +28,27 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FUSProjectUsageTrigger">
-    <session id="8464697">
+    <session id="979909287">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.open.time.1" value="1" />
+          <entry key="project.open.time.2" value="1" />
           <entry key="project.opened" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
+<<<<<<< HEAD
           <entry key="Dockerfile" value="3" />
           <entry key="java" value="2" />
           <entry key="yml" value="2" />
+=======
+          <entry key="xml" value="1" />
+>>>>>>> a83d026b916dd2681e56fd62d52d52f66408e5e7
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
+<<<<<<< HEAD
           <entry key="Dockerfile" value="3" />
           <entry key="JAVA" value="2" />
           <entry key="YAML" value="2" />
@@ -46,12 +64,16 @@
         <counts>
           <entry key="JAVA" value="1" />
           <entry key="YAML" value="191" />
+=======
+          <entry key="XML" value="1" />
+>>>>>>> a83d026b916dd2681e56fd62d52d52f66408e5e7
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
     <leaf>
+<<<<<<< HEAD
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/zuulgateway/src/main/java/filters/ErrorFilter.java">
           <provider selected="true" editor-type-id="text-editor">
@@ -78,6 +100,13 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="347">
               <caret line="26" column="64" lean-forward="true" selection-start-line="26" selection-start-column="64" selection-end-line="26" selection-end-column="64" />
+=======
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/pom.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-836">
+              <caret line="48" column="6" selection-start-line="48" selection-start-column="6" selection-end-line="48" selection-end-column="6" />
+>>>>>>> a83d026b916dd2681e56fd62d52d52f66408e5e7
             </state>
           </provider>
         </entry>
@@ -92,6 +121,7 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+<<<<<<< HEAD
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
@@ -101,9 +131,12 @@
       </list>
     </option>
   </component>
+=======
+>>>>>>> a83d026b916dd2681e56fd62d52d52f66408e5e7
   <component name="MavenImportPreferences">
     <option name="importingSettings">
       <MavenImportingSettings>
+        <option name="importAutomatically" value="true" />
         <option name="lookForNested" value="true" />
       </MavenImportingSettings>
     </option>
@@ -115,6 +148,14 @@
           <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
           <item name="config-server" type="9519ce18:MavenProjectsStructure$ProjectNode" />
         </path>
+<<<<<<< HEAD
+=======
+        <path>
+          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
+          <item name="config-server" type="9519ce18:MavenProjectsStructure$ProjectNode" />
+          <item name="Lifecycle" type="58874e2:MavenProjectsStructure$LifecycleNode" />
+        </path>
+>>>>>>> a83d026b916dd2681e56fd62d52d52f66408e5e7
       </expand>
       <select />
     </treeState>
@@ -131,6 +172,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+<<<<<<< HEAD
       <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
@@ -144,12 +186,79 @@
         </subPane>
       </pane>
       <pane id="PackagesPane" />
+=======
+>>>>>>> a83d026b916dd2681e56fd62d52d52f66408e5e7
       <pane id="AndroidView" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="matchmakingServices" type="b2602c69:ProjectViewProjectNode" />
+              <item name="matchmaking-platform" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="matchmakingServices" type="b2602c69:ProjectViewProjectNode" />
+              <item name="matchmaking-platform" type="462c0819:PsiDirectoryNode" />
+              <item name="config-server" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="matchmakingServices" type="b2602c69:ProjectViewProjectNode" />
+              <item name="matchmaking-platform" type="462c0819:PsiDirectoryNode" />
+              <item name="config-server" type="462c0819:PsiDirectoryNode" />
+              <item name=".mvn" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="matchmakingServices" type="b2602c69:ProjectViewProjectNode" />
+              <item name="matchmaking-platform" type="462c0819:PsiDirectoryNode" />
+              <item name="config-server" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="matchmakingServices" type="b2602c69:ProjectViewProjectNode" />
+              <item name="matchmaking-platform" type="462c0819:PsiDirectoryNode" />
+              <item name="config-server" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="matchmakingServices" type="b2602c69:ProjectViewProjectNode" />
+              <item name="matchmaking-platform" type="462c0819:PsiDirectoryNode" />
+              <item name="config-server" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="matchmakingServices" type="b2602c69:ProjectViewProjectNode" />
+              <item name="matchmaking-platform" type="462c0819:PsiDirectoryNode" />
+              <item name="config-server" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="configserver" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="matchmakingServices" type="b2602c69:ProjectViewProjectNode" />
+              <item name="matchmaking-platform" type="462c0819:PsiDirectoryNode" />
+              <item name="config-server" type="462c0819:PsiDirectoryNode" />
+              <item name="target" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
+<<<<<<< HEAD
     <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1540876434423" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
+=======
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1540873816287" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+>>>>>>> a83d026b916dd2681e56fd62d52d52f66408e5e7
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -168,34 +277,40 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="1a6910ff-b3da-4d7a-a5dc-584e8bf1459d" name="Default Changelist" comment="" />
-      <created>1540871407968</created>
+      <changelist id="81c0c12d-746d-48ba-a2fb-2a2f81335506" name="Default Changelist" comment="" />
+      <created>1540873671205</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1540871407968</updated>
+      <updated>1540873671205</updated>
     </task>
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="65" y="24" width="1301" height="744" extended-state="6" />
-    <editor active="true" />
+    <frame x="0" y="-4" width="1366" height="772" extended-state="6" />
     <layout>
+      <window_info id="Favorites" side_tool="true" />
       <window_info id="Image Layers" />
       <window_info id="Designer" />
       <window_info id="UI Designer" />
       <window_info id="Capture Tool" />
+<<<<<<< HEAD
       <window_info id="Favorites" side_tool="true" />
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24940239" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Docker" show_stripe_button="false" />
       <window_info anchor="bottom" id="SonarLint" weight="0.32919255" />
       <window_info anchor="bottom" id="Inspection Results" weight="0.32919255" />
+=======
+      <window_info id="Learn" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+>>>>>>> a83d026b916dd2681e56fd62d52d52f66408e5e7
       <window_info anchor="bottom" id="Version Control" show_stripe_button="false" />
       <window_info anchor="bottom" id="Terminal" visible="true" weight="0.32919255" />
       <window_info anchor="bottom" id="Event Log" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.17080745" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -204,7 +319,11 @@
       <window_info anchor="right" id="Theme Preview" />
       <window_info anchor="right" id="Capture Analysis" />
       <window_info anchor="right" id="Palette&#9;" />
+<<<<<<< HEAD
       <window_info anchor="right" id="Maven Projects" weight="0.32988048" />
+=======
+      <window_info anchor="right" id="Maven Projects" visible="true" weight="0.32954547" />
+>>>>>>> a83d026b916dd2681e56fd62d52d52f66408e5e7
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -214,15 +333,9 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/zuulgateway/src/main/java/filters/ErrorFilter.java">
+    <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="212">
-          <caret line="23" column="8" selection-start-line="23" selection-start-column="8" selection-end-line="23" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/zuulgateway/src/main/java/com/stackroute/zuulgateway/ZuulgatewayApplication.java">
-      <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="165">
           <caret line="11" column="22" lean-forward="true" selection-start-line="11" selection-start-column="22" selection-end-line="11" selection-end-column="22" />
           <folding>
@@ -245,6 +358,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="347">
           <caret line="26" column="64" lean-forward="true" selection-start-line="26" selection-start-column="64" selection-end-line="26" selection-end-column="64" />
+=======
+        <state relative-caret-position="-836">
+          <caret line="48" column="6" selection-start-line="48" selection-start-column="6" selection-end-line="48" selection-end-column="6" />
+>>>>>>> a83d026b916dd2681e56fd62d52d52f66408e5e7
         </state>
       </provider>
     </entry>
