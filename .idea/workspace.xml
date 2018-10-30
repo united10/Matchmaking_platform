@@ -1,10 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
+<<<<<<< HEAD
+    <list default="true" id="1a6910ff-b3da-4d7a-a5dc-584e8bf1459d" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
+=======
     <list default="true" id="81c0c12d-746d-48ba-a2fb-2a2f81335506" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/config-server/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/config-server/pom.xml" afterDir="false" />
+<<<<<<< HEAD
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+=======
+      <change beforePath="$PROJECT_DIR$/eureka-registry/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/eureka-registry/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/zuulgateway/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/zuulgateway/pom.xml" afterDir="false" />
+>>>>>>> a83d026b916dd2681e56fd62d52d52f66408e5e7
+>>>>>>> 2aaf81832246ae0ff9eb51db7c751c45419fa7df
     </list>
     <ignored path="$PROJECT_DIR$/zuulgateway/target/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -26,14 +37,46 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
+<<<<<<< HEAD
           <entry key="html" value="1" />
           <entry key="xml" value="3" />
+=======
+<<<<<<< HEAD
+          <entry key="Dockerfile" value="3" />
+          <entry key="java" value="2" />
+          <entry key="yml" value="2" />
+=======
+          <entry key="xml" value="1" />
+>>>>>>> a83d026b916dd2681e56fd62d52d52f66408e5e7
+>>>>>>> 2aaf81832246ae0ff9eb51db7c751c45419fa7df
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
+<<<<<<< HEAD
           <entry key="HTML" value="1" />
           <entry key="XML" value="3" />
+=======
+<<<<<<< HEAD
+          <entry key="Dockerfile" value="3" />
+          <entry key="JAVA" value="2" />
+          <entry key="YAML" value="2" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.edit">
+        <counts>
+          <entry key="java" value="1" />
+          <entry key="yml" value="191" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.edit">
+        <counts>
+          <entry key="JAVA" value="1" />
+          <entry key="YAML" value="191" />
+=======
+          <entry key="XML" value="1" />
+>>>>>>> a83d026b916dd2681e56fd62d52d52f66408e5e7
+>>>>>>> 2aaf81832246ae0ff9eb51db7c751c45419fa7df
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
@@ -51,9 +94,38 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
+<<<<<<< HEAD
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/zuulgateway/src/main/java/filters/ErrorFilter.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="212">
+              <caret line="23" column="8" selection-start-line="23" selection-start-column="8" selection-end-line="23" selection-end-column="8" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/zuulgateway/src/main/java/com/stackroute/zuulgateway/ZuulgatewayApplication.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="165">
+              <caret line="11" column="22" lean-forward="true" selection-start-line="11" selection-start-column="22" selection-end-line="11" selection-end-column="22" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/.gitlab-ci.yml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="347">
+              <caret line="26" column="64" lean-forward="true" selection-start-line="26" selection-start-column="64" selection-end-line="26" selection-end-column="64" />
+=======
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
             <state relative-caret-position="75">
               <caret line="26" column="13" selection-start-line="26" selection-start-column="13" selection-end-line="26" selection-end-column="13" />
             </state>
@@ -74,8 +146,18 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="858">
               <caret line="61" column="13" selection-start-line="61" selection-start-column="13" selection-end-line="61" selection-end-column="13" />
+=======
+            <state relative-caret-position="-836">
+              <caret line="48" column="6" selection-start-line="48" selection-start-column="6" selection-end-line="48" selection-end-column="6" />
+>>>>>>> a83d026b916dd2681e56fd62d52d52f66408e5e7
+>>>>>>> 2aaf81832246ae0ff9eb51db7c751c45419fa7df
             </state>
           </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/config-server/Dockerfile">
+          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
     </leaf>
@@ -83,6 +165,7 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+<<<<<<< HEAD
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
@@ -91,6 +174,20 @@
       </list>
     </option>
   </component>
+=======
+<<<<<<< HEAD
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/zuulgateway/src/main/java/com/stackroute/zuulgateway/ZuulgatewayApplication.java" />
+        <option value="$PROJECT_DIR$/docker-compose.yml" />
+        <option value="$PROJECT_DIR$/.gitlab-ci.yml" />
+      </list>
+    </option>
+  </component>
+=======
+>>>>>>> a83d026b916dd2681e56fd62d52d52f66408e5e7
+>>>>>>> 2aaf81832246ae0ff9eb51db7c751c45419fa7df
   <component name="MavenImportPreferences">
     <option name="importingSettings">
       <MavenImportingSettings>
@@ -106,11 +203,14 @@
           <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
           <item name="config-server" type="9519ce18:MavenProjectsStructure$ProjectNode" />
         </path>
+<<<<<<< HEAD
+=======
         <path>
           <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
           <item name="config-server" type="9519ce18:MavenProjectsStructure$ProjectNode" />
           <item name="Lifecycle" type="58874e2:MavenProjectsStructure$LifecycleNode" />
         </path>
+<<<<<<< HEAD
         <path>
           <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
           <item name="Matchmaking" type="9519ce18:MavenProjectsStructure$ProjectNode" />
@@ -120,6 +220,9 @@
           <item name="Matchmaking" type="9519ce18:MavenProjectsStructure$ProjectNode" />
           <item name="Lifecycle" type="58874e2:MavenProjectsStructure$LifecycleNode" />
         </path>
+=======
+>>>>>>> a83d026b916dd2681e56fd62d52d52f66408e5e7
+>>>>>>> 2aaf81832246ae0ff9eb51db7c751c45419fa7df
       </expand>
       <select />
     </treeState>
@@ -136,6 +239,22 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+<<<<<<< HEAD
+      <pane id="Scope" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="matchmaking-platform" type="b2602c69:ProjectViewProjectNode" />
+              <item name="config-server" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="PackagesPane" />
+=======
+>>>>>>> a83d026b916dd2681e56fd62d52d52f66408e5e7
       <pane id="AndroidView" />
       <pane id="ProjectPane">
         <subPane>
@@ -163,11 +282,20 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
+<<<<<<< HEAD
     <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1540882475127" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
+=======
+<<<<<<< HEAD
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1540876434423" />
+    <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
+=======
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1540873816287" />
+>>>>>>> 2aaf81832246ae0ff9eb51db7c751c45419fa7df
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+>>>>>>> a83d026b916dd2681e56fd62d52d52f66408e5e7
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -222,13 +350,27 @@
       <window_info id="Designer" />
       <window_info id="UI Designer" />
       <window_info id="Capture Tool" />
+<<<<<<< HEAD
+      <window_info id="Favorites" side_tool="true" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24940239" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info anchor="bottom" id="Docker" show_stripe_button="false" />
+      <window_info anchor="bottom" id="SonarLint" weight="0.32919255" />
+      <window_info anchor="bottom" id="Inspection Results" weight="0.32919255" />
+=======
       <window_info id="Learn" />
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+>>>>>>> a83d026b916dd2681e56fd62d52d52f66408e5e7
       <window_info anchor="bottom" id="Version Control" show_stripe_button="false" />
+<<<<<<< HEAD
       <window_info active="true" anchor="bottom" id="Terminal" sideWeight="0.49924242" visible="true" weight="0.38509318" />
       <window_info anchor="bottom" id="Event Log" sideWeight="0.5007576" side_tool="true" visible="true" weight="0.38509318" />
       <window_info anchor="bottom" id="Messages" />
+=======
+      <window_info anchor="bottom" id="Terminal" visible="true" weight="0.32919255" />
+      <window_info anchor="bottom" id="Event Log" side_tool="true" />
+>>>>>>> 2aaf81832246ae0ff9eb51db7c751c45419fa7df
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.5916149" />
@@ -240,7 +382,11 @@
       <window_info anchor="right" id="Theme Preview" />
       <window_info anchor="right" id="Capture Analysis" />
       <window_info anchor="right" id="Palette&#9;" />
+<<<<<<< HEAD
+      <window_info anchor="right" id="Maven Projects" weight="0.32988048" />
+=======
       <window_info anchor="right" id="Maven Projects" visible="true" weight="0.32954547" />
+>>>>>>> a83d026b916dd2681e56fd62d52d52f66408e5e7
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -273,8 +419,38 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="75">
           <caret line="26" column="13" selection-start-line="26" selection-start-column="13" selection-end-line="26" selection-end-column="13" />
+=======
+<<<<<<< HEAD
+        <state relative-caret-position="165">
+          <caret line="11" column="22" lean-forward="true" selection-start-line="11" selection-start-column="22" selection-end-line="11" selection-end-column="22" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/docker-compose.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="47" column="12" lean-forward="true" selection-start-line="47" selection-start-column="12" selection-end-line="47" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config-server/Dockerfile">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitlab-ci.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="347">
+          <caret line="26" column="64" lean-forward="true" selection-start-line="26" selection-start-column="64" selection-end-line="26" selection-end-column="64" />
+=======
+        <state relative-caret-position="-836">
+          <caret line="48" column="6" selection-start-line="48" selection-start-column="6" selection-end-line="48" selection-end-column="6" />
+>>>>>>> a83d026b916dd2681e56fd62d52d52f66408e5e7
+>>>>>>> 2aaf81832246ae0ff9eb51db7c751c45419fa7df
         </state>
       </provider>
     </entry>

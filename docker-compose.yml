@@ -35,18 +35,18 @@ services:
     volumes:
       - '/home/cgi/data/mysql:/data/db'
 
-  movie-demo:
-    image: movie-mongo:v1
-    build: movie-cruiser-app/
-    restart: always
-    container_name: mongo-demo-compose
-    network_mode: host
-    depends_on:
-      - mongodb
-    ports:
-      - 8090:8090
-    expose:
-      - 8090
+#  movie-demo:
+#    image: movie-mongo:v1
+#    build: movie-cruiser-app/
+#    restart: always
+#    container_name: mongo-demo-compose
+#    network_mode: host
+#    depends_on:
+#      - mongodb
+#    ports:
+#      - 8090:8090
+#    expose:
+#      - 8090
 
   gateway:
     image: zuulgateway:v1
