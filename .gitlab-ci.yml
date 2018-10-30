@@ -9,8 +9,6 @@
   stages:
   - build
   - test
-  - package
-  - deploy
 
   maven-build:
     image: maven:3-jdk-10
@@ -21,8 +19,9 @@
       - "*/target/*.jar"
 
   test:
-      image: kaiwinter/docker-java8-maven
-      script: "mvn install -B"
+      script: 
+      -"mvn install -B"
+      -"cat target/site/jacoco/index.html"
 
 
 
