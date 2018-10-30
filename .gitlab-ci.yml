@@ -11,13 +11,14 @@
   - test
   - package
   - deploy
+
   maven-build:
     image: maven:3-jdk-10
     stage: build
     script: "mvn clean test"
     artifacts:
       paths:
-      - target/*.jar
+      - "*/target/*.jar"
 
 #  test:
 #      stage: test
@@ -35,8 +36,7 @@
       artifacts:
           paths:
           - public
-      only:
-      - master
+
 
   #  docker-build:
 #    stage: package
