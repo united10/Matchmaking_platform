@@ -10,7 +10,7 @@
   - build
   - test
   - package
-
+  - deploy
   maven-build:
     image: maven:3-jdk-10
     stage: build
