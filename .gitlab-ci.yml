@@ -20,7 +20,7 @@
 
   test:
       script: 
-      - cat target/site/jacoco/index.html
+      - cat config-server/target/jacoco-ut/index.html
 
 
 
