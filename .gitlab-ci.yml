@@ -8,12 +8,13 @@
 
   stages:
   - build
+  - test
   - package
 
   maven-build:
     image: maven:3-jdk-10
     stage: build
-    script: "mvn package -B"
+    script: "mvn clean test"
     artifacts:
       paths:
       - target/*.jar
