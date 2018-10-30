@@ -22,7 +22,7 @@
 
   test:
       image: kaiwinter/docker-java8-maven
-      script: "mvn install -
+      script: "mvn install -B"
 
 
 
