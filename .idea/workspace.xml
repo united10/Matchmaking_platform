@@ -2,38 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1a6910ff-b3da-4d7a-a5dc-584e8bf1459d" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/movie-cruiser-app/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/movie-cruiser-app/.mvn/wrapper/maven-wrapper.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/movie-cruiser-app/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/movie-cruiser-app/Dockerfile" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/movie-cruiser-app/logs/spring-boot-logging.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/movie-cruiser-app/mvnw" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/movie-cruiser-app/mvnw.cmd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/movie-cruiser-app/pom.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/movie-cruiser-app/src/main/java/com/stackroute/moviecruiserapp/MovieCruiserAppApplication.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/movie-cruiser-app/src/main/java/com/stackroute/moviecruiserapp/configuration/PreloadData.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/movie-cruiser-app/src/main/java/com/stackroute/moviecruiserapp/configuration/SwaggerConfiguration.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/movie-cruiser-app/src/main/java/com/stackroute/moviecruiserapp/controller/MovieController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/movie-cruiser-app/src/main/java/com/stackroute/moviecruiserapp/domain/Movie.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/movie-cruiser-app/src/main/java/com/stackroute/moviecruiserapp/exceptions/MovieAlreadyExistsException.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/movie-cruiser-app/src/main/java/com/stackroute/moviecruiserapp/exceptions/MovieNotFoundException.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/movie-cruiser-app/src/main/java/com/stackroute/moviecruiserapp/repository/MovieRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/movie-cruiser-app/src/main/java/com/stackroute/moviecruiserapp/service/MovieService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/movie-cruiser-app/src/main/java/com/stackroute/moviecruiserapp/service/MovieServiceImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/movie-cruiser-app/src/main/java/com/stackroute/moviecruiserapp/service/MovieServiceImpl2.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/movie-cruiser-app/src/main/resources/application.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/movie-cruiser-app/src/main/resources/bootstrap.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/movie-cruiser-app/src/test/java/com/stackroute/moviecruiserapp/MovieCruiserAppApplicationTests.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/movie-cruiser-app/src/test/java/com/stackroute/moviecruiserapp/controller/MovieControllerTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/movie-cruiser-app/src/test/java/com/stackroute/moviecruiserapp/repository/MovieRepositoryTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/movie-cruiser-app/src/test/java/com/stackroute/moviecruiserapp/service/MovieServiceTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/zuulgateway/src/main/java/com/stackroute/zuulgateway/ZuulgatewayApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/zuulgateway/src/main/java/com/stackroute/zuulgateway/ZuulgatewayApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/config-server/target/" />
     <ignored path="$PROJECT_DIR$/eureka-registry/target/" />
@@ -54,12 +24,28 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
+          <entry key="Dockerfile" value="3" />
           <entry key="java" value="2" />
+          <entry key="yml" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
+          <entry key="Dockerfile" value="3" />
           <entry key="JAVA" value="2" />
+          <entry key="YAML" value="2" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.edit">
+        <counts>
+          <entry key="java" value="1" />
+          <entry key="yml" value="191" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.edit">
+        <counts>
+          <entry key="JAVA" value="1" />
+          <entry key="YAML" value="191" />
         </counts>
       </usages-collector>
     </session>
@@ -75,13 +61,30 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/zuulgateway/src/main/java/com/stackroute/zuulgateway/ZuulgatewayApplication.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2">
-              <caret line="7" column="68" selection-start-line="7" selection-start-column="68" selection-end-line="7" selection-end-column="68" />
+            <state relative-caret-position="165">
+              <caret line="11" column="22" lean-forward="true" selection-start-line="11" selection-start-column="22" selection-end-line="11" selection-end-column="22" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/.gitlab-ci.yml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="347">
+              <caret line="26" column="64" lean-forward="true" selection-start-line="26" selection-start-column="64" selection-end-line="26" selection-end-column="64" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/config-server/Dockerfile">
+          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
     </leaf>
@@ -93,6 +96,8 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/zuulgateway/src/main/java/com/stackroute/zuulgateway/ZuulgatewayApplication.java" />
+        <option value="$PROJECT_DIR$/docker-compose.yml" />
+        <option value="$PROJECT_DIR$/.gitlab-ci.yml" />
       </list>
     </option>
   </component>
@@ -102,6 +107,17 @@
         <option name="lookForNested" value="true" />
       </MavenImportingSettings>
     </option>
+  </component>
+  <component name="MavenProjectNavigator">
+    <treeState>
+      <expand>
+        <path>
+          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
+          <item name="config-server" type="9519ce18:MavenProjectsStructure$ProjectNode" />
+        </path>
+      </expand>
+      <select />
+    </treeState>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="75" />
@@ -116,13 +132,24 @@
     </navigator>
     <panes>
       <pane id="Scope" />
-      <pane id="ProjectPane" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="matchmaking-platform" type="b2602c69:ProjectViewProjectNode" />
+              <item name="config-server" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
       <pane id="PackagesPane" />
       <pane id="AndroidView" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1540871724321" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1540876434423" />
+    <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -158,12 +185,13 @@
       <window_info id="UI Designer" />
       <window_info id="Capture Tool" />
       <window_info id="Favorites" side_tool="true" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24940239" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24940239" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Docker" show_stripe_button="false" />
-      <window_info active="true" anchor="bottom" id="SonarLint" visible="true" weight="0.32919255" />
+      <window_info anchor="bottom" id="SonarLint" weight="0.32919255" />
+      <window_info anchor="bottom" id="Inspection Results" weight="0.32919255" />
       <window_info anchor="bottom" id="Version Control" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Terminal" />
+      <window_info anchor="bottom" id="Terminal" visible="true" weight="0.32919255" />
       <window_info anchor="bottom" id="Event Log" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
@@ -176,7 +204,7 @@
       <window_info anchor="right" id="Theme Preview" />
       <window_info anchor="right" id="Capture Analysis" />
       <window_info anchor="right" id="Palette&#9;" />
-      <window_info anchor="right" id="Maven Projects" />
+      <window_info anchor="right" id="Maven Projects" weight="0.32988048" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -195,8 +223,28 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/zuulgateway/src/main/java/com/stackroute/zuulgateway/ZuulgatewayApplication.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2">
-          <caret line="7" column="68" selection-start-line="7" selection-start-column="68" selection-end-line="7" selection-end-column="68" />
+        <state relative-caret-position="165">
+          <caret line="11" column="22" lean-forward="true" selection-start-line="11" selection-start-column="22" selection-end-line="11" selection-end-column="22" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/docker-compose.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="47" column="12" lean-forward="true" selection-start-line="47" selection-start-column="12" selection-end-line="47" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config-server/Dockerfile">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitlab-ci.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="347">
+          <caret line="26" column="64" lean-forward="true" selection-start-line="26" selection-start-column="64" selection-end-line="26" selection-end-column="64" />
         </state>
       </provider>
     </entry>
