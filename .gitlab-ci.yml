@@ -20,7 +20,6 @@
 
   test:
       script: 
-      -"mvn install -B"
       -"cat target/site/jacoco/index.html"
 
 
