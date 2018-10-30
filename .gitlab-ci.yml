@@ -19,7 +19,26 @@
       paths:
       - target/*.jar
 
-#  docker-build:
+#  test:
+#      stage: test
+#      script: "mvn clean test"
+#      artifacts:
+#        paths:
+#            -target/jacoco-ut/*.html
+  pages:
+      stage: deploy
+      dependencies:
+      - test
+      script:
+      - mkdir public
+      - mv target/*.html public
+      artifacts:
+          paths:
+          - public
+      only:
+      - master
+
+  #  docker-build:
 #    stage: package
 #    script:
 #    - docker build -t registry.gitlab.com/marcolenzo/actuator-sample .
