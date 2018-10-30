@@ -20,22 +20,10 @@
       paths:
       - "*/target/*.jar"
 
-#  test:
-#      stage: test
-#      script: "mvn clean test"
-#      artifacts:
-#        paths:
-#            -target/jacoco-ut/*.html
-  pages:
-      stage: deploy
-      dependencies:
-      - maven-build
-      script:
-      - mkdir public
-      - mv target/jacoco-ut/*.html public
-      artifacts:
-          paths:
-          - public
+  test:
+      image: kaiwinter/docker-java8-maven
+      script: "mvn install -
+
 
 
   #  docker-build:
