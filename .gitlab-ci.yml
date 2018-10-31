@@ -9,7 +9,7 @@
   stages:
   - build
   - test
-  - code_quality
+  - package
 
   maven-build:
     image: maven:3-jdk-10
@@ -17,14 +17,14 @@
     script: "mvn clean test"
     artifacts:
       paths:
-      - "*/target/*.jar"
+      - /target/*.jar
 
   test:
-      script: 
-      - cat /config-server/target/jacoco-ut/index.html
+      script:
+      - mvn test
 
   code_quality:
-      stage: code_quality
+      stage: build
       image: docker:stable
       variables:
           DOCKER_DRIVER: overlay2
