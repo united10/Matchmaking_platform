@@ -13,25 +13,25 @@
 
   maven-build:
     image: maven:3-jdk-10
-    stage: build
-    script: "mvn clean test"
+    script: "mvn package"
     artifacts:
       paths:
       - /target/*.jar
 
   test:
+      image: maven:3-jdk-10
       script:
       - mvn test
 
-  code_quality:
-      stage: build
-      image: docker:stable
-      variables:
-          DOCKER_DRIVER: overlay2
-      allow_failure: true
-      script: "mvn package"
-      artifacts:
-          paths: [gl-code-quality-report.json]
+#  code_quality:
+#      stage: build
+#      image: docker:stable
+#      variables:
+#          DOCKER_DRIVER: overlay2
+#      allow_failure: true
+#      script: "mvn package"
+#      artifacts:
+#          paths: [gl-code-quality-report.json]
 
 
 
