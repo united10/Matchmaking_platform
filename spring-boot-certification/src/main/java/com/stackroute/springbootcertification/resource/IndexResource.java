@@ -1,4 +1,4 @@
-package com.stackroute.springbootcertification.Resource;
+package com.stackroute.springbootcertification.resource;
 
 import com.stackroute.springbootcertification.domain.CommonOutput;
 import org.springframework.beans.factory.annotation.Autowired;
