@@ -1,6 +1,7 @@
 package com.stackroute.matchmaking.controller;
 
 import com.stackroute.matchmaking.domain.User;
+import com.stackroute.matchmaking.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -12,6 +13,10 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping(value="/registration/ap1/v1")
 public class UserController {
     @Autowired
+    UserService userService;
+    public UserController(UserService userService) {
+        this.userService = userService;
+    }
     private KafkaTemplate<String, User> kafkaTemplate;
     private  static final String TOPIC ="user";
 

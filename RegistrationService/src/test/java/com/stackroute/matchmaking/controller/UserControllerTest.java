@@ -1,7 +1,9 @@
 //package com.stackroute.matchmaking.controller;
 //
-//
+//import com.fasterxml.jackson.databind.ObjectMapper;
 //import com.stackroute.matchmaking.domain.User;
+//import com.stackroute.matchmaking.service.UserService;
+//import org.junit.Before;
 //import org.junit.Test;
 //import org.junit.runner.RunWith;
 //import org.mockito.InjectMocks;
@@ -30,32 +32,42 @@
 //    @Autowired
 //    private MockMvc mockMvc;
 //    private User user;
-//        @MockBean
-////    private UserService userService;
+//    @MockBean
+//    private UserService userService;
 //    @InjectMocks
 //    private UserController userController;
 //    private List<User> list = null;
 //
+//    @Before
 //    public void setUp() {
 //
 //        MockitoAnnotations.initMocks(this);
 //        mockMvc = MockMvcBuilders.standaloneSetup(userController).build();
 //        user = new User();
-//        user.setEmail("hukma@gmail.com");
 //        user.setName("Hukma Ram");
+//        user.setEmail("hukma@gmail.com");
 //        user.setPassword("abcd1234");
 //        list = new ArrayList();
 //
 //        list.add(user);
 //    }
+//    @Test
 //    public void saveUser() throws Exception {
-//        when(true).thenReturn(true);
+//        when(userService.saveUser(any())).thenReturn(user);
 //        mockMvc.perform(MockMvcRequestBuilders.post("/registration/ap1/v1/user")
 //                .contentType(MediaType.APPLICATION_JSON)
 //                .content(asJsonString(user)))
 //                .andExpect(MockMvcResultMatchers.status().isCreated())
 //                .andDo(MockMvcResultHandlers.print());
 //
+//    }
+//    private static String asJsonString(final Object obj)
+//    {
+//        try{
+//            return new ObjectMapper().writeValueAsString(obj);
 //
+//        }catch(Exception e){
+//            throw new RuntimeException(e);
+//        }
 //    }
 //}
