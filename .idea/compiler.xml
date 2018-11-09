@@ -7,7 +7,15 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="config-server" />
+        <module name="EducationService" />
         <module name="eureka-registry" />
+        <module name="LocationService" />
+        <module name="matchMaking" />
+        <module name="matchmaking" />
+        <module name="spring-boot-certification" />
+        <module name="spring-location (2)" />
+        <module name="spring-skill" />
+        <module name="UpstreamService" />
         <module name="zuulgateway" />
       </profile>
     </annotationProcessing>

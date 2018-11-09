@@ -1,0 +1,9 @@
+
+Bsquid:S1452/"&Remove usage of generic wildcard type.(ζ‚ÿÿÿÿÿ
+Bsquid:S1452#"&Remove usage of generic wildcard type.(΅†ϋÿÿÿÿÿ
+rsquid:S00120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ο ―
+wsquid:S4144#"[Update this method so that its implementation is not identical to "processData" on line 23.(΅†ϋÿÿÿÿÿ
+wsquid:S4144;"[Update this method so that its implementation is not identical to "processData" on line 23.(­ταψÿÿÿÿ
+=squid:S1452"&Remove usage of generic wildcard type.(’»β†
+wsquid:S4144/"[Update this method so that its implementation is not identical to "processData" on line 23.(ζ‚ÿÿÿÿÿ
+Bsquid:S1452;"&Remove usage of generic wildcard type.(­ταψÿÿÿÿ
