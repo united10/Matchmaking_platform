@@ -26,7 +26,7 @@ public class EducationController {
             CommonOutput commonOutput = educationService.processEducationDetails(section);
             responseEntity = new ResponseEntity<CommonOutput>(commonOutput, HttpStatus.OK);
         }catch (Exception e){
-            responseEntity = new ResponseEntity<String>(e.getMessage(),HttpStatus.CONFLICT);
+            responseEntity = new ResponseEntity<String>(e.getMessage(),HttpStatus.INTERNAL_SERVER_ERROR);
         }
         return responseEntity;
     }
@@ -38,7 +38,7 @@ public class EducationController {
             CommonOutput commonOutput = educationService.processEducationDetails(section);
             responseEntity = new ResponseEntity<String>(commonOutput.toString(), HttpStatus.OK);
         }catch (Exception e){
-            responseEntity = new ResponseEntity<String>(e.getMessage(),HttpStatus.CONFLICT);
+            responseEntity = new ResponseEntity<String>(e.getMessage(),HttpStatus.INTERNAL_SERVER_ERROR);
         }
         return responseEntity;
     }
@@ -50,7 +50,7 @@ public class EducationController {
             CommonOutput commonOutput = educationService.processEducationDetails(section);
             responseEntity = new ResponseEntity<String>(commonOutput.toString(), HttpStatus.OK);
         }catch (Exception e){
-            responseEntity = new ResponseEntity<String>(e.getMessage(),HttpStatus.CONFLICT);
+            responseEntity = new ResponseEntity<String>(e.getMessage(),HttpStatus.INTERNAL_SERVER_ERROR);
         }
         return responseEntity;
     }
