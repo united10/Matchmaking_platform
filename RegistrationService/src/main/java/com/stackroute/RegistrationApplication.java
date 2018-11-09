@@ -1,12 +1,12 @@
-package com.stackroute.matchmaking;
+package com.stackroute;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class MatchMakingApplication {
+public class RegistrationApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(MatchMakingApplication.class, args);
+		SpringApplication.run(RegistrationApplication.class, args);
 	}
 }

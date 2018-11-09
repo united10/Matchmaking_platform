@@ -1,6 +1,6 @@
-package com.stackroute.matchmaking.config;
+package com.stackroute.config;
 
-import com.stackroute.matchmaking.domain.User;
+import com.stackroute.domain.User;
 import org.springframework.context.annotation.Configuration;
 import org.apache.kafka.clients.producer.ProducerConfig;
 import org.apache.kafka.common.serialization.StringSerializer;

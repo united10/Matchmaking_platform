@@ -1,7 +1,6 @@
-package com.stackroute.matchmaking.controller;
+package com.stackroute.controller;
 
-import com.stackroute.matchmaking.domain.User;
-import com.stackroute.matchmaking.service.UserService;
+import com.stackroute.domain.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -10,18 +9,14 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @CrossOrigin
-@RequestMapping(value="/registration/ap1/v1")
+@RequestMapping(value="/api/v1/registration")
 public class UserController {
     @Autowired
-    UserService userService;
-    public UserController(UserService userService) {
-        this.userService = userService;
-    }
     private KafkaTemplate<String, User> kafkaTemplate;
     private  static final String TOPIC ="user";
 
     @PostMapping("user")
-    public ResponseEntity<?> saveUser(@RequestBody User user){
+    public ResponseEntity<String> saveUser(@RequestBody User user){
         ResponseEntity responseEntity;
         try{
             kafkaTemplate.send(TOPIC,user);

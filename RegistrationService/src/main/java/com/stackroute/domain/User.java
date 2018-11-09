@@ -1,14 +1,9 @@
-package com.stackroute.matchmaking.domain;
+package com.stackroute.domain;
 
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-
-@Entity
 public class User {
-    @Id
-    String email;
     String name;
+    String email;
     String password;
 
     public User(){}
@@ -17,15 +12,6 @@ public class User {
         this.email = email;
         this.name = name;
         this.password = password;
-    }
-
-    @Override
-    public String toString() {
-        return "User{" +
-                "email='" + email + '\'' +
-                ", name='" + name + '\'' +
-                ", password='" + password + '\'' +
-                '}';
     }
 
     public String getEmail() {
@@ -50,5 +36,15 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "email='" + email + '\'' +
+                ", name='" + name + '\'' +
+                ", password='" + password + '\'' +
+                '}';
     }
 }

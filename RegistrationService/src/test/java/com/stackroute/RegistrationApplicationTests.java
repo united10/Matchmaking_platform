@@ -1,4 +1,4 @@
-package com.stackroute.matchmaking;
+package com.stackroute;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -7,7 +7,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class MatchMakingApplicationTests {
+public class RegistrationApplicationTests {
 
 	@Test
 	public void contextLoads() {
