@@ -1,18 +1,18 @@
-package com.stackroute.springbootcertification.listener;
+package com.stackroute.listener;
 
-import com.stackroute.springbootcertification.resource.IndexResource;
-import com.stackroute.springbootcertification.domain.CommonOutput;
-import com.stackroute.springbootcertification.domain.Relationships;
-import com.stackroute.springbootcertification.domain.Section;
+import com.stackroute.resource.IndexResourceImplementation;
+import com.stackroute.domain.CommonOutput;
+import com.stackroute.domain.Relationships;
+import com.stackroute.domain.Section;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.messaging.handler.annotation.Payload;
 import org.springframework.stereotype.Service;
 
 @Service
-public class KafkaListen {
+public class KafkaListening {
     @Autowired
-    IndexResource indexResource;
+    IndexResourceImplementation indexResourceImplementation;
 
     @KafkaListener(topics = "certificate" ,groupId = "group_id3",
             containerFactory="userKafkaListenerFactory")
@@ -23,6 +23,6 @@ public class KafkaListen {
         CommonOutput commonOutput=new CommonOutput("add","SourceNode","SourceNodeProperty",
                 "TargetNode","TargetNodeProperty",
                 relationships);
-        indexResource.postData(commonOutput);
+        indexResourceImplementation.postData(commonOutput);
     }
 }

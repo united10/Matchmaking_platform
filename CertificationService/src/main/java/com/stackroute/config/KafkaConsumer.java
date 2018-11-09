@@ -1,6 +1,6 @@
-package com.stackroute.springbootcertification.config;
+package com.stackroute.config;
 
-import com.stackroute.springbootcertification.domain.Section;
+import com.stackroute.domain.Section;
 import org.apache.kafka.clients.consumer.ConsumerConfig;
 import org.apache.kafka.common.serialization.BytesDeserializer;
 import org.apache.kafka.common.serialization.StringDeserializer;

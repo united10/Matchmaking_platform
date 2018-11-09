@@ -1,6 +1,6 @@
-package com.stackroute.springbootcertification.config;
+package com.stackroute.config;
 
-import com.stackroute.springbootcertification.domain.CommonOutput;
+import com.stackroute.domain.CommonOutput;
 import org.apache.kafka.clients.producer.ProducerConfig;
 import org.apache.kafka.common.serialization.StringSerializer;
 import org.springframework.context.annotation.Bean;

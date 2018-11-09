@@ -1,4 +1,4 @@
-package com.stackroute.springbootcertification.domain;
+package com.stackroute.domain;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
