@@ -48,7 +48,6 @@ public class KafkaConsumer {
         config.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG,"172.23.239.245:9092");
         config.put(ConsumerConfig.GROUP_ID_CONFIG, "group_id3");
         config.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class);
-//        config.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, JsonDeserializer.class);
         config.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, BytesDeserializer.class);
 
         return new DefaultKafkaConsumerFactory<>(config);
@@ -60,7 +59,7 @@ public class KafkaConsumer {
     }
     @Bean
     public ConcurrentKafkaListenerContainerFactory<String,Section> userKafkaListenerFactory() {
-        ConcurrentKafkaListenerContainerFactory<String,Section> factory=new ConcurrentKafkaListenerContainerFactory<String,Section>();
+        ConcurrentKafkaListenerContainerFactory<String,Section> factory=new ConcurrentKafkaListenerContainerFactory<>();
         factory.setConsumerFactory(userConsumerFactory());
         factory.setMessageConverter(new StringJsonMessageConverter());
         return factory;
