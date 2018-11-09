@@ -17,7 +17,7 @@ public class KafkaListen {
     @KafkaListener(topics = "certificate" ,groupId = "group_id3",
             containerFactory="userKafkaListenerFactory")
     public void consumeJson(@Payload Section section) {
-        System.out.println("Consumed Json Message: "+ section.toString());
+        //System.out.println("Consumed Json Message: "+ section.toString());
         Relationships relationships[]=new Relationships[1];
         Relationships relationships1=new Relationships("working","is-a");
         relationships[0]=relationships1;
