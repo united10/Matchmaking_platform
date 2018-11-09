@@ -1,6 +1,6 @@
 package com.stackroute.springlocation.listener;
 
-import com.stackroute.springlocation.Resource.IndexResource;
+import com.stackroute.springlocation.resource.IndexResource;
 import com.stackroute.springlocation.domain.CommonOutput;
 import com.stackroute.springlocation.domain.Relationship;
 import com.stackroute.springlocation.domain.Section;
@@ -20,8 +20,8 @@ public class KafkaListen {
 
 
     public void consumeJson(@Payload Section section) {
-        System.out.println("Consumed Json Message: " + section.toString());
-        Relationship relationship[] = new Relationship[1];
+
+        Relationship[] relationship = new Relationship[1];
         Relationship relationship1 = new Relationship("live","lives in");
         relationship[0] = relationship1;
         CommonOutput commonOutput=new CommonOutput("add","SourceNode","SourceNodeProperty",

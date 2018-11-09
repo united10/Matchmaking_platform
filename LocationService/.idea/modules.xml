@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/spring-location.iml" filepath="$PROJECT_DIR$/spring-location.iml" />
+      <module fileurl="file://$PROJECT_DIR$/LocationService.iml" filepath="$PROJECT_DIR$/LocationService.iml" />
     </modules>
   </component>
 </project>

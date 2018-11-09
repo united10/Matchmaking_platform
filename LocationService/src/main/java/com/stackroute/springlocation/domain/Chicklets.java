@@ -12,5 +12,5 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class Chicklets {
     private CurrentLocation currentLocation;
-    private PastLocation pastLocation[];
+    private PastLocation[] pastLocation;
 }
