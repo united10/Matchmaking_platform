@@ -1,7 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="2882e53f-39fa-4cd0-a542-9799db580a1d" name="Default Changelist" comment="" />
+    <list default="true" id="2882e53f-39fa-4cd0-a542-9799db580a1d" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/upstream/service/UpstreamService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/UpstreamService/Configuration/KafkaConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/upstream/configuration/KafkaConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/UpstreamService/Configuration/SwaggerConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/upstream/configuration/SwaggerConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/UpstreamService/Controller/UpstreamServiceController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/upstream/controller/UpStreamController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/UpstreamService/Domain/Certificate/Certificate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/upstream/domain/certificate/Certificate.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/UpstreamService/Domain/Certificate/CertificateDetails.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/upstream/domain/certificate/CertificateDetails.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/UpstreamService/Domain/Certificate/Chicklets.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/upstream/domain/certificate/Chicklets.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/UpstreamService/Domain/Education/Chicklets.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/upstream/domain/education/Chicklets.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/UpstreamService/Domain/Education/Education.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/upstream/domain/education/Education.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/UpstreamService/Domain/Education/Institution.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/upstream/domain/education/Institution.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/UpstreamService/Domain/Education/Qualification.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/upstream/domain/education/Qualification.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/UpstreamService/Domain/Experience/Chicklets.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/upstream/domain/experience/Chicklets.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/UpstreamService/Domain/Experience/Experience.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/upstream/domain/experience/Experience.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/UpstreamService/Domain/Experience/ExperienceDetails.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/upstream/domain/experience/ExperienceDetails.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/UpstreamService/Domain/Location/Chicklets.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/upstream/domain/location/Chicklets.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/UpstreamService/Domain/Location/CurrentLocation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/upstream/domain/location/CurrentLocation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/UpstreamService/Domain/Location/Location.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/upstream/domain/location/Location.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/UpstreamService/Domain/Location/PastLocation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/upstream/domain/location/PastLocation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/UpstreamService/Domain/Project/Chicklets.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/upstream/domain/project/Chicklets.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/UpstreamService/Domain/Project/Project.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/upstream/domain/project/Project.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/UpstreamService/Domain/Project/ProjectDetails.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/upstream/domain/project/ProjectDetails.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/UpstreamService/Domain/Project/Skill.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/upstream/domain/project/Skill.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/UpstreamService/Domain/Skills/Chicklet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/upstream/domain/skills/Chicklet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/UpstreamService/Domain/Skills/Section.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/upstream/domain/skills/Section.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/UpstreamService/Domain/Skills/Skill.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/upstream/domain/skills/Skill.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/UpstreamService/Exception/KafkaNotConnected.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/upstream/exception/KafkaNotConnected.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/UpstreamService/Service/UpstreamService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/UpstreamService/UpstreamServiceApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/upstream/UpstreamServiceApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/example/UpstreamService/UpstreamServiceApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/example/upstream/UpstreamServiceApplicationTests.java" afterDir="false" />
+    </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -52,14 +85,46 @@
       </usages-collector>
       <usages-collector id="statistics.vcs.git.usages" />
     </session>
+    <session id="1698923899">
+      <usages-collector id="statistics.lifecycle.project">
+        <counts>
+          <entry key="project.open.time.7" value="1" />
+          <entry key="project.opened" value="1" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.edit">
+        <counts>
+          <entry key="dummy" value="25" />
+          <entry key="yml" value="19" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.edit">
+        <counts>
+          <entry key="PLAIN_TEXT" value="25" />
+          <entry key="YAML" value="19" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.open">
+        <counts>
+          <entry key="java" value="6" />
+          <entry key="properties" value="1" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.open">
+        <counts>
+          <entry key="JAVA" value="6" />
+          <entry key="Properties" value="1" />
+        </counts>
+      </usages-collector>
+    </session>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/example/UpstreamService/Controller/UpstreamServiceController.java">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/example/upstream/controller/UpStreamController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-705">
-              <caret line="34" selection-start-line="34" selection-end-line="34" />
+            <state relative-caret-position="134">
+              <caret line="171" column="26" selection-start-line="171" selection-start-column="26" selection-end-line="171" selection-end-column="26" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -68,10 +133,43 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/example/UpstreamService/Configuration/KafkaConfig.java">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/application.yml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1047">
-              <caret line="25" lean-forward="true" selection-start-line="25" selection-end-line="25" />
+            <state relative-caret-position="45">
+              <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/example/upstream/domain/location/Chicklets.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="210">
+              <caret line="14" column="39" selection-start-line="14" selection-start-column="39" selection-end-line="14" selection-end-column="39" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/example/upstream/domain/education/Education.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="238">
+              <caret line="16" column="4" selection-start-line="16" selection-start-column="4" selection-end-line="16" selection-end-column="4" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/example/upstream/configuration/KafkaConfig.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="119">
+              <caret line="89" column="48" selection-start-line="89" selection-start-column="48" selection-end-line="89" selection-end-column="48" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#4362#4363#0" expanded="true" />
@@ -82,10 +180,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/example/UpstreamService/Configuration/SwaggerConfig.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/example/upstream/domain/location/Location.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="20" column="25" selection-start-line="20" selection-start-column="25" selection-end-line="20" selection-end-column="25" />
+            <state relative-caret-position="240">
+              <caret line="16" column="31" selection-start-line="16" selection-start-column="31" selection-end-line="16" selection-end-column="31" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -94,25 +192,28 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/example/UpstreamService/Domain/Certificate/Certificate.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/example/upstream/domain/skills/Section.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="11" column="18" selection-start-line="11" selection-start-column="18" selection-end-line="11" selection-end-column="18" />
+            <state relative-caret-position="225">
+              <caret line="15" column="22" selection-start-line="15" selection-start-column="22" selection-end-line="15" selection-end-column="22" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/example/UpstreamService/Domain/Certificate/CertificateDetails.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/example/upstream/domain/project/Skill.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="11" column="30" selection-start-line="11" selection-start-column="30" selection-end-line="11" selection-end-column="30" />
+            <state relative-caret-position="135">
+              <caret line="12" column="19" selection-start-line="12" selection-start-column="19" selection-end-line="12" selection-end-column="19" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/example/UpstreamService/Domain/Certificate/Chicklets.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/example/upstream/domain/certificate/Chicklets.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="135">
               <caret line="12" column="30" selection-start-line="12" selection-start-column="30" selection-end-line="12" selection-end-column="30" />
@@ -121,9 +222,9 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/example/UpstreamService/UpstreamServiceApplication.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/example/upstream/UpstreamServiceApplication.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
+            <state relative-caret-position="120">
               <caret line="9" selection-start-line="9" selection-end-line="9" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -150,7 +251,7 @@
     </findStrings>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -194,6 +295,12 @@
         <option value="$PROJECT_DIR$/src/main/java/com/example/UpstreamService/Domain/Certificate/Certificate.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/example/UpstreamService/Domain/Certificate/Chicklets.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/example/UpstreamService/Controller/UpstreamServiceController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/example/upstream/Controller/UpstreamServiceController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/example/upstream/Controller/upstreamservicecontroller.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/example/upstream/controller/upstreamservicecontroller.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/example/upstream/controller/UpStreamController.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/application.yml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/example/upstream/domain/education/Education.java" />
       </list>
     </option>
   </component>
@@ -204,7 +311,7 @@
       </MavenImportingSettings>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="71" />
     <option name="y" value="-4" />
     <option name="width" value="1285" />
@@ -248,7 +355,7 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="UpstreamService" type="462c0819:PsiDirectoryNode" />
+              <item name="upstream" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="UpstreamService" type="b2602c69:ProjectViewProjectNode" />
@@ -256,8 +363,8 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="UpstreamService" type="462c0819:PsiDirectoryNode" />
-              <item name="Configuration" type="462c0819:PsiDirectoryNode" />
+              <item name="upstream" type="462c0819:PsiDirectoryNode" />
+              <item name="configuration" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="UpstreamService" type="b2602c69:ProjectViewProjectNode" />
@@ -265,8 +372,8 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="UpstreamService" type="462c0819:PsiDirectoryNode" />
-              <item name="Controller" type="462c0819:PsiDirectoryNode" />
+              <item name="upstream" type="462c0819:PsiDirectoryNode" />
+              <item name="controller" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="UpstreamService" type="b2602c69:ProjectViewProjectNode" />
@@ -274,8 +381,8 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="UpstreamService" type="462c0819:PsiDirectoryNode" />
-              <item name="Domain" type="462c0819:PsiDirectoryNode" />
+              <item name="upstream" type="462c0819:PsiDirectoryNode" />
+              <item name="domain" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="UpstreamService" type="b2602c69:ProjectViewProjectNode" />
@@ -283,8 +390,18 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="upstream" type="462c0819:PsiDirectoryNode" />
+              <item name="domain" type="462c0819:PsiDirectoryNode" />
+              <item name="education" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="UpstreamService" type="b2602c69:ProjectViewProjectNode" />
               <item name="UpstreamService" type="462c0819:PsiDirectoryNode" />
-              <item name="Exception" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="upstream" type="462c0819:PsiDirectoryNode" />
+              <item name="exception" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="UpstreamService" type="b2602c69:ProjectViewProjectNode" />
@@ -304,8 +421,8 @@
     <property name="Downloaded.Files.Path.Enabled" value="false" />
     <property name="Repository.Attach.JavaDocs" value="false" />
     <property name="Repository.Attach.Sources" value="false" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1541737902984" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../matchmaking-platform/UpstreamService/pom.xml" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1541755077279" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/pom.xml" />
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -325,11 +442,11 @@
   </component>
   <component name="RunManager" selected="Application.UpstreamServiceApplication">
     <configuration name="UpstreamServiceApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.example.UpstreamService.UpstreamServiceApplication" />
+      <option name="MAIN_CLASS_NAME" value="com.example.upstream.UpstreamServiceApplication" />
       <module name="UpstreamService" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.example.UpstreamService.*" />
+          <option name="PATTERN" value="com.example.upstream.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -337,15 +454,15 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="com.example.UpstreamService.Controller in UpstreamService" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="com.example.upstream.controller in UpstreamService" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="UpstreamService" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.example.UpstreamService.Controller.*" />
+          <option name="PATTERN" value="com.example.upstream.controller.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="com.example.UpstreamService.Controller" />
+      <option name="PACKAGE_NAME" value="com.example.upstream.controller" />
       <option name="TEST_OBJECT" value="package" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -353,12 +470,12 @@
     </configuration>
     <list>
       <item itemvalue="Application.UpstreamServiceApplication" />
-      <item itemvalue="JUnit.com.example.UpstreamService.Controller in UpstreamService" />
+      <item itemvalue="JUnit.com.example.upstream.controller in UpstreamService" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="Application.UpstreamServiceApplication" />
-        <item itemvalue="JUnit.com.example.UpstreamService.Controller in UpstreamService" />
+        <item itemvalue="JUnit.com.example.upstream.controller in UpstreamService" />
       </list>
     </recent_temporary>
   </component>
@@ -381,9 +498,10 @@
     </history-entry>
   </component>
   <component name="ToolWindowManager">
-    <frame x="67" y="25" width="1299" height="743" extended-state="7" />
+    <frame x="67" y="25" width="1299" height="743" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49878347" visible="true" weight="0.27853152" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49878347" visible="true" weight="0.28332004" />
       <window_info id="Structure" order="1" sideWeight="0.50121653" side_tool="true" weight="0.25778133" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -399,7 +517,7 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Version Control" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="SonarLint" order="8" weight="0.32626426" />
+      <window_info anchor="bottom" id="SonarLint" order="8" visible="true" weight="0.32626426" />
       <window_info anchor="bottom" id="Terminal" order="9" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
       <window_info anchor="bottom" id="Messages" order="11" weight="0.32626426" />
@@ -416,14 +534,12 @@
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
+  <component name="VcsManagerConfiguration">
+    <ignored-roots>
+      <path value="$PROJECT_DIR$" />
+    </ignored-roots>
+  </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/resources/application.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="24" selection-start-column="24" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="177">
@@ -432,7 +548,7 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/example/UpstreamService/Domain/Education/Summary.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/UpstreamService/Domain/Education/Institution.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/upstream/domain/education/Institution.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="125">
           <caret line="19" lean-forward="true" selection-start-line="19" selection-end-line="19" />
@@ -442,7 +558,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/UpstreamService/Domain/Education/Qualification.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/upstream/domain/education/Qualification.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
           <caret line="14" column="17" selection-start-line="14" selection-start-column="17" selection-end-line="14" selection-end-column="17" />
@@ -453,62 +569,22 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/example/UpstreamService/Domain/Skills/Chicklets.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/UpstreamService/Domain/Location/CurrentLocation.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/upstream/domain/location/CurrentLocation.java">
       <provider selected="true" editor-type-id="text-editor">
         <state>
           <caret column="51" selection-start-column="51" selection-end-column="51" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/UpstreamService/Domain/Location/PastLocation.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/upstream/domain/location/PastLocation.java">
       <provider selected="true" editor-type-id="text-editor">
         <state>
           <caret column="51" selection-start-column="51" selection-end-column="51" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/UpstreamService/Domain/Location/Chicklets.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="51" selection-start-column="51" selection-end-column="51" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/UpstreamService/Domain/Location/Location.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="12" column="21" selection-start-line="12" selection-start-column="21" selection-end-line="12" selection-end-column="21" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/example/UpstreamService/Domain/Experience/Relationships.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/UpstreamService/Domain/Education/Education.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="630">
-          <caret line="46" column="24" selection-start-line="46" selection-start-column="24" selection-end-line="46" selection-end-column="24" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/UpstreamService/Domain/Skills/Section.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="15" column="22" selection-start-line="15" selection-start-column="22" selection-end-line="15" selection-end-column="22" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/UpstreamService/Domain/Experience/Chicklets.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/upstream/domain/experience/Chicklets.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
           <caret line="12" column="29" selection-start-line="12" selection-start-column="29" selection-end-line="12" selection-end-column="29" />
@@ -518,14 +594,14 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/UpstreamService/Domain/Skills/Chicklet.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/upstream/domain/skills/Chicklet.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
           <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/UpstreamService/Domain/Skills/Skill.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/upstream/domain/skills/Skill.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="240">
           <caret line="16" column="1" selection-start-line="16" selection-start-column="1" selection-end-line="16" selection-end-column="1" />
@@ -535,7 +611,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/UpstreamService/Domain/Experience/ExperienceDetails.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/upstream/domain/experience/ExperienceDetails.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
           <caret line="12" column="30" selection-start-line="12" selection-start-column="30" selection-end-line="12" selection-end-column="30" />
@@ -545,14 +621,14 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/UpstreamService/Domain/Experience/Experience.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/upstream/domain/experience/Experience.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
           <caret line="11" column="23" selection-start-line="11" selection-start-column="23" selection-end-line="11" selection-end-column="23" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/UpstreamService/Domain/Education/Chicklets.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/upstream/domain/education/Chicklets.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="225">
           <caret line="15" column="3" selection-start-line="15" selection-start-column="3" selection-end-line="15" selection-end-column="3" />
@@ -562,25 +638,15 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/UpstreamService/Service/UpstreamServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="5" selection-start-line="6" selection-start-column="5" selection-end-line="6" selection-end-column="5" />
-          <folding>
-            <element signature="e#151#152#0" expanded="true" />
-            <element signature="e#181#182#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/UpstreamService/Service/UpstreamService.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/UpstreamService/Service/UpstreamServiceImpl.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/upstream/service/UpstreamService.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="45">
           <caret line="3" selection-start-line="3" selection-end-line="3" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/UpstreamService/Exception/KafkaNotConnected.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/upstream/exception/KafkaNotConnected.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
           <caret line="5" column="17" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
@@ -591,7 +657,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/UpstreamService/Domain/Project/Chicklets.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/upstream/domain/project/Chicklets.java">
       <provider selected="true" editor-type-id="text-editor">
         <state>
           <caret column="51" selection-start-column="51" selection-end-column="51" />
@@ -601,7 +667,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/UpstreamService/Domain/Project/Project.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/upstream/domain/project/Project.java">
       <provider selected="true" editor-type-id="text-editor">
         <state>
           <caret column="21" lean-forward="true" selection-end-column="51" />
@@ -611,23 +677,48 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/UpstreamService/Domain/Project/ProjectDetails.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/upstream/domain/project/ProjectDetails.java">
       <provider selected="true" editor-type-id="text-editor">
         <state>
           <caret column="51" selection-start-column="51" selection-end-column="51" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/UpstreamService/Domain/Project/Skill.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/UpstreamService/Domain/Certificate/Relationships.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/upstream/configuration/SwaggerConfig.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="12" column="25" lean-forward="true" selection-start-line="12" selection-start-column="25" selection-end-line="12" selection-end-column="25" />
+        <state relative-caret-position="180">
+          <caret line="20" column="25" selection-start-line="20" selection-start-column="25" selection-end-line="20" selection-end-column="25" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/UpstreamService/UpstreamServiceApplication.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/upstream/domain/certificate/Certificate.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="11" column="18" selection-start-line="11" selection-start-column="18" selection-end-line="11" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/upstream/domain/certificate/CertificateDetails.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="11" column="30" selection-start-line="11" selection-start-column="30" selection-end-line="11" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/upstream/domain/certificate/Chicklets.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="135">
+          <caret line="12" column="30" selection-start-line="12" selection-start-column="30" selection-end-line="12" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/upstream/UpstreamServiceApplication.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
           <caret line="9" selection-start-line="9" selection-end-line="9" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -636,48 +727,27 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/UpstreamService/Configuration/SwaggerConfig.java">
+    <entry file="file://$PROJECT_DIR$/src/main/resources/application.yml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="20" column="25" selection-start-line="20" selection-start-column="25" selection-end-line="20" selection-end-column="25" />
+        <state relative-caret-position="45">
+          <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/upstream/domain/location/Chicklets.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="14" column="39" selection-start-line="14" selection-start-column="39" selection-end-line="14" selection-end-column="39" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/UpstreamService/Domain/Certificate/CertificateDetails.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/upstream/configuration/KafkaConfig.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="11" column="30" selection-start-line="11" selection-start-column="30" selection-end-line="11" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/UpstreamService/Domain/Certificate/Certificate.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="11" column="18" selection-start-line="11" selection-start-column="18" selection-end-line="11" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/UpstreamService/Domain/Certificate/Relationships.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/UpstreamService/Domain/Certificate/Chicklets.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="12" column="30" selection-start-line="12" selection-start-column="30" selection-end-line="12" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/UpstreamService/Configuration/KafkaConfig.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1047">
-          <caret line="25" lean-forward="true" selection-start-line="25" selection-end-line="25" />
+        <state relative-caret-position="119">
+          <caret line="89" column="48" selection-start-line="89" selection-start-column="48" selection-end-line="89" selection-end-column="48" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#4362#4363#0" expanded="true" />
@@ -686,10 +756,47 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/UpstreamService/Controller/UpstreamServiceController.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/upstream/domain/location/Location.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-705">
-          <caret line="34" selection-start-line="34" selection-end-line="34" />
+        <state relative-caret-position="240">
+          <caret line="16" column="31" selection-start-line="16" selection-start-column="31" selection-end-line="16" selection-end-column="31" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/upstream/domain/skills/Section.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="15" column="22" selection-start-line="15" selection-start-column="22" selection-end-line="15" selection-end-column="22" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/upstream/domain/project/Skill.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="12" column="19" selection-start-line="12" selection-start-column="19" selection-end-line="12" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/upstream/controller/UpStreamController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="134">
+          <caret line="171" column="26" selection-start-line="171" selection-start-column="26" selection-end-line="171" selection-end-column="26" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/upstream/domain/education/Education.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="16" column="4" selection-start-line="16" selection-start-column="4" selection-end-line="16" selection-end-column="4" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

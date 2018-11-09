@@ -1,4 +1,5 @@
 
+<<<<<<< HEAD
 Š
 ZEducationService/src/main/java/com/stackroute/educationservice/listener/KafkaConsumer.java,8/2/822f7d9f990cf31f09aedbe1de1a1ba4743cd1c2
 Š
@@ -521,3 +522,7 @@ $spring-boot-certification/.gitignore,c/3/c3c293488ca6bd128f35610797b39768e8ba6
 pom.xml,4/4/442292b8a7efeabbe4cc176709b833b1792140ec
 H
 EducationService/pom.xml,2/e/2e5222d3e7dca1277fc25322ce958cef82aa505a
+=======
+s
+Cspring-boot-certification/src/main/resources/application.properties,5/f/5f67e5f2c801dbde90676230b420b26876146c59
+>>>>>>> 0e902a9e3984273631f6dd48975de28206a68300
