@@ -13,9 +13,7 @@ public class IndexResource {
     private  static final String TOPIC ="indexer";
     public void postData(CommonOutput commonOutput)
     {
-
         kafkaTemplate.send(TOPIC,commonOutput);
-
     }
 
 }

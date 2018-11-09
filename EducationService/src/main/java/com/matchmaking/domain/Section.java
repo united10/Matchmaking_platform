@@ -14,10 +14,12 @@ import javax.validation.constraints.NotNull;
 @Builder
 public class Section {
 
+    @NotNull
     private String sectionId;
     @Id
     private String userId;
     @NotNull
     private String operationType;
-    private Chicklets chicklets[];
+    @NotNull
+    private Chicklets[] chicklets;
 }

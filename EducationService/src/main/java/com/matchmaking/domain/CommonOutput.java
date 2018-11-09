@@ -15,5 +15,5 @@ public class CommonOutput {
     private String sourceProperties;
     private String terminalNode;
     private String terminalProperties;
-    private Relationship relationship[];
+    private Relationship[] relationship;
 }
