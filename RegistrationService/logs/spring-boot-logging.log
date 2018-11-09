@@ -20,3 +20,25 @@
 2018-11-09 09:40:51.343  INFO 9276 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
 2018-11-09 09:40:51.690  INFO 9276 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
 2018-11-09 09:40:51.698  INFO 9276 --- [main] c.s.matchmaking.MatchMakingApplication   : Started MatchMakingApplication in 4.348 seconds (JVM running for 4.94)
+2018-11-09 10:28:03.915  INFO 23000 --- [main] c.s.matchmaking.MatchMakingApplication   : Starting MatchMakingApplication on DESKTOP-KQNNCEO with PID 23000 (C:\Users\Ram\Desktop\matchmaking-platform\RegistrationService\target\classes started by Ram in C:\Users\Ram\Desktop\matchmaking-platform\RegistrationService)
+2018-11-09 10:28:03.921  INFO 23000 --- [main] c.s.matchmaking.MatchMakingApplication   : No active profile set, falling back to default profiles: default
+2018-11-09 10:28:05.524  INFO 23000 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2018-11-09 10:28:05.629  INFO 23000 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 98ms. Found 1 repository interfaces.
+2018-11-09 10:28:06.064  INFO 23000 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.kafka.annotation.KafkaBootstrapConfiguration' of type [org.springframework.kafka.annotation.KafkaBootstrapConfiguration$$EnhancerBySpringCGLIB$$35943c59] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-11-09 10:28:06.780  INFO 23000 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2018-11-09 10:28:06.822  INFO 23000 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2018-11-09 10:28:06.823  INFO 23000 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/9.0.12
+2018-11-09 10:28:06.838  INFO 23000 --- [main] o.a.catalina.core.AprLifecycleListener   : The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [C:\Program Files\Java\jdk-10.0.2\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;.;C:\Program Files\Java\jdk-10.0.2\bin;C:\Program Files\MySQL\MySQL Server 8.0\bin\bin...;C:\Program Files\MySQL\MySQL Server 8.0\bin;C:\Ruby24-x64\bin;C:\Users\Ram\AppData\Local\Microsoft\WindowsApps;C:\Users\Ram\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\Ram\AppData\Roaming\npm;C:\Program Files\MongoDB\Server\4.0\bin;C:\Program Files\nodejs;;C:\Program Files\Docker Toolbox;.]
+2018-11-09 10:28:06.994  INFO 23000 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2018-11-09 10:28:06.996  INFO 23000 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 2933 ms
+2018-11-09 10:28:07.036  INFO 23000 --- [main] o.s.b.w.servlet.ServletRegistrationBean  : Servlet dispatcherServlet mapped to [/]
+2018-11-09 10:28:07.041  INFO 23000 --- [main] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'characterEncodingFilter' to: [/*]
+2018-11-09 10:28:07.042  INFO 23000 --- [main] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2018-11-09 10:28:07.042  INFO 23000 --- [main] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'formContentFilter' to: [/*]
+2018-11-09 10:28:07.042  INFO 23000 --- [main] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'requestContextFilter' to: [/*]
+2018-11-09 10:28:07.666  INFO 23000 --- [main] org.mongodb.driver.cluster               : Cluster created with settings {hosts=[localhost:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms', maxWaitQueueSize=500}
+2018-11-09 10:28:07.734  INFO 23000 --- [cluster-ClusterId{value='5be513df3347ad59d87b5f43', description='null'}-localhost:27017] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:1, serverValue:3}] to localhost:27017
+2018-11-09 10:28:07.742  INFO 23000 --- [cluster-ClusterId{value='5be513df3347ad59d87b5f43', description='null'}-localhost:27017] org.mongodb.driver.cluster               : Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, version=ServerVersion{versionList=[4, 0, 2]}, minWireVersion=0, maxWireVersion=7, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=4631318}
+2018-11-09 10:28:08.403  INFO 23000 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2018-11-09 10:28:08.798  INFO 23000 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2018-11-09 10:28:08.803  INFO 23000 --- [main] c.s.matchmaking.MatchMakingApplication   : Started MatchMakingApplication in 5.588 seconds (JVM running for 6.388)

@@ -1,4 +1,4 @@
-package com.stackroute.matchmaking.Repository;
+package com.stackroute.matchmaking.repository;
 
 import com.stackroute.matchmaking.domain.User;
 
