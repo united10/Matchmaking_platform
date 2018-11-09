@@ -4,12 +4,12 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.stackroute</groupId>
-	<artifactId>spring-location</artifactId>
+	<artifactId>projectService</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
-	<name>spring-location</name>
-	<description>Demo project for Spring Boot</description>
+	<name>projectService</name>
+	<description>A microservice to process input JSON of project details and output the JSON to be indexed by GraphDB </description>
 
 	<parent>
 		<groupId>org.springframework.boot</groupId>
