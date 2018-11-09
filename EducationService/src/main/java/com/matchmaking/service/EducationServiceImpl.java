@@ -12,7 +12,10 @@ public class EducationServiceImpl implements EducationService {
     @Override
     public CommonOutput processEducationDetails(Section section) {
 
-        logger.info(section.toString());
+        if (logger.isDebugEnabled()){
+            logger.debug(section.toString());
+        }
+
 
         Chicklets[] chicklets=section.getChicklets();
         Relationship[] relationship=new Relationship[chicklets.length];
@@ -31,7 +34,9 @@ public class EducationServiceImpl implements EducationService {
                                     .terminalProperties("terminal property")
                                     .relationship(relationship)
                                     .build();
-       logger.info(section.toString());
+        if (logger.isDebugEnabled()){
+            logger.info(section.toString());
+        }
         return commonOutput;
     }
 }
