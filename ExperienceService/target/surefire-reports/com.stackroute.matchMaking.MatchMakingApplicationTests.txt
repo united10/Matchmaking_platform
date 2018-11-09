@@ -1,0 +1,9 @@
+-------------------------------------------------------------------------------
+Test set: com.stackroute.matchMaking.MatchMakingApplicationTests
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 66.165 s <<< FAILURE! - in com.stackroute.matchMaking.MatchMakingApplicationTests
+contextLoads(com.stackroute.matchMaking.MatchMakingApplicationTests)  Time elapsed: 0.009 s  <<< ERROR!
+java.lang.IllegalStateException: Failed to load ApplicationContext
+Caused by: org.springframework.context.ApplicationContextException: Failed to start bean 'org.springframework.kafka.config.internalKafkaListenerEndpointRegistry'; nested exception is org.apache.kafka.common.errors.TimeoutException: Timeout expired while fetching topic metadata
+Caused by: org.apache.kafka.common.errors.TimeoutException: Timeout expired while fetching topic metadata
+

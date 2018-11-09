@@ -1,0 +1,339 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="com.stackroute.matchMaking.MatchMakingApplicationTests" time="66.165" tests="1" errors="1" skipped="0" failures="0">
+  <properties>
+    <property name="sun.desktop" value="gnome"/>
+    <property name="awt.toolkit" value="sun.awt.X11.XToolkit"/>
+    <property name="java.specification.version" value="10"/>
+    <property name="file.encoding.pkg" value="sun.io"/>
+    <property name="sun.cpu.isalist" value=""/>
+    <property name="sun.jnu.encoding" value="UTF-8"/>
+    <property name="java.class.path" value="/home/vivekanand/Desktop/Project/matchMaking/target/test-classes:/home/vivekanand/Desktop/Project/matchMaking/target/classes:/home/vivekanand/.m2/repository/org/springframework/boot/spring-boot-starter-web/2.1.0.RELEASE/spring-boot-starter-web-2.1.0.RELEASE.jar:/home/vivekanand/.m2/repository/org/springframework/boot/spring-boot-starter/2.1.0.RELEASE/spring-boot-starter-2.1.0.RELEASE.jar:/home/vivekanand/.m2/repository/org/springframework/boot/spring-boot/2.1.0.RELEASE/spring-boot-2.1.0.RELEASE.jar:/home/vivekanand/.m2/repository/org/springframework/boot/spring-boot-autoconfigure/2.1.0.RELEASE/spring-boot-autoconfigure-2.1.0.RELEASE.jar:/home/vivekanand/.m2/repository/org/springframework/boot/spring-boot-starter-logging/2.1.0.RELEASE/spring-boot-starter-logging-2.1.0.RELEASE.jar:/home/vivekanand/.m2/repository/ch/qos/logback/logback-classic/1.2.3/logback-classic-1.2.3.jar:/home/vivekanand/.m2/repository/ch/qos/logback/logback-core/1.2.3/logback-core-1.2.3.jar:/home/vivekanand/.m2/repository/org/apache/logging/log4j/log4j-to-slf4j/2.11.1/log4j-to-slf4j-2.11.1.jar:/home/vivekanand/.m2/repository/org/apache/logging/log4j/log4j-api/2.11.1/log4j-api-2.11.1.jar:/home/vivekanand/.m2/repository/org/slf4j/jul-to-slf4j/1.7.25/jul-to-slf4j-1.7.25.jar:/home/vivekanand/.m2/repository/javax/annotation/javax.annotation-api/1.3.2/javax.annotation-api-1.3.2.jar:/home/vivekanand/.m2/repository/org/yaml/snakeyaml/1.23/snakeyaml-1.23.jar:/home/vivekanand/.m2/repository/org/springframework/boot/spring-boot-starter-json/2.1.0.RELEASE/spring-boot-starter-json-2.1.0.RELEASE.jar:/home/vivekanand/.m2/repository/com/fasterxml/jackson/datatype/jackson-datatype-jdk8/2.9.7/jackson-datatype-jdk8-2.9.7.jar:/home/vivekanand/.m2/repository/com/fasterxml/jackson/datatype/jackson-datatype-jsr310/2.9.7/jackson-datatype-jsr310-2.9.7.jar:/home/vivekanand/.m2/repository/com/fasterxml/jackson/module/jackson-module-parameter-names/2.9.7/jackson-module-parameter-names-2.9.7.jar:/home/vivekanand/.m2/repository/org/springframework/boot/spring-boot-starter-tomcat/2.1.0.RELEASE/spring-boot-starter-tomcat-2.1.0.RELEASE.jar:/home/vivekanand/.m2/repository/org/apache/tomcat/embed/tomcat-embed-core/9.0.12/tomcat-embed-core-9.0.12.jar:/home/vivekanand/.m2/repository/org/apache/tomcat/embed/tomcat-embed-el/9.0.12/tomcat-embed-el-9.0.12.jar:/home/vivekanand/.m2/repository/org/apache/tomcat/embed/tomcat-embed-websocket/9.0.12/tomcat-embed-websocket-9.0.12.jar:/home/vivekanand/.m2/repository/org/hibernate/validator/hibernate-validator/6.0.13.Final/hibernate-validator-6.0.13.Final.jar:/home/vivekanand/.m2/repository/javax/validation/validation-api/2.0.1.Final/validation-api-2.0.1.Final.jar:/home/vivekanand/.m2/repository/org/jboss/logging/jboss-logging/3.3.2.Final/jboss-logging-3.3.2.Final.jar:/home/vivekanand/.m2/repository/com/fasterxml/classmate/1.4.0/classmate-1.4.0.jar:/home/vivekanand/.m2/repository/org/springframework/spring-web/5.1.2.RELEASE/spring-web-5.1.2.RELEASE.jar:/home/vivekanand/.m2/repository/org/springframework/spring-beans/5.1.2.RELEASE/spring-beans-5.1.2.RELEASE.jar:/home/vivekanand/.m2/repository/org/springframework/spring-webmvc/5.1.2.RELEASE/spring-webmvc-5.1.2.RELEASE.jar:/home/vivekanand/.m2/repository/org/springframework/spring-aop/5.1.2.RELEASE/spring-aop-5.1.2.RELEASE.jar:/home/vivekanand/.m2/repository/org/springframework/spring-expression/5.1.2.RELEASE/spring-expression-5.1.2.RELEASE.jar:/home/vivekanand/.m2/repository/org/springframework/boot/spring-boot-starter-test/2.1.0.RELEASE/spring-boot-starter-test-2.1.0.RELEASE.jar:/home/vivekanand/.m2/repository/org/springframework/boot/spring-boot-test/2.1.0.RELEASE/spring-boot-test-2.1.0.RELEASE.jar:/home/vivekanand/.m2/repository/org/springframework/boot/spring-boot-test-autoconfigure/2.1.0.RELEASE/spring-boot-test-autoconfigure-2.1.0.RELEASE.jar:/home/vivekanand/.m2/repository/com/jayway/jsonpath/json-path/2.4.0/json-path-2.4.0.jar:/home/vivekanand/.m2/repository/net/minidev/json-smart/2.3/json-smart-2.3.jar:/home/vivekanand/.m2/repository/net/minidev/accessors-smart/1.2/accessors-smart-1.2.jar:/home/vivekanand/.m2/repository/org/ow2/asm/asm/5.0.4/asm-5.0.4.jar:/home/vivekanand/.m2/repository/org/slf4j/slf4j-api/1.7.25/slf4j-api-1.7.25.jar:/home/vivekanand/.m2/repository/junit/junit/4.12/junit-4.12.jar:/home/vivekanand/.m2/repository/org/assertj/assertj-core/3.11.1/assertj-core-3.11.1.jar:/home/vivekanand/.m2/repository/org/mockito/mockito-core/2.23.0/mockito-core-2.23.0.jar:/home/vivekanand/.m2/repository/net/bytebuddy/byte-buddy/1.9.3/byte-buddy-1.9.3.jar:/home/vivekanand/.m2/repository/net/bytebuddy/byte-buddy-agent/1.9.3/byte-buddy-agent-1.9.3.jar:/home/vivekanand/.m2/repository/org/objenesis/objenesis/2.6/objenesis-2.6.jar:/home/vivekanand/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/home/vivekanand/.m2/repository/org/hamcrest/hamcrest-library/1.3/hamcrest-library-1.3.jar:/home/vivekanand/.m2/repository/org/skyscreamer/jsonassert/1.5.0/jsonassert-1.5.0.jar:/home/vivekanand/.m2/repository/com/vaadin/external/google/android-json/0.0.20131108.vaadin1/android-json-0.0.20131108.vaadin1.jar:/home/vivekanand/.m2/repository/org/springframework/spring-core/5.1.2.RELEASE/spring-core-5.1.2.RELEASE.jar:/home/vivekanand/.m2/repository/org/springframework/spring-jcl/5.1.2.RELEASE/spring-jcl-5.1.2.RELEASE.jar:/home/vivekanand/.m2/repository/org/springframework/spring-test/5.1.2.RELEASE/spring-test-5.1.2.RELEASE.jar:/home/vivekanand/.m2/repository/org/xmlunit/xmlunit-core/2.6.2/xmlunit-core-2.6.2.jar:/home/vivekanand/.m2/repository/javax/xml/bind/jaxb-api/2.3.0/jaxb-api-2.3.0.jar:/home/vivekanand/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.9.7/jackson-core-2.9.7.jar:/home/vivekanand/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.9.7/jackson-databind-2.9.7.jar:/home/vivekanand/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.9.0/jackson-annotations-2.9.0.jar:/home/vivekanand/.m2/repository/org/springframework/kafka/spring-kafka/2.2.0.RELEASE/spring-kafka-2.2.0.RELEASE.jar:/home/vivekanand/.m2/repository/org/springframework/spring-context/5.1.2.RELEASE/spring-context-5.1.2.RELEASE.jar:/home/vivekanand/.m2/repository/org/springframework/spring-messaging/5.1.2.RELEASE/spring-messaging-5.1.2.RELEASE.jar:/home/vivekanand/.m2/repository/org/springframework/spring-tx/5.1.2.RELEASE/spring-tx-5.1.2.RELEASE.jar:/home/vivekanand/.m2/repository/org/springframework/retry/spring-retry/1.2.2.RELEASE/spring-retry-1.2.2.RELEASE.jar:/home/vivekanand/.m2/repository/org/apache/kafka/kafka-clients/2.0.0/kafka-clients-2.0.0.jar:/home/vivekanand/.m2/repository/org/lz4/lz4-java/1.4.1/lz4-java-1.4.1.jar:/home/vivekanand/.m2/repository/org/xerial/snappy/snappy-java/1.1.7.1/snappy-java-1.1.7.1.jar:/home/vivekanand/.m2/repository/org/springframework/boot/spring-boot-starter-data-mongodb/2.1.0.RELEASE/spring-boot-starter-data-mongodb-2.1.0.RELEASE.jar:/home/vivekanand/.m2/repository/org/mongodb/mongodb-driver/3.8.2/mongodb-driver-3.8.2.jar:/home/vivekanand/.m2/repository/org/mongodb/bson/3.8.2/bson-3.8.2.jar:/home/vivekanand/.m2/repository/org/mongodb/mongodb-driver-core/3.8.2/mongodb-driver-core-3.8.2.jar:/home/vivekanand/.m2/repository/org/springframework/data/spring-data-mongodb/2.1.2.RELEASE/spring-data-mongodb-2.1.2.RELEASE.jar:/home/vivekanand/.m2/repository/org/springframework/data/spring-data-commons/2.1.2.RELEASE/spring-data-commons-2.1.2.RELEASE.jar:/home/vivekanand/.m2/repository/org/projectlombok/lombok/1.18.4/lombok-1.18.4.jar:"/>
+    <property name="java.vm.vendor" value="&quot;Oracle Corporation&quot;"/>
+    <property name="sun.arch.data.model" value="64"/>
+    <property name="java.vendor.url" value="http://java.oracle.com/"/>
+    <property name="user.timezone" value=""/>
+    <property name="java.vm.specification.version" value="10"/>
+    <property name="os.name" value="Linux"/>
+    <property name="sun.java.launcher" value="SUN_STANDARD"/>
+    <property name="user.country" value="IN"/>
+    <property name="sun.boot.library.path" value="/usr/lib/jvm/java-10-oracle/lib"/>
+    <property name="sun.java.command" value="/home/vivekanand/Desktop/Project/matchMaking/target/surefire/surefirebooter6477544677567393673.jar /home/vivekanand/Desktop/Project/matchMaking/target/surefire 2018-11-09T10-32-46_373-jvmRun1 surefire5545162654987289409tmp surefire_06082788248907779883tmp"/>
+    <property name="jdk.debug" value="release"/>
+    <property name="surefire.test.class.path" value="/home/vivekanand/Desktop/Project/matchMaking/target/test-classes:/home/vivekanand/Desktop/Project/matchMaking/target/classes:/home/vivekanand/.m2/repository/org/springframework/boot/spring-boot-starter-web/2.1.0.RELEASE/spring-boot-starter-web-2.1.0.RELEASE.jar:/home/vivekanand/.m2/repository/org/springframework/boot/spring-boot-starter/2.1.0.RELEASE/spring-boot-starter-2.1.0.RELEASE.jar:/home/vivekanand/.m2/repository/org/springframework/boot/spring-boot/2.1.0.RELEASE/spring-boot-2.1.0.RELEASE.jar:/home/vivekanand/.m2/repository/org/springframework/boot/spring-boot-autoconfigure/2.1.0.RELEASE/spring-boot-autoconfigure-2.1.0.RELEASE.jar:/home/vivekanand/.m2/repository/org/springframework/boot/spring-boot-starter-logging/2.1.0.RELEASE/spring-boot-starter-logging-2.1.0.RELEASE.jar:/home/vivekanand/.m2/repository/ch/qos/logback/logback-classic/1.2.3/logback-classic-1.2.3.jar:/home/vivekanand/.m2/repository/ch/qos/logback/logback-core/1.2.3/logback-core-1.2.3.jar:/home/vivekanand/.m2/repository/org/apache/logging/log4j/log4j-to-slf4j/2.11.1/log4j-to-slf4j-2.11.1.jar:/home/vivekanand/.m2/repository/org/apache/logging/log4j/log4j-api/2.11.1/log4j-api-2.11.1.jar:/home/vivekanand/.m2/repository/org/slf4j/jul-to-slf4j/1.7.25/jul-to-slf4j-1.7.25.jar:/home/vivekanand/.m2/repository/javax/annotation/javax.annotation-api/1.3.2/javax.annotation-api-1.3.2.jar:/home/vivekanand/.m2/repository/org/yaml/snakeyaml/1.23/snakeyaml-1.23.jar:/home/vivekanand/.m2/repository/org/springframework/boot/spring-boot-starter-json/2.1.0.RELEASE/spring-boot-starter-json-2.1.0.RELEASE.jar:/home/vivekanand/.m2/repository/com/fasterxml/jackson/datatype/jackson-datatype-jdk8/2.9.7/jackson-datatype-jdk8-2.9.7.jar:/home/vivekanand/.m2/repository/com/fasterxml/jackson/datatype/jackson-datatype-jsr310/2.9.7/jackson-datatype-jsr310-2.9.7.jar:/home/vivekanand/.m2/repository/com/fasterxml/jackson/module/jackson-module-parameter-names/2.9.7/jackson-module-parameter-names-2.9.7.jar:/home/vivekanand/.m2/repository/org/springframework/boot/spring-boot-starter-tomcat/2.1.0.RELEASE/spring-boot-starter-tomcat-2.1.0.RELEASE.jar:/home/vivekanand/.m2/repository/org/apache/tomcat/embed/tomcat-embed-core/9.0.12/tomcat-embed-core-9.0.12.jar:/home/vivekanand/.m2/repository/org/apache/tomcat/embed/tomcat-embed-el/9.0.12/tomcat-embed-el-9.0.12.jar:/home/vivekanand/.m2/repository/org/apache/tomcat/embed/tomcat-embed-websocket/9.0.12/tomcat-embed-websocket-9.0.12.jar:/home/vivekanand/.m2/repository/org/hibernate/validator/hibernate-validator/6.0.13.Final/hibernate-validator-6.0.13.Final.jar:/home/vivekanand/.m2/repository/javax/validation/validation-api/2.0.1.Final/validation-api-2.0.1.Final.jar:/home/vivekanand/.m2/repository/org/jboss/logging/jboss-logging/3.3.2.Final/jboss-logging-3.3.2.Final.jar:/home/vivekanand/.m2/repository/com/fasterxml/classmate/1.4.0/classmate-1.4.0.jar:/home/vivekanand/.m2/repository/org/springframework/spring-web/5.1.2.RELEASE/spring-web-5.1.2.RELEASE.jar:/home/vivekanand/.m2/repository/org/springframework/spring-beans/5.1.2.RELEASE/spring-beans-5.1.2.RELEASE.jar:/home/vivekanand/.m2/repository/org/springframework/spring-webmvc/5.1.2.RELEASE/spring-webmvc-5.1.2.RELEASE.jar:/home/vivekanand/.m2/repository/org/springframework/spring-aop/5.1.2.RELEASE/spring-aop-5.1.2.RELEASE.jar:/home/vivekanand/.m2/repository/org/springframework/spring-expression/5.1.2.RELEASE/spring-expression-5.1.2.RELEASE.jar:/home/vivekanand/.m2/repository/org/springframework/boot/spring-boot-starter-test/2.1.0.RELEASE/spring-boot-starter-test-2.1.0.RELEASE.jar:/home/vivekanand/.m2/repository/org/springframework/boot/spring-boot-test/2.1.0.RELEASE/spring-boot-test-2.1.0.RELEASE.jar:/home/vivekanand/.m2/repository/org/springframework/boot/spring-boot-test-autoconfigure/2.1.0.RELEASE/spring-boot-test-autoconfigure-2.1.0.RELEASE.jar:/home/vivekanand/.m2/repository/com/jayway/jsonpath/json-path/2.4.0/json-path-2.4.0.jar:/home/vivekanand/.m2/repository/net/minidev/json-smart/2.3/json-smart-2.3.jar:/home/vivekanand/.m2/repository/net/minidev/accessors-smart/1.2/accessors-smart-1.2.jar:/home/vivekanand/.m2/repository/org/ow2/asm/asm/5.0.4/asm-5.0.4.jar:/home/vivekanand/.m2/repository/org/slf4j/slf4j-api/1.7.25/slf4j-api-1.7.25.jar:/home/vivekanand/.m2/repository/junit/junit/4.12/junit-4.12.jar:/home/vivekanand/.m2/repository/org/assertj/assertj-core/3.11.1/assertj-core-3.11.1.jar:/home/vivekanand/.m2/repository/org/mockito/mockito-core/2.23.0/mockito-core-2.23.0.jar:/home/vivekanand/.m2/repository/net/bytebuddy/byte-buddy/1.9.3/byte-buddy-1.9.3.jar:/home/vivekanand/.m2/repository/net/bytebuddy/byte-buddy-agent/1.9.3/byte-buddy-agent-1.9.3.jar:/home/vivekanand/.m2/repository/org/objenesis/objenesis/2.6/objenesis-2.6.jar:/home/vivekanand/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/home/vivekanand/.m2/repository/org/hamcrest/hamcrest-library/1.3/hamcrest-library-1.3.jar:/home/vivekanand/.m2/repository/org/skyscreamer/jsonassert/1.5.0/jsonassert-1.5.0.jar:/home/vivekanand/.m2/repository/com/vaadin/external/google/android-json/0.0.20131108.vaadin1/android-json-0.0.20131108.vaadin1.jar:/home/vivekanand/.m2/repository/org/springframework/spring-core/5.1.2.RELEASE/spring-core-5.1.2.RELEASE.jar:/home/vivekanand/.m2/repository/org/springframework/spring-jcl/5.1.2.RELEASE/spring-jcl-5.1.2.RELEASE.jar:/home/vivekanand/.m2/repository/org/springframework/spring-test/5.1.2.RELEASE/spring-test-5.1.2.RELEASE.jar:/home/vivekanand/.m2/repository/org/xmlunit/xmlunit-core/2.6.2/xmlunit-core-2.6.2.jar:/home/vivekanand/.m2/repository/javax/xml/bind/jaxb-api/2.3.0/jaxb-api-2.3.0.jar:/home/vivekanand/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.9.7/jackson-core-2.9.7.jar:/home/vivekanand/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.9.7/jackson-databind-2.9.7.jar:/home/vivekanand/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.9.0/jackson-annotations-2.9.0.jar:/home/vivekanand/.m2/repository/org/springframework/kafka/spring-kafka/2.2.0.RELEASE/spring-kafka-2.2.0.RELEASE.jar:/home/vivekanand/.m2/repository/org/springframework/spring-context/5.1.2.RELEASE/spring-context-5.1.2.RELEASE.jar:/home/vivekanand/.m2/repository/org/springframework/spring-messaging/5.1.2.RELEASE/spring-messaging-5.1.2.RELEASE.jar:/home/vivekanand/.m2/repository/org/springframework/spring-tx/5.1.2.RELEASE/spring-tx-5.1.2.RELEASE.jar:/home/vivekanand/.m2/repository/org/springframework/retry/spring-retry/1.2.2.RELEASE/spring-retry-1.2.2.RELEASE.jar:/home/vivekanand/.m2/repository/org/apache/kafka/kafka-clients/2.0.0/kafka-clients-2.0.0.jar:/home/vivekanand/.m2/repository/org/lz4/lz4-java/1.4.1/lz4-java-1.4.1.jar:/home/vivekanand/.m2/repository/org/xerial/snappy/snappy-java/1.1.7.1/snappy-java-1.1.7.1.jar:/home/vivekanand/.m2/repository/org/springframework/boot/spring-boot-starter-data-mongodb/2.1.0.RELEASE/spring-boot-starter-data-mongodb-2.1.0.RELEASE.jar:/home/vivekanand/.m2/repository/org/mongodb/mongodb-driver/3.8.2/mongodb-driver-3.8.2.jar:/home/vivekanand/.m2/repository/org/mongodb/bson/3.8.2/bson-3.8.2.jar:/home/vivekanand/.m2/repository/org/mongodb/mongodb-driver-core/3.8.2/mongodb-driver-core-3.8.2.jar:/home/vivekanand/.m2/repository/org/springframework/data/spring-data-mongodb/2.1.2.RELEASE/spring-data-mongodb-2.1.2.RELEASE.jar:/home/vivekanand/.m2/repository/org/springframework/data/spring-data-commons/2.1.2.RELEASE/spring-data-commons-2.1.2.RELEASE.jar:/home/vivekanand/.m2/repository/org/projectlombok/lombok/1.18.4/lombok-1.18.4.jar:"/>
+    <property name="sun.cpu.endian" value="little"/>
+    <property name="user.home" value="/home/vivekanand"/>
+    <property name="user.language" value="en"/>
+    <property name="java.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.version.date" value="2018-07-17"/>
+    <property name="java.home" value="/usr/lib/jvm/java-10-oracle"/>
+    <property name="file.separator" value="/"/>
+    <property name="basedir" value="/home/vivekanand/Desktop/Project/matchMaking"/>
+    <property name="java.vm.compressedOopsMode" value="32-bit"/>
+    <property name="line.separator" value="&#10;"/>
+    <property name="java.specification.name" value="Java Platform API Specification"/>
+    <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.awt.graphicsenv" value="sun.awt.X11GraphicsEnvironment"/>
+    <property name="surefire.real.class.path" value="/home/vivekanand/Desktop/Project/matchMaking/target/surefire/surefirebooter6477544677567393673.jar"/>
+    <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
+    <property name="java.runtime.version" value="10.0.2+13"/>
+    <property name="user.name" value="vivekanand"/>
+    <property name="path.separator" value=":"/>
+    <property name="os.version" value="4.13.0-32-generic"/>
+    <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
+    <property name="file.encoding" value="UTF-8"/>
+    <property name="java.vm.name" value="Java HotSpot(TM) 64-Bit Server VM"/>
+    <property name="java.vendor.version" value="18.3"/>
+    <property name="localRepository" value="/home/vivekanand/.m2/repository"/>
+    <property name="java.vendor.url.bug" value="http://bugreport.java.com/bugreport/"/>
+    <property name="java.io.tmpdir" value="/tmp"/>
+    <property name="idea.version" value="2018.2.3"/>
+    <property name="java.version" value="10.0.2"/>
+    <property name="user.dir" value="/home/vivekanand/Desktop/Project/matchMaking"/>
+    <property name="os.arch" value="amd64"/>
+    <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
+    <property name="java.awt.printerjob" value="sun.print.PSPrinterJob"/>
+    <property name="sun.os.patch.level" value="unknown"/>
+    <property name="java.library.path" value="/home/vivekanand/torch/install/lib::/usr/java/packages/lib:/usr/lib64:/lib64:/lib:/usr/lib"/>
+    <property name="java.vendor" value="Oracle Corporation"/>
+    <property name="java.vm.info" value="mixed mode"/>
+    <property name="java.vm.version" value="10.0.2+13"/>
+    <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
+    <property name="java.class.version" value="54.0"/>
+  </properties>
+  <testcase name="contextLoads" classname="com.stackroute.matchMaking.MatchMakingApplicationTests" time="0.009">
+    <error message="Failed to load ApplicationContext" type="java.lang.IllegalStateException">java.lang.IllegalStateException: Failed to load ApplicationContext
+Caused by: org.springframework.context.ApplicationContextException: Failed to start bean 'org.springframework.kafka.config.internalKafkaListenerEndpointRegistry'; nested exception is org.apache.kafka.common.errors.TimeoutException: Timeout expired while fetching topic metadata
+Caused by: org.apache.kafka.common.errors.TimeoutException: Timeout expired while fetching topic metadata
+</error>
+    <system-out><![CDATA[10:32:47.516 [main] DEBUG org.springframework.test.context.junit4.SpringJUnit4ClassRunner - SpringJUnit4ClassRunner constructor called with [class com.stackroute.matchMaking.MatchMakingApplicationTests]
+10:32:47.530 [main] DEBUG org.springframework.test.context.BootstrapUtils - Instantiating CacheAwareContextLoaderDelegate from class [org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate]
+10:32:47.542 [main] DEBUG org.springframework.test.context.BootstrapUtils - Instantiating BootstrapContext using constructor [public org.springframework.test.context.support.DefaultBootstrapContext(java.lang.Class,org.springframework.test.context.CacheAwareContextLoaderDelegate)]
+10:32:47.565 [main] DEBUG org.springframework.test.context.BootstrapUtils - Instantiating TestContextBootstrapper for test class [com.stackroute.matchMaking.MatchMakingApplicationTests] from class [org.springframework.boot.test.context.SpringBootTestContextBootstrapper]
+10:32:47.580 [main] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Neither @ContextConfiguration nor @ContextHierarchy found for test class [com.stackroute.matchMaking.MatchMakingApplicationTests], using SpringBootContextLoader
+10:32:47.584 [main] DEBUG org.springframework.test.context.support.AbstractContextLoader - Did not detect default resource location for test class [com.stackroute.matchMaking.MatchMakingApplicationTests]: class path resource [com/stackroute/matchMaking/MatchMakingApplicationTests-context.xml] does not exist
+10:32:47.584 [main] DEBUG org.springframework.test.context.support.AbstractContextLoader - Did not detect default resource location for test class [com.stackroute.matchMaking.MatchMakingApplicationTests]: class path resource [com/stackroute/matchMaking/MatchMakingApplicationTestsContext.groovy] does not exist
+10:32:47.584 [main] INFO org.springframework.test.context.support.AbstractContextLoader - Could not detect default resource locations for test class [com.stackroute.matchMaking.MatchMakingApplicationTests]: no resource found for suffixes {-context.xml, Context.groovy}.
+10:32:47.585 [main] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils - Could not detect default configuration classes for test class [com.stackroute.matchMaking.MatchMakingApplicationTests]: MatchMakingApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+10:32:47.636 [main] DEBUG org.springframework.test.context.support.ActiveProfilesUtils - Could not find an 'annotation declaring class' for annotation type [org.springframework.test.context.ActiveProfiles] and class [com.stackroute.matchMaking.MatchMakingApplicationTests]
+10:32:47.720 [main] DEBUG org.springframework.context.annotation.ClassPathScanningCandidateComponentProvider - Identified candidate component class: file [/home/vivekanand/Desktop/Project/matchMaking/target/classes/com/stackroute/matchMaking/MatchMakingApplication.class]
+10:32:47.722 [main] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Found @SpringBootConfiguration com.stackroute.matchMaking.MatchMakingApplication for test class com.stackroute.matchMaking.MatchMakingApplicationTests
+10:32:47.879 [main] DEBUG org.springframework.boot.test.context.SpringBootTestContextBootstrapper - @TestExecutionListeners is not present for class [com.stackroute.matchMaking.MatchMakingApplicationTests]: using defaults.
+10:32:47.880 [main] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener]
+10:32:47.901 [main] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@7daa0fbd, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@42530531, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@5a3bc7ed, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@181e731e, org.springframework.test.context.support.DirtiesContextTestExecutionListener@35645047, org.springframework.test.context.transaction.TransactionalTestExecutionListener@6f44a157, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@6bc407fd, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@291f18, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@17d88132, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@5ddcc487, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@16eccb2e, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@5ef5c734]
+10:32:47.903 [main] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved @ProfileValueSourceConfiguration [null] for test class [com.stackroute.matchMaking.MatchMakingApplicationTests]
+10:32:47.904 [main] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved ProfileValueSource type [class org.springframework.test.annotation.SystemProfileValueSource] for class [com.stackroute.matchMaking.MatchMakingApplicationTests]
+10:32:47.906 [main] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved @ProfileValueSourceConfiguration [null] for test class [com.stackroute.matchMaking.MatchMakingApplicationTests]
+10:32:47.906 [main] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved ProfileValueSource type [class org.springframework.test.annotation.SystemProfileValueSource] for class [com.stackroute.matchMaking.MatchMakingApplicationTests]
+10:32:47.907 [main] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved @ProfileValueSourceConfiguration [null] for test class [com.stackroute.matchMaking.MatchMakingApplicationTests]
+10:32:47.908 [main] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved ProfileValueSource type [class org.springframework.test.annotation.SystemProfileValueSource] for class [com.stackroute.matchMaking.MatchMakingApplicationTests]
+10:32:47.912 [main] DEBUG org.springframework.test.context.support.AbstractDirtiesContextTestExecutionListener - Before test class: context [DefaultTestContext@172b013 testClass = MatchMakingApplicationTests, testInstance = [null], testMethod = [null], testException = [null], mergedContextConfiguration = [WebMergedContextConfiguration@56673b2c testClass = MatchMakingApplicationTests, locations = '{}', classes = '{class com.stackroute.matchMaking.MatchMakingApplication}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{org.springframework.boot.test.context.SpringBootTestContextBootstrapper=true}', contextCustomizers = set[org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@67c33749, org.springframework.boot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@fa49800, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@0, org.springframework.boot.test.web.client.TestRestTemplateContextCustomizer@20ccf40b, org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@0, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverContextCustomizerFactory$Customizer@74751b3], resourceBasePath = 'src/main/webapp', contextLoader = 'org.springframework.boot.test.context.SpringBootContextLoader', parent = [null]], attributes = map['org.springframework.test.context.web.ServletTestExecutionListener.activateListener' -> true]], class annotated with @DirtiesContext [false] with mode [null].
+10:32:47.913 [main] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved @ProfileValueSourceConfiguration [null] for test class [com.stackroute.matchMaking.MatchMakingApplicationTests]
+10:32:47.914 [main] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved ProfileValueSource type [class org.springframework.test.annotation.SystemProfileValueSource] for class [com.stackroute.matchMaking.MatchMakingApplicationTests]
+10:32:47.946 [main] DEBUG org.springframework.test.context.support.TestPropertySourceUtils - Adding inlined properties to environment: {spring.jmx.enabled=false, org.springframework.boot.test.context.SpringBootTestContextBootstrapper=true, server.port=-1}
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::        (v2.1.0.RELEASE)
+
+2018-11-09 10:32:48.584  INFO 24535 --- [           main] c.s.m.MatchMakingApplicationTests        : Starting MatchMakingApplicationTests on vivekanand with PID 24535 (started by vivekanand in /home/vivekanand/Desktop/Project/matchMaking)
+2018-11-09 10:32:48.586  INFO 24535 --- [           main] c.s.m.MatchMakingApplicationTests        : No active profile set, falling back to default profiles: default
+2018-11-09 10:32:49.755  INFO 24535 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2018-11-09 10:32:49.795  INFO 24535 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 31ms. Found 0 repository interfaces.
+2018-11-09 10:32:50.407  INFO 24535 --- [           main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.kafka.annotation.KafkaBootstrapConfiguration' of type [org.springframework.kafka.annotation.KafkaBootstrapConfiguration$$EnhancerBySpringCGLIB$$90fe78ab] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-11-09 10:32:51.607  INFO 24535 --- [           main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2018-11-09 10:32:52.291  INFO 24535 --- [           main] org.mongodb.driver.cluster               : Cluster created with settings {hosts=[localhost:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms', maxWaitQueueSize=500}
+2018-11-09 10:32:52.435  INFO 24535 --- [localhost:27017] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:1, serverValue:4}] to localhost:27017
+2018-11-09 10:32:52.443  INFO 24535 --- [localhost:27017] org.mongodb.driver.cluster               : Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, version=ServerVersion{versionList=[4, 0, 3]}, minWireVersion=0, maxWireVersion=7, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=4944882}
+2018-11-09 10:32:53.138  INFO 24535 --- [           main] o.a.k.clients.consumer.ConsumerConfig    : ConsumerConfig values: 
+	auto.commit.interval.ms = 5000
+	auto.offset.reset = latest
+	bootstrap.servers = [172.23.239.245:9092]
+	check.crcs = true
+	client.id = 
+	connections.max.idle.ms = 540000
+	default.api.timeout.ms = 60000
+	enable.auto.commit = true
+	exclude.internal.topics = true
+	fetch.max.bytes = 52428800
+	fetch.max.wait.ms = 500
+	fetch.min.bytes = 1
+	group.id = group_exp
+	heartbeat.interval.ms = 3000
+	interceptor.classes = []
+	internal.leave.group.on.close = true
+	isolation.level = read_uncommitted
+	key.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
+	max.partition.fetch.bytes = 1048576
+	max.poll.interval.ms = 300000
+	max.poll.records = 500
+	metadata.max.age.ms = 300000
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	partition.assignment.strategy = [class org.apache.kafka.clients.consumer.RangeAssignor]
+	receive.buffer.bytes = 65536
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.mechanism = GSSAPI
+	security.protocol = PLAINTEXT
+	send.buffer.bytes = 131072
+	session.timeout.ms = 10000
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.1, TLSv1]
+	ssl.endpoint.identification.algorithm = https
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLS
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+	value.deserializer = class org.apache.kafka.common.serialization.BytesDeserializer
+
+2018-11-09 10:32:53.230  INFO 24535 --- [           main] o.a.kafka.common.utils.AppInfoParser     : Kafka version : 2.0.0
+2018-11-09 10:32:53.230  INFO 24535 --- [           main] o.a.kafka.common.utils.AppInfoParser     : Kafka commitId : 3402a8361b734732
+2018-11-09 10:32:53.386  WARN 24535 --- [           main] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-1, groupId=group_exp] Connection to node -1 could not be established. Broker may not be available.
+2018-11-09 10:32:53.588  WARN 24535 --- [           main] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-1, groupId=group_exp] Connection to node -1 could not be established. Broker may not be available.
+2018-11-09 10:32:53.896  WARN 24535 --- [           main] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-1, groupId=group_exp] Connection to node -1 could not be established. Broker may not be available.
+2018-11-09 10:32:54.101  WARN 24535 --- [           main] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-1, groupId=group_exp] Connection to node -1 could not be established. Broker may not be available.
+2018-11-09 10:32:54.633  WARN 24535 --- [           main] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-1, groupId=group_exp] Connection to node -1 could not be established. Broker may not be available.
+2018-11-09 10:32:55.562  WARN 24535 --- [           main] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-1, groupId=group_exp] Connection to node -1 could not be established. Broker may not be available.
+2018-11-09 10:32:56.571  WARN 24535 --- [           main] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-1, groupId=group_exp] Connection to node -1 could not be established. Broker may not be available.
+2018-11-09 10:32:57.551  WARN 24535 --- [           main] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-1, groupId=group_exp] Connection to node -1 could not be established. Broker may not be available.
+2018-11-09 10:32:58.659  WARN 24535 --- [           main] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-1, groupId=group_exp] Connection to node -1 could not be established. Broker may not be available.
+2018-11-09 10:32:59.567  WARN 24535 --- [           main] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-1, groupId=group_exp] Connection to node -1 could not be established. Broker may not be available.
+2018-11-09 10:33:00.790  WARN 24535 --- [           main] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-1, groupId=group_exp] Connection to node -1 could not be established. Broker may not be available.
+2018-11-09 10:33:01.999  WARN 24535 --- [           main] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-1, groupId=group_exp] Connection to node -1 could not be established. Broker may not be available.
+2018-11-09 10:33:03.088  WARN 24535 --- [           main] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-1, groupId=group_exp] Connection to node -1 could not be established. Broker may not be available.
+2018-11-09 10:33:04.027  WARN 24535 --- [           main] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-1, groupId=group_exp] Connection to node -1 could not be established. Broker may not be available.
+2018-11-09 10:33:04.935  WARN 24535 --- [           main] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-1, groupId=group_exp] Connection to node -1 could not be established. Broker may not be available.
+2018-11-09 10:33:06.012  WARN 24535 --- [           main] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-1, groupId=group_exp] Connection to node -1 could not be established. Broker may not be available.
+2018-11-09 10:33:07.062  WARN 24535 --- [           main] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-1, groupId=group_exp] Connection to node -1 could not be established. Broker may not be available.
+2018-11-09 10:33:08.101  WARN 24535 --- [           main] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-1, groupId=group_exp] Connection to node -1 could not be established. Broker may not be available.
+2018-11-09 10:33:09.046  WARN 24535 --- [           main] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-1, groupId=group_exp] Connection to node -1 could not be established. Broker may not be available.
+2018-11-09 10:33:10.085  WARN 24535 --- [           main] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-1, groupId=group_exp] Connection to node -1 could not be established. Broker may not be available.
+2018-11-09 10:33:11.338  WARN 24535 --- [           main] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-1, groupId=group_exp] Connection to node -1 could not be established. Broker may not be available.
+2018-11-09 10:33:12.387  WARN 24535 --- [           main] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-1, groupId=group_exp] Connection to node -1 could not be established. Broker may not be available.
+2018-11-09 10:33:13.323  WARN 24535 --- [           main] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-1, groupId=group_exp] Connection to node -1 could not be established. Broker may not be available.
+2018-11-09 10:33:14.472  WARN 24535 --- [           main] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-1, groupId=group_exp] Connection to node -1 could not be established. Broker may not be available.
+2018-11-09 10:33:15.413  WARN 24535 --- [           main] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-1, groupId=group_exp] Connection to node -1 could not be established. Broker may not be available.
+2018-11-09 10:33:16.458  WARN 24535 --- [           main] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-1, groupId=group_exp] Connection to node -1 could not be established. Broker may not be available.
+2018-11-09 10:33:17.366  WARN 24535 --- [           main] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-1, groupId=group_exp] Connection to node -1 could not be established. Broker may not be available.
+2018-11-09 10:33:18.651  WARN 24535 --- [           main] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-1, groupId=group_exp] Connection to node -1 could not be established. Broker may not be available.
+2018-11-09 10:33:19.859  WARN 24535 --- [           main] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-1, groupId=group_exp] Connection to node -1 could not be established. Broker may not be available.
+2018-11-09 10:33:20.849  WARN 24535 --- [           main] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-1, groupId=group_exp] Connection to node -1 could not be established. Broker may not be available.
+2018-11-09 10:33:21.894  WARN 24535 --- [           main] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-1, groupId=group_exp] Connection to node -1 could not be established. Broker may not be available.
+2018-11-09 10:33:22.829  WARN 24535 --- [           main] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-1, groupId=group_exp] Connection to node -1 could not be established. Broker may not be available.
+2018-11-09 10:33:23.768  WARN 24535 --- [           main] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-1, groupId=group_exp] Connection to node -1 could not be established. Broker may not be available.
+2018-11-09 10:33:24.776  WARN 24535 --- [           main] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-1, groupId=group_exp] Connection to node -1 could not be established. Broker may not be available.
+2018-11-09 10:33:25.753  WARN 24535 --- [           main] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-1, groupId=group_exp] Connection to node -1 could not be established. Broker may not be available.
+2018-11-09 10:33:26.797  WARN 24535 --- [           main] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-1, groupId=group_exp] Connection to node -1 could not be established. Broker may not be available.
+2018-11-09 10:33:27.731  WARN 24535 --- [           main] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-1, groupId=group_exp] Connection to node -1 could not be established. Broker may not be available.
+2018-11-09 10:33:28.990  WARN 24535 --- [           main] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-1, groupId=group_exp] Connection to node -1 could not be established. Broker may not be available.
+2018-11-09 10:33:30.139  WARN 24535 --- [           main] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-1, groupId=group_exp] Connection to node -1 could not be established. Broker may not be available.
+2018-11-09 10:33:31.393  WARN 24535 --- [           main] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-1, groupId=group_exp] Connection to node -1 could not be established. Broker may not be available.
+2018-11-09 10:33:32.652  WARN 24535 --- [           main] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-1, groupId=group_exp] Connection to node -1 could not be established. Broker may not be available.
+2018-11-09 10:33:33.592  WARN 24535 --- [           main] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-1, groupId=group_exp] Connection to node -1 could not be established. Broker may not be available.
+2018-11-09 10:33:34.699  WARN 24535 --- [           main] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-1, groupId=group_exp] Connection to node -1 could not be established. Broker may not be available.
+2018-11-09 10:33:35.676  WARN 24535 --- [           main] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-1, groupId=group_exp] Connection to node -1 could not be established. Broker may not be available.
+2018-11-09 10:33:36.930  WARN 24535 --- [           main] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-1, groupId=group_exp] Connection to node -1 could not be established. Broker may not be available.
+2018-11-09 10:33:38.183  WARN 24535 --- [           main] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-1, groupId=group_exp] Connection to node -1 could not be established. Broker may not be available.
+2018-11-09 10:33:39.290  WARN 24535 --- [           main] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-1, groupId=group_exp] Connection to node -1 could not be established. Broker may not be available.
+2018-11-09 10:33:40.381  WARN 24535 --- [           main] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-1, groupId=group_exp] Connection to node -1 could not be established. Broker may not be available.
+2018-11-09 10:33:41.420  WARN 24535 --- [           main] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-1, groupId=group_exp] Connection to node -1 could not be established. Broker may not be available.
+2018-11-09 10:33:42.365  WARN 24535 --- [           main] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-1, groupId=group_exp] Connection to node -1 could not be established. Broker may not be available.
+2018-11-09 10:33:43.300  WARN 24535 --- [           main] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-1, groupId=group_exp] Connection to node -1 could not be established. Broker may not be available.
+2018-11-09 10:33:44.553  WARN 24535 --- [           main] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-1, groupId=group_exp] Connection to node -1 could not be established. Broker may not be available.
+2018-11-09 10:33:45.807  WARN 24535 --- [           main] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-1, groupId=group_exp] Connection to node -1 could not be established. Broker may not be available.
+2018-11-09 10:33:46.851  WARN 24535 --- [           main] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-1, groupId=group_exp] Connection to node -1 could not be established. Broker may not be available.
+2018-11-09 10:33:47.896  WARN 24535 --- [           main] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-1, groupId=group_exp] Connection to node -1 could not be established. Broker may not be available.
+2018-11-09 10:33:49.156  WARN 24535 --- [           main] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-1, groupId=group_exp] Connection to node -1 could not be established. Broker may not be available.
+2018-11-09 10:33:50.198  WARN 24535 --- [           main] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-1, groupId=group_exp] Connection to node -1 could not be established. Broker may not be available.
+2018-11-09 10:33:51.344  WARN 24535 --- [           main] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-1, groupId=group_exp] Connection to node -1 could not be established. Broker may not be available.
+2018-11-09 10:33:52.596  WARN 24535 --- [           main] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-1, groupId=group_exp] Connection to node -1 could not be established. Broker may not be available.
+2018-11-09 10:33:53.346  WARN 24535 --- [           main] o.s.w.c.s.GenericWebApplicationContext   : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Failed to start bean 'org.springframework.kafka.config.internalKafkaListenerEndpointRegistry'; nested exception is org.apache.kafka.common.errors.TimeoutException: Timeout expired while fetching topic metadata
+2018-11-09 10:33:53.357  INFO 24535 --- [           main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2018-11-09 10:33:53.382  INFO 24535 --- [           main] ConditionEvaluationReportLoggingListener : 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2018-11-09 10:33:53.390 ERROR 24535 --- [           main] o.s.boot.SpringApplication               : Application run failed
+
+org.springframework.context.ApplicationContextException: Failed to start bean 'org.springframework.kafka.config.internalKafkaListenerEndpointRegistry'; nested exception is org.apache.kafka.common.errors.TimeoutException: Timeout expired while fetching topic metadata
+	at org.springframework.context.support.DefaultLifecycleProcessor.doStart(DefaultLifecycleProcessor.java:185) ~[spring-context-5.1.2.RELEASE.jar:5.1.2.RELEASE]
+	at org.springframework.context.support.DefaultLifecycleProcessor.access$200(DefaultLifecycleProcessor.java:53) ~[spring-context-5.1.2.RELEASE.jar:5.1.2.RELEASE]
+	at org.springframework.context.support.DefaultLifecycleProcessor$LifecycleGroup.start(DefaultLifecycleProcessor.java:360) ~[spring-context-5.1.2.RELEASE.jar:5.1.2.RELEASE]
+	at org.springframework.context.support.DefaultLifecycleProcessor.startBeans(DefaultLifecycleProcessor.java:158) ~[spring-context-5.1.2.RELEASE.jar:5.1.2.RELEASE]
+	at org.springframework.context.support.DefaultLifecycleProcessor.onRefresh(DefaultLifecycleProcessor.java:122) ~[spring-context-5.1.2.RELEASE.jar:5.1.2.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.finishRefresh(AbstractApplicationContext.java:879) ~[spring-context-5.1.2.RELEASE.jar:5.1.2.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:549) ~[spring-context-5.1.2.RELEASE.jar:5.1.2.RELEASE]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:775) ~[spring-boot-2.1.0.RELEASE.jar:2.1.0.RELEASE]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:397) ~[spring-boot-2.1.0.RELEASE.jar:2.1.0.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:316) ~[spring-boot-2.1.0.RELEASE.jar:2.1.0.RELEASE]
+	at org.springframework.boot.test.context.SpringBootContextLoader.loadContext(SpringBootContextLoader.java:127) [spring-boot-test-2.1.0.RELEASE.jar:2.1.0.RELEASE]
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContextInternal(DefaultCacheAwareContextLoaderDelegate.java:99) [spring-test-5.1.2.RELEASE.jar:5.1.2.RELEASE]
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:117) [spring-test-5.1.2.RELEASE.jar:5.1.2.RELEASE]
+	at org.springframework.test.context.support.DefaultTestContext.getApplicationContext(DefaultTestContext.java:108) [spring-test-5.1.2.RELEASE.jar:5.1.2.RELEASE]
+	at org.springframework.test.context.web.ServletTestExecutionListener.setUpRequestContextIfNecessary(ServletTestExecutionListener.java:190) [spring-test-5.1.2.RELEASE.jar:5.1.2.RELEASE]
+	at org.springframework.test.context.web.ServletTestExecutionListener.prepareTestInstance(ServletTestExecutionListener.java:132) [spring-test-5.1.2.RELEASE.jar:5.1.2.RELEASE]
+	at org.springframework.test.context.TestContextManager.prepareTestInstance(TestContextManager.java:246) [spring-test-5.1.2.RELEASE.jar:5.1.2.RELEASE]
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.createTest(SpringJUnit4ClassRunner.java:227) [spring-test-5.1.2.RELEASE.jar:5.1.2.RELEASE]
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner$1.runReflectiveCall(SpringJUnit4ClassRunner.java:289) [spring-test-5.1.2.RELEASE.jar:5.1.2.RELEASE]
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12) [junit-4.12.jar:4.12]
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.methodBlock(SpringJUnit4ClassRunner.java:291) [spring-test-5.1.2.RELEASE.jar:5.1.2.RELEASE]
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:246) [spring-test-5.1.2.RELEASE.jar:5.1.2.RELEASE]
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:97) [spring-test-5.1.2.RELEASE.jar:5.1.2.RELEASE]
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290) [junit-4.12.jar:4.12]
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71) [junit-4.12.jar:4.12]
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288) [junit-4.12.jar:4.12]
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58) [junit-4.12.jar:4.12]
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268) [junit-4.12.jar:4.12]
+	at org.springframework.test.context.junit4.statements.RunBeforeTestClassCallbacks.evaluate(RunBeforeTestClassCallbacks.java:61) [spring-test-5.1.2.RELEASE.jar:5.1.2.RELEASE]
+	at org.springframework.test.context.junit4.statements.RunAfterTestClassCallbacks.evaluate(RunAfterTestClassCallbacks.java:70) [spring-test-5.1.2.RELEASE.jar:5.1.2.RELEASE]
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363) [junit-4.12.jar:4.12]
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.run(SpringJUnit4ClassRunner.java:190) [spring-test-5.1.2.RELEASE.jar:5.1.2.RELEASE]
+	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:365) [surefire-junit4-2.22.1.jar:2.22.1]
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeWithRerun(JUnit4Provider.java:273) [surefire-junit4-2.22.1.jar:2.22.1]
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:238) [surefire-junit4-2.22.1.jar:2.22.1]
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:159) [surefire-junit4-2.22.1.jar:2.22.1]
+	at org.apache.maven.surefire.booter.ForkedBooter.invokeProviderInSameClassLoader(ForkedBooter.java:384) [surefire-booter-2.22.1.jar:2.22.1]
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:345) [surefire-booter-2.22.1.jar:2.22.1]
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:126) [surefire-booter-2.22.1.jar:2.22.1]
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:418) [surefire-booter-2.22.1.jar:2.22.1]
+Caused by: org.apache.kafka.common.errors.TimeoutException: Timeout expired while fetching topic metadata
+
+2018-11-09 10:33:53.395 ERROR 24535 --- [           main] o.s.test.context.TestContextManager      : Caught exception while allowing TestExecutionListener [org.springframework.test.context.web.ServletTestExecutionListener@7daa0fbd] to prepare test instance [com.stackroute.matchMaking.MatchMakingApplicationTests@3e74fd84]
+
+java.lang.IllegalStateException: Failed to load ApplicationContext
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:125) ~[spring-test-5.1.2.RELEASE.jar:5.1.2.RELEASE]
+	at org.springframework.test.context.support.DefaultTestContext.getApplicationContext(DefaultTestContext.java:108) ~[spring-test-5.1.2.RELEASE.jar:5.1.2.RELEASE]
+	at org.springframework.test.context.web.ServletTestExecutionListener.setUpRequestContextIfNecessary(ServletTestExecutionListener.java:190) ~[spring-test-5.1.2.RELEASE.jar:5.1.2.RELEASE]
+	at org.springframework.test.context.web.ServletTestExecutionListener.prepareTestInstance(ServletTestExecutionListener.java:132) ~[spring-test-5.1.2.RELEASE.jar:5.1.2.RELEASE]
+	at org.springframework.test.context.TestContextManager.prepareTestInstance(TestContextManager.java:246) ~[spring-test-5.1.2.RELEASE.jar:5.1.2.RELEASE]
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.createTest(SpringJUnit4ClassRunner.java:227) [spring-test-5.1.2.RELEASE.jar:5.1.2.RELEASE]
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner$1.runReflectiveCall(SpringJUnit4ClassRunner.java:289) [spring-test-5.1.2.RELEASE.jar:5.1.2.RELEASE]
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12) [junit-4.12.jar:4.12]
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.methodBlock(SpringJUnit4ClassRunner.java:291) [spring-test-5.1.2.RELEASE.jar:5.1.2.RELEASE]
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:246) [spring-test-5.1.2.RELEASE.jar:5.1.2.RELEASE]
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:97) [spring-test-5.1.2.RELEASE.jar:5.1.2.RELEASE]
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290) [junit-4.12.jar:4.12]
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71) [junit-4.12.jar:4.12]
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288) [junit-4.12.jar:4.12]
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58) [junit-4.12.jar:4.12]
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268) [junit-4.12.jar:4.12]
+	at org.springframework.test.context.junit4.statements.RunBeforeTestClassCallbacks.evaluate(RunBeforeTestClassCallbacks.java:61) [spring-test-5.1.2.RELEASE.jar:5.1.2.RELEASE]
+	at org.springframework.test.context.junit4.statements.RunAfterTestClassCallbacks.evaluate(RunAfterTestClassCallbacks.java:70) [spring-test-5.1.2.RELEASE.jar:5.1.2.RELEASE]
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363) [junit-4.12.jar:4.12]
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.run(SpringJUnit4ClassRunner.java:190) [spring-test-5.1.2.RELEASE.jar:5.1.2.RELEASE]
+	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:365) [surefire-junit4-2.22.1.jar:2.22.1]
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeWithRerun(JUnit4Provider.java:273) [surefire-junit4-2.22.1.jar:2.22.1]
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:238) [surefire-junit4-2.22.1.jar:2.22.1]
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:159) [surefire-junit4-2.22.1.jar:2.22.1]
+	at org.apache.maven.surefire.booter.ForkedBooter.invokeProviderInSameClassLoader(ForkedBooter.java:384) [surefire-booter-2.22.1.jar:2.22.1]
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:345) [surefire-booter-2.22.1.jar:2.22.1]
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:126) [surefire-booter-2.22.1.jar:2.22.1]
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:418) [surefire-booter-2.22.1.jar:2.22.1]
+Caused by: org.springframework.context.ApplicationContextException: Failed to start bean 'org.springframework.kafka.config.internalKafkaListenerEndpointRegistry'; nested exception is org.apache.kafka.common.errors.TimeoutException: Timeout expired while fetching topic metadata
+	at org.springframework.context.support.DefaultLifecycleProcessor.doStart(DefaultLifecycleProcessor.java:185) ~[spring-context-5.1.2.RELEASE.jar:5.1.2.RELEASE]
+	at org.springframework.context.support.DefaultLifecycleProcessor.access$200(DefaultLifecycleProcessor.java:53) ~[spring-context-5.1.2.RELEASE.jar:5.1.2.RELEASE]
+	at org.springframework.context.support.DefaultLifecycleProcessor$LifecycleGroup.start(DefaultLifecycleProcessor.java:360) ~[spring-context-5.1.2.RELEASE.jar:5.1.2.RELEASE]
+	at org.springframework.context.support.DefaultLifecycleProcessor.startBeans(DefaultLifecycleProcessor.java:158) ~[spring-context-5.1.2.RELEASE.jar:5.1.2.RELEASE]
+	at org.springframework.context.support.DefaultLifecycleProcessor.onRefresh(DefaultLifecycleProcessor.java:122) ~[spring-context-5.1.2.RELEASE.jar:5.1.2.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.finishRefresh(AbstractApplicationContext.java:879) ~[spring-context-5.1.2.RELEASE.jar:5.1.2.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:549) ~[spring-context-5.1.2.RELEASE.jar:5.1.2.RELEASE]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:775) ~[spring-boot-2.1.0.RELEASE.jar:2.1.0.RELEASE]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:397) ~[spring-boot-2.1.0.RELEASE.jar:2.1.0.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:316) ~[spring-boot-2.1.0.RELEASE.jar:2.1.0.RELEASE]
+	at org.springframework.boot.test.context.SpringBootContextLoader.loadContext(SpringBootContextLoader.java:127) ~[spring-boot-test-2.1.0.RELEASE.jar:2.1.0.RELEASE]
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContextInternal(DefaultCacheAwareContextLoaderDelegate.java:99) ~[spring-test-5.1.2.RELEASE.jar:5.1.2.RELEASE]
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:117) ~[spring-test-5.1.2.RELEASE.jar:5.1.2.RELEASE]
+	... 27 common frames omitted
+Caused by: org.apache.kafka.common.errors.TimeoutException: Timeout expired while fetching topic metadata
+
+]]></system-out>
+  </testcase>
+</testsuite>
