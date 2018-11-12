@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
+<<<<<<< HEAD
+    <list default="true" id="ebb40d5e-e7ab-41c1-b25d-d0ef6e0ae002" name="Default Changelist" comment="" />
+=======
     <list default="true" id="ebb40d5e-e7ab-41c1-b25d-d0ef6e0ae002" name="Default Changelist" comment="">
       <change afterPath="$PROJECT_DIR$/EducationService/Dockerfile" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
@@ -9,6 +12,7 @@
       <change beforePath="$PROJECT_DIR$/EducationService/src/main/java/com/stackroute/educationservice/listener/KafkaConsumer.java" beforeDir="false" afterPath="$PROJECT_DIR$/EducationService/src/main/java/com/stackroute/educationservice/listener/KafkaConsumer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
     </list>
+>>>>>>> 3bcb17e53b0b39cbf4dbab933b59de54920aa6fe
     <ignored path="$PROJECT_DIR$/spring-skill/target/" />
     <ignored path="$PROJECT_DIR$/LocationService/target/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -81,6 +85,17 @@
         </counts>
       </usages-collector>
     </session>
+    <session id="-132568505">
+      <usages-collector id="statistics.lifecycle.project">
+        <counts>
+          <entry key="project.open.time.45" value="1" />
+          <entry key="project.opened" value="1" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.vcs.git.usages" />
+      <usages-collector id="statistics.file.types.edit" />
+      <usages-collector id="statistics.file.types.open" />
+    </session>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
@@ -94,19 +109,57 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+<<<<<<< HEAD
         <entry file="file://$PROJECT_DIR$/EducationService/logslogfile.log">
           <provider selected="true" editor-type-id="LogFileEditorProvider" />
+=======
+<<<<<<< HEAD
+        <entry file="file://$PROJECT_DIR$/config-server/pom.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="225">
+              <caret line="15" column="41" selection-start-line="15" selection-start-column="41" selection-end-line="15" selection-end-column="41" />
+=======
+        <entry file="file://$PROJECT_DIR$/EducationService/src/main/java/com/stackroute/educationservice/listener/KafkaConsumer.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="257">
+              <caret line="36" column="51" selection-start-line="36" selection-start-column="51" selection-end-line="36" selection-end-column="51" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+>>>>>>> abbc4b9affc0ca2ee5dada13c0ee498c42a34928
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/EducationService/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="225">
+<<<<<<< HEAD
               <caret line="15" column="47" selection-start-line="15" selection-start-column="47" selection-end-line="15" selection-end-column="47" />
+=======
+              <caret line="15" column="35" selection-start-line="15" selection-start-column="18" selection-end-line="15" selection-end-column="35" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+>>>>>>> 3bcb17e53b0b39cbf4dbab933b59de54920aa6fe
+>>>>>>> abbc4b9affc0ca2ee5dada13c0ee498c42a34928
             </state>
           </provider>
         </entry>
       </file>
+<<<<<<< HEAD
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/EducationService/.gitignore">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/EducationService/pom.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="243">
+              <caret line="37" selection-start-line="37" selection-end-line="37" />
+=======
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/config-server/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
@@ -146,8 +199,14 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
             <state relative-caret-position="90">
               <caret line="39" column="27" lean-forward="true" selection-start-line="39" selection-start-column="27" selection-end-line="39" selection-end-column="27" />
+=======
+            <state relative-caret-position="225">
+              <caret line="30" column="60" selection-start-line="30" selection-start-column="60" selection-end-line="30" selection-end-column="60" />
+>>>>>>> 3bcb17e53b0b39cbf4dbab933b59de54920aa6fe
+>>>>>>> abbc4b9affc0ca2ee5dada13c0ee498c42a34928
             </state>
           </provider>
         </entry>
@@ -200,6 +259,7 @@
       </MavenImportingSettings>
     </option>
   </component>
+<<<<<<< HEAD
   <component name="MavenProjectNavigator">
     <treeState>
       <expand>
@@ -219,8 +279,13 @@
   <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="75" />
     <option name="y" value="92" />
+=======
+  <component name="ProjectFrameBounds">
+    <option name="x" value="667" />
+    <option name="y" value="115" />
+>>>>>>> abbc4b9affc0ca2ee5dada13c0ee498c42a34928
     <option name="width" value="1271" />
-    <option name="height" value="646" />
+    <option name="height" value="618" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -228,8 +293,14 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+<<<<<<< HEAD
+      <pane id="AndroidView" />
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
+=======
       <pane id="PackagesPane" />
       <pane id="AndroidView" />
+>>>>>>> 3bcb17e53b0b39cbf4dbab933b59de54920aa6fe
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -240,29 +311,86 @@
             <path>
               <item name="matchmaking-platform" type="b2602c69:ProjectViewProjectNode" />
               <item name="matchmaking-platform" type="462c0819:PsiDirectoryNode" />
+<<<<<<< HEAD
               <item name="config-server" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="matchmaking-platform" type="b2602c69:ProjectViewProjectNode" />
-              <item name="matchmaking-platform" type="462c0819:PsiDirectoryNode" />
+=======
+<<<<<<< HEAD
+=======
               <item name="EducationService" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="matchmaking-platform" type="b2602c69:ProjectViewProjectNode" />
               <item name="matchmaking-platform" type="462c0819:PsiDirectoryNode" />
+              <item name="EducationService" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="matchmaking-platform" type="b2602c69:ProjectViewProjectNode" />
+              <item name="matchmaking-platform" type="462c0819:PsiDirectoryNode" />
+>>>>>>> 3bcb17e53b0b39cbf4dbab933b59de54920aa6fe
+              <item name="EducationService" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="matchmaking-platform" type="b2602c69:ProjectViewProjectNode" />
+              <item name="matchmaking-platform" type="462c0819:PsiDirectoryNode" />
+              <item name="EducationService" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="matchmaking-platform" type="b2602c69:ProjectViewProjectNode" />
+              <item name="matchmaking-platform" type="462c0819:PsiDirectoryNode" />
+              <item name="EducationService" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+>>>>>>> abbc4b9affc0ca2ee5dada13c0ee498c42a34928
+            </path>
+            <path>
+              <item name="matchmaking-platform" type="b2602c69:ProjectViewProjectNode" />
+              <item name="matchmaking-platform" type="462c0819:PsiDirectoryNode" />
+              <item name="EducationService" type="462c0819:PsiDirectoryNode" />
+<<<<<<< HEAD
+=======
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+<<<<<<< HEAD
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+=======
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+>>>>>>> 3bcb17e53b0b39cbf4dbab933b59de54920aa6fe
+>>>>>>> abbc4b9affc0ca2ee5dada13c0ee498c42a34928
+            </path>
+            <path>
+              <item name="matchmaking-platform" type="b2602c69:ProjectViewProjectNode" />
+              <item name="matchmaking-platform" type="462c0819:PsiDirectoryNode" />
+<<<<<<< HEAD
               <item name="EducationService" type="462c0819:PsiDirectoryNode" />
               <item name="target" type="462c0819:PsiDirectoryNode" />
+=======
+              <item name="ExperienceService" type="462c0819:PsiDirectoryNode" />
+>>>>>>> abbc4b9affc0ca2ee5dada13c0ee498c42a34928
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+<<<<<<< HEAD
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1541759329559" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+=======
       <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
+<<<<<<< HEAD
     <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1542017967595" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+=======
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1541765919838" />
+>>>>>>> 3bcb17e53b0b39cbf4dbab933b59de54920aa6fe
+>>>>>>> abbc4b9affc0ca2ee5dada13c0ee498c42a34928
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -367,15 +495,34 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="65" y="24" width="1301" height="744" extended-state="6" />
+    <frame x="667" y="115" width="1271" height="618" extended-state="0" />
     <layout>
+<<<<<<< HEAD
+      <window_info id="Learn" />
+      <window_info content_ui="combo" id="Project" order="0" weight="0.26367345" />
+=======
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25737053" />
+>>>>>>> 3bcb17e53b0b39cbf4dbab933b59de54920aa6fe
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
       <window_info id="UI Designer" order="4" />
       <window_info id="Capture Tool" order="5" />
       <window_info id="Favorites" order="6" side_tool="true" />
+<<<<<<< HEAD
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32919255" />
+      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="8" show_stripe_button="false" />
+      <window_info anchor="bottom" id="SonarLint" order="9" weight="0.23447205" />
+      <window_info anchor="bottom" id="Terminal" order="10" visible="true" weight="0.22244897" />
+      <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
+=======
       <window_info anchor="bottom" id="Messages" order="0" weight="0.32919255" />
       <window_info anchor="bottom" id="Message" order="1" />
       <window_info anchor="bottom" id="Find" order="2" weight="0.32919255" />
@@ -389,6 +536,7 @@
       <window_info anchor="bottom" id="SonarLint" order="10" weight="0.23447205" />
       <window_info active="true" anchor="bottom" id="Terminal" order="11" visible="true" weight="0.30279502" />
       <window_info anchor="bottom" id="Event Log" order="12" side_tool="true" />
+>>>>>>> 3bcb17e53b0b39cbf4dbab933b59de54920aa6fe
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -403,6 +551,7 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/ExperienceService/src/main/java/com/stackroute/educationservice/matchMaking/config/KafkaConsumer.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-490">
@@ -445,11 +594,52 @@
         </state>
       </provider>
     </entry>
+=======
+<<<<<<< HEAD
+    <entry file="file://$PROJECT_DIR$/EducationService/src/test/java/com/stackroute/educationservice/EducationServiceApplicationTests.java" />
+    <entry file="file://$PROJECT_DIR$/EducationService/src/main/java/com/stackroute/educationservice/domain/Chicklets.java" />
+    <entry file="file://$PROJECT_DIR$/EducationService/src/main/java/com/stackroute/educationservice/domain/CommonOutput.java" />
+    <entry file="file://$PROJECT_DIR$/EducationService/src/main/java/com/stackroute/educationservice/domain/Institution.java" />
+    <entry file="file://$PROJECT_DIR$/EducationService/src/main/java/com/stackroute/educationservice/domain/Qualification.java" />
+    <entry file="file://$PROJECT_DIR$/EducationService/src/main/java/com/stackroute/educationservice/domain/Relationship.java" />
+=======
+>>>>>>> 3bcb17e53b0b39cbf4dbab933b59de54920aa6fe
+    <entry file="file://$PROJECT_DIR$/ExperienceService/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-675">
+          <caret line="6" column="27" selection-start-line="6" selection-start-column="16" selection-end-line="6" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ExperienceService/src/main/resources/application.properties">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ExperienceService/src/main/java/com/stackroute/educationservice/matchMaking/config/KafkaConsumer.java" />
+    <entry file="file://$PROJECT_DIR$/ExperienceService/src/main/java/com/stackroute/educationservice/matchMaking/domain/Chicklets.java" />
+    <entry file="file://$PROJECT_DIR$/ExperienceService/src/main/java/com/stackroute/educationservice/matchMaking/domain/CommonOutput.java" />
+    <entry file="file://$PROJECT_DIR$/ExperienceService/src/main/java/com/stackroute/educationservice/matchMaking/domain/Experience.java" />
+    <entry file="file://$PROJECT_DIR$/ExperienceService/src/main/java/com/stackroute/educationservice/matchMaking/domain/Relationships.java" />
+    <entry file="file://$PROJECT_DIR$/ExperienceService/src/main/java/com/stackroute/educationservice/matchMaking/domain/Section.java" />
+>>>>>>> abbc4b9affc0ca2ee5dada13c0ee498c42a34928
     <entry file="file://$PROJECT_DIR$/LocationService/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-90" />
       </provider>
     </entry>
+<<<<<<< HEAD
+    <entry file="file://$PROJECT_DIR$/LocationService/src/main/java/com/stackroute/educationservice/springlocation/Controller/LocationController.java" />
+    <entry file="file://$PROJECT_DIR$/LocationService/src/main/java/com/stackroute/educationservice/springlocation/Service/LocationService.java" />
+    <entry file="file://$PROJECT_DIR$/ProjectService/src/main/java/com/stackroute/educationservice/projectservice/domain/Chicklets.java" />
+    <entry file="file://$PROJECT_DIR$/ProjectService/src/main/java/com/stackroute/educationservice/projectservice/domain/Project.java" />
+    <entry file="file://$PROJECT_DIR$/ProjectService/src/main/java/com/stackroute/educationservice/projectservice/domain/ProjectDetails.java" />
+    <entry file="file://$PROJECT_DIR$/ProjectService/src/main/java/com/stackroute/educationservice/projectservice/domain/Skill.java" />
+    <entry file="file://$PROJECT_DIR$/ProjectService/src/main/java/com/stackroute/educationservice/projectservice/Service/ProjectService.java" />
+    <entry file="file://$PROJECT_DIR$/ProjectService/src/main/java/com/stackroute/educationservice/projectservice/Service/ProjectServiceImpl.java" />
+    <entry file="file://$PROJECT_DIR$/ProjectService/src/main/java/com/stackroute/educationservice/projectservice/Controller/ProjectController.java" />
+    <entry file="file://$PROJECT_DIR$/LocationService/src/main/java/com/stackroute/educationservice/springlocation/Service/LocationServiceImpl.java" />
+    <entry file="file://$PROJECT_DIR$/LocationService/src/main/java/com/stackroute/educationservice/springlocation/Resource/IndexResource.java" />
+    <entry file="file://$PROJECT_DIR$/LocationService/src/main/java/com/stackroute/educationservice/springlocation/listener/KafkaListen.java" />
+=======
     <entry file="file://$PROJECT_DIR$/LocationService/src/main/java/com/stackroute/educationservice/springlocation/Controller/LocationController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-190">
@@ -534,45 +724,77 @@
         </state>
       </provider>
     </entry>
+>>>>>>> 3bcb17e53b0b39cbf4dbab933b59de54920aa6fe
     <entry file="file://$PROJECT_DIR$/RegistrationService/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-405" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/RegistrationService/src/main/java/com/stackroute/educationservice/matchmaking/domain/User.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="559">
-          <caret line="53" column="5" selection-start-line="53" selection-start-column="5" selection-end-line="53" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/RegistrationService/src/main/java/com/stackroute/educationservice/matchmaking/service/UserServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="21" lean-forward="true" selection-start-line="21" selection-end-line="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/RegistrationService/src/main/java/com/stackroute/educationservice/matchmaking/controller/UserController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
-          <caret line="35" lean-forward="true" selection-start-line="35" selection-end-line="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/RegistrationService/src/main/java/com/stackroute/educationservice/matchmaking/config/KafkaConfig.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="15" column="13" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/RegistrationService/src/main/java/com/stackroute/educationservice/matchmaking/domain/User.java" />
+    <entry file="file://$PROJECT_DIR$/RegistrationService/src/main/java/com/stackroute/educationservice/matchmaking/service/UserServiceImpl.java" />
+    <entry file="file://$PROJECT_DIR$/RegistrationService/src/main/java/com/stackroute/educationservice/matchmaking/controller/UserController.java" />
+    <entry file="file://$PROJECT_DIR$/RegistrationService/src/main/java/com/stackroute/educationservice/matchmaking/config/KafkaConfig.java" />
     <entry file="file://$PROJECT_DIR$/.gitlab-ci.yml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-315" />
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/docker-compose.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="20" column="14" lean-forward="true" selection-start-line="20" selection-start-column="14" selection-end-line="20" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/EducationService/src/main/java/com/stackroute/educationservice/controller/EducationController.java" />
+<<<<<<< HEAD
+    <entry file="file://$PROJECT_DIR$/EducationService/src/main/java/com/stackroute/educationservice/domain/Section.java" />
+    <entry file="file://$PROJECT_DIR$/EducationService/src/main/java/com/stackroute/educationservice/config/KafkaProducer.java" />
+    <entry file="file://$PROJECT_DIR$/CertificationService/src/main/java/com/stackroute/resource/IndexResourceImplementation.java">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CertificationService/src/main/java/com/stackroute/resource/IndexResource.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="52" lean-forward="true" selection-start-line="5" selection-start-column="4" selection-end-line="5" selection-end-column="52" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CertificationService/src/main/java/com/stackroute/listener/KafkaListening.java">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config-server/Dockerfile">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" column="36" selection-start-line="6" selection-start-column="16" selection-end-line="6" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+<<<<<<< HEAD
+    <entry file="file://$PROJECT_DIR$/EducationService/src/main/java/com/stackroute/educationservice/controller/EducationController.java" />
+=======
+    <entry file="file://$PROJECT_DIR$/config-server/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="15" column="41" selection-start-line="15" selection-start-column="41" selection-end-line="15" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/EducationService/src/main/java/com/stackroute/educationservice/resource/IndexResourceImpl.java">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/EducationService/src/main/java/com/stackroute/educationservice/resource/IndexResource.java">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/EducationService/src/main/java/com/stackroute/educationservice/service/EducationService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="8" selection-start-line="8" selection-end-line="8" />
+=======
+>>>>>>> abbc4b9affc0ca2ee5dada13c0ee498c42a34928
     <entry file="file://$PROJECT_DIR$/EducationService/src/main/java/com/stackroute/educationservice/domain/Section.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
@@ -590,8 +812,32 @@
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
+=======
+    <entry file="file://$PROJECT_DIR$/config-server/Dockerfile">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" column="36" selection-start-line="6" selection-start-column="16" selection-end-line="6" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config-server/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="15" column="40" selection-start-line="15" selection-start-column="40" selection-end-line="15" selection-end-column="40" />
+>>>>>>> 3bcb17e53b0b39cbf4dbab933b59de54920aa6fe
+        </state>
+      </provider>
+    </entry>
+>>>>>>> abbc4b9affc0ca2ee5dada13c0ee498c42a34928
     <entry file="file://$PROJECT_DIR$/eureka-registry/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+        <state relative-caret-position="-223" />
+=======
         <state relative-caret-position="225">
           <caret line="15" column="40" selection-start-line="15" selection-start-column="40" selection-end-line="15" selection-end-column="40" />
         </state>
@@ -602,6 +848,7 @@
         <state relative-caret-position="225">
           <caret line="15" column="40" selection-start-line="15" selection-start-column="40" selection-end-line="15" selection-end-column="40" />
         </state>
+>>>>>>> 3bcb17e53b0b39cbf4dbab933b59de54920aa6fe
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/CertificationService/src/main/java/com/stackroute/listener/KafkaListening.java">
@@ -612,8 +859,37 @@
     <entry file="file://$PROJECT_DIR$/EducationService/src/main/resources/application.properties" />
     <entry file="file://$PROJECT_DIR$/EducationService/src/main/java/com/stackroute/educationservice/resource/IndexResource.java">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="75">
           <caret line="5" column="32" selection-start-line="5" selection-start-column="32" selection-end-line="5" selection-end-column="32" />
+=======
+<<<<<<< HEAD
+        <state relative-caret-position="243">
+          <caret line="37" selection-start-line="37" selection-end-line="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/EducationService/src/main/java/com/stackroute/educationservice/config/KafkaConsumer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="37" selection-start-line="37" selection-end-line="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/EducationService/src/main/java/com/stackroute/educationservice/listener/KafkaConsumer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="16" column="13" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/EducationService/.gitignore">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+=======
+        <state relative-caret-position="-529">
+          <caret line="27" selection-start-line="27" selection-end-line="27" />
+>>>>>>> abbc4b9affc0ca2ee5dada13c0ee498c42a34928
         </state>
       </provider>
     </entry>
@@ -738,6 +1014,7 @@
         </state>
       </provider>
     </entry>
+>>>>>>> 3bcb17e53b0b39cbf4dbab933b59de54920aa6fe
   </component>
   <component name="masterDetails">
     <states>
