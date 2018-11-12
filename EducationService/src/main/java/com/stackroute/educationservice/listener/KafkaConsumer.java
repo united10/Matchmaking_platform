@@ -25,11 +25,11 @@ public class KafkaConsumer {
     IndexResource indexResource;
     private KafkaProperties kafkaProperties;
 
-    @Autowired
+    /*@Autowired
     public void setApp(KafkaProperties kafkaProperties){
         this.kafkaProperties=kafkaProperties;
 
-    }
+    }*/
     @KafkaListener(topics = "${kafka.linsteningTopic}" ,groupId = "${kafka.groupId}",
             containerFactory="${kafka.containerFactory}")
     public void consumeJson(@Payload Section section ) {

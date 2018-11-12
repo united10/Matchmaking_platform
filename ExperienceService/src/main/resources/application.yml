@@ -1,0 +1,8 @@
+server:
+  port: 8087
+kafka:
+  ipAddress: 172.23.239.245:9092
+  groupId: group_id12
+  outputTopic: indexer
+  linsteningTopic: experience
+  containerFactory: userKafkaListenerFactory
