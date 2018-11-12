@@ -1,67 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ea2e8408-81ca-4643-b263-e2b1ac5533d5" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/matchMaking.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../EducationService/logslogfile.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../EducationService/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../EducationService/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../EducationService/src/main/java/com/stackroute/educationservice/EducationServiceApplication.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../EducationService/src/main/java/com/stackroute/educationservice/config/KafkaConsumer.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../EducationService/src/main/java/com/stackroute/educationservice/config/KafkaProducer.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../EducationService/src/main/java/com/stackroute/educationservice/domain/Chicklets.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../EducationService/src/main/java/com/stackroute/educationservice/domain/CommonOutput.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../EducationService/src/main/java/com/stackroute/educationservice/domain/Institution.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../EducationService/src/main/java/com/stackroute/educationservice/domain/Qualification.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../EducationService/src/main/java/com/stackroute/educationservice/domain/Relationship.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../EducationService/src/main/java/com/stackroute/educationservice/domain/Section.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../EducationService/src/main/java/com/stackroute/educationservice/listener/KafkaConsumer.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../EducationService/src/main/java/com/stackroute/educationservice/resource/IndexResource.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../EducationService/src/main/java/com/stackroute/educationservice/resource/IndexResourceImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../EducationService/src/main/java/com/stackroute/educationservice/service/EducationService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../EducationService/src/main/java/com/stackroute/educationservice/service/EducationServiceImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../EducationService/src/main/resources/application.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../EducationService/src/test/java/com/stackroute/educationservice/EducationServiceApplicationTests.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/stackroute/educationservice/matchMaking/MatchMakingApplication.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/stackroute/educationservice/matchMaking/config/KafkaConsumer.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/stackroute/educationservice/matchMaking/config/KafkaProducer.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/stackroute/educationservice/matchMaking/domain/Chicklets.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/stackroute/educationservice/matchMaking/domain/CommonOutput.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/stackroute/educationservice/matchMaking/domain/Experience.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/stackroute/educationservice/matchMaking/domain/Relationships.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/stackroute/educationservice/matchMaking/domain/Section.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/stackroute/educationservice/matchMaking/listener/KafkaListen.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/stackroute/educationservice/matchMaking/resource/IndexResource.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/stackroute/educationservice/matchMaking/MatchMakingApplicationTests.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/stackroute/educationservice/matchMaking/controller/ExperienceControllerTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/stackroute/educationservice/matchMaking/service/ExperienceServiceTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/stackroute/matchMaking/MatchMakingApplication.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/stackroute/matchMaking/config/KafkaConsumer.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/stackroute/matchMaking/config/KafkaProducer.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/stackroute/matchMaking/domain/Chicklets$ChickletsBuilder.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/stackroute/matchMaking/domain/Chicklets.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/stackroute/matchMaking/domain/CommonOutput$CommonOutputBuilder.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/stackroute/matchMaking/domain/CommonOutput.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/stackroute/matchMaking/domain/Experience$ExperienceBuilder.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/stackroute/matchMaking/domain/Experience.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/stackroute/matchMaking/domain/Relationships$RelationshipsBuilder.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/stackroute/matchMaking/domain/Relationships.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/stackroute/matchMaking/domain/Section$SectionBuilder.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/stackroute/matchMaking/domain/Section.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/stackroute/matchMaking/listener/KafkaListen.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/stackroute/matchMaking/resource/IndexResource.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/stackroute/matchMaking/MatchMakingApplicationTests.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/stackroute/matchMaking/service/ExperienceServiceTest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../angular/src/app/cards/cards.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../angular/src/app/cards/cards.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../angular/src/app/cards/detailsdialog/detailsdialog.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../angular/src/app/cards/detailsdialog/detailsdialog.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../angular/src/app/cards/detailsdialog/detailsdialog.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../angular/src/app/cards/detailsdialog/detailsdialog.component.ts" afterDir="false" />
-    </list>
+    <list default="true" id="ea2e8408-81ca-4643-b263-e2b1ac5533d5" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -192,7 +132,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1542013114627" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1542013637270" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="RunDashboard">
