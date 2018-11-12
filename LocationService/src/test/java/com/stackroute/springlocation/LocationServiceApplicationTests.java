@@ -1,4 +1,4 @@
-package com.stackroute.educationservice.springlocation;
+package com.stackroute.springlocation;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -7,7 +7,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class SpringLocationApplicationTests {
+public class LocationServiceApplicationTests {
 
 	@Test
 	public void contextLoads() {

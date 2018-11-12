@@ -1,4 +1,4 @@
-package com.stackroute.educationservice.springlocation.domain;
+package com.stackroute.springlocation.domain;
 
 
 import lombok.AllArgsConstructor;
