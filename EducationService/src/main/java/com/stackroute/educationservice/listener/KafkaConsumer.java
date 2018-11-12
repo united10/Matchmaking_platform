@@ -1,6 +1,7 @@
 package com.stackroute.educationservice.listener;
 
 import com.stackroute.educationservice.domain.CommonOutput;
+import com.stackroute.educationservice.domain.KafkaProperties;
 import com.stackroute.educationservice.domain.Section;
 import com.stackroute.educationservice.resource.IndexResource;
 import com.stackroute.educationservice.service.EducationService;
@@ -17,16 +18,23 @@ import org.springframework.stereotype.Service;
 public class KafkaConsumer {
 
 
-    Logger logger= LoggerFactory.getLogger(KafkaConsumer.class);
+    Logger logger= LoggerFactory.getLogger(KafkaListener.class);
     @Autowired
     EducationService educationService;
     @Autowired
     IndexResource indexResource;
-    @KafkaListener(topics = "education" ,groupId = "group_id12",
-            containerFactory="userKafkaListenerFactory")
+    private KafkaProperties kafkaProperties;
+
+    @Autowired
+    public void setApp(KafkaProperties kafkaProperties){
+        this.kafkaProperties=kafkaProperties;
+
+    }
+    @KafkaListener(topics = "${kafka.linsteningTopic}" ,groupId = "${kafka.groupId}",
+            containerFactory="${kafka.containerFactory}")
     public void consumeJson(@Payload Section section ) {
+
         Log.info("consumed json message "+section);
-        System.out.println(section);
         logger.debug(Marker.ANY_MARKER,section);
         CommonOutput commonOutput= educationService.processEducationDetails(section);
         indexResource.postData(commonOutput);

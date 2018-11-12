@@ -26,7 +26,7 @@
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="config-server" options="" />
       <module name="eureka-registry" options="" />
-      <module name="zuulgateway" options="-parameters" />
+      <module name="zuulgateway" options="" />
     </option>
   </component>
 </project>
