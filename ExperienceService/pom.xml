@@ -4,7 +4,7 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.stackroute</groupId>
-	<artifactId>matchMaking</artifactId>
+	<artifactId>match-making</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
@@ -56,12 +56,6 @@
 			<groupId>org.springframework.kafka</groupId>
 			<artifactId>spring-kafka</artifactId>
 		</dependency>
-		<!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-data-jpa -->
-		<!--<dependency>-->
-			<!--<groupId>org.springframework.boot</groupId>-->
-			<!--<artifactId>spring-boot-starter-data-jpa</artifactId>-->
-			<!--<version>2.1.0.RELEASE</version>-->
-		<!--</dependency>-->
 
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -75,15 +69,6 @@
 			<version>1.18.4</version>
 			<scope>provided</scope>
 		</dependency>
-
-
-		<!-- https://mvnrepository.com/artifact/org.datanucleus/datanucleus-rdbms -->
-		<!--<dependency>-->
-			<!--<groupId>org.datanucleus</groupId>-->
-			<!--<artifactId>datanucleus-rdbms</artifactId>-->
-			<!--<version>5.1.11</version>-->
-		<!--</dependency>-->
-
 
 	</dependencies>
 
