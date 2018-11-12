@@ -1,31 +1,27 @@
 
->squid:S1452­"&Remove usage of generic wildcard type.(†ŒŽá
-~squid:S4144­"_Update this method so that its implementation is not identical to "newCertificate" on line 157.(†ŒŽá8ÅŠŸ¾ï,
-Bsquid:S1452N"&Remove usage of generic wildcard type.(‘ÿžúÿÿÿÿ
-Bsquid:S1452m"&Remove usage of generic wildcard type.(â…»©øÿÿÿÿ
-Bsquid:S1452@"&Remove usage of generic wildcard type.(Ñ¡›üþÿÿÿÿ
-=squid:S1452]"&Remove usage of generic wildcard type.(¬æÆû
-wsquid:S4144]"YUpdate this method so that its implementation is not identical to "newSkills" on line 85.(¬æÆû8ÅŠŸ¾ï,
-~squid:S4144¥"_Update this method so that its implementation is not identical to "newCertificate" on line 157.(›Á¬‘8ÅŠŸ¾ï,
-‚squid:S4144"^Update this method so that its implementation is not identical to "newExperience" on line 133.(¢Áœ±ùÿÿÿÿ8ÅŠŸ¾ï,
-~squid:S4144N"[Update this method so that its implementation is not identical to "newLocation" on line 64.(‘ÿžúÿÿÿÿ8ÅŠŸ¾ï,
-Bsquid:S1452:"&Remove usage of generic wildcard type.(«õÀßÿÿÿÿÿ
-ysquid:S4144}"[Update this method so that its implementation is not identical to "newProject" on line 109.(©‚Ã¸8ÅŠŸ¾ï,
-Bsquid:S1452U"&Remove usage of generic wildcard type.(Ìõ™úýÿÿÿÿ
-Bsquid:S1452-"&Remove usage of generic wildcard type.(ÖÐš²ýÿÿÿÿ
->squid:S1452•"&Remove usage of generic wildcard type.(õþ®¤
-=squid:S1452}"&Remove usage of generic wildcard type.(©‚Ã¸
->squid:S1452"&Remove usage of generic wildcard type.(Üû­¾
-Bsquid:S14524"&Remove usage of generic wildcard type.(þ“³µùÿÿÿÿ
-Csquid:S1452"&Remove usage of generic wildcard type.(¢Áœ±ùÿÿÿÿ
-=squid:S1452H"&Remove usage of generic wildcard type.(æàß„
-~squid:S4144u"[Update this method so that its implementation is not identical to "newProject" on line 109.(úÄÓÂýÿÿÿÿ8ÅŠŸ¾ï,
->squid:S1452¥"&Remove usage of generic wildcard type.(›Á¬‘
-squid:S4144:"\Update this method so that its implementation is not identical to "newEducation" on line 45.(«õÀßÿÿÿÿÿ8ÅŠŸ¾ï,
->squid:S1452…"&Remove usage of generic wildcard type.(÷æ¿ƒ
-}squid:S4144•"^Update this method so that its implementation is not identical to "newExperience" on line 133.(õþ®¤8ÅŠŸ¾ï,
-Bsquid:S1452u"&Remove usage of generic wildcard type.(úÄÓÂýÿÿÿÿ
-|squid:S4144e"YUpdate this method so that its implementation is not identical to "newSkills" on line 85.(Óç½²üÿÿÿÿ8ÅŠŸ¾ï,
-ysquid:S4144H"[Update this method so that its implementation is not identical to "newLocation" on line 64.(æàß„8ÅŠŸ¾ï,
-Bsquid:S1452e"&Remove usage of generic wildcard type.(Óç½²üÿÿÿÿ
-squid:S41444"\Update this method so that its implementation is not identical to "newEducation" on line 45.(þ“³µùÿÿÿÿ8¾”§¾ï,
+^squid:S1192M"GDefine a constant instead of duplicating this literal "delete" 6 times.(î¬éó
+^squid:S1192F"GDefine a constant instead of duplicating this literal "update" 6 times.(¬õƒ¾
+Bsquid:S14520"&Remove usage of generic wildcard type.(ÖÐš²ýÿÿÿÿ
+Bsquid:S1452E"&Remove usage of generic wildcard type.(þ“³µùÿÿÿÿ
+Bsquid:S1452L"&Remove usage of generic wildcard type.(«õÀßÿÿÿÿÿ
+Bsquid:S1452S"&Remove usage of generic wildcard type.(Ñ¡›üþÿÿÿÿ
+=squid:S1452\"&Remove usage of generic wildcard type.(æàß„
+Bsquid:S1452c"&Remove usage of generic wildcard type.(‘ÿžúÿÿÿÿ
+Bsquid:S1452k"&Remove usage of generic wildcard type.(Ìõ™úýÿÿÿÿ
+=squid:S1452t"&Remove usage of generic wildcard type.(¬æÆû
+Bsquid:S1452}"&Remove usage of generic wildcard type.(Óç½²üÿÿÿÿ
+Csquid:S1452†"&Remove usage of generic wildcard type.(â…»©øÿÿÿÿ
+Csquid:S1452"&Remove usage of generic wildcard type.(úÄÓÂýÿÿÿÿ
+>squid:S1452˜"&Remove usage of generic wildcard type.(©‚Ã¸
+>squid:S1452¡"&Remove usage of generic wildcard type.(÷æ¿ƒ
+Csquid:S1452ª"&Remove usage of generic wildcard type.(¢Áœ±ùÿÿÿÿ
+>squid:S1452³"&Remove usage of generic wildcard type.(õþ®¤
+>squid:S1452¼"&Remove usage of generic wildcard type.(Üû­¾
+>squid:S1452Å"&Remove usage of generic wildcard type.(›Á¬‘
+>squid:S1452Î"&Remove usage of generic wildcard type.(†ŒŽá
+T
+squid:S106="9Replace this use of System.out or System.err by a logger.(¶Û©°úÿÿÿÿ
+]squid:S2142<"FEither re-interrupt this method or rethrow the "InterruptedException".(ä ¹€
+[squid:S2147:"DCombine this catch with the one at line 55, which has the same body.(ÚúÞÂ
+?squid:S1148>"#Use a logger to log this exception.(€ÉÔ…ýÿÿÿÿ
+?squid:S1148@"#Use a logger to log this exception.(€ÉÔ…ýÿÿÿÿ

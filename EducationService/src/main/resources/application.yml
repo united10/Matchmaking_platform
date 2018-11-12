@@ -1,8 +1,16 @@
 server:
+<<<<<<< HEAD
   port: 8087
+=======
+  port: 8082
+>>>>>>> 3bcb17e53b0b39cbf4dbab933b59de54920aa6fe
 kafka:
   ipAddress: 172.23.239.245:9092
   groupId: group_id12
   outputTopic: indexer
+<<<<<<< HEAD
   linsteningTopic: experience
+=======
+  linsteningTopic: education
+>>>>>>> 3bcb17e53b0b39cbf4dbab933b59de54920aa6fe
   containerFactory: userKafkaListenerFactory
