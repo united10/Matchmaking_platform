@@ -1,5 +1,6 @@
 package com.example.upstream.configuration;
 
+import com.example.upstream.domain.KafkaProperties;
 import com.example.upstream.domain.certificate.Certificate;
 import com.example.upstream.domain.education.Education;
 import com.example.upstream.domain.experience.Experience;
@@ -8,6 +9,8 @@ import com.example.upstream.domain.project.Project;
 import com.example.upstream.domain.skills.Section;
 import org.apache.kafka.clients.producer.ProducerConfig;
 import org.apache.kafka.common.serialization.StringSerializer;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.kafka.core.DefaultKafkaProducerFactory;
@@ -21,12 +24,18 @@ import java.util.Map;
 @Configuration
 public class KafkaConfig {
 
+    private KafkaProperties kafkaProperties;
+    @Autowired
+    public void setUP(KafkaProperties kafkaProperties){
+        this.kafkaProperties=kafkaProperties;
+    }
     @Bean
     public ProducerFactory<String, Education> producerFactoryEducation() {
 
         Map<String, Object> config =new HashMap<>();
 
-        config.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG,"172.23.239.245:9092");
+        config.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG,kafkaProperties.getIpAddress());
+        System.out.println("${kafka.ipAddress}");
         config.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, StringSerializer.class);
         config.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, JsonSerializer.class);
 
@@ -39,7 +48,7 @@ public class KafkaConfig {
 
         Map<String, Object> config =new HashMap<>();
 
-        config.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG,"172.23.239.245:9092");
+        config.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG,kafkaProperties.getIpAddress());
         config.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, StringSerializer.class);
         config.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, JsonSerializer.class);
 
@@ -52,7 +61,7 @@ public class KafkaConfig {
 
         Map<String, Object> config =new HashMap<>();
 
-        config.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG,"172.23.239.245:9092");
+        config.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG,kafkaProperties.getIpAddress());
         config.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, StringSerializer.class);
         config.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, JsonSerializer.class);
 
@@ -65,7 +74,7 @@ public class KafkaConfig {
 
         Map<String, Object> config =new HashMap<>();
 
-        config.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG,"172.23.239.245:9092");
+        config.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG,kafkaProperties.getIpAddress());
         config.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, StringSerializer.class);
         config.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, JsonSerializer.class);
 
@@ -78,7 +87,7 @@ public class KafkaConfig {
 
         Map<String, Object> config =new HashMap<>();
 
-        config.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG,"172.23.239.245:9092");
+        config.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG,kafkaProperties.getIpAddress());
         config.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, StringSerializer.class);
         config.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, JsonSerializer.class);
 
@@ -91,7 +100,7 @@ public class KafkaConfig {
 
         Map<String, Object> config = new HashMap<>();
 
-        config.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, "172.23.239.245:9092");
+        config.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG,kafkaProperties.getIpAddress());
         config.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, StringSerializer.class);
         config.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, JsonSerializer.class);
 

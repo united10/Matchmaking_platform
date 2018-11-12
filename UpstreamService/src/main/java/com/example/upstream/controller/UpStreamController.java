@@ -6,11 +6,15 @@ import com.example.upstream.domain.experience.Experience;
 import com.example.upstream.domain.location.Location;
 import com.example.upstream.domain.project.Project;
 import com.example.upstream.domain.skills.Section;
+import org.apache.kafka.common.KafkaException;
+import org.apache.kafka.common.errors.TimeoutException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.concurrent.ExecutionException;
 
 @CrossOrigin
 @RestController
@@ -40,12 +44,25 @@ private static final String TOPIC2 = "location";
 private static final String TOPIC3 = "project";
 private static final String TOPIC4 = "experience";
 private static final String TOPIC5 = "certificate";
-
     @PostMapping("/education")
     public ResponseEntity<?> newEducation(@RequestBody Education education){
-        education.setOperationType("add");
-        ResponseEntity responseEntity = new ResponseEntity(education,HttpStatus.OK);
-        kafkaTemplateEducation.send(TOPIC,education);
+        ResponseEntity responseEntity = null;
+        try {
+            education.setOperationType("add");
+             responseEntity = new ResponseEntity(education, HttpStatus.OK);
+            kafkaTemplateEducation.send(TOPIC, education).get();
+        }
+        catch (TimeoutException e){
+            responseEntity = new ResponseEntity(education,HttpStatus.BAD_REQUEST);
+        }
+        catch (KafkaException e){
+            responseEntity = new ResponseEntity(education,HttpStatus.BAD_REQUEST);
+        } catch (InterruptedException e) {
+            System.out.println("caught  exception");
+            e.printStackTrace();
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+        }
         return responseEntity;
     }
     @PutMapping("/education")
