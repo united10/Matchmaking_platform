@@ -12,6 +12,8 @@
         <module name="LocationService" />
         <module name="matchMaking" />
         <module name="matchmaking" />
+        <module name="projectService" />
+        <module name="registration" />
         <module name="spring-location (2)" />
         <module name="spring-skill" />
         <module name="UpstreamService" />
