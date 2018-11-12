@@ -13,12 +13,13 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.web.bind.annotation.*;
-
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import java.util.concurrent.ExecutionException;
 
 @CrossOrigin
 @RestController
-@RequestMapping("/api/v1")
+@RequestMapping("${controller.base}")
 public class UpStreamController {
 private KafkaTemplate<String,Education> kafkaTemplateEducation;
 private KafkaTemplate<String, Section> kafkaTemplateSkills;
@@ -44,13 +45,16 @@ private static final String TOPIC2 = "location";
 private static final String TOPIC3 = "project";
 private static final String TOPIC4 = "experience";
 private static final String TOPIC5 = "certificate";
-    @PostMapping("/education")
+
+private final Logger logger = LoggerFactory.getLogger(UpStreamController.class);
+    @PostMapping("${controller.education}")
     public ResponseEntity<?> newEducation(@RequestBody Education education){
         ResponseEntity responseEntity = null;
         try {
             education.setOperationType("add");
              responseEntity = new ResponseEntity(education, HttpStatus.OK);
             kafkaTemplateEducation.send(TOPIC, education).get();
+
         }
         catch (TimeoutException e){
             responseEntity = new ResponseEntity(education,HttpStatus.BAD_REQUEST);
@@ -65,45 +69,49 @@ private static final String TOPIC5 = "certificate";
         }
         return responseEntity;
     }
-    @PutMapping("/education")
+    @PutMapping("${controller.education}")
     public ResponseEntity<?> updateEducation(@RequestBody Education education){
         education.setOperationType("update");
         ResponseEntity responseEntity = new ResponseEntity(education,HttpStatus.OK);
         kafkaTemplateEducation.send(TOPIC,education);
         return responseEntity;
     }
-    @DeleteMapping("/education")
+    @DeleteMapping("${controller.education}")
     public ResponseEntity<?> deleteEducation(@RequestBody Education education){
         education.setOperationType("delete");
         ResponseEntity responseEntity = new ResponseEntity(education,HttpStatus.OK);
         kafkaTemplateEducation.send(TOPIC,education);
         return responseEntity;
     }
-    @PostMapping("/location")
+    @PostMapping("${controller.location}")
     public ResponseEntity<?> newLocation(@RequestBody Location location)
     {
         location.setOperationType("add");
         ResponseEntity responseEntity = new ResponseEntity(location,HttpStatus.OK);
         kafkaTemplateLocation.send(TOPIC2,location);
+        logger.debug("This is a debug message");
+        logger.info("This is an info message");
+        logger.warn("This is a warn message");
+        logger.error("This is an error message");
         return responseEntity;
 
     }
-    @PutMapping("/location")
+    @PutMapping("${controller.location}")
     public ResponseEntity<?> updateLocation(@RequestBody Location location){
         location.setOperationType("update");
         ResponseEntity responseEntity = new ResponseEntity(location,HttpStatus.OK);
         kafkaTemplateLocation.send(TOPIC2,location);
         return responseEntity;
     }
-    @DeleteMapping("/location")
-    public ResponseEntity<?> deleteEducation(@RequestBody Location location){
+    @DeleteMapping("${controller.location}")
+    public ResponseEntity<?> deleteLocation(@RequestBody Location location){
         location.setOperationType("delete");
         ResponseEntity responseEntity = new ResponseEntity(location,HttpStatus.OK);
         kafkaTemplateLocation.send(TOPIC2,location);
         return responseEntity;
     }
 
-    @PostMapping("/skills")
+    @PostMapping("${controller.skills}")
     public ResponseEntity<?> newSkills(@RequestBody Section section)
     {
         section.setOperationType("add");
@@ -112,7 +120,7 @@ private static final String TOPIC5 = "certificate";
         return responseEntity;
 
     }
-    @PutMapping("/skills")
+    @PutMapping("${controller.skills}")
     public ResponseEntity<?> updateSkills(@RequestBody Section section)
     {
         section.setOperationType("update");
@@ -121,7 +129,7 @@ private static final String TOPIC5 = "certificate";
         return responseEntity;
 
     }
-    @DeleteMapping("/skills")
+    @DeleteMapping("${controller.skills}")
     public ResponseEntity<?> deleteSkills(@RequestBody Section section)
     {
         section.setOperationType("delete");
@@ -130,7 +138,7 @@ private static final String TOPIC5 = "certificate";
         return responseEntity;
 
     }
-    @PostMapping("/project")
+    @PostMapping("${controller.project}")
     public ResponseEntity<?> newProject(@RequestBody Project project)
     {
         project.setOperationType("add");
@@ -139,7 +147,7 @@ private static final String TOPIC5 = "certificate";
         return responseEntity;
 
     }
-    @PutMapping("/project")
+    @PutMapping("${controller.project}")
     public ResponseEntity<?> updateProject(@RequestBody Project project)
     {
         project.setOperationType("update");
@@ -148,7 +156,7 @@ private static final String TOPIC5 = "certificate";
         return responseEntity;
 
     }
-    @DeleteMapping("/project")
+    @DeleteMapping("${controller.project}")
     public ResponseEntity<?> deleteProject(@RequestBody Project project)
     {
         project.setOperationType("delete");
@@ -157,7 +165,7 @@ private static final String TOPIC5 = "certificate";
         return responseEntity;
 
     }
-    @PostMapping("/experience")
+    @PostMapping("${controller.experience}")
     public ResponseEntity<?> newExperience(@RequestBody Experience experience)
     {
         experience.setOperationType("add");
@@ -166,7 +174,7 @@ private static final String TOPIC5 = "certificate";
         return responseEntity;
 
     }
-    @PutMapping("/experience")
+    @PutMapping("${controller.experience}")
     public ResponseEntity<?> updateExperience(@RequestBody Experience experience)
     {
         experience.setOperationType("update");
@@ -175,7 +183,7 @@ private static final String TOPIC5 = "certificate";
         return responseEntity;
 
     }
-    @DeleteMapping("/experience")
+    @DeleteMapping("${controller.experience}")
     public ResponseEntity<?> deleteExperience(@RequestBody Experience experience)
     {
         experience.setOperationType("delete");
@@ -184,7 +192,7 @@ private static final String TOPIC5 = "certificate";
         return responseEntity;
 
     }
-    @PostMapping("/certificate")
+    @PostMapping("${controller.certificate}")
     public ResponseEntity<?> newCertificate(@RequestBody Certificate certificate)
     {
         certificate.setOperationType("add");
@@ -193,7 +201,7 @@ private static final String TOPIC5 = "certificate";
         return responseEntity;
 
     }
-    @PutMapping("/certificate")
+    @PutMapping("${controller.certificate}")
     public ResponseEntity<?> updateCertificate(@RequestBody Certificate certificate)
     {
         certificate.setOperationType("update");
@@ -202,7 +210,7 @@ private static final String TOPIC5 = "certificate";
         return responseEntity;
 
     }
-    @DeleteMapping("/certificate")
+    @DeleteMapping("${controller.certificate}")
     public ResponseEntity<?> deleteCertificate(@RequestBody Certificate certificate)
     {
         certificate.setOperationType("delete");
