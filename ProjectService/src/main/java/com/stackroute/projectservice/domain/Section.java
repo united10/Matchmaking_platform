@@ -1,5 +1,4 @@
-package com.stackroute.educationservice.projectservice.domain;
-
+package com.stackroute.projectservice.domain;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -10,7 +9,7 @@ import lombok.NoArgsConstructor;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class Project {
+public class Section {
     private String sectionId;
     private String userId;
     private String operationType;

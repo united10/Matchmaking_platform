@@ -1,4 +1,4 @@
-package com.stackroute.educationservice.projectservice.domain;
+package com.stackroute.projectservice.domain;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -15,6 +15,5 @@ public class CommonOutput {
     private String sourceNodeProperty;
     private String targetNode;
     private String targetNodeProperty;
-    private String relationshipProperty;
-    private String relationshipType;
+    private Relationship[] relationship;
 }

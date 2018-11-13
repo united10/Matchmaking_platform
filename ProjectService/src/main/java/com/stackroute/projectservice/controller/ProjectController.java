@@ -1,9 +1,9 @@
-package com.stackroute.educationservice.projectservice.Controller;
+package com.stackroute.projectservice.controller;
 
 
-import com.stackroute.educationservice.projectservice.Service.ProjectService;
-import com.stackroute.educationservice.projectservice.domain.CommonOutput;
-import com.stackroute.educationservice.projectservice.domain.Project;
+import com.stackroute.projectservice.service.ProjectService;
+import com.stackroute.projectservice.domain.CommonOutput;
+import com.stackroute.projectservice.domain.Section;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -20,7 +20,7 @@ public class ProjectController {
     }
 
     @PostMapping("project")
-    public ResponseEntity<?> processData(@RequestBody Project project){
+    public ResponseEntity<?> processData(@RequestBody Section project){
         ResponseEntity responseEntity;
         try{
             CommonOutput commonOutput = projectService.processProjectDetails(project);
@@ -34,7 +34,7 @@ public class ProjectController {
     }
 
     @GetMapping("/project")
-    public ResponseEntity<?> viewData(@RequestBody Project project){
+    public ResponseEntity<?> viewData(@RequestBody Section project){
         ResponseEntity responseEntity;
         try{
             CommonOutput commonOutput = projectService.processProjectDetails(project);
@@ -46,7 +46,7 @@ public class ProjectController {
         return responseEntity;
     }
     @PutMapping("/project")
-    public ResponseEntity<?> updateData(@RequestBody  Project project){
+    public ResponseEntity<?> updateData(@RequestBody Section project){
         ResponseEntity responseEntity;
         try{
             CommonOutput commonOutput = projectService.processProjectDetails(project);
@@ -58,7 +58,7 @@ public class ProjectController {
     }
 
     @DeleteMapping("/project")
-    public ResponseEntity<?> deleteData(@RequestBody Project project){
+    public ResponseEntity<?> deleteData(@RequestBody Section project){
         ResponseEntity responseEntity;
         try{
             CommonOutput commonOutput = projectService.processProjectDetails(project);

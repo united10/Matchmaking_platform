@@ -1,4 +1,4 @@
-package com.stackroute.educationservice.projectservice;
+package com.stackroute.projectservice;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
