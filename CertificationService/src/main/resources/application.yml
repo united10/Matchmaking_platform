@@ -4,5 +4,5 @@ kafka:
   ipAddress: 172.23.239.245:9092
   groupId: group_id3
   outputTopic: indexer
-  listeningTopic: certification
+  listeningTopic: certificate
   containerFactory: userKafkaListenerFactory
