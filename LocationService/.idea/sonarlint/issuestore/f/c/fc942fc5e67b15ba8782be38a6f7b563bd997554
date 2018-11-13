@@ -1,0 +1,5 @@
+
+Osquid:S1068"3Remove this unused "kafkaProperties" private field.(ãéŸ„ûÿÿÿÿ
+zsquid:S1450"^Remove the "kafkaProperties" field and declare it as a local variable in the relevant methods.(ãéŸ„ûÿÿÿÿ
+gsquid:CommentedOutCodeLine!"<This block of commented-out lines of code should be removed.(ÏÒëùÿÿÿÿ
+bsquid:CommentedOutCodeLine%"<This block of commented-out lines of code should be removed.(ÏæüÊ

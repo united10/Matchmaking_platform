@@ -14,8 +14,8 @@ public class KafkaListening {
     @Autowired
     IndexResourceImplementation indexResourceImplementation;
 
-    @KafkaListener(topics = "certificate" ,groupId = "group_id3",
-            containerFactory="userKafkaListenerFactory")
+    @KafkaListener(topics = "${kafka.listeningTopic}" ,groupId = "${kafka.groupId}",
+            containerFactory="${kafka.containerFactory}")
     public void consumeJson(@Payload Section section) {
         Relationships[] relationships=new Relationships[1];
         Relationships relationships1=new Relationships("working","is-a");
