@@ -1,4 +1,4 @@
-package com.stackroute.educationservice.projectservice;
+package com.stackroute.projectservice;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

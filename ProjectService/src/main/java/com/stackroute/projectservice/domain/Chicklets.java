@@ -1,4 +1,4 @@
-package com.stackroute.educationservice.projectservice.domain;
+package com.stackroute.projectservice.domain;
 
 
 import lombok.AllArgsConstructor;
@@ -11,5 +11,5 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Chicklets {
-    private ProjectDetails projectDetails[];
+    private ProjectDetails projectDetails;
 }

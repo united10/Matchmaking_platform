@@ -1,11 +1,10 @@
-package com.stackroute.educationservice.projectservice.domain;
+package com.stackroute.projectservice.domain;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.List;
 
 @Data
 @Builder
@@ -17,6 +16,6 @@ public class ProjectDetails {
     private String toDate;
     private String projectUrl;
     private String role;
-    private List<Skill> technologiesUsed;
+    private Skill[] technologiesUsed;
     private String description;
 }

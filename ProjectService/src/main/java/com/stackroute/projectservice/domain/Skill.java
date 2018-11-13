@@ -1,4 +1,4 @@
-package com.stackroute.educationservice.projectservice.domain;
+package com.stackroute.projectservice.domain;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
