@@ -18,7 +18,7 @@ export class CardComponent implements OnInit {
     const dialogConfig = new MatDialogConfig();
     dialogConfig.disableClose = false;
     dialogConfig.autoFocus = true;
-    dialogConfig.width= '30%';
+    dialogConfig.width = '30%';
     this.dialog.open(DetailsdialogComponent, dialogConfig);
   }
 

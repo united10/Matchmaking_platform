@@ -9,8 +9,8 @@
         <module name="config-server" />
         <module name="EducationService" />
         <module name="eureka-registry" />
+        <module name="ExperienceService" />
         <module name="LocationService" />
-        <module name="matchMaking" />
         <module name="matchmaking" />
         <module name="projectService" />
         <module name="registration" />

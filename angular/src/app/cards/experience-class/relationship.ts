@@ -1,10 +1,10 @@
 export class Relationship {
-    // constructor(private relationshipProperty: string,
-    //     private relationType: string) {
-    //     this.relationshipProperty = relationshipProperty;
-    //     this.relationType = relationType;
-    // }
+    constructor(private relationshipProperty: string,
+        private relationType: string) {
+        this.relationshipProperty = relationshipProperty;
+        this.relationType = relationType;
+    }
 
-    relationshipProperty: string;
-    relationType: string;
+    // relationshipProperty: string;
+    // relationType: string;
 }

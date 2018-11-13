@@ -27,7 +27,7 @@ import { ExperienceComponent } from './experience/experience.component';
     MatNativeDateModule
   ],
   declarations: [CardComponent, DetailsdialogComponent, EducationdialogComponent, ExperienceComponent],
-  entryComponents: [DetailsdialogComponent, EducationdialogComponent],
+  entryComponents: [DetailsdialogComponent, EducationdialogComponent, ExperienceComponent],
   exports: [CardComponent]
 })
 export class CardsModule { }
