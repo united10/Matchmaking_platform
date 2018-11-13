@@ -1,6 +1,6 @@
 package com.stackroute.projectservice.config;
 
-import com.stackroute.projectservice.domain.CommonOutput
+import com.stackroute.projectservice.domain.CommonOutput;
 import com.stackroute.projectservice.domain.KafkaProperties;
 import org.apache.kafka.clients.producer.ProducerConfig;
 import org.apache.kafka.common.serialization.StringSerializer;
@@ -16,12 +16,12 @@ import java.util.Map;
 
 @Configuration
 public class KafkaProducer {
-    @Autowired
-    KafkaProperties kafkaProperties;
-    @Bean
-    public ProducerFactory<String,CommonOutput > producerFactory() {
 
-        Map<String, Object> config =new HashMap<String, Object>();
+    @Bean
+    private ProducerFactory<String,CommonOutput> producerFactory() {
+        @Autowired
+        KafkaProperties kafkaProperties;
+        Map<String, Object> config =new HashMap<>();
 
         config.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG,kafkaProperties.getIpAddress());
         config.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, StringSerializer.class);
@@ -34,6 +34,6 @@ public class KafkaProducer {
 
     @Bean
     public KafkaTemplate<String, CommonOutput> kafkaTemplate() {
-        return new KafkaTemplate<String, CommonOutput>(producerFactory());
+        return new KafkaTemplate<>(producerFactory());
     }
 }

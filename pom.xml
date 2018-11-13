@@ -28,6 +28,13 @@
         <module>config-server</module>
         <module>eureka-registry</module>
         <module>zuulgateway</module>
+        <module>UpstreamService</module>
+        <module>ProjectService</module>
+        <module>LocationService</module>
+        <module>ExperienceService</module>
+        <module>EducationService</module>
+        <module>CertificationService</module>
+        <module>RegistrationService</module>
         <module>DownstreamService</module>
 
     </modules>
@@ -69,6 +76,12 @@
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-api</artifactId>
             <version>1.7.25</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <optional>true</optional>
         </dependency>
 
 
