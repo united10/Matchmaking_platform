@@ -1,9 +1,11 @@
 package com.stackroute.config;
 
+import com.stackroute.domain.KafkaProperties;
 import com.stackroute.domain.Section;
 import org.apache.kafka.clients.consumer.ConsumerConfig;
 import org.apache.kafka.common.serialization.BytesDeserializer;
 import org.apache.kafka.common.serialization.StringDeserializer;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.kafka.annotation.EnableKafka;
@@ -18,13 +20,18 @@ import java.util.Map;
 @EnableKafka
 @Configuration
 public class KafkaConsumer {
+    private KafkaProperties kafkaProperties;
+    @Autowired
+    public void setApp(KafkaProperties kafkaProperties){
+        this.kafkaProperties = kafkaProperties;
+    }
     @Bean
     public ConsumerFactory<String, String> consumerFactory() {
 
         Map<String, Object> config =new HashMap<>();
 
-        config.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG,"172.23.239.245:9092");
-        config.put(ConsumerConfig.GROUP_ID_CONFIG, "group_id1");
+        config.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG,kafkaProperties.getIpAddress());
+        config.put(ConsumerConfig.GROUP_ID_CONFIG, kafkaProperties.getGroupId());
         config.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class);
         config.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG,StringDeserializer.class);
 
@@ -45,8 +52,8 @@ public class KafkaConsumer {
 
         Map<String, Object> config =new HashMap<>();
 
-        config.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG,"172.23.239.245:9092");
-        config.put(ConsumerConfig.GROUP_ID_CONFIG, "group_id3");
+        config.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG,kafkaProperties.getIpAddress());
+        config.put(ConsumerConfig.GROUP_ID_CONFIG, kafkaProperties.getGroupId());
         config.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class);
         config.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, BytesDeserializer.class);
 

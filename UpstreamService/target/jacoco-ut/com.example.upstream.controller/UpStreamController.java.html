@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>UpStreamController.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">UpstreamService</a> &gt; <a href="index.source.html" class="el_package">com.example.upstream.controller</a> &gt; <span class="el_source">UpStreamController.java</span></div><h1>UpStreamController.java</h1><pre class="source lang-java linenums">package com.example.upstream.controller;
+
+import com.example.upstream.UpstreamServiceApplication;
+import com.example.upstream.domain.certificate.Certificate;
+import com.example.upstream.domain.education.Education;
+import com.example.upstream.domain.experience.Experience;
+import com.example.upstream.domain.location.Location;
+import com.example.upstream.domain.project.Project;
+import com.example.upstream.domain.skills.Section;
+import org.apache.kafka.common.KafkaException;
+import org.apache.kafka.common.errors.TimeoutException;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.kafka.core.KafkaTemplate;
+import org.springframework.web.bind.annotation.*;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import java.util.concurrent.ExecutionException;
+
+@CrossOrigin
+@RestController
+@RequestMapping(&quot;${controller.base}&quot;)
+public class UpStreamController {
+private KafkaTemplate&lt;String,Education&gt; kafkaTemplateEducation;
+private KafkaTemplate&lt;String, Section&gt; kafkaTemplateSkills;
+private KafkaTemplate&lt;String, Location&gt;kafkaTemplateLocation;
+private KafkaTemplate&lt;String,Project&gt;kafkaTemplateProject;
+private KafkaTemplate&lt;String, Experience&gt;kafkaTemplateExperience;
+private KafkaTemplate&lt;String,Certificate&gt;kafkaTemplateCertificate;
+
+    @Autowired
+<span class="fc" id="L33">    public UpStreamController(KafkaTemplate&lt;String, Education&gt; kafkaTemplateEducation, KafkaTemplate&lt;String, Section&gt; kafkaTemplateSkills, KafkaTemplate&lt;String, Location&gt; kafkaTemplateLocation, KafkaTemplate&lt;String, Project&gt; kafkaTemplateProject, KafkaTemplate&lt;String, Experience&gt; kafkaTemplateExperience, KafkaTemplate&lt;String, Certificate&gt; kafkaTemplateCertificate) {</span>
+<span class="fc" id="L34">        this.kafkaTemplateEducation = kafkaTemplateEducation;</span>
+<span class="fc" id="L35">        this.kafkaTemplateSkills = kafkaTemplateSkills;</span>
+<span class="fc" id="L36">        this.kafkaTemplateLocation = kafkaTemplateLocation;</span>
+<span class="fc" id="L37">        this.kafkaTemplateProject = kafkaTemplateProject;</span>
+<span class="fc" id="L38">        this.kafkaTemplateExperience = kafkaTemplateExperience;</span>
+<span class="fc" id="L39">        this.kafkaTemplateCertificate = kafkaTemplateCertificate;</span>
+<span class="fc" id="L40">    }</span>
+
+//Creating topics
+private static final  String  TOPIC =&quot;education&quot;;
+private static final String TOPIC1 = &quot;skills&quot;;
+private static final String TOPIC2 = &quot;location&quot;;
+private static final String TOPIC3 = &quot;project&quot;;
+private static final String TOPIC4 = &quot;experience&quot;;
+private static final String TOPIC5 = &quot;certificate&quot;;
+
+//private final Logger logger = LoggerFactory.getLogger(UpstreamServiceApplication.class);
+    @PostMapping(&quot;${controller.education}&quot;)
+    public ResponseEntity&lt;?&gt; newEducation(@RequestBody Education education){
+<span class="nc" id="L53">        ResponseEntity responseEntity = null;</span>
+        try {
+<span class="nc" id="L55">            education.setOperationType(&quot;add&quot;);</span>
+<span class="nc" id="L56">             responseEntity = new ResponseEntity(education, HttpStatus.OK);</span>
+<span class="nc" id="L57">            kafkaTemplateEducation.send(TOPIC, education).get();</span>
+
+        }
+<span class="nc" id="L60">        catch (TimeoutException e){</span>
+<span class="nc" id="L61">            responseEntity = new ResponseEntity(education,HttpStatus.BAD_REQUEST);</span>
+        }
+<span class="nc" id="L63">        catch (KafkaException e){</span>
+<span class="nc" id="L64">            responseEntity = new ResponseEntity(education,HttpStatus.BAD_REQUEST);</span>
+<span class="nc" id="L65">        } catch (InterruptedException e) {</span>
+<span class="nc" id="L66">            System.out.println(&quot;caught  exception&quot;);</span>
+<span class="nc" id="L67">            e.printStackTrace();</span>
+<span class="nc" id="L68">        } catch (ExecutionException e) {</span>
+<span class="nc" id="L69">            e.printStackTrace();</span>
+<span class="nc" id="L70">        }</span>
+<span class="nc" id="L71">        return responseEntity;</span>
+    }
+    @PutMapping(&quot;${controller.education}&quot;)
+    public ResponseEntity&lt;?&gt; updateEducation(@RequestBody Education education){
+<span class="nc" id="L75">        education.setOperationType(&quot;update&quot;);</span>
+<span class="nc" id="L76">        ResponseEntity responseEntity = new ResponseEntity(education,HttpStatus.OK);</span>
+<span class="nc" id="L77">        kafkaTemplateEducation.send(TOPIC,education);</span>
+<span class="nc" id="L78">        return responseEntity;</span>
+    }
+    @DeleteMapping(&quot;${controller.education}&quot;)
+    public ResponseEntity&lt;?&gt; deleteEducation(@RequestBody Education education){
+<span class="nc" id="L82">        education.setOperationType(&quot;delete&quot;);</span>
+<span class="nc" id="L83">        ResponseEntity responseEntity = new ResponseEntity(education,HttpStatus.OK);</span>
+<span class="nc" id="L84">        kafkaTemplateEducation.send(TOPIC,education);</span>
+<span class="nc" id="L85">        return responseEntity;</span>
+    }
+    @PostMapping(&quot;${controller.location}&quot;)
+    public ResponseEntity&lt;?&gt; newLocation(@RequestBody Location location)
+    {
+<span class="nc" id="L90">        location.setOperationType(&quot;add&quot;);</span>
+<span class="nc" id="L91">        ResponseEntity responseEntity = new ResponseEntity(location,HttpStatus.OK);</span>
+<span class="nc" id="L92">        kafkaTemplateLocation.send(TOPIC2,location);</span>
+/*        logger.debug(&quot;This is a debug message&quot;);
+        logger.info(&quot;This is an info message&quot;);
+        logger.warn(&quot;This is a warn message&quot;);
+        logger.error(&quot;This is an error message&quot;);*/
+<span class="nc" id="L97">        return responseEntity;</span>
+
+    }
+    @PutMapping(&quot;${controller.location}&quot;)
+    public ResponseEntity&lt;?&gt; updateLocation(@RequestBody Location location){
+<span class="nc" id="L102">        location.setOperationType(&quot;update&quot;);</span>
+<span class="nc" id="L103">        ResponseEntity responseEntity = new ResponseEntity(location,HttpStatus.OK);</span>
+<span class="nc" id="L104">        kafkaTemplateLocation.send(TOPIC2,location);</span>
+<span class="nc" id="L105">        return responseEntity;</span>
+    }
+    @DeleteMapping(&quot;${controller.location}&quot;)
+    public ResponseEntity&lt;?&gt; deleteLocation(@RequestBody Location location){
+<span class="nc" id="L109">        location.setOperationType(&quot;delete&quot;);</span>
+<span class="nc" id="L110">        ResponseEntity responseEntity = new ResponseEntity(location,HttpStatus.OK);</span>
+<span class="nc" id="L111">        kafkaTemplateLocation.send(TOPIC2,location);</span>
+<span class="nc" id="L112">        return responseEntity;</span>
+    }
+
+    @PostMapping(&quot;${controller.skills}&quot;)
+    public ResponseEntity&lt;?&gt; newSkills(@RequestBody Section section)
+    {
+<span class="nc" id="L118">        section.setOperationType(&quot;add&quot;);</span>
+<span class="nc" id="L119">        ResponseEntity responseEntity = new ResponseEntity(section,HttpStatus.OK);</span>
+<span class="nc" id="L120">        kafkaTemplateSkills.send(TOPIC1,section);</span>
+<span class="nc" id="L121">        return responseEntity;</span>
+
+    }
+    @PutMapping(&quot;${controller.skills}&quot;)
+    public ResponseEntity&lt;?&gt; updateSkills(@RequestBody Section section)
+    {
+<span class="nc" id="L127">        section.setOperationType(&quot;update&quot;);</span>
+<span class="nc" id="L128">        ResponseEntity responseEntity = new ResponseEntity(section,HttpStatus.OK);</span>
+<span class="nc" id="L129">        kafkaTemplateSkills.send(TOPIC1,section);</span>
+<span class="nc" id="L130">        return responseEntity;</span>
+
+    }
+    @DeleteMapping(&quot;${controller.skills}&quot;)
+    public ResponseEntity&lt;?&gt; deleteSkills(@RequestBody Section section)
+    {
+<span class="nc" id="L136">        section.setOperationType(&quot;delete&quot;);</span>
+<span class="nc" id="L137">        ResponseEntity responseEntity = new ResponseEntity(section,HttpStatus.OK);</span>
+<span class="nc" id="L138">        kafkaTemplateSkills.send(TOPIC1,section);</span>
+<span class="nc" id="L139">        return responseEntity;</span>
+
+    }
+    @PostMapping(&quot;${controller.project}&quot;)
+    public ResponseEntity&lt;?&gt; newProject(@RequestBody Project project)
+    {
+<span class="nc" id="L145">        project.setOperationType(&quot;add&quot;);</span>
+<span class="nc" id="L146">        ResponseEntity responseEntity = new ResponseEntity(project,HttpStatus.OK);</span>
+<span class="nc" id="L147">        kafkaTemplateProject.send(TOPIC3,project);</span>
+<span class="nc" id="L148">        return responseEntity;</span>
+
+    }
+    @PutMapping(&quot;${controller.project}&quot;)
+    public ResponseEntity&lt;?&gt; updateProject(@RequestBody Project project)
+    {
+<span class="nc" id="L154">        project.setOperationType(&quot;update&quot;);</span>
+<span class="nc" id="L155">        ResponseEntity responseEntity = new ResponseEntity(project,HttpStatus.OK);</span>
+<span class="nc" id="L156">        kafkaTemplateProject.send(TOPIC3,project);</span>
+<span class="nc" id="L157">        return responseEntity;</span>
+
+    }
+    @DeleteMapping(&quot;${controller.project}&quot;)
+    public ResponseEntity&lt;?&gt; deleteProject(@RequestBody Project project)
+    {
+<span class="nc" id="L163">        project.setOperationType(&quot;delete&quot;);</span>
+<span class="nc" id="L164">        ResponseEntity responseEntity = new ResponseEntity(project,HttpStatus.OK);</span>
+<span class="nc" id="L165">        kafkaTemplateProject.send(TOPIC3,project);</span>
+<span class="nc" id="L166">        return responseEntity;</span>
+
+    }
+    @PostMapping(&quot;${controller.experience}&quot;)
+    public ResponseEntity&lt;?&gt; newExperience(@RequestBody Experience experience)
+    {
+<span class="nc" id="L172">        experience.setOperationType(&quot;add&quot;);</span>
+<span class="nc" id="L173">        ResponseEntity responseEntity = new ResponseEntity(experience,HttpStatus.OK);</span>
+<span class="nc" id="L174">        kafkaTemplateExperience.send(TOPIC4,experience);</span>
+<span class="nc" id="L175">        return responseEntity;</span>
+
+    }
+    @PutMapping(&quot;${controller.experience}&quot;)
+    public ResponseEntity&lt;?&gt; updateExperience(@RequestBody Experience experience)
+    {
+<span class="nc" id="L181">        experience.setOperationType(&quot;update&quot;);</span>
+<span class="nc" id="L182">        ResponseEntity responseEntity = new ResponseEntity(experience,HttpStatus.OK);</span>
+<span class="nc" id="L183">        kafkaTemplateExperience.send(TOPIC4,experience);</span>
+<span class="nc" id="L184">        return responseEntity;</span>
+
+    }
+    @DeleteMapping(&quot;${controller.experience}&quot;)
+    public ResponseEntity&lt;?&gt; deleteExperience(@RequestBody Experience experience)
+    {
+<span class="nc" id="L190">        experience.setOperationType(&quot;delete&quot;);</span>
+<span class="nc" id="L191">        ResponseEntity responseEntity = new ResponseEntity(experience,HttpStatus.OK);</span>
+<span class="nc" id="L192">        kafkaTemplateExperience.send(TOPIC4,experience);</span>
+<span class="nc" id="L193">        return responseEntity;</span>
+
+    }
+    @PostMapping(&quot;${controller.certificate}&quot;)
+    public ResponseEntity&lt;?&gt; newCertificate(@RequestBody Certificate certificate)
+    {
+<span class="nc" id="L199">        certificate.setOperationType(&quot;add&quot;);</span>
+<span class="nc" id="L200">        ResponseEntity responseEntity = new ResponseEntity(certificate,HttpStatus.OK);</span>
+<span class="nc" id="L201">        kafkaTemplateCertificate.send(TOPIC5,certificate);</span>
+<span class="nc" id="L202">        return responseEntity;</span>
+
+    }
+    @PutMapping(&quot;${controller.certificate}&quot;)
+    public ResponseEntity&lt;?&gt; updateCertificate(@RequestBody Certificate certificate)
+    {
+<span class="nc" id="L208">        certificate.setOperationType(&quot;update&quot;);</span>
+<span class="nc" id="L209">        ResponseEntity responseEntity = new ResponseEntity(certificate,HttpStatus.OK);</span>
+<span class="nc" id="L210">        kafkaTemplateCertificate.send(TOPIC5,certificate);</span>
+<span class="nc" id="L211">        return responseEntity;</span>
+
+    }
+    @DeleteMapping(&quot;${controller.certificate}&quot;)
+    public ResponseEntity&lt;?&gt; deleteCertificate(@RequestBody Certificate certificate)
+    {
+<span class="nc" id="L217">        certificate.setOperationType(&quot;delete&quot;);</span>
+<span class="nc" id="L218">        ResponseEntity responseEntity = new ResponseEntity(certificate,HttpStatus.OK);</span>
+<span class="nc" id="L219">        kafkaTemplateCertificate.send(TOPIC5,certificate);</span>
+<span class="nc" id="L220">        return responseEntity;</span>
+
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.2.201808211720</span></div></body></html>

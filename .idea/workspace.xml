@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+<<<<<<< HEAD
   <component name="BookmarkManager">
     <bookmark url="file://$PROJECT_DIR$/DownstreamService/src/main/java/com/stackroute/downstreamservice/listener/KafkaConsumer.java" description="//    @KafkaListener(topics = &quot;user&quot; ,groupId = &quot;g..." line="34" />
   </component>
@@ -50,6 +51,24 @@
     <ignored path="$PROJECT_DIR$/RegistrationService/target/" />
     <ignored path="$PROJECT_DIR$/LocationService/target/" />
     <ignored path="$PROJECT_DIR$/target/" />
+=======
+  <component name="ChangeListManager">
+    <list default="true" id="ebb40d5e-e7ab-41c1-b25d-d0ef6e0ae002" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/UpstreamService/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/UpstreamService/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UpstreamService/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/UpstreamService/src/main/resources/application.yml" afterDir="false" />
+    </list>
+    <ignored path="$PROJECT_DIR$/zuulgateway/target/" />
+    <ignored path="$PROJECT_DIR$/eureka-registry/target/" />
+    <ignored path="$PROJECT_DIR$/EducationService/target/" />
+    <ignored path="$PROJECT_DIR$/target/" />
+    <ignored path="$PROJECT_DIR$/config-server/target/" />
+    <ignored path="$PROJECT_DIR$/ExperienceService/target/" />
+    <ignored path="$PROJECT_DIR$/UpstreamService/target/" />
+    <ignored path="$PROJECT_DIR$/LocationService/target/" />
+    <ignored path="$PROJECT_DIR$/ProjectService/target/" />
+    <ignored path="$PROJECT_DIR$/RegistrationService/target/" />
+    <ignored path="$PROJECT_DIR$/spring-skill/target/" />
+>>>>>>> 2ef3e55689b85a80e97096332ae9822eb3b079a5
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,6 +76,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FUSProjectUsageTrigger">
+<<<<<<< HEAD
     <session id="979909287">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
@@ -99,6 +119,43 @@
           <entry key="JAVA" value="280" />
           <entry key="XML" value="11" />
           <entry key="YAML" value="51" />
+=======
+    <session id="715364975">
+      <usages-collector id="statistics.file.extensions.edit">
+        <counts>
+          <entry key="Dockerfile" value="66" />
+          <entry key="java" value="9" />
+          <entry key="xml" value="10" />
+          <entry key="yml" value="14" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.edit">
+        <counts>
+          <entry key="JAVA" value="9" />
+          <entry key="PLAIN_TEXT" value="66" />
+          <entry key="XML" value="10" />
+          <entry key="YAML" value="14" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.lifecycle.project">
+        <counts>
+          <entry key="project.open.time.49" value="1" />
+          <entry key="project.opened" value="1" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.open">
+        <counts>
+          <entry key="Dockerfile" value="3" />
+          <entry key="java" value="2" />
+          <entry key="yml" value="1" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.open">
+        <counts>
+          <entry key="JAVA" value="2" />
+          <entry key="PLAIN_TEXT" value="3" />
+          <entry key="YAML" value="1" />
+>>>>>>> 2ef3e55689b85a80e97096332ae9822eb3b079a5
         </counts>
       </usages-collector>
       <usages-collector id="statistics.vcs.git.usages" />
@@ -106,6 +163,7 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+<<<<<<< HEAD
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/DownstreamService/src/main/java/com/stackroute/downstreamservice/listener/KafkaConsumer.java">
           <provider selected="true" editor-type-id="text-editor">
@@ -192,18 +250,36 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="210">
               <caret line="27" column="54" lean-forward="true" selection-start-line="27" selection-start-column="54" selection-end-line="27" selection-end-column="54" />
+=======
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/UpstreamService/Dockerfile">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="90">
+              <caret line="6" column="25" lean-forward="true" selection-start-line="6" selection-start-column="25" selection-end-line="6" selection-end-column="25" />
+>>>>>>> 2ef3e55689b85a80e97096332ae9822eb3b079a5
             </state>
           </provider>
         </entry>
       </file>
     </leaf>
   </component>
+<<<<<<< HEAD
+=======
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+>>>>>>> 2ef3e55689b85a80e97096332ae9822eb3b079a5
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
+<<<<<<< HEAD
         <option value="$PROJECT_DIR$/DownstreamService/src/main/java/com/stackroute/DownstreamService/domain/CertificateDetails.java" />
         <option value="$PROJECT_DIR$/DownstreamService/src/main/java/com/stackroute/DownstreamService/listener/KafkaConsumer.java" />
         <option value="$PROJECT_DIR$/DownstreamService/pom.xml" />
@@ -216,6 +292,14 @@
         <option value="$PROJECT_DIR$/DownstreamService/src/main/java/com/stackroute/downstreamservice/service/EmployeeService.java" />
         <option value="$PROJECT_DIR$/DownstreamService/src/main/java/com/stackroute/downstreamservice/configuration/PreloadData.java" />
         <option value="$PROJECT_DIR$/DownstreamService/src/main/java/com/stackroute/downstreamservice/listener/KafkaConsumer.java" />
+=======
+        <option value="$PROJECT_DIR$/UpstreamService/src/main/java/com/example/upstream/controller/UpStreamController.java" />
+        <option value="$PROJECT_DIR$/UpstreamService/src/main/resources/application.yml" />
+        <option value="$PROJECT_DIR$/UpstreamService/src/main/java/com/example/upstream/configuration/HttpsConfig.java" />
+        <option value="$PROJECT_DIR$/UpstreamService/src/main/java/com/example/upstream/configuration/ConnectorConfig.java" />
+        <option value="$PROJECT_DIR$/UpstreamService/pom.xml" />
+        <option value="$PROJECT_DIR$/UpstreamService/Dockerfile" />
+>>>>>>> 2ef3e55689b85a80e97096332ae9822eb3b079a5
       </list>
     </option>
   </component>
@@ -223,6 +307,7 @@
     <option name="importingSettings">
       <MavenImportingSettings>
         <option name="importAutomatically" value="true" />
+<<<<<<< HEAD
         <option name="lookForNested" value="true" />
       </MavenImportingSettings>
     </option>
@@ -248,6 +333,16 @@
     <option name="y" value="92" />
     <option name="width" value="957" />
     <option name="height" value="610" />
+=======
+      </MavenImportingSettings>
+    </option>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="75" />
+    <option name="y" value="92" />
+    <option name="width" value="1271" />
+    <option name="height" value="646" />
+>>>>>>> 2ef3e55689b85a80e97096332ae9822eb3b079a5
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -255,6 +350,10 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+<<<<<<< HEAD
+=======
+      <pane id="PackagesPane" />
+>>>>>>> 2ef3e55689b85a80e97096332ae9822eb3b079a5
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -265,6 +364,7 @@
             <path>
               <item name="matchmaking-platform" type="b2602c69:ProjectViewProjectNode" />
               <item name="matchmaking-platform" type="462c0819:PsiDirectoryNode" />
+<<<<<<< HEAD
               <item name="zuulgateway" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -287,11 +387,15 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
+=======
+              <item name="UpstreamService" type="462c0819:PsiDirectoryNode" />
+>>>>>>> 2ef3e55689b85a80e97096332ae9822eb3b079a5
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+<<<<<<< HEAD
       <pane id="PackagesPane" />
       <pane id="Scope" />
       <pane id="AndroidView" />
@@ -302,6 +406,13 @@
     <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1542094526270" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+=======
+      <pane id="Scope" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1542085633094" />
+>>>>>>> 2ef3e55689b85a80e97096332ae9822eb3b079a5
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -315,6 +426,7 @@
       </list>
     </option>
   </component>
+<<<<<<< HEAD
   <component name="RunManager" selected="Application.DownstreamServiceApplication">
     <configuration name="DownstreamServiceApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.stackroute.downstreamservice.DownstreamServiceApplication" />
@@ -353,20 +465,31 @@
       </list>
     </recent_temporary>
   </component>
+=======
+>>>>>>> 2ef3e55689b85a80e97096332ae9822eb3b079a5
   <component name="SvnConfiguration">
     <configuration />
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
+<<<<<<< HEAD
       <changelist id="9995de98-c718-4266-80f0-a29d1157fcd3" name="Default Changelist" comment="" />
       <created>1542085989450</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1542085989450</updated>
+=======
+      <changelist id="ebb40d5e-e7ab-41c1-b25d-d0ef6e0ae002" name="Default Changelist" comment="" />
+      <created>1541743531247</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1541743531247</updated>
+>>>>>>> 2ef3e55689b85a80e97096332ae9822eb3b079a5
     </task>
     <servers />
   </component>
   <component name="ToolWindowManager">
+<<<<<<< HEAD
     <frame x="-1" y="-11" width="1368" height="780" extended-state="6" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.33636364" />
@@ -398,11 +521,77 @@
       <window_info anchor="right" id="Palette&#9;" order="6" />
       <window_info anchor="right" id="Maven Projects" order="7" weight="0.027272727" />
     </layout>
+=======
+    <frame x="67" y="25" width="1299" height="743" extended-state="6" />
+    <layout>
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.35434955" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Image Layers" order="2" />
+      <window_info id="Designer" order="3" />
+      <window_info id="UI Designer" order="4" />
+      <window_info id="Capture Tool" order="5" />
+      <window_info id="Favorites" order="6" side_tool="true" />
+      <window_info id="Learn" order="7" />
+      <window_info anchor="bottom" id="Messages" order="0" weight="0.32919255" />
+      <window_info anchor="bottom" id="Message" order="1" />
+      <window_info anchor="bottom" id="Find" order="2" weight="0.32919255" />
+      <window_info anchor="bottom" id="Run" order="3" weight="0.4502447" />
+      <window_info anchor="bottom" id="Debug" order="4" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="6" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="7" />
+      <window_info anchor="bottom" id="Docker" order="8" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="9" show_stripe_button="false" />
+      <window_info anchor="bottom" id="SonarLint" order="10" weight="0.23447205" />
+      <window_info anchor="bottom" id="Terminal" order="11" visible="true" weight="0.32626426" />
+      <window_info anchor="bottom" id="Event Log" order="12" side_tool="true" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Palette" order="3" />
+      <window_info anchor="right" id="Theme Preview" order="4" />
+      <window_info anchor="right" id="Capture Analysis" order="5" />
+      <window_info anchor="right" id="Palette&#9;" order="6" />
+      <window_info anchor="right" id="Maven Projects" order="7" />
+    </layout>
+    <layout-to-restore>
+      <window_info id="Learn" order="0" />
+      <window_info content_ui="combo" id="Project" order="1" weight="0.26177174" />
+      <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
+      <window_info id="Image Layers" order="3" />
+      <window_info id="Designer" order="4" />
+      <window_info id="UI Designer" order="5" />
+      <window_info id="Capture Tool" order="6" />
+      <window_info id="Favorites" order="7" side_tool="true" />
+      <window_info anchor="bottom" id="Messages" order="0" weight="0.32919255" />
+      <window_info anchor="bottom" id="Message" order="1" />
+      <window_info anchor="bottom" id="Find" order="2" weight="0.32919255" />
+      <window_info active="true" anchor="bottom" id="Run" order="3" visible="true" weight="0.044045676" />
+      <window_info anchor="bottom" id="Debug" order="4" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="6" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="7" />
+      <window_info anchor="bottom" id="Docker" order="8" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="9" show_stripe_button="false" />
+      <window_info anchor="bottom" id="SonarLint" order="10" weight="0.23447205" />
+      <window_info anchor="bottom" id="Terminal" order="11" weight="0.3284553" />
+      <window_info anchor="bottom" id="Event Log" order="12" side_tool="true" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Palette" order="3" />
+      <window_info anchor="right" id="Theme Preview" order="4" />
+      <window_info anchor="right" id="Capture Analysis" order="5" />
+      <window_info anchor="right" id="Palette&#9;" order="6" />
+      <window_info anchor="right" id="Maven Projects" order="7" />
+    </layout-to-restore>
+>>>>>>> 2ef3e55689b85a80e97096332ae9822eb3b079a5
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/DownstreamService/src/main/java/com/stackroute/downstreamservice/DownstreamServiceApplication.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
@@ -481,10 +670,106 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
           <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
+=======
+    <entry file="file://$PROJECT_DIR$/LocationService/src/main/java/com/stackroute/educationservice/springlocation/Service/LocationService.java" />
+    <entry file="file://$PROJECT_DIR$/ProjectService/src/main/java/com/stackroute/educationservice/projectservice/domain/Chicklets.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ProjectService/src/main/java/com/stackroute/educationservice/projectservice/domain/Project.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ProjectService/src/main/java/com/stackroute/educationservice/projectservice/domain/ProjectDetails.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ProjectService/src/main/java/com/stackroute/educationservice/projectservice/domain/Skill.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ProjectService/src/main/java/com/stackroute/educationservice/projectservice/Service/ProjectService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="5" column="17" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ProjectService/src/main/java/com/stackroute/educationservice/projectservice/Service/ProjectServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ProjectService/src/main/java/com/stackroute/educationservice/projectservice/Controller/ProjectController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="405">
+          <caret line="50" column="12" lean-forward="true" selection-start-line="50" selection-start-column="12" selection-end-line="50" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/LocationService/src/main/java/com/stackroute/educationservice/springlocation/Service/LocationServiceImpl.java" />
+    <entry file="file://$PROJECT_DIR$/LocationService/src/main/java/com/stackroute/educationservice/springlocation/Resource/IndexResource.java" />
+    <entry file="file://$PROJECT_DIR$/LocationService/src/main/java/com/stackroute/educationservice/springlocation/listener/KafkaListen.java" />
+    <entry file="file://$PROJECT_DIR$/RegistrationService/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-405" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/RegistrationService/src/main/java/com/stackroute/educationservice/matchmaking/domain/User.java" />
+    <entry file="file://$PROJECT_DIR$/RegistrationService/src/main/java/com/stackroute/educationservice/matchmaking/service/UserServiceImpl.java" />
+    <entry file="file://$PROJECT_DIR$/RegistrationService/src/main/java/com/stackroute/educationservice/matchmaking/controller/UserController.java" />
+    <entry file="file://$PROJECT_DIR$/RegistrationService/src/main/java/com/stackroute/educationservice/matchmaking/config/KafkaConfig.java" />
+    <entry file="file://$PROJECT_DIR$/.gitlab-ci.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-315" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/EducationService/src/main/java/com/stackroute/educationservice/controller/EducationController.java" />
+    <entry file="file://$PROJECT_DIR$/EducationService/src/main/java/com/stackroute/educationservice/domain/Section.java" />
+    <entry file="file://$PROJECT_DIR$/CertificationService/src/main/java/com/stackroute/resource/IndexResourceImplementation.java">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CertificationService/src/main/java/com/stackroute/resource/IndexResource.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="52" lean-forward="true" selection-start-line="5" selection-start-column="4" selection-end-line="5" selection-end-column="52" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config-server/Dockerfile">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config-server/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="15" column="40" selection-start-line="15" selection-start-column="40" selection-end-line="15" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/eureka-registry/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="15" column="40" selection-start-line="15" selection-start-column="40" selection-end-line="15" selection-end-column="40" />
+>>>>>>> 2ef3e55689b85a80e97096332ae9822eb3b079a5
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/zuulgateway/pom.xml">
+<<<<<<< HEAD
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/EducationService/pom.xml">
@@ -517,11 +802,78 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="221">
           <caret line="65" column="117" selection-start-line="65" selection-start-column="117" selection-end-line="65" selection-end-column="117" />
+=======
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="15" column="40" selection-start-line="15" selection-start-column="40" selection-end-line="15" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CertificationService/src/main/java/com/stackroute/listener/KafkaListening.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-45" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/EducationService/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-529">
+          <caret line="27" selection-start-line="27" selection-end-line="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/EducationService/src/main/resources/application.properties" />
+    <entry file="file://$PROJECT_DIR$/EducationService/src/main/java/com/stackroute/educationservice/resource/IndexResourceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="113">
+          <caret line="12" lean-forward="true" selection-start-line="12" selection-end-line="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/EducationService/src/main/java/com/stackroute/educationservice/resource/IndexResource.java" />
+    <entry file="file://$PROJECT_DIR$/EducationService/src/main/java/com/stackroute/educationservice/EducationServiceApplication.java" />
+    <entry file="file://$PROJECT_DIR$/EducationService/src/main/java/com/stackroute/educationservice/service/EducationServiceImpl.java" />
+    <entry file="file://$PROJECT_DIR$/EducationService/src/main/java/com/stackroute/educationservice/config/KafkaProducer.java" />
+    <entry file="file://$PROJECT_DIR$/EducationService/src/main/java/com/stackroute/educationservice/domain/CommonOutput.java" />
+    <entry file="file://$PROJECT_DIR$/EducationService/src/main/resources/application.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" column="18" selection-start-line="7" selection-start-column="2" selection-end-line="7" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/EducationService/src/main/java/com/stackroute/educationservice/listener/KafkaConsumer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="393">
+          <caret line="36" column="51" selection-start-line="36" selection-start-column="51" selection-end-line="36" selection-end-column="51" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/EducationService/src/main/java/com/stackroute/educationservice/domain/KafkaProperties.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="15" column="35" selection-start-line="15" selection-start-column="18" selection-end-line="15" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/EducationService/src/main/java/com/stackroute/educationservice/config/KafkaConsumerConfig.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" column="64" selection-start-line="7" selection-start-column="64" selection-end-line="7" selection-end-column="64" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/EducationService/src/main/java/com/stackroute/educationservice/domain/Institution.java" />
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/kafka/spring-kafka/2.1.10.RELEASE/spring-kafka-2.1.10.RELEASE.jar!/org/springframework/kafka/core/KafkaTemplate.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="185">
+          <caret line="98" column="46" selection-start-line="98" selection-start-column="46" selection-end-line="98" selection-end-column="46" />
+>>>>>>> 2ef3e55689b85a80e97096332ae9822eb3b079a5
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="112">
           <caret line="72" selection-start-line="72" selection-end-line="72" />
         </state>
@@ -607,4 +959,85 @@
       </state>
     </states>
   </component>
+=======
+        <state relative-caret-position="528">
+          <caret line="137" column="10" lean-forward="true" selection-start-line="137" selection-start-column="10" selection-end-line="137" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/UpstreamService/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="196">
+          <caret line="15" column="32" selection-start-line="15" selection-start-column="32" selection-end-line="15" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/UpstreamService/src/main/java/com/example/upstream/domain/KafkaProperties.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-15">
+          <caret line="6" column="10" selection-start-line="6" selection-start-column="10" selection-end-line="6" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/UpstreamService/src/main/java/com/example/upstream/controller/UpStreamController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="50" column="43" selection-start-line="50" selection-start-column="43" selection-end-line="50" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/UpstreamService/src/main/java/com/example/upstream/UpstreamServiceApplication.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="9" selection-start-line="9" selection-end-line="9" />
+          <folding>
+            <element signature="e#326#327#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/UpstreamService/src/main/java/com/example/upstream/configuration/KafkaConfig.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="147">
+          <caret line="31" column="9" selection-start-line="31" selection-start-column="9" selection-end-line="31" selection-end-column="9" />
+          <folding>
+            <element signature="e#1250#1251#0" expanded="true" />
+            <element signature="e#1302#1303#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/UpstreamService/src/main/resources/application.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="16" selection-start-line="16" selection-end-line="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/UpstreamService/src/main/java/com/example/upstream/configuration/ConnectorConfig.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" selection-start-line="9" selection-end-line="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/docker-compose.yml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/EducationService/Dockerfile">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="11" lean-forward="true" selection-start-line="4" selection-start-column="11" selection-end-line="4" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/UpstreamService/Dockerfile">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" column="25" lean-forward="true" selection-start-line="6" selection-start-column="25" selection-end-line="6" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+  </component>
+>>>>>>> 2ef3e55689b85a80e97096332ae9822eb3b079a5
 </project>

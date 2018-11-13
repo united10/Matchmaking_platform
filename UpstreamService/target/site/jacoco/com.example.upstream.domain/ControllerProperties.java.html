@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ControllerProperties.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">UpstreamService</a> &gt; <a href="index.source.html" class="el_package">com.example.upstream.domain</a> &gt; <span class="el_source">ControllerProperties.java</span></div><h1>ControllerProperties.java</h1><pre class="source lang-java linenums">package com.example.upstream.domain;
+
+import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.stereotype.Component;
+
+@Component
+@ConfigurationProperties(&quot;controller&quot;)
+<span class="fc" id="L8">public class ControllerProperties {</span>
+    private String base;
+    private String education;
+    private String location;
+    private String skills;
+    private String project;
+    private String certificates;
+    private String experience;
+
+    public String getBase() {
+<span class="nc" id="L18">        return base;</span>
+    }
+
+    public void setBase(String base) {
+<span class="fc" id="L22">        this.base = base;</span>
+<span class="fc" id="L23">    }</span>
+
+    public String getEducation() {
+<span class="nc" id="L26">        return education;</span>
+    }
+
+    public void setEducation(String education) {
+<span class="fc" id="L30">        this.education = education;</span>
+<span class="fc" id="L31">    }</span>
+
+    public String getLocation() {
+<span class="nc" id="L34">        return location;</span>
+    }
+
+    public void setLocation(String location) {
+<span class="fc" id="L38">        this.location = location;</span>
+<span class="fc" id="L39">    }</span>
+
+    public String getSkills() {
+<span class="nc" id="L42">        return skills;</span>
+    }
+
+    public void setSkills(String skills) {
+<span class="fc" id="L46">        this.skills = skills;</span>
+<span class="fc" id="L47">    }</span>
+
+    public String getProject() {
+<span class="nc" id="L50">        return project;</span>
+    }
+
+    public void setProject(String project) {
+<span class="fc" id="L54">        this.project = project;</span>
+<span class="fc" id="L55">    }</span>
+
+    public String getCertificates() {
+<span class="nc" id="L58">        return certificates;</span>
+    }
+
+    public void setCertificates(String certificates) {
+<span class="nc" id="L62">        this.certificates = certificates;</span>
+<span class="nc" id="L63">    }</span>
+
+    public String getExperience() {
+<span class="nc" id="L66">        return experience;</span>
+    }
+
+    public void setExperience(String experience) {
+<span class="fc" id="L70">        this.experience = experience;</span>
+<span class="fc" id="L71">    }</span>
+
+    @Override
+    public String toString() {
+<span class="nc" id="L75">        return &quot;ControllerProperties{&quot; +</span>
+                &quot;base='&quot; + base + '\'' +
+                &quot;, education='&quot; + education + '\'' +
+                &quot;, location='&quot; + location + '\'' +
+                &quot;, skills='&quot; + skills + '\'' +
+                &quot;, project='&quot; + project + '\'' +
+                &quot;, certificates='&quot; + certificates + '\'' +
+                &quot;, experience='&quot; + experience + '\'' +
+                '}';
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.2.201808211720</span></div></body></html>

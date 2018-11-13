@@ -8,3 +8,9 @@ logging:
     com.stackroute: DEBUG
     org.hibernate: ERROR
     log4j.logger.org.thymeleaf: DEBUG
+
+controller:
+  base: /api/v1/registration
+  user: /user
+kafka:
+  ipAddress: 172.23.239.245:9092
