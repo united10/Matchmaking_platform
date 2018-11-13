@@ -4,6 +4,7 @@
   <component name="BookmarkManager">
     <bookmark url="file://$PROJECT_DIR$/DownstreamService/src/main/java/com/stackroute/downstreamservice/listener/KafkaConsumer.java" description="//    @KafkaListener(topics = &quot;user&quot; ,groupId = &quot;g..." line="34" />
   </component>
+
   <component name="ChangeListManager">
     <list default="true" id="9995de98-c718-4266-80f0-a29d1157fcd3" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
