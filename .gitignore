@@ -50,10 +50,11 @@ local.properties
 .buildpath
 
 ######################
-### IntelliJ IDEA ###
-.idea
-*.iws
+# Intellij
+######################
+.idea/*
 *.iml
+*.iws
 *.ipr
 *.ids
 *.orig
@@ -138,3 +139,14 @@ Desktop.ini
 # ESLint
 ######################
 .eslintcache
+ExperienceService/src/main/java/com/stackroute/matchMaking/
+ExperienceService/src/test/java/com/stackroute/matchMaking/
+ExperienceService/target/classes/com/
+ExperienceService/target/test-classes/com/stackroute/matchmaking/service/
+LocationService/target/classes/com/
+LocationService/target/test-classes/
+RegistrationService/src/main/java/com/stackroute/eduacation/
+RegistrationService/src/test/java/com/stackroute/eduacation/
+UpstreamService/target/classes/com/
+UpstreamService/target/test-classes/
+spring-skill/src/main/java/com/stackroute/springskill/
