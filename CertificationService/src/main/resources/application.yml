@@ -1,8 +1,0 @@
-server:
-  port:8085
-kafka:
-  ipAddress: 172.23.239.245:9092
-  groupId: group_id3
-  outputTopic: indexer
-  listeningTopic: certificate
-  containerFactory: userKafkaListenerFactory
