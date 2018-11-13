@@ -14,3 +14,6 @@ controller:
   user: /user
 kafka:
   ipAddress: 172.23.239.245:9092
+
+server:
+  port: 8085
