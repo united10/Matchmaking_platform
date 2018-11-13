@@ -1,63 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-<<<<<<< HEAD
-  <component name="BookmarkManager">
-    <bookmark url="file://$PROJECT_DIR$/DownstreamService/src/main/java/com/stackroute/downstreamservice/listener/KafkaConsumer.java" description="//    @KafkaListener(topics = &quot;user&quot; ,groupId = &quot;g..." line="34" />
-  </component>
-
   <component name="ChangeListManager">
-    <list default="true" id="9995de98-c718-4266-80f0-a29d1157fcd3" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DownstreamService/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/DownstreamService/Dockerfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DownstreamService/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/DownstreamService/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DownstreamService/src/main/java/com/stackroute/DownstreamService/DownstreamServiceApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/DownstreamService/src/main/java/com/stackroute/downstreamservice/DownstreamServiceApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DownstreamService/src/main/java/com/stackroute/DownstreamService/configuration/KafkaConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/DownstreamService/src/main/java/com/stackroute/downstreamservice/configuration/KafkaConfiguration.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DownstreamService/src/main/java/com/stackroute/DownstreamService/configuration/PreloadData.java" beforeDir="false" afterPath="$PROJECT_DIR$/DownstreamService/src/main/java/com/stackroute/downstreamservice/configuration/PreloadData.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DownstreamService/src/main/java/com/stackroute/DownstreamService/controller/EmployeeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/DownstreamService/src/main/java/com/stackroute/downstreamservice/controller/EmployeeController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DownstreamService/src/main/java/com/stackroute/DownstreamService/domain/CertificateDetails.java" beforeDir="false" afterPath="$PROJECT_DIR$/DownstreamService/src/main/java/com/stackroute/downstreamservice/domain/CertificateDetails.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DownstreamService/src/main/java/com/stackroute/DownstreamService/domain/Chicklets.java" beforeDir="false" afterPath="$PROJECT_DIR$/DownstreamService/src/main/java/com/stackroute/downstreamservice/domain/Chicklets.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DownstreamService/src/main/java/com/stackroute/DownstreamService/domain/CurrentLocation.java" beforeDir="false" afterPath="$PROJECT_DIR$/DownstreamService/src/main/java/com/stackroute/downstreamservice/domain/CurrentLocation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DownstreamService/src/main/java/com/stackroute/DownstreamService/domain/Education.java" beforeDir="false" afterPath="$PROJECT_DIR$/DownstreamService/src/main/java/com/stackroute/downstreamservice/domain/Education.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DownstreamService/src/main/java/com/stackroute/DownstreamService/domain/EducationSection.java" beforeDir="false" afterPath="$PROJECT_DIR$/DownstreamService/src/main/java/com/stackroute/downstreamservice/domain/EducationSection.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DownstreamService/src/main/java/com/stackroute/DownstreamService/domain/Employee.java" beforeDir="false" afterPath="$PROJECT_DIR$/DownstreamService/src/main/java/com/stackroute/downstreamservice/domain/Employee.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DownstreamService/src/main/java/com/stackroute/DownstreamService/domain/Institution.java" beforeDir="false" afterPath="$PROJECT_DIR$/DownstreamService/src/main/java/com/stackroute/downstreamservice/domain/Institution.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DownstreamService/src/main/java/com/stackroute/DownstreamService/domain/Location.java" beforeDir="false" afterPath="$PROJECT_DIR$/DownstreamService/src/main/java/com/stackroute/downstreamservice/domain/Location.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DownstreamService/src/main/java/com/stackroute/DownstreamService/domain/LocationSection.java" beforeDir="false" afterPath="$PROJECT_DIR$/DownstreamService/src/main/java/com/stackroute/downstreamservice/domain/LocationSection.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DownstreamService/src/main/java/com/stackroute/DownstreamService/domain/PastLocation.java" beforeDir="false" afterPath="$PROJECT_DIR$/DownstreamService/src/main/java/com/stackroute/downstreamservice/domain/PastLocation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DownstreamService/src/main/java/com/stackroute/DownstreamService/domain/Qualification.java" beforeDir="false" afterPath="$PROJECT_DIR$/DownstreamService/src/main/java/com/stackroute/downstreamservice/domain/Qualification.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DownstreamService/src/main/java/com/stackroute/DownstreamService/domain/Skills.java" beforeDir="false" afterPath="$PROJECT_DIR$/DownstreamService/src/main/java/com/stackroute/downstreamservice/domain/Skills.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DownstreamService/src/main/java/com/stackroute/DownstreamService/domain/SkillsSection.java" beforeDir="false" afterPath="$PROJECT_DIR$/DownstreamService/src/main/java/com/stackroute/downstreamservice/domain/SkillsSection.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DownstreamService/src/main/java/com/stackroute/DownstreamService/exceptions/EmployeeAlreadyExistsException.java" beforeDir="false" afterPath="$PROJECT_DIR$/DownstreamService/src/main/java/com/stackroute/downstreamservice/exceptions/EmployeeAlreadyExistsException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DownstreamService/src/main/java/com/stackroute/DownstreamService/exceptions/EmployeeNotFoundException.java" beforeDir="false" afterPath="$PROJECT_DIR$/DownstreamService/src/main/java/com/stackroute/downstreamservice/exceptions/EmployeeNotFoundException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DownstreamService/src/main/java/com/stackroute/DownstreamService/listener/KafkaConsumer.java" beforeDir="false" afterPath="$PROJECT_DIR$/DownstreamService/src/main/java/com/stackroute/downstreamservice/listener/KafkaConsumer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DownstreamService/src/main/java/com/stackroute/DownstreamService/repository/EmployeeRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/DownstreamService/src/main/java/com/stackroute/downstreamservice/repository/EmployeeRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DownstreamService/src/main/java/com/stackroute/DownstreamService/service/EmployeeService.java" beforeDir="false" afterPath="$PROJECT_DIR$/DownstreamService/src/main/java/com/stackroute/downstreamservice/service/EmployeeService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DownstreamService/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/DownstreamService/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DownstreamService/src/test/java/com/stackroute/DownstreamService/DownstreamServiceApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/DownstreamService/src/test/java/com/stackroute/downstreamservice/DownstreamServiceApplicationTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DownstreamService/src/test/java/com/stackroute/DownstreamService/controller/EmployeeControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/DownstreamService/src/test/java/com/stackroute/downstreamservice/controller/EmployeeControllerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DownstreamService/src/test/java/com/stackroute/DownstreamService/repository/EmployeeRepositoryTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/DownstreamService/src/test/java/com/stackroute/downstreamservice/repository/EmployeeRepositoryTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zuulgateway/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/zuulgateway/src/main/resources/application.yml" afterDir="false" />
-    </list>
-    <ignored path="$PROJECT_DIR$/CertificationService/target/" />
-    <ignored path="$PROJECT_DIR$/ProjectService/target/" />
-    <ignored path="$PROJECT_DIR$/eureka-registry/target/" />
-    <ignored path="$PROJECT_DIR$/EducationService/target/" />
-    <ignored path="$PROJECT_DIR$/ExperienceService/target/" />
-    <ignored path="$PROJECT_DIR$/DownstreamService/target/" />
-    <ignored path="$PROJECT_DIR$/UpstreamService/target/" />
-    <ignored path="$PROJECT_DIR$/spring-skill/target/" />
-    <ignored path="$PROJECT_DIR$/zuulgateway/target/" />
-    <ignored path="$PROJECT_DIR$/config-server/target/" />
-    <ignored path="$PROJECT_DIR$/RegistrationService/target/" />
-    <ignored path="$PROJECT_DIR$/LocationService/target/" />
-    <ignored path="$PROJECT_DIR$/target/" />
-=======
-  <component name="ChangeListManager">
-    <list default="true" id="ebb40d5e-e7ab-41c1-b25d-d0ef6e0ae002" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/UpstreamService/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/UpstreamService/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UpstreamService/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/UpstreamService/src/main/resources/application.yml" afterDir="false" />
-    </list>
+    <list default="true" id="ebb40d5e-e7ab-41c1-b25d-d0ef6e0ae002" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/zuulgateway/target/" />
     <ignored path="$PROJECT_DIR$/eureka-registry/target/" />
     <ignored path="$PROJECT_DIR$/EducationService/target/" />
@@ -69,7 +13,6 @@
     <ignored path="$PROJECT_DIR$/ProjectService/target/" />
     <ignored path="$PROJECT_DIR$/RegistrationService/target/" />
     <ignored path="$PROJECT_DIR$/spring-skill/target/" />
->>>>>>> 2ef3e55689b85a80e97096332ae9822eb3b079a5
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -77,50 +20,6 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FUSProjectUsageTrigger">
-<<<<<<< HEAD
-    <session id="979909287">
-      <usages-collector id="statistics.lifecycle.project">
-        <counts>
-          <entry key="project.closed" value="2" />
-          <entry key="project.open.time.0" value="1" />
-          <entry key="project.open.time.14" value="1" />
-          <entry key="project.open.time.6" value="1" />
-          <entry key="project.opened" value="3" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.extensions.open">
-        <counts>
-          <entry key="Dockerfile" value="1" />
-          <entry key="java" value="17" />
-          <entry key="js" value="2" />
-          <entry key="properties" value="1" />
-          <entry key="xml" value="10" />
-          <entry key="yml" value="7" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.types.open">
-        <counts>
-          <entry key="JAVA" value="17" />
-          <entry key="JavaScript" value="2" />
-          <entry key="PLAIN_TEXT" value="1" />
-          <entry key="Properties" value="1" />
-          <entry key="XML" value="10" />
-          <entry key="YAML" value="7" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.extensions.edit">
-        <counts>
-          <entry key="java" value="280" />
-          <entry key="xml" value="11" />
-          <entry key="yml" value="51" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.types.edit">
-        <counts>
-          <entry key="JAVA" value="280" />
-          <entry key="XML" value="11" />
-          <entry key="YAML" value="51" />
-=======
     <session id="715364975">
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
@@ -156,28 +55,39 @@
           <entry key="JAVA" value="2" />
           <entry key="PLAIN_TEXT" value="3" />
           <entry key="YAML" value="1" />
->>>>>>> 2ef3e55689b85a80e97096332ae9822eb3b079a5
         </counts>
       </usages-collector>
       <usages-collector id="statistics.vcs.git.usages" />
     </session>
+    <session id="8464697">
+      <usages-collector id="statistics.file.extensions.edit">
+        <counts>
+          <entry key="xml" value="4" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.edit">
+        <counts>
+          <entry key="XML" value="4" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.open">
+        <counts>
+          <entry key="gitignore" value="1" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.open">
+        <counts>
+          <entry key="PLAIN_TEXT" value="1" />
+        </counts>
+      </usages-collector>
+    </session>
+  </component>
+  <component name="FavoritesManager">
+    <favorites_list name="matchmaking-platform" />
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-<<<<<<< HEAD
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/DownstreamService/src/main/java/com/stackroute/downstreamservice/listener/KafkaConsumer.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="239">
-              <caret line="107" lean-forward="true" selection-start-line="107" selection-end-line="107" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/.gitlab-ci.yml">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="-221" />
@@ -185,28 +95,33 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/DownstreamService/target/jacoco-ut/jacoco-resources/sort.js">
+        <entry file="file://$PROJECT_DIR$/.idea/compiler.xml">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1171">
-              <caret line="35" column="12" selection-start-line="35" selection-start-column="12" selection-end-line="35" selection-end-column="12" />
+            <state relative-caret-position="392">
+              <caret line="514" column="10" selection-start-line="514" selection-start-column="10" selection-end-line="514" selection-end-column="10" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/DownstreamService/src/main/resources/application.yml">
+        <entry file="file://$PROJECT_DIR$/DownstreamService/.gitignore">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="75">
-              <caret line="5" column="40" selection-start-line="5" selection-start-column="40" selection-end-line="5" selection-end-column="40" />
+            <state relative-caret-position="168">
+              <caret line="16" column="5" lean-forward="true" selection-start-line="16" selection-start-column="5" selection-end-line="16" selection-end-column="5" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/DownstreamService/src/main/java/com/stackroute/downstreamservice/configuration/PreloadData.java">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="600">
-              <caret line="50" column="42" selection-start-line="50" selection-start-column="42" selection-end-line="50" selection-end-column="42" />
+            <state relative-caret-position="164">
+              <caret line="54" column="6" selection-start-line="54" selection-start-column="6" selection-end-line="54" selection-end-column="6" />
             </state>
           </provider>
         </entry>
@@ -250,22 +165,13 @@
         <entry file="file://$PROJECT_DIR$/DownstreamService/src/main/java/com/stackroute/downstreamservice/service/EmployeeService.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="210">
-              <caret line="27" column="54" lean-forward="true" selection-start-line="27" selection-start-column="54" selection-end-line="27" selection-end-column="54" />
-=======
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/UpstreamService/Dockerfile">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
-              <caret line="6" column="25" lean-forward="true" selection-start-line="6" selection-start-column="25" selection-end-line="6" selection-end-column="25" />
->>>>>>> 2ef3e55689b85a80e97096332ae9822eb3b079a5
+              <caret line="27" column="54" selection-start-line="27" selection-start-column="54" selection-end-line="27" selection-end-column="54" />
             </state>
           </provider>
         </entry>
       </file>
     </leaf>
   </component>
-<<<<<<< HEAD
-=======
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
@@ -273,34 +179,19 @@
       </list>
     </option>
   </component>
->>>>>>> 2ef3e55689b85a80e97096332ae9822eb3b079a5
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-<<<<<<< HEAD
-        <option value="$PROJECT_DIR$/DownstreamService/src/main/java/com/stackroute/DownstreamService/domain/CertificateDetails.java" />
-        <option value="$PROJECT_DIR$/DownstreamService/src/main/java/com/stackroute/DownstreamService/listener/KafkaConsumer.java" />
-        <option value="$PROJECT_DIR$/DownstreamService/pom.xml" />
-        <option value="$PROJECT_DIR$/zuulgateway/src/main/resources/application.yml" />
-        <option value="$PROJECT_DIR$/DownstreamService/src/main/java/com/stackroute/downstreamservice/domain/CurrentLocation.java" />
-        <option value="$PROJECT_DIR$/DownstreamService/src/main/java/com/stackroute/downstreamservice/configuration/KafkaConfiguration.java" />
-        <option value="$PROJECT_DIR$/pom.xml" />
-        <option value="$PROJECT_DIR$/DownstreamService/src/main/java/com/stackroute/downstreamservice/controller/EmployeeController.java" />
-        <option value="$PROJECT_DIR$/DownstreamService/src/main/resources/application.yml" />
-        <option value="$PROJECT_DIR$/DownstreamService/src/main/java/com/stackroute/downstreamservice/service/EmployeeService.java" />
-        <option value="$PROJECT_DIR$/DownstreamService/src/main/java/com/stackroute/downstreamservice/configuration/PreloadData.java" />
-        <option value="$PROJECT_DIR$/DownstreamService/src/main/java/com/stackroute/downstreamservice/listener/KafkaConsumer.java" />
-=======
         <option value="$PROJECT_DIR$/UpstreamService/src/main/java/com/example/upstream/controller/UpStreamController.java" />
         <option value="$PROJECT_DIR$/UpstreamService/src/main/resources/application.yml" />
         <option value="$PROJECT_DIR$/UpstreamService/src/main/java/com/example/upstream/configuration/HttpsConfig.java" />
         <option value="$PROJECT_DIR$/UpstreamService/src/main/java/com/example/upstream/configuration/ConnectorConfig.java" />
         <option value="$PROJECT_DIR$/UpstreamService/pom.xml" />
         <option value="$PROJECT_DIR$/UpstreamService/Dockerfile" />
->>>>>>> 2ef3e55689b85a80e97096332ae9822eb3b079a5
+        <option value="$PROJECT_DIR$/.idea/compiler.xml" />
       </list>
     </option>
   </component>
@@ -308,33 +199,6 @@
     <option name="importingSettings">
       <MavenImportingSettings>
         <option name="importAutomatically" value="true" />
-<<<<<<< HEAD
-        <option name="lookForNested" value="true" />
-      </MavenImportingSettings>
-    </option>
-  </component>
-  <component name="MavenProjectNavigator">
-    <treeState>
-      <expand>
-        <path>
-          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
-          <item name="DownstreamService" type="9519ce18:MavenProjectsStructure$ProjectNode" />
-        </path>
-        <path>
-          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
-          <item name="DownstreamService" type="9519ce18:MavenProjectsStructure$ProjectNode" />
-          <item name="Lifecycle" type="58874e2:MavenProjectsStructure$LifecycleNode" />
-        </path>
-      </expand>
-      <select />
-    </treeState>
-  </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="387" />
-    <option name="y" value="92" />
-    <option name="width" value="957" />
-    <option name="height" value="610" />
-=======
       </MavenImportingSettings>
     </option>
   </component>
@@ -343,7 +207,6 @@
     <option name="y" value="92" />
     <option name="width" value="1271" />
     <option name="height" value="646" />
->>>>>>> 2ef3e55689b85a80e97096332ae9822eb3b079a5
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -351,10 +214,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-<<<<<<< HEAD
-=======
-      <pane id="PackagesPane" />
->>>>>>> 2ef3e55689b85a80e97096332ae9822eb3b079a5
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -365,55 +224,54 @@
             <path>
               <item name="matchmaking-platform" type="b2602c69:ProjectViewProjectNode" />
               <item name="matchmaking-platform" type="462c0819:PsiDirectoryNode" />
-<<<<<<< HEAD
-              <item name="zuulgateway" type="462c0819:PsiDirectoryNode" />
+              <item name=".idea" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="matchmaking-platform" type="b2602c69:ProjectViewProjectNode" />
               <item name="matchmaking-platform" type="462c0819:PsiDirectoryNode" />
-              <item name="zuulgateway" type="462c0819:PsiDirectoryNode" />
+              <item name="DownstreamService" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="matchmaking-platform" type="b2602c69:ProjectViewProjectNode" />
+              <item name="matchmaking-platform" type="462c0819:PsiDirectoryNode" />
+              <item name="DownstreamService" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="matchmaking-platform" type="b2602c69:ProjectViewProjectNode" />
               <item name="matchmaking-platform" type="462c0819:PsiDirectoryNode" />
-              <item name="zuulgateway" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="matchmaking-platform" type="b2602c69:ProjectViewProjectNode" />
-              <item name="matchmaking-platform" type="462c0819:PsiDirectoryNode" />
-              <item name="zuulgateway" type="462c0819:PsiDirectoryNode" />
+              <item name="DownstreamService" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-=======
-              <item name="UpstreamService" type="462c0819:PsiDirectoryNode" />
->>>>>>> 2ef3e55689b85a80e97096332ae9822eb3b079a5
+            </path>
+            <path>
+              <item name="matchmaking-platform" type="b2602c69:ProjectViewProjectNode" />
+              <item name="matchmaking-platform" type="462c0819:PsiDirectoryNode" />
+              <item name="DownstreamService" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="matchmaking-platform" type="b2602c69:ProjectViewProjectNode" />
+              <item name="matchmaking-platform" type="462c0819:PsiDirectoryNode" />
+              <item name="DownstreamService" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="downstreamservice" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-<<<<<<< HEAD
       <pane id="PackagesPane" />
       <pane id="Scope" />
       <pane id="AndroidView" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="SONARLINT_ANALYSIS_RESULTS_SPLIT_PROPORTION" value="0.5522851" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1542094526270" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
-=======
-      <pane id="Scope" />
-    </panes>
-  </component>
-  <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1542085633094" />
->>>>>>> 2ef3e55689b85a80e97096332ae9822eb3b079a5
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1542097597046" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -427,7 +285,6 @@
       </list>
     </option>
   </component>
-<<<<<<< HEAD
   <component name="RunManager" selected="Application.DownstreamServiceApplication">
     <configuration name="DownstreamServiceApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.stackroute.downstreamservice.DownstreamServiceApplication" />
@@ -466,66 +323,24 @@
       </list>
     </recent_temporary>
   </component>
-=======
->>>>>>> 2ef3e55689b85a80e97096332ae9822eb3b079a5
   <component name="SvnConfiguration">
     <configuration />
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-<<<<<<< HEAD
-      <changelist id="9995de98-c718-4266-80f0-a29d1157fcd3" name="Default Changelist" comment="" />
-      <created>1542085989450</created>
-      <option name="number" value="Default" />
-      <option name="presentableId" value="Default" />
-      <updated>1542085989450</updated>
-=======
       <changelist id="ebb40d5e-e7ab-41c1-b25d-d0ef6e0ae002" name="Default Changelist" comment="" />
       <created>1541743531247</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1541743531247</updated>
->>>>>>> 2ef3e55689b85a80e97096332ae9822eb3b079a5
     </task>
     <servers />
   </component>
   <component name="ToolWindowManager">
-<<<<<<< HEAD
     <frame x="-1" y="-11" width="1368" height="780" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.33636364" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info id="Designer" order="2" />
-      <window_info id="Image Layers" order="3" />
-      <window_info id="Capture Tool" order="4" />
-      <window_info id="UI Designer" order="5" />
-      <window_info id="Learn" order="6" weight="0.32954547" />
-      <window_info id="Favorites" order="7" side_tool="true" />
-      <window_info anchor="bottom" id="SonarLint" weight="0.09161491" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32919255" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.0" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Terminal" order="7" weight="0.086687304" />
-      <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" />
-      <window_info anchor="bottom" id="Version Control" order="9" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Messages" order="10" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" visible="true" weight="0.25" />
-      <window_info anchor="right" id="Palette" order="3" />
-      <window_info anchor="right" id="Capture Analysis" order="4" />
-      <window_info anchor="right" id="Theme Preview" order="5" />
-      <window_info anchor="right" id="Palette&#9;" order="6" />
-      <window_info anchor="right" id="Maven Projects" order="7" weight="0.027272727" />
-    </layout>
-=======
-    <frame x="67" y="25" width="1299" height="743" extended-state="6" />
-    <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.35434955" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24166666" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -544,7 +359,7 @@
       <window_info anchor="bottom" id="Docker" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="9" show_stripe_button="false" />
       <window_info anchor="bottom" id="SonarLint" order="10" weight="0.23447205" />
-      <window_info anchor="bottom" id="Terminal" order="11" visible="true" weight="0.32626426" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="11" visible="true" weight="0.25931677" />
       <window_info anchor="bottom" id="Event Log" order="12" side_tool="true" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -586,142 +401,17 @@
       <window_info anchor="right" id="Palette&#9;" order="6" />
       <window_info anchor="right" id="Maven Projects" order="7" />
     </layout-to-restore>
->>>>>>> 2ef3e55689b85a80e97096332ae9822eb3b079a5
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-<<<<<<< HEAD
-    <entry file="file://$PROJECT_DIR$/DownstreamService/src/main/java/com/stackroute/downstreamservice/DownstreamServiceApplication.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/DownstreamService/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-105">
-          <caret line="20" lean-forward="true" selection-start-line="20" selection-end-line="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/EducationService/src/test/java/com/stackroute/matchmaking/controller/ExperienceControllerTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1134" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/EducationService/src/main/java/com/stackroute/educationservice/listener/KafkaConsumer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="291">
-          <caret line="30" selection-start-line="30" selection-end-line="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/EducationService/src/main/java/com/stackroute/matchmaking/MatchMakingApplication.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/EducationService/src/main/java/com/stackroute/matchmaking/config/KafkaConsumer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-279">
-          <caret line="21" column="13" selection-start-line="21" selection-start-column="13" selection-end-line="21" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/EducationService/src/main/resources/application.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="17" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/EducationService/src/main/java/com/stackroute/educationservice/domain/KafkaProperties.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-69">
-          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/EducationService/src/main/java/com/stackroute/educationservice/config/KafkaConsumerConfig.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="966">
-          <caret line="68" column="23" selection-start-line="68" selection-start-column="23" selection-end-line="68" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/DownstreamService/Dockerfile">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config-server/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="22" column="20" selection-start-line="22" selection-start-column="20" selection-end-line="22" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ExperienceService/pom.xml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/zuulgateway/src/main/java/com/stackroute/educationservice/zuulgateway/ZuulgatewayApplication.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
-=======
-    <entry file="file://$PROJECT_DIR$/LocationService/src/main/java/com/stackroute/educationservice/springlocation/Service/LocationService.java" />
-    <entry file="file://$PROJECT_DIR$/ProjectService/src/main/java/com/stackroute/educationservice/projectservice/domain/Chicklets.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ProjectService/src/main/java/com/stackroute/educationservice/projectservice/domain/Project.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ProjectService/src/main/java/com/stackroute/educationservice/projectservice/domain/ProjectDetails.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ProjectService/src/main/java/com/stackroute/educationservice/projectservice/domain/Skill.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ProjectService/src/main/java/com/stackroute/educationservice/projectservice/Service/ProjectService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="5" column="17" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ProjectService/src/main/java/com/stackroute/educationservice/projectservice/Service/ProjectServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ProjectService/src/main/java/com/stackroute/educationservice/projectservice/Controller/ProjectController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
-          <caret line="50" column="12" lean-forward="true" selection-start-line="50" selection-start-column="12" selection-end-line="50" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/ProjectService/src/main/java/com/stackroute/educationservice/projectservice/domain/Project.java" />
+    <entry file="file://$PROJECT_DIR$/ProjectService/src/main/java/com/stackroute/educationservice/projectservice/domain/ProjectDetails.java" />
+    <entry file="file://$PROJECT_DIR$/ProjectService/src/main/java/com/stackroute/educationservice/projectservice/domain/Skill.java" />
+    <entry file="file://$PROJECT_DIR$/ProjectService/src/main/java/com/stackroute/educationservice/projectservice/Service/ProjectService.java" />
+    <entry file="file://$PROJECT_DIR$/ProjectService/src/main/java/com/stackroute/educationservice/projectservice/Service/ProjectServiceImpl.java" />
+    <entry file="file://$PROJECT_DIR$/ProjectService/src/main/java/com/stackroute/educationservice/projectservice/Controller/ProjectController.java" />
     <entry file="file://$PROJECT_DIR$/LocationService/src/main/java/com/stackroute/educationservice/springlocation/Service/LocationServiceImpl.java" />
     <entry file="file://$PROJECT_DIR$/LocationService/src/main/java/com/stackroute/educationservice/springlocation/Resource/IndexResource.java" />
     <entry file="file://$PROJECT_DIR$/LocationService/src/main/java/com/stackroute/educationservice/springlocation/listener/KafkaListen.java" />
@@ -736,7 +426,7 @@
     <entry file="file://$PROJECT_DIR$/RegistrationService/src/main/java/com/stackroute/educationservice/matchmaking/config/KafkaConfig.java" />
     <entry file="file://$PROJECT_DIR$/.gitlab-ci.yml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-315" />
+        <state relative-caret-position="-221" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/EducationService/src/main/java/com/stackroute/educationservice/controller/EducationController.java" />
@@ -765,45 +455,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="225">
           <caret line="15" column="40" selection-start-line="15" selection-start-column="40" selection-end-line="15" selection-end-column="40" />
->>>>>>> 2ef3e55689b85a80e97096332ae9822eb3b079a5
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/zuulgateway/pom.xml">
-<<<<<<< HEAD
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/EducationService/pom.xml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/DownstreamService/src/main/java/com/stackroute/downstreamservice/domain/CertificateDetails.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="e#0#113#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/DownstreamService/src/main/java/com/stackroute/downstreamservice/domain/CurrentLocation.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="18" selection-start-line="18" selection-end-line="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/DownstreamService/target/jacoco-ut/jacoco-resources/prettify.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1260">
-          <caret line="336" column="37" selection-start-line="336" selection-start-column="37" selection-end-line="336" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/DownstreamService/src/main/java/com/stackroute/downstreamservice/configuration/KafkaConfiguration.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="65" column="117" selection-start-line="65" selection-start-column="117" selection-end-line="65" selection-end-column="117" />
-=======
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="225">
           <caret line="15" column="40" selection-start-line="15" selection-start-column="40" selection-end-line="15" selection-end-column="40" />
@@ -868,101 +523,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="185">
           <caret line="98" column="46" selection-start-line="98" selection-start-column="46" selection-end-line="98" selection-end-column="46" />
->>>>>>> 2ef3e55689b85a80e97096332ae9822eb3b079a5
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
-<<<<<<< HEAD
         <state relative-caret-position="112">
           <caret line="72" selection-start-line="72" selection-end-line="72" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/zuulgateway/src/main/resources/bootstrap.yml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/zuulgateway/src/main/resources/application.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="24" selection-start-line="24" selection-end-line="26" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/DownstreamService/src/main/java/com/stackroute/downstreamservice/controller/EmployeeController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="125">
-          <caret line="16" column="45" selection-start-line="16" selection-start-column="45" selection-end-line="16" selection-end-column="45" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/DownstreamService/src/main/resources/application.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="40" selection-start-line="5" selection-start-column="40" selection-end-line="5" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/DownstreamService/src/main/java/com/stackroute/downstreamservice/configuration/PreloadData.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="600">
-          <caret line="50" column="42" selection-start-line="50" selection-start-column="42" selection-end-line="50" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/DownstreamService/target/jacoco-ut/jacoco-resources/sort.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1171">
-          <caret line="35" column="12" selection-start-line="35" selection-start-column="12" selection-end-line="35" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/DownstreamService/src/main/java/com/stackroute/downstreamservice/service/EmployeeService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="27" column="54" lean-forward="true" selection-start-line="27" selection-start-column="54" selection-end-line="27" selection-end-column="54" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/DownstreamService/src/main/java/com/stackroute/downstreamservice/listener/KafkaConsumer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="239">
-          <caret line="107" lean-forward="true" selection-start-line="107" selection-end-line="107" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.gitlab-ci.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-221" />
-      </provider>
-    </entry>
-  </component>
-  <component name="masterDetails">
-    <states>
-      <state key="ProjectJDKs.UI">
-        <settings>
-          <last-edited>10</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-    </states>
-  </component>
-=======
-        <state relative-caret-position="528">
-          <caret line="137" column="10" lean-forward="true" selection-start-line="137" selection-start-column="10" selection-end-line="137" selection-end-column="10" />
         </state>
       </provider>
     </entry>
@@ -991,9 +558,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
           <caret line="9" selection-start-line="9" selection-end-line="9" />
-          <folding>
-            <element signature="e#326#327#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1001,10 +565,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="147">
           <caret line="31" column="9" selection-start-line="31" selection-start-column="9" selection-end-line="31" selection-end-column="9" />
-          <folding>
-            <element signature="e#1250#1251#0" expanded="true" />
-            <element signature="e#1302#1303#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1039,6 +599,15 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/.idea/compiler.xml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="164">
+          <caret line="54" column="6" selection-start-line="54" selection-start-column="6" selection-end-line="54" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
   </component>
->>>>>>> 2ef3e55689b85a80e97096332ae9822eb3b079a5
 </project>
