@@ -55,6 +55,18 @@ services:
       - "8082:8082"
     expose:
       - "8082"
+  upstream-service:
+    image: upstream-service:v1
+    build: UpstreamService/
+    restart: always
+    container_name: upstream-container
+    network_mode: host
+    depends_on:
+    - kafka
+    ports:
+    - "9191:9191"
+    expose:
+    - "9191"
   # config-server:
   #   image: config-server:v1
   #   build: config-server/
