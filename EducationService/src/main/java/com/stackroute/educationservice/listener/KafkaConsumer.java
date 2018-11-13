@@ -1,11 +1,11 @@
 package com.stackroute.educationservice.listener;
 
-import com.stackroute.educationservice.domain.CommonOutput;
 import com.stackroute.educationservice.domain.KafkaProperties;
 import com.stackroute.educationservice.domain.Section;
 import com.stackroute.educationservice.resource.IndexResource;
-import com.stackroute.educationservice.service.EducationService;
 import com.oracle.tools.packager.Log;
+import com.stackroute.educationservice.domain.CommonOutput;
+import com.stackroute.educationservice.service.EducationService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.slf4j.Marker;
@@ -36,6 +36,7 @@ public class KafkaConsumer {
 
         Log.info("consumed json message "+section);
         logger.debug(Marker.ANY_MARKER,section);
+        System.out.println("consumed json message "+section);
         CommonOutput commonOutput= educationService.processEducationDetails(section);
         indexResource.postData(commonOutput);
     }

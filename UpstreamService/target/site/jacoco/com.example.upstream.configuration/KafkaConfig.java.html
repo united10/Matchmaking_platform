@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>KafkaConfig.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">UpstreamService</a> &gt; <a href="index.source.html" class="el_package">com.example.upstream.configuration</a> &gt; <span class="el_source">KafkaConfig.java</span></div><h1>KafkaConfig.java</h1><pre class="source lang-java linenums">package com.example.upstream.configuration;
+
+import com.example.upstream.domain.KafkaProperties;
+import com.example.upstream.domain.certificate.Certificate;
+import com.example.upstream.domain.education.Education;
+import com.example.upstream.domain.experience.Experience;
+import com.example.upstream.domain.location.Location;
+import com.example.upstream.domain.project.Project;
+import com.example.upstream.domain.skills.Section;
+import org.apache.kafka.clients.producer.ProducerConfig;
+import org.apache.kafka.common.serialization.StringSerializer;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.kafka.core.DefaultKafkaProducerFactory;
+import org.springframework.kafka.core.KafkaTemplate;
+import org.springframework.kafka.core.ProducerFactory;
+import org.springframework.kafka.support.serializer.JsonSerializer;
+
+import java.util.HashMap;
+import java.util.Map;
+
+@Configuration
+<span class="fc" id="L25">public class KafkaConfig {</span>
+
+    private KafkaProperties kafkaProperties;
+    @Autowired
+    public void setUP(KafkaProperties kafkaProperties){
+<span class="fc" id="L30">        this.kafkaProperties=kafkaProperties;</span>
+<span class="fc" id="L31">    }</span>
+    @Bean
+    public ProducerFactory&lt;String, Education&gt; producerFactoryEducation() {
+
+<span class="fc" id="L35">        Map&lt;String, Object&gt; config =new HashMap&lt;&gt;();</span>
+
+<span class="fc" id="L37">        config.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG,kafkaProperties.getIpAddress());</span>
+        //System.out.println(&quot;${kafka.ipAddress}&quot;);
+<span class="fc" id="L39">        config.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, StringSerializer.class);</span>
+<span class="fc" id="L40">        config.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, JsonSerializer.class);</span>
+<span class="fc" id="L41">        config.put(JsonSerializer.ADD_TYPE_INFO_HEADERS, false);</span>
+
+<span class="fc" id="L43">        return new DefaultKafkaProducerFactory(config);</span>
+
+    }
+    @Bean
+    public ProducerFactory&lt;String, Location&gt; producerFactoryLocation() {
+
+<span class="fc" id="L49">        Map&lt;String, Object&gt; config =new HashMap&lt;&gt;();</span>
+
+<span class="fc" id="L51">        config.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG,kafkaProperties.getIpAddress());</span>
+<span class="fc" id="L52">        config.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, StringSerializer.class);</span>
+<span class="fc" id="L53">        config.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, JsonSerializer.class);</span>
+<span class="fc" id="L54">        config.put(JsonSerializer.ADD_TYPE_INFO_HEADERS, false);</span>
+
+<span class="fc" id="L56">        return new DefaultKafkaProducerFactory(config);</span>
+
+    }
+    @Bean
+    public ProducerFactory&lt;String, Experience&gt; producerFactoryExperience() {
+
+<span class="fc" id="L62">        Map&lt;String, Object&gt; config =new HashMap&lt;&gt;();</span>
+
+<span class="fc" id="L64">        config.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG,kafkaProperties.getIpAddress());</span>
+<span class="fc" id="L65">        config.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, StringSerializer.class);</span>
+<span class="fc" id="L66">        config.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, JsonSerializer.class);</span>
+<span class="fc" id="L67">        config.put(JsonSerializer.ADD_TYPE_INFO_HEADERS, false);</span>
+
+<span class="fc" id="L69">        return new DefaultKafkaProducerFactory(config);</span>
+
+    }
+    @Bean
+    public ProducerFactory&lt;String, Section&gt; producerFactorySkill() {
+
+<span class="fc" id="L75">        Map&lt;String, Object&gt; config =new HashMap&lt;&gt;();</span>
+
+<span class="fc" id="L77">        config.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG,kafkaProperties.getIpAddress());</span>
+<span class="fc" id="L78">        config.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, StringSerializer.class);</span>
+<span class="fc" id="L79">        config.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, JsonSerializer.class);</span>
+<span class="fc" id="L80">        config.put(JsonSerializer.ADD_TYPE_INFO_HEADERS, false);</span>
+
+<span class="fc" id="L82">        return new DefaultKafkaProducerFactory(config);</span>
+
+    }
+    @Bean
+    public ProducerFactory&lt;String, Project&gt; producerFactoryProject() {
+
+<span class="fc" id="L88">        Map&lt;String, Object&gt; config =new HashMap&lt;&gt;();</span>
+
+<span class="fc" id="L90">        config.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG,kafkaProperties.getIpAddress());</span>
+<span class="fc" id="L91">        config.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, StringSerializer.class);</span>
+<span class="fc" id="L92">        config.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, JsonSerializer.class);</span>
+<span class="fc" id="L93">        config.put(JsonSerializer.ADD_TYPE_INFO_HEADERS, false);</span>
+
+<span class="fc" id="L95">        return new DefaultKafkaProducerFactory(config);</span>
+
+    }
+    @Bean
+    public ProducerFactory&lt;String, Certificate&gt; producerFactoryCertificate() {
+
+<span class="fc" id="L101">        Map&lt;String, Object&gt; config = new HashMap&lt;&gt;();</span>
+
+<span class="fc" id="L103">        config.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG,kafkaProperties.getIpAddress());</span>
+<span class="fc" id="L104">        config.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, StringSerializer.class);</span>
+<span class="fc" id="L105">        config.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, JsonSerializer.class);</span>
+<span class="fc" id="L106">        config.put(JsonSerializer.ADD_TYPE_INFO_HEADERS, false);</span>
+
+<span class="fc" id="L108">        return new DefaultKafkaProducerFactory(config);</span>
+    }
+        //Creating templates for each objects
+    @Bean
+    public KafkaTemplate&lt;String, Education&gt; kafkaTemplateEducation()
+    {
+<span class="fc" id="L114">        return new KafkaTemplate&lt;&gt;(producerFactoryEducation());</span>
+    }
+    @Bean
+    public KafkaTemplate&lt;String, Location&gt; kafkaTemplateLocation()
+    {
+<span class="fc" id="L119">        return new KafkaTemplate&lt;&gt;(producerFactoryLocation());</span>
+    }
+    @Bean
+    public KafkaTemplate&lt;String, Experience&gt; kafkaTemplateExperience()
+    {
+<span class="fc" id="L124">        return new KafkaTemplate&lt;&gt;(producerFactoryExperience());</span>
+    }
+    @Bean
+    public KafkaTemplate&lt;String, Section&gt; kafkaTemplateSkills()
+    {
+<span class="fc" id="L129">        return new KafkaTemplate&lt;&gt;(producerFactorySkill());</span>
+    }
+    @Bean
+    public KafkaTemplate&lt;String, Project&gt; kafkaTemplateProject()
+    {
+<span class="fc" id="L134">        return new KafkaTemplate&lt;&gt;(producerFactoryProject());</span>
+    }
+    @Bean
+    public KafkaTemplate&lt;String, Certificate&gt; kafkaTemplateCertificate()
+    {
+<span class="fc" id="L139">        return new KafkaTemplate&lt;&gt;(producerFactoryCertificate());</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.2.201808211720</span></div></body></html>
