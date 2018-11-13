@@ -1,4 +1,4 @@
-package com.stackroute.matchmaking.domain;
+package com.stackroute.educationservice.domain;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -6,9 +6,10 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
-@Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class Chicklets {
-    private Experience experienceDetails;
+@Builder
+public class Qualification {
+    private String qualificationId;
+    private String title;
 }

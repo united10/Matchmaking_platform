@@ -1,4 +1,4 @@
-package com.stackroute.matchmaking;
+package com.stackroute.eduacation;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

@@ -1,4 +1,4 @@
-package com.stackroute.matchmaking.domain;
+package com.stackroute.educationservice.domain;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -19,6 +19,6 @@ public class CommonOutput {
     private String sourceNodeProperties;
     private String terminalNode;
     private String terminalNodeProperties;
-    private Relationships relationships;
+    private Relationships[] relationships;
 
 }
