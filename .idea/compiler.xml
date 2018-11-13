@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="CertificationService" />
+        <module name="config-server" />
+        <module name="DownstreamService" />
+        <module name="EducationService" />
+        <module name="eureka-registry" />
+        <module name="experience" />
+        <module name="LocationService" />
+        <module name="projectService" />
+        <module name="registration" />
+        <module name="spring-skill" />
+        <module name="UpstreamService" />
+        <module name="zuulgateway" />
+      </profile>
+    </annotationProcessing>
+  </component>
+</project>

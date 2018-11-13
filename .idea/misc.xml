@@ -10,9 +10,10 @@
         <option value="$PROJECT_DIR$/LocationService/pom.xml" />
         <option value="$PROJECT_DIR$/UpstreamService/pom.xml" />
         <option value="$PROJECT_DIR$/EducationService/pom.xml" />
+        <option value="$PROJECT_DIR$/DownstreamService/pom.xml" />
         <option value="$PROJECT_DIR$/ExperienceService/pom.xml" />
         <option value="$PROJECT_DIR$/RegistrationService/pom.xml" />
-        <option value="$PROJECT_DIR$/spring-boot-certification/pom.xml" />
+        <option value="$PROJECT_DIR$/CertificationService/pom.xml" />
       </list>
     </option>
   </component>
