@@ -50,11 +50,10 @@ local.properties
 .buildpath
 
 ######################
-# Intellij
-######################
-.idea/
-*.iml
+### IntelliJ IDEA ###
+.idea
 *.iws
+*.iml
 *.ipr
 *.ids
 *.orig
