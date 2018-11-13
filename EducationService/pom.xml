@@ -7,7 +7,7 @@
     <packaging>jar</packaging>
 
 
-	<name>matchMaking</name>
+	<name>EducationService</name>
 	<description>MatchMaking project for Spring Boot</description>
 
     <parent>
