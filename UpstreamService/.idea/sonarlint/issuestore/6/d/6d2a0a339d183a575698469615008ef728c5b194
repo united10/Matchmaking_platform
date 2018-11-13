@@ -1,8 +1,0 @@
-
-Šsquid:S4144I"gUpdate this method so that its implementation is not identical to "producerFactoryLocation" on line 47.(åÛŸ´ıÿÿÿÿ8ÀªÊ´ğ,
-Šsquid:S4144V"gUpdate this method so that its implementation is not identical to "producerFactoryLocation" on line 47.(Æò©¥øÿÿÿÿ8ùË´ğ,
-Šsquid:S4144<"gUpdate this method so that its implementation is not identical to "producerFactoryLocation" on line 47.(Â¬§§şÿÿÿÿ8ŠøÉ´ğ,
-[
-squid:S106&"9Replace this use of System.out or System.err by a logger.(Í˜éıûÿÿÿÿ8ÿ—»´ğ,
-‹squid:UselessImportCheck"`Remove this unused import 'org.springframework.boot.context.properties.ConfigurationProperties'.(¦Õ¸Ç8íõ·´ğ,
-…squid:S4144c"gUpdate this method so that its implementation is not identical to "producerFactoryLocation" on line 47.(Û¸Ç°8ó¹Ë´ğ,
