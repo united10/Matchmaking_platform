@@ -10,6 +10,6 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Skill {
-    private String skill;
+    private String technology;
     private String expertise;
 }
