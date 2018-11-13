@@ -9,13 +9,13 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @CrossOrigin
-@RequestMapping(value="/api/v1/registration")
+@RequestMapping(value="${controller.base}")
 public class UserController {
     @Autowired
     private KafkaTemplate<String, User> kafkaTemplate;
     private  static final String TOPIC ="user";
 
-    @PostMapping("user")
+    @PostMapping("${controller.user}")
     public ResponseEntity<String> saveUser(@RequestBody User user){
         ResponseEntity responseEntity;
         try{
