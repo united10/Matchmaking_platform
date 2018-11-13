@@ -2,7 +2,7 @@ ribbon:
     eureka:
         enabled: false
 server:
-    port: 8080
+    port: 8081
 zuul:
     routes:
         movie-service:
@@ -22,9 +22,9 @@ management:
     security:
         enabled: false  #disable the spring security on the management endpoints like /env, /refresh etc.
 
-logging:
-    level:
-        com.example.howtodoinjava: DEBUG
+#logging:
+#    level:
+#        com.example.howtodoinjava: DEBUG
 spring:
     application:
         name: zuul-gateway
