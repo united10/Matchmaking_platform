@@ -1,6 +1,12 @@
 {
   "/api/v1/education/": {
-    "target": "http://172.23.239.241:9192",
+    "target": "http://172.23.239.241:9191",
+    "secure": false,
+    "changeOrigin": true,
+    "logLevel": "debug"
+  },
+  "/api/v1/skills": {
+    "target": "http://172.23.239.241:9191",
     "secure": false,
     "changeOrigin": true,
     "logLevel": "debug"
