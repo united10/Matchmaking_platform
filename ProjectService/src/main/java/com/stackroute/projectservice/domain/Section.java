@@ -7,9 +7,11 @@ import lombok.NoArgsConstructor;
 
 @Data
 @Builder
-@AllArgsConstructor
 @NoArgsConstructor
-public class Skill {
-    private String technology;
-    private String expertise;
+@AllArgsConstructor
+public class Section {
+    private String sectionId;
+    private String userId;
+    private String operationType;
+    private Chicklets chicklets;
 }

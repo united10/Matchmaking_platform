@@ -1,4 +1,4 @@
-package com.stackroute.projectservice.domain;
+package com.stackroute.skillservice.domain;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -6,10 +6,11 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
-@Builder
-@AllArgsConstructor
 @NoArgsConstructor
+@AllArgsConstructor
+@Builder
 public class Skill {
-    private String technology;
-    private String expertise;
+    String skillId;
+    String skillName;
+    String skillLevel;
 }

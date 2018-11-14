@@ -1,12 +1,12 @@
-package com.stackroute.projectservice;
+package com.stackroute.skillservice;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class ProjectServiceApplication {
+public class SpringSkillApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(ProjectServiceApplication.class, args);
+		SpringApplication.run(SpringSkillApplication.class, args);
 	}
 }
