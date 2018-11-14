@@ -1,9 +1,9 @@
-import { catchError } from 'rxjs/operators';
-import { Output } from './../outputclass/output';
-import { HttpHeaders, HttpClient, HttpErrorResponse } from '@angular/common/http';
-import { Injectable} from '@angular/core';
-import { SkillSection } from '../skillclasses/skillsection';
+import { Injectable } from '@angular/core';
+import { LocationSection } from '../locationclasses/section';
 import { Observable, throwError } from 'rxjs';
+import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
+import { catchError } from 'rxjs/operators';
+import { Output } from '../outputclass/output';
 
 
 const httpOptions = {
@@ -14,13 +14,14 @@ const httpOptions = {
 @Injectable({
   providedIn: 'root'
 })
-export class SkillService {
+export class LocationService {
 
-  url = '/api/v1/skills';
+  url = '/api/v1/location';
 
   constructor(private httpClient: HttpClient) { }
 
-  addSkillDetails(section: SkillSection): Observable<Output> {
+  addLocationDetails(section: LocationSection): Observable<Output> {
+    console.log(section);
     return this.httpClient.post<Output>(this.url, section, httpOptions).pipe(catchError(this.errorHandler));
   }
 
@@ -29,6 +30,8 @@ export class SkillService {
       // A client-side or network error occurred. Handle it accordingly.
       console.error('An error occurred:', error.error.message);
     } else {
+      // The backend returned an unsuccessful response code.
+      // The response body may contain clues as to what went wrong,
       console.error(
         `Backend returned code ${error.status}, ` +
         `body was: ${error.error}`);
@@ -37,4 +40,3 @@ export class SkillService {
     return throwError('Something bad happened; please try again later.');
   }
 }
-

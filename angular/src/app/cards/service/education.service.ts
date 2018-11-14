@@ -16,7 +16,7 @@ const httpOptions = {
 })
 export class EducationService {
 
-  url: string = "/api/v1/education/";
+  url = '/api/v1/education/';
 
   constructor(private httpClient: HttpClient) { }
 
@@ -37,5 +37,5 @@ export class EducationService {
     }
     // return an observable with a user-facing error message
     return throwError('Something bad happened; please try again later.');
-  };
+  }
 }
