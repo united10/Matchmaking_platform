@@ -1,6 +1,6 @@
 package com.stackroute.listener;
 
-import com.stackroute.resource.IndexResourceImplementation;
+import com.stackroute.resource.IndexResource;
 import com.stackroute.domain.CommonOutput;
 import com.stackroute.domain.Relationships;
 import com.stackroute.domain.Section;
@@ -12,11 +12,10 @@ import org.springframework.stereotype.Service;
 @Service
 public class KafkaListening {
     @Autowired
-    IndexResourceImplementation indexResourceImplementation;
+    IndexResource indexResource;
 
     @KafkaListener(topics = "${kafka.listeningTopic}" ,groupId = "${kafka.groupId}",
             containerFactory="${kafka.containerFactory}")
-
     public void consumeJson(@Payload Section section) {
         System.out.print("Consumed Message "+ section);
         Relationships[] relationships=new Relationships[1];
@@ -25,6 +24,6 @@ public class KafkaListening {
         CommonOutput commonOutput=new CommonOutput("add","SourceNode","SourceNodeProperty",
                 "TargetNode","TargetNodeProperty",
                 relationships);
-        indexResourceImplementation.postData(commonOutput);
+        indexResource.postData(commonOutput);
     }
 }
