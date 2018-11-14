@@ -160,3 +160,5 @@ CertificationService/.mvn
 config-server/.mvn
 DownstreamService/.mvn
 eureka-registry/.mvn
+LocationService/.idea
+ExperienceService/.idea
