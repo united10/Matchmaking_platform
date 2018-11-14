@@ -5,13 +5,13 @@ import com.stackroute.skillservice.domain.Relationship;
 import com.stackroute.skillservice.domain.CommonOutput;
 import com.stackroute.skillservice.domain.Section;
 import com.stackroute.skillservice.resource.IndexResource;
+import com.stackroute.skillservice.service.SkillServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.messaging.handler.annotation.Payload;
 import org.springframework.stereotype.Service;
 
 @Service
-
 public class KafkaConsumer {
 
     @Autowired
@@ -24,14 +24,7 @@ public class KafkaConsumer {
 
     public void consumeJson(@Payload Section section) {
 
-
-
-        Relationship relationship1;
-        Relationship[] relationships=new Relationship[1];
-        relationship1 = new Relationship("add","has");
-        relationships[0]=relationship1;
-        CommonOutput commonOutput=new CommonOutput("add","SourceNode","SourceNodeProperty",
-                "TargetNode","TargetNodeProperty",relationships);
+        CommonOutput commonOutput= new SkillServiceImpl().processSameOutput(section);
         indexResource.postData(commonOutput);
 
     }
