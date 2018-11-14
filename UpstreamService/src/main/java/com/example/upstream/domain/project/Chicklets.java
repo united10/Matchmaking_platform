@@ -11,5 +11,5 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Chicklets {
-    private ProjectDetails projectDetails[];
+    private ProjectDetails projectDetails;
 }
