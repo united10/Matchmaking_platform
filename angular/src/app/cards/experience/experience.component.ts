@@ -77,6 +77,7 @@ export class ExperienceComponent implements OnInit {
       let fromDate = row.value.startDate + '';
       console.log(fromDate);
       let date = fromDate.split(' ',4);
+      let fromDay = date[1];
       console.log(date);
       const experienceDetails = new ExperienceDetails(row.value.organisation,
                                   row.value.role,

@@ -1,10 +1,14 @@
 import { Injectable } from '@angular/core';
-import { Section } from '../classes/section';
 import { Observable, throwError } from 'rxjs';
 import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
 import { catchError } from 'rxjs/operators';
+<<<<<<< HEAD
 import { Output } from '../classes/output';
 import { ExperienceSection } from '../experience-class/section';
+=======
+import { EducationSection } from '../educationclasses/educationsection';
+import { Output } from '../outputclass/output';
+>>>>>>> 852ac48a5695665c9008b18b404a4035b0801772
 
 
 const httpOptions = {
@@ -21,7 +25,7 @@ export class EducationService {
   url1 = '/api/v1/experience/';
   constructor(private httpClient: HttpClient) { }
 
-  addEducationDetails(section: Section): Observable<Output> {
+  addEducationDetails(section: EducationSection): Observable<Output> {
     return this.httpClient.post<Output>(this.url, section, httpOptions).pipe(catchError(this.errorHandler));
   }
   addExperienceDetails(section: ExperienceSection): Observable<Output> {

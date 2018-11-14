@@ -3,15 +3,15 @@ import { Relationship } from "./relationship";
 export class Output {
     constructor(private operationType: string,
         private sourceNode: string,
-        private sourceProperty: string,
+        private sourceNodeProperty: string,
         private terminalNode: string,
-        private terminalProperties: string,
-        private relation: Relationship[]) {
+        private terminalNodeProperties: string,
+        private relationship: Relationship[]) {
         this.operationType = operationType;
         this.sourceNode = sourceNode;
-        this.sourceProperty = sourceProperty;
+        this.sourceNodeProperty = sourceNodeProperty;
         this.terminalNode = terminalNode;
-        this.terminalProperties = terminalProperties;
-        this.relation = relation;
+        this.terminalNodeProperties = terminalNodeProperties;
+        this.relationship = relationship;
     }
 }

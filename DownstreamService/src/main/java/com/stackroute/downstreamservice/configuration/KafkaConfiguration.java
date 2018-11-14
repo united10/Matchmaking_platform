@@ -2,10 +2,12 @@ package com.stackroute.downstreamservice.configuration;
 
 
 import com.stackroute.downstreamservice.domain.Employee;
+import com.stackroute.downstreamservice.domain.KafkaProperties;
 import org.apache.kafka.clients.consumer.ConsumerConfig;
 import org.apache.kafka.common.serialization.BytesDeserializer;
 import org.apache.kafka.common.serialization.StringDeserializer;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.kafka.annotation.EnableKafka;
@@ -24,12 +26,23 @@ import java.util.Map;
 @Configuration
 public class KafkaConfiguration {
 
+    private KafkaProperties kafkaProperties;
+
+    @Autowired
+    public KafkaConfiguration(KafkaProperties kafkaProperties) {
+        this.kafkaProperties = kafkaProperties;
+    }
+
+
+
+
+
     @Bean
     public ConsumerFactory<String, String> consumerFactory() {
 
         Map<String, Object> config =new HashMap<>();
-        config.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG,"127.0.0.1:9092");
-        config.put(ConsumerConfig.GROUP_ID_CONFIG, "group_id1");
+        config.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG,kafkaProperties.getIpAddress());
+        config.put(ConsumerConfig.GROUP_ID_CONFIG, kafkaProperties.getGroupId());
         config.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class);
         config.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG,StringDeserializer.class);
         return new DefaultKafkaConsumerFactory<>(config);
@@ -48,8 +61,8 @@ public class KafkaConfiguration {
 
         Map<String, Object> config =new HashMap<>();
 
-        config.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG,"172.23.239.245:9092");
-        config.put(ConsumerConfig.GROUP_ID_CONFIG, "group_id5");
+        config.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG,kafkaProperties.getIpAddress());
+        config.put(ConsumerConfig.GROUP_ID_CONFIG, kafkaProperties.getGroupId());
         config.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class);
 //        config.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, JsonDeserializer.class);
         config.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, BytesDeserializer.class);

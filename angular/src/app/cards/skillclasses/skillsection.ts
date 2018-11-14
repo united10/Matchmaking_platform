@@ -1,10 +1,11 @@
-import { Chicklets } from "./chicklets";
+import { SkillChicklets } from "./skillchicklets";
 
-export class Section {
+
+export class SkillSection {
     constructor(private sectionId: string,
         private userId: string,
         private operationType: string,
-        private chicklets: Chicklets[]) {
+        private chicklets: SkillChicklets[]) {
         this.sectionId = sectionId;
         this.userId = userId;
         this.operationType = operationType;

@@ -1,12 +1,10 @@
 package com.example.upstream.controller;
 
-import com.example.upstream.UpstreamServiceApplication;
 import com.example.upstream.domain.certificate.Certificate;
 import com.example.upstream.domain.education.Education;
 import com.example.upstream.domain.experience.Experience;
 import com.example.upstream.domain.location.Location;
-import com.example.upstream.domain.project.Project;
-import com.example.upstream.domain.skills.Section;
+import com.example.upstream.domain.project.Section;
 import org.apache.kafka.common.KafkaException;
 import org.apache.kafka.common.errors.TimeoutException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,8 +12,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.web.bind.annotation.*;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+
 import java.util.concurrent.ExecutionException;
 
 @CrossOrigin
@@ -23,14 +20,14 @@ import java.util.concurrent.ExecutionException;
 @RequestMapping("${controller.base}")
 public class UpStreamController {
 private KafkaTemplate<String,Education> kafkaTemplateEducation;
-private KafkaTemplate<String, Section> kafkaTemplateSkills;
+private KafkaTemplate<String, com.example.upstream.domain.skills.Section> kafkaTemplateSkills;
 private KafkaTemplate<String, Location>kafkaTemplateLocation;
-private KafkaTemplate<String,Project>kafkaTemplateProject;
+private KafkaTemplate<String, Section>kafkaTemplateProject;
 private KafkaTemplate<String, Experience>kafkaTemplateExperience;
 private KafkaTemplate<String,Certificate>kafkaTemplateCertificate;
 
     @Autowired
-    public UpStreamController(KafkaTemplate<String, Education> kafkaTemplateEducation, KafkaTemplate<String, Section> kafkaTemplateSkills, KafkaTemplate<String, Location> kafkaTemplateLocation, KafkaTemplate<String, Project> kafkaTemplateProject, KafkaTemplate<String, Experience> kafkaTemplateExperience, KafkaTemplate<String, Certificate> kafkaTemplateCertificate) {
+    public UpStreamController(KafkaTemplate<String, Education> kafkaTemplateEducation, KafkaTemplate<String, com.example.upstream.domain.skills.Section> kafkaTemplateSkills, KafkaTemplate<String, Location> kafkaTemplateLocation, KafkaTemplate<String, Section> kafkaTemplateProject, KafkaTemplate<String, Experience> kafkaTemplateExperience, KafkaTemplate<String, Certificate> kafkaTemplateCertificate) {
         this.kafkaTemplateEducation = kafkaTemplateEducation;
         this.kafkaTemplateSkills = kafkaTemplateSkills;
         this.kafkaTemplateLocation = kafkaTemplateLocation;
@@ -113,7 +110,7 @@ private static final String TOPIC5 = "certificate";
     }
 
     @PostMapping("${controller.skills}")
-    public ResponseEntity<?> newSkills(@RequestBody Section section)
+    public ResponseEntity<?> newSkills(@RequestBody com.example.upstream.domain.skills.Section section)
     {
         section.setOperationType("add");
         ResponseEntity responseEntity = new ResponseEntity(section,HttpStatus.OK);
@@ -122,7 +119,7 @@ private static final String TOPIC5 = "certificate";
 
     }
     @PutMapping("${controller.skills}")
-    public ResponseEntity<?> updateSkills(@RequestBody Section section)
+    public ResponseEntity<?> updateSkills(@RequestBody com.example.upstream.domain.skills.Section section)
     {
         section.setOperationType("update");
         ResponseEntity responseEntity = new ResponseEntity(section,HttpStatus.OK);
@@ -131,7 +128,7 @@ private static final String TOPIC5 = "certificate";
 
     }
     @DeleteMapping("${controller.skills}")
-    public ResponseEntity<?> deleteSkills(@RequestBody Section section)
+    public ResponseEntity<?> deleteSkills(@RequestBody com.example.upstream.domain.skills.Section section)
     {
         section.setOperationType("delete");
         ResponseEntity responseEntity = new ResponseEntity(section,HttpStatus.OK);
@@ -140,29 +137,29 @@ private static final String TOPIC5 = "certificate";
 
     }
     @PostMapping("${controller.project}")
-    public ResponseEntity<?> newProject(@RequestBody Project project)
+    public ResponseEntity<?> newProject(@RequestBody Section section)
     {
-        project.setOperationType("add");
-        ResponseEntity responseEntity = new ResponseEntity(project,HttpStatus.OK);
-        kafkaTemplateProject.send(TOPIC3,project);
+        section.setOperationType("add");
+        ResponseEntity responseEntity = new ResponseEntity(section,HttpStatus.OK);
+        kafkaTemplateProject.send(TOPIC3, section);
         return responseEntity;
 
     }
     @PutMapping("${controller.project}")
-    public ResponseEntity<?> updateProject(@RequestBody Project project)
+    public ResponseEntity<?> updateProject(@RequestBody Section section)
     {
-        project.setOperationType("update");
-        ResponseEntity responseEntity = new ResponseEntity(project,HttpStatus.OK);
-        kafkaTemplateProject.send(TOPIC3,project);
+        section.setOperationType("update");
+        ResponseEntity responseEntity = new ResponseEntity(section,HttpStatus.OK);
+        kafkaTemplateProject.send(TOPIC3, section);
         return responseEntity;
 
     }
     @DeleteMapping("${controller.project}")
-    public ResponseEntity<?> deleteProject(@RequestBody Project project)
+    public ResponseEntity<?> deleteProject(@RequestBody Section section)
     {
-        project.setOperationType("delete");
-        ResponseEntity responseEntity = new ResponseEntity(project,HttpStatus.OK);
-        kafkaTemplateProject.send(TOPIC3,project);
+        section.setOperationType("delete");
+        ResponseEntity responseEntity = new ResponseEntity(section,HttpStatus.OK);
+        kafkaTemplateProject.send(TOPIC3, section);
         return responseEntity;
 
     }

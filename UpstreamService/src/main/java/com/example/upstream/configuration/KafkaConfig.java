@@ -5,12 +5,10 @@ import com.example.upstream.domain.certificate.Certificate;
 import com.example.upstream.domain.education.Education;
 import com.example.upstream.domain.experience.Experience;
 import com.example.upstream.domain.location.Location;
-import com.example.upstream.domain.project.Project;
-import com.example.upstream.domain.skills.Section;
+import com.example.upstream.domain.project.Section;
 import org.apache.kafka.clients.producer.ProducerConfig;
 import org.apache.kafka.common.serialization.StringSerializer;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.kafka.core.DefaultKafkaProducerFactory;
@@ -70,7 +68,7 @@ public class KafkaConfig {
 
     }
     @Bean
-    public ProducerFactory<String, Section> producerFactorySkill() {
+    public ProducerFactory<String, com.example.upstream.domain.skills.Section> producerFactorySkill() {
 
         Map<String, Object> config =new HashMap<>();
 
@@ -83,7 +81,7 @@ public class KafkaConfig {
 
     }
     @Bean
-    public ProducerFactory<String, Project> producerFactoryProject() {
+    public ProducerFactory<String, Section> producerFactoryProject() {
 
         Map<String, Object> config =new HashMap<>();
 
@@ -124,12 +122,12 @@ public class KafkaConfig {
         return new KafkaTemplate<>(producerFactoryExperience());
     }
     @Bean
-    public KafkaTemplate<String, Section> kafkaTemplateSkills()
+    public KafkaTemplate<String, com.example.upstream.domain.skills.Section> kafkaTemplateSkills()
     {
         return new KafkaTemplate<>(producerFactorySkill());
     }
     @Bean
-    public KafkaTemplate<String, Project> kafkaTemplateProject()
+    public KafkaTemplate<String, Section> kafkaTemplateProject()
     {
         return new KafkaTemplate<>(producerFactoryProject());
     }
