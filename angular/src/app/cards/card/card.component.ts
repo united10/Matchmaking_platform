@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { DetailsdialogComponent } from '../detailsdialog/detailsdialog.component';
-
+// import { FormGroup, FormArray, FormControl, FormBuilder, Validators } from '@angular/forms';
 @Component({
   selector: 'app-card',
   templateUrl: './card.component.html',
