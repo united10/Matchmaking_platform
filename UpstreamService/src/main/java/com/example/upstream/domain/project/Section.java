@@ -10,7 +10,7 @@ import lombok.NoArgsConstructor;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class Project {
+public class Section {
     private String sectionId;
     private String userId;
     private String operationType;

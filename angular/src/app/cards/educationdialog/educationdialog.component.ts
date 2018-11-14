@@ -1,12 +1,12 @@
 import { Component, OnInit, Inject, Renderer2 } from '@angular/core';
-import { Qualification } from '../classes/qualification';
-import { Institution } from '../classes/institution';
-import { Chicklets } from '../classes/chicklets';
+import { Qualification } from '../educationclasses/qualification';
+import { Institution } from '../educationclasses/institution';
+import { EducationChicklets } from '../educationclasses/educationchicklets';
 import { EducationService } from 'src/app/cards/service/education.service';
-import { Output } from '../classes/output';
+import { Output } from '../outputclass/output';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { FormGroup, FormArray, FormControl, FormBuilder, Validators } from '@angular/forms';
-import { Section } from '../classes/section';
+import { EducationSection } from '../educationclasses/educationsection';
 
 @Component({
   selector: 'app-educationdialog',
@@ -15,7 +15,7 @@ import { Section } from '../classes/section';
 })
 export class EducationdialogComponent implements OnInit {
 
-  detailsForm: FormGroup;
+  educationForm: FormGroup;
   qualification: string;
   institute: string;
   startDate: string;
@@ -31,7 +31,7 @@ export class EducationdialogComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.detailsForm = this.fb.group({
+    this.educationForm = this.fb.group({
       education: this.fb.array([this.initItemRow()])
     });
   }
@@ -45,12 +45,12 @@ export class EducationdialogComponent implements OnInit {
     });
   }
   addRow() {
-    const control = <FormArray>this.detailsForm.controls['education'];
+    const control = <FormArray>this.educationForm.controls['education'];
     control.push(this.initItemRow());
 
   }
   deleteRow(index:number){
-    const control = <FormArray>this.detailsForm.controls['education'];
+    const control = <FormArray>this.educationForm.controls['education'];
     if(control!=null){
       this.totalRow=control.value.length;
     }
@@ -63,8 +63,8 @@ export class EducationdialogComponent implements OnInit {
   }
 
   onSave() {
-    var arr = this.detailsForm.get('education') as FormArray;
-    var chicklets = new Array<Chicklets>();
+    var arr = this.educationForm.get('education') as FormArray;
+    var chicklets = new Array<EducationChicklets>();
     for (let i = 0; i < arr.length; i++) {
       var row = arr.at(i);
       var qualification = new Qualification("qualificationId", row.value.qualification);
@@ -72,10 +72,10 @@ export class EducationdialogComponent implements OnInit {
         row.value.institute,
         row.value.startDate,
         row.value.endDate);
-      var chicklet = new Chicklets(qualification, institution, this.summary);
+      var chicklet = new EducationChicklets(qualification, institution, this.summary);
       chicklets.push(chicklet);
     }
-    var section = new Section("Education", "userId", "add", chicklets);
+    var section = new EducationSection("Education", "userId", "add", chicklets);
     this.educationService.addEducationDetails(section).subscribe(
       data => {
         this.output = data;

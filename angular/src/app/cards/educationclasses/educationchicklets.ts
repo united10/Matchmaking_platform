@@ -1,7 +1,7 @@
 import { Qualification } from "./qualification";
 import { Institution } from "./institution";
 
-export class Chicklets {
+export class EducationChicklets {
     constructor(private qualification: Qualification,
         private institution: Institution,
         private summary: string) {

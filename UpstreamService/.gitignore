@@ -1,5 +1,5 @@
 gi######################
-# Project Specific
+# Section Specific
 ######################
 /build/www/**
 /src/test/javascript/coverage/
@@ -22,7 +22,7 @@ npm-debug.log.*
 # Eclipse
 ######################
 *.pydevproject
-.project
+.section
 .metadata
 tmp/
 tmp/**/*
