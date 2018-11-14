@@ -32,17 +32,9 @@
         "logLevel": "debug"
       },
     "/matchmaker/v1/":{
-<<<<<<< HEAD
-        "target":  "http://172.23.239.189:8090",
-=======
         "target": "http://172.23.239.189:8090",
->>>>>>> fb3e2496d5f85d32f3fc3c0a511e479197f8cc41
         "secure": false,
         "changeOrigin": true,
         "logLevel": "debug"
   }
-<<<<<<< HEAD
-  
-=======
 }
->>>>>>> fb3e2496d5f85d32f3fc3c0a511e479197f8cc41
