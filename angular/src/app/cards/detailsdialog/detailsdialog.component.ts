@@ -2,6 +2,7 @@ import { Component, OnInit, Inject } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef, MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { EducationdialogComponent } from '../educationdialog/educationdialog.component';
 import { ExperienceComponent } from '../experience/experience.component';
+import { CertificatedialogComponent } from '../certificatedialog/certificatedialog.component';
 
 @Component({
   selector: 'app-detailsdialog',
@@ -21,12 +22,12 @@ export class DetailsdialogComponent implements OnInit {
     this.dialogRef.close();
   }
   educationClick() {
-    console.log("hey");
+    console.log('hey');
     this.dialogRef.close();
     const dialogConfig = new MatDialogConfig();
     dialogConfig.disableClose = false;
     dialogConfig.autoFocus = true;
-    dialogConfig.width='40%';
+    dialogConfig.width = '40%';
     this.dialog.open(EducationdialogComponent, dialogConfig);
   }
 
@@ -35,7 +36,15 @@ export class DetailsdialogComponent implements OnInit {
     const dialogConfig = new MatDialogConfig();
     dialogConfig.disableClose = false;
     dialogConfig.autoFocus = true;
-    dialogConfig.width='40%';
+    dialogConfig.width = '40%';
     this.dialog.open(ExperienceComponent, dialogConfig);
+  }
+  certificateClick() {
+    this.dialogRef.close();
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.disableClose = false;
+    dialogConfig.autoFocus = true;
+    dialogConfig.width = '40%';
+    this.dialog.open(CertificatedialogComponent, dialogConfig);
   }
 }

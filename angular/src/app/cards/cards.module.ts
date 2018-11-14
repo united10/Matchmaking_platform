@@ -12,6 +12,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { ExperienceComponent } from './experience/experience.component';
+import { CertificatedialogComponent } from './certificatedialog/certificatedialog.component';
 
 @NgModule({
   imports: [
@@ -26,8 +27,8 @@ import { ExperienceComponent } from './experience/experience.component';
     MatDatepickerModule,
     MatNativeDateModule
   ],
-  declarations: [CardComponent, DetailsdialogComponent, EducationdialogComponent, ExperienceComponent],
-  entryComponents: [DetailsdialogComponent, EducationdialogComponent],
+  declarations: [CardComponent, DetailsdialogComponent, EducationdialogComponent, ExperienceComponent, CertificatedialogComponent],
+  entryComponents: [DetailsdialogComponent, EducationdialogComponent, CertificatedialogComponent],
   exports: [CardComponent]
 })
 export class CardsModule { }
