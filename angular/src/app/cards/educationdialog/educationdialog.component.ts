@@ -23,7 +23,7 @@ export class EducationdialogComponent implements OnInit {
   summary: string;
   output: Output;
   errorMessage: string;
-  totalRow:number;
+  totalRow: number;
   constructor(@Inject(MAT_DIALOG_DATA) private data: any,
     private dialogRef: MatDialogRef<EducationdialogComponent>,
     private educationService: EducationService, private fb: FormBuilder) {
@@ -38,10 +38,10 @@ export class EducationdialogComponent implements OnInit {
 
   initItemRow() {
     return this.fb.group({
-      qualification: new FormControl('',Validators.required),
-      institute: new FormControl('',Validators.required),
-      startDate: new FormControl('',Validators.required),
-      endDate: new FormControl('',Validators.required)
+      qualification: new FormControl('', Validators.required),
+      institute: new FormControl('', Validators.required),
+      startDate: new FormControl('', Validators.required),
+      endDate: new FormControl('', Validators.required)
     });
   }
   addRow() {
@@ -49,33 +49,33 @@ export class EducationdialogComponent implements OnInit {
     control.push(this.initItemRow());
 
   }
-  deleteRow(index:number){
+  deleteRow(index: number) {
     const control = <FormArray>this.educationForm.controls['education'];
-    if(control!=null){
-      this.totalRow=control.value.length;
+    if (control != null) {
+      this.totalRow = control.value.length;
     }
-    if(this.totalRow>1){
+    if (this.totalRow > 1) {
       control.removeAt(index);
-    }else{
+    } else {
       alert('Add one more details.');
       return false;
     }
   }
 
   onSave() {
-    var arr = this.educationForm.get('education') as FormArray;
-    var chicklets = new Array<EducationChicklets>();
+    const arr = this.educationForm.get('education') as FormArray;
+    const chicklets = new Array<EducationChicklets>();
     for (let i = 0; i < arr.length; i++) {
-      var row = arr.at(i);
-      var qualification = new Qualification("qualificationId", row.value.qualification);
-      var institution = new Institution("institutionId",
+      const row = arr.at(i);
+      const qualification = new Qualification('qualificationId', row.value.qualification);
+      const institution = new Institution('institutionId',
         row.value.institute,
         row.value.startDate,
         row.value.endDate);
-      var chicklet = new EducationChicklets(qualification, institution, this.summary);
+      const chicklet = new EducationChicklets(qualification, institution, this.summary);
       chicklets.push(chicklet);
     }
-    var section = new EducationSection("Education", "userId", "add", chicklets);
+    const section = new EducationSection('Education', 'userId', 'add', chicklets);
     this.educationService.addEducationDetails(section).subscribe(
       data => {
         this.output = data;
