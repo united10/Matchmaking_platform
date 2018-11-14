@@ -26,7 +26,7 @@ export class CertificatedialogComponent implements OnInit {
 }
   ngOnInit() {
     this.certificateForm = this.fb.group({
-      education: this.fb.array([this.initItemRow()])
+      certificate: this.fb.array([this.initItemRow()])
     });
   }
   initItemRow() {
@@ -34,8 +34,8 @@ export class CertificatedialogComponent implements OnInit {
       certificateName: new FormControl('', Validators.required),
       certificateAuthority: new FormControl('', Validators.required),
       licenseNumber: new FormControl('', Validators.required),
-      startDate: new FormControl('', Validators.required),
-      endDate: new FormControl('', Validators.required)
+      fromDate: new FormControl('', Validators.required),
+      toDate: new FormControl('', Validators.required)
     });
   }
   addRow() {

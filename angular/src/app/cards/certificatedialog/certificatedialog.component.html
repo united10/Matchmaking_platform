@@ -1,8 +1,8 @@
 <section class="main" [formGroup]="certificateForm" >
-  <!-- <div class="card-title"> -->
+  <div class="card-title">
     <h2>Add Certificate</h2>
     <mat-icon color="primary" (click)="addRow()" style="cursor:pointer">add</mat-icon>
-  <!-- </div> -->
+  </div>
   
   <mat-dialog-content formGroupName="certificate">
     <div class="row-items" *ngFor="let certificateControl of certificateForm.controls.certificate.controls; let i = index" [formGroupName]="i">
@@ -10,7 +10,7 @@
         <mat-form-field>
           <input matInput name="certificateName" formControlName="certificateName" required />
         </mat-form-field>
-        (License Number)
+        (Certificate Number)
         <mat-form-field>
           <input matInput name="licenseNumber" formControlName="licenseNumber" required />
         </mat-form-field>
