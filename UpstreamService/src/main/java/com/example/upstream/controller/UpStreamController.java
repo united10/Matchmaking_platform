@@ -1,5 +1,6 @@
 package com.example.upstream.controller;
 
+import com.example.upstream.UpstreamServiceApplication;
 import com.example.upstream.domain.certificate.Certificate;
 import com.example.upstream.domain.education.Education;
 import com.example.upstream.domain.experience.Experience;
@@ -46,7 +47,7 @@ private static final String TOPIC3 = "project";
 private static final String TOPIC4 = "experience";
 private static final String TOPIC5 = "certificate";
 
-private final Logger logger = LoggerFactory.getLogger(UpStreamController.class);
+//private final Logger logger = LoggerFactory.getLogger(UpstreamServiceApplication.class);
     @PostMapping("${controller.education}")
     public ResponseEntity<?> newEducation(@RequestBody Education education){
         ResponseEntity responseEntity = null;
@@ -89,10 +90,10 @@ private final Logger logger = LoggerFactory.getLogger(UpStreamController.class);
         location.setOperationType("add");
         ResponseEntity responseEntity = new ResponseEntity(location,HttpStatus.OK);
         kafkaTemplateLocation.send(TOPIC2,location);
-        logger.debug("This is a debug message");
+/*        logger.debug("This is a debug message");
         logger.info("This is an info message");
         logger.warn("This is a warn message");
-        logger.error("This is an error message");
+        logger.error("This is an error message");*/
         return responseEntity;
 
     }

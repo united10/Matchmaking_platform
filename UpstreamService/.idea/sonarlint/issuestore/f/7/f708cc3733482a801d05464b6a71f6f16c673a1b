@@ -1,27 +1,0 @@
-
-^squid:S1192M"GDefine a constant instead of duplicating this literal "delete" 6 times.(î¬éó
-^squid:S1192F"GDefine a constant instead of duplicating this literal "update" 6 times.(¬õƒ¾
-Bsquid:S14520"&Remove usage of generic wildcard type.(ÖÐš²ýÿÿÿÿ
-Bsquid:S1452E"&Remove usage of generic wildcard type.(þ“³µùÿÿÿÿ
-Bsquid:S1452L"&Remove usage of generic wildcard type.(«õÀßÿÿÿÿÿ
-Bsquid:S1452S"&Remove usage of generic wildcard type.(Ñ¡›üþÿÿÿÿ
-=squid:S1452\"&Remove usage of generic wildcard type.(æàß„
-Bsquid:S1452c"&Remove usage of generic wildcard type.(‘ÿžúÿÿÿÿ
-Bsquid:S1452k"&Remove usage of generic wildcard type.(Ìõ™úýÿÿÿÿ
-=squid:S1452t"&Remove usage of generic wildcard type.(¬æÆû
-Bsquid:S1452}"&Remove usage of generic wildcard type.(Óç½²üÿÿÿÿ
-Csquid:S1452†"&Remove usage of generic wildcard type.(â…»©øÿÿÿÿ
-Csquid:S1452"&Remove usage of generic wildcard type.(úÄÓÂýÿÿÿÿ
->squid:S1452˜"&Remove usage of generic wildcard type.(©‚Ã¸
->squid:S1452¡"&Remove usage of generic wildcard type.(÷æ¿ƒ
-Csquid:S1452ª"&Remove usage of generic wildcard type.(¢Áœ±ùÿÿÿÿ
->squid:S1452³"&Remove usage of generic wildcard type.(õþ®¤
->squid:S1452¼"&Remove usage of generic wildcard type.(Üû­¾
->squid:S1452Å"&Remove usage of generic wildcard type.(›Á¬‘
->squid:S1452Î"&Remove usage of generic wildcard type.(†ŒŽá
-T
-squid:S106="9Replace this use of System.out or System.err by a logger.(¶Û©°úÿÿÿÿ
-]squid:S2142<"FEither re-interrupt this method or rethrow the "InterruptedException".(ä ¹€
-[squid:S2147:"DCombine this catch with the one at line 55, which has the same body.(ÚúÞÂ
-?squid:S1148>"#Use a logger to log this exception.(€ÉÔ…ýÿÿÿÿ
-?squid:S1148@"#Use a logger to log this exception.(€ÉÔ…ýÿÿÿÿ

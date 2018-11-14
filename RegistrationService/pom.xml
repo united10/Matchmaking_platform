@@ -4,12 +4,12 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.stackroute</groupId>
-	<artifactId>registration</artifactId>
+	<artifactId>Registration-Service</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
 	<name>registration</name>
-	<description>Product project</description>
+	<description>Registration microservice for Matchmaking Platform</description>
 
 	<parent>
 		<groupId>org.springframework.boot</groupId>

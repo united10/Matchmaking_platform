@@ -105,5 +105,4 @@ export class ExperienceComponent implements OnInit {
   onClose() {
     this.dialogRef.close();
   }
-
 }
