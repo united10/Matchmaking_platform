@@ -157,3 +157,6 @@ SkillService/.mvn
 UpstreamService/.mvn
 zuulgateway/.mvn
 CertificationService/.mvn
+config-server/.mvn
+DownstreamService/.mvn
+eureka-registry/.mvn
