@@ -13,8 +13,8 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { ExperienceComponent } from './experience/experience.component';
 import { SkillComponent } from './skill/skill.component';
-
 import { CertificatedialogComponent } from './certificatedialog/certificatedialog.component';
+import { LocationdialogComponent } from './locationdialog/locationdialog.component';
 
 @NgModule({
   imports: [
@@ -29,9 +29,18 @@ import { CertificatedialogComponent } from './certificatedialog/certificatedialo
     MatDatepickerModule,
     MatNativeDateModule
   ],
-  declarations: [CardComponent, DetailsdialogComponent,
-    EducationdialogComponent, SkillComponent, ExperienceComponent, CertificatedialogComponent],
-  entryComponents: [DetailsdialogComponent, EducationdialogComponent, CertificatedialogComponent],
+  declarations: [CardComponent,
+                  DetailsdialogComponent,
+                  EducationdialogComponent,
+                  ExperienceComponent,
+                  SkillComponent,
+                  CertificatedialogComponent,
+                  LocationdialogComponent],
+  entryComponents: [DetailsdialogComponent,
+                    EducationdialogComponent,
+                    SkillComponent,
+                    CertificatedialogComponent,
+                    LocationdialogComponent],
   exports: [CardComponent]
 })
 export class CardsModule { }

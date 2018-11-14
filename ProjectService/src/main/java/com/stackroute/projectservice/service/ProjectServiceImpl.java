@@ -13,11 +13,11 @@ public class ProjectServiceImpl implements ProjectService {
     @Override
     public CommonOutput processProjectDetails(Section section){
 
-        Skill[] skills = section.getChicklets().getProjectDetails().getTechnologiesUsed();
+        Skill[] skills = section.getChicklets()[0].getProjectDetails().getTechnologiesUsed();
         Relationship[] relationship = new Relationship[skills.length];
         for(int i = 0 ; i<skills.length ;i++){
             relationship[i] = Relationship.builder()
-                    .relationshipProperty(skills[i].getTechnology()).relationshipType("knows").build();
+                    .relationshipProperty(skills[i].getSkill()).relationshipType("knows").build();
         }
 
         CommonOutput commonOutput = CommonOutput.builder()
