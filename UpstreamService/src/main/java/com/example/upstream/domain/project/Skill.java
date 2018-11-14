@@ -11,5 +11,5 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class Skill {
     private String skill;
-    private String expertise;
+    private String level;
 }
