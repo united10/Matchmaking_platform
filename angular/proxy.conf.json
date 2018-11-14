@@ -1,6 +1,6 @@
 {
   "/api/v1/education/": {
-    "target": "http://localhost:8080",
+    "target": "http://172.23.239.241:9192",
     "secure": false,
     "changeOrigin": true,
     "logLevel": "debug"
