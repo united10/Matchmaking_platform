@@ -55,6 +55,18 @@ services:
       - "8082:8082"
     expose:
       - "8082"
+  certification-service:
+    image: certification-service:v1
+    build: CertificationService/
+    restart: always
+    container_name: certification-container
+    network_mode: host
+    depends_on:
+      - kafka
+    ports:
+      - "8085:8085"
+    expose:
+      - "8085"
   upstream-service:
     image: upstream-service:v1
     build: UpstreamService/
@@ -67,6 +79,18 @@ services:
     - "9191:9191"
     expose:
     - "9191"
+  downstream-service:
+    image: downstream-service:v1
+    build: DownstreamService/
+    restart: always
+    container_name: downstream-container
+    network_mode: host
+    depends_on:
+      - kafka
+    ports:
+      - "8090:8090"
+    expose:
+      - "8090"
   # config-server:
   #   image: config-server:v1
   #   build: config-server/

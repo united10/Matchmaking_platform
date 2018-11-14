@@ -8,15 +8,21 @@ import com.stackroute.downstreamservice.exceptions.EmployeeNotFoundException;
 
 import com.stackroute.downstreamservice.repository.EmployeeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.PropertySource;
+import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
 
 @Service
+@PropertySource("classpath:config.properties")
 public class EmployeeService {
 
     private EmployeeRepository employeeRepository;
+
+    @Autowired
+    private Environment environment;
 
     @Autowired
     public EmployeeService(EmployeeRepository employeeRepository) {
@@ -29,7 +35,7 @@ public class EmployeeService {
             employee=employeeRepository.findById(employeeId).get();
             return employee;
         }else{
-            throw new EmployeeNotFoundException("Empty database");
+            throw new EmployeeNotFoundException(environment.getProperty("errors.emptyDatabase"));
         }
     }
 
@@ -39,7 +45,7 @@ public class EmployeeService {
 
             return employees;
         }else{
-            throw new EmployeeNotFoundException("Empty database");
+            throw new EmployeeNotFoundException(environment.getProperty("errors.emptyDatabase"));
         }
     }
 
@@ -47,7 +53,7 @@ public class EmployeeService {
         if(!employeeRepository.existsById(employee.getUserId())){
             employeeRepository.save(employee);
         }else{
-            throw new EmployeeAlreadyExistsException("User Already Exists");
+            throw new EmployeeAlreadyExistsException(environment.getProperty("errors.employeeAlreadyExist"));
         }
     }
 
@@ -65,7 +71,7 @@ public class EmployeeService {
                 employeeRepository.save(employee);
 
         }else{
-                throw new EmployeeNotFoundException("Not found");
+                throw new EmployeeNotFoundException(environment.getProperty("errors.employeeNotFound"));
         }
 
     }
@@ -85,7 +91,7 @@ public class EmployeeService {
             employeeRepository.save(employee);
 
         }else{
-            throw new EmployeeNotFoundException("Not found");
+            throw new EmployeeNotFoundException(environment.getProperty("errors.employeeNotFound"));
         }
 
     }

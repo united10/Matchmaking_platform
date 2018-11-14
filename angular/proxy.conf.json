@@ -1,8 +1,29 @@
 {
   "/api/v1/education/": {
-    "target": "http://localhost:8080",
+    "target": "http://172.23.239.241:9191",
     "secure": false,
     "changeOrigin": true,
     "logLevel": "debug"
+  },
+  "/api/v1/skills": {
+    "target": "http://172.23.239.241:9191",
+    "secure": false,
+    "changeOrigin": true,
+    "logLevel": "debug"
+
+  },
+    "/matchmaker/v1/employees/": {
+        "target": "http://localhost:8090",
+        "secure": false,
+        "changeOrigin": true,
+        "logLevel": "debug"
+      },
+    "/matchmaker/v1/":{
+        "target": "http://localhost:8090",
+        "secure": false,
+        "changeOrigin": true,
+        "logLevel": "debug"
+      }
   }
+
 }

@@ -1,11 +1,11 @@
-<section class="main" [formGroup]="detailsForm" >
+<section class="main" [formGroup]="educationForm" >
   <div class="card-title">
     <h2>Add Education</h2>
     <mat-icon color="primary" (click)="addRow()" style="cursor:pointer">add</mat-icon>
   </div>
   
   <mat-dialog-content formGroupName="education">
-    <div class="row-items" *ngFor="let educationControl of detailsForm.controls.education.controls; let i = index" [formGroupName]="i">
+    <div class="row-items" *ngFor="let educationControl of educationForm.controls.education.controls; let i = index" [formGroupName]="i">
       <p>I have done
         <mat-form-field>
           <input matInput name="qualification" formControlName="qualification" required />
@@ -32,6 +32,6 @@
   </mat-dialog-content>
   <div class="button-row">
     <button mat-button mr-2 (click)="onClose()">Close</button>
-    <button mat-raised-button (click)="onSave()"  [disabled]="!detailsForm.valid">Save</button>
+    <button mat-raised-button (click)="onSave()"  [disabled]="!educationForm.valid">Save</button>
   </div>
 </section>

@@ -4,3 +4,12 @@ server:
 logging:
     level:
         com.stackroute.downstreamservice: DEBUG
+
+kafka:
+    ipAddress: 172.23.239.245:9092
+    groupId: group_id5
+    listeningTopic1: user
+    listeningTopic2: education
+    listeningTopic3: skills
+    containerFactory: userKafkaListenerFactory
+

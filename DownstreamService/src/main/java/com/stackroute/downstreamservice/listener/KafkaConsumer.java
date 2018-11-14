@@ -18,10 +18,6 @@ import java.util.List;
 @Service
 public class KafkaConsumer {
 
-//    @KafkaListener(topics="test", groupId="group_id1")
-//    public void consume(String message) {
-//        System.out.println("Consumed message: " + message);
-//    }
 
     private EmployeeService employeeService;
     private final Logger logger= LoggerFactory.getLogger(this.getClass());
@@ -32,8 +28,8 @@ public class KafkaConsumer {
         this.employeeService=employeeService;
     }
 
-    @KafkaListener(topics = "user" ,groupId = "group_id5",
-    containerFactory="userKafkaListenerFactory")
+    @KafkaListener(topics = "${kafka.listeningTopic1}" ,groupId = "${kafka.groupId}",
+    containerFactory="${kafka.containerFactory}")
     public void consumeJson(@Payload Employee employee) {
         Employee employee1=Employee.builder().userId(employee.getEmail())
                 .email(employee.getEmail()).name(employee.getName())
@@ -50,8 +46,8 @@ public class KafkaConsumer {
         }
     }
 
-    @KafkaListener(topics = "education" ,groupId = "group_id5",
-            containerFactory="userKafkaListenerFactory")
+    @KafkaListener(topics = "${kafka.listeningTopic2}" ,groupId = "${kafka.groupId}",
+            containerFactory="${kafka.containerFactory}")
     public void consumeEducationJson(@Payload EducationSection educationSection) {
         if(logger.isDebugEnabled()) {
             logger.debug(String.format("Consumed : %s", educationSection));
@@ -81,7 +77,7 @@ public class KafkaConsumer {
     }
 
 
-    @KafkaListener(topics = "skills" ,groupId = "group_id5",
+    @KafkaListener(topics = "${kafka.listeningTopic3}" ,groupId = "group_id5",
             containerFactory="userKafkaListenerFactory")
 
     public void consumeSkillsJson(@Payload SkillsSection skillsSection) {
