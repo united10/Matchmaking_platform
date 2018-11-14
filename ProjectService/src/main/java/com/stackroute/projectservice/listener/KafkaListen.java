@@ -14,21 +14,22 @@ import org.springframework.stereotype.Service;
 @Service
 public class KafkaListen {
 
-    private ProjectService projectService;
+    ProjectService projectService;
+    IndexResource indexResource;
+    KafkaProperties kafkaProperties;
 
     @Autowired
-    IndexResource indexResource;
-
-    private KafkaProperties kafkaProperties;
-    public void setApp(KafkaProperties kafkaProperties){
+    public KafkaListen(KafkaProperties kafkaProperties, ProjectService projectService,IndexResource indexResource){
         this.kafkaProperties = kafkaProperties;
+        this.indexResource=indexResource;
+        this.projectService=projectService;
     }
 
     @KafkaListener(topics = "${kafka.listeningTopic}" ,groupId = "${kafka.groupId}",
             containerFactory="${kafka.containerFactory}")
-
-
     public void consumeJson(@Payload Section section) {
+
+        System.out.println("consumed Json: " + section );
 
         CommonOutput commonOutput = projectService.processProjectDetails(section);
         indexResource.postData(commonOutput);

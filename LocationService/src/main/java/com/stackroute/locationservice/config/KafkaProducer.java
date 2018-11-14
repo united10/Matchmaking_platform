@@ -17,7 +17,6 @@ import java.util.Map;
 
 
 @Configuration
-
 public class KafkaProducer {
 
     private KafkaProperties kafkaProperties;
