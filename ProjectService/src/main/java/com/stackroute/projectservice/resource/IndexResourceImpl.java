@@ -9,14 +9,13 @@ import org.springframework.stereotype.Service;
 @Service
 public class IndexResourceImpl implements IndexResource {
 
-
-    @Autowired
     private KafkaTemplate<String , CommonOutput> kafkaTemplate;
-
     private KafkaProperties kafkaProperties;
+
     @Autowired
-    public void setApp(KafkaProperties kafkaProperties){
+    public IndexResourceImpl(KafkaProperties kafkaProperties, KafkaTemplate kafkaTemplate){
         this.kafkaProperties = kafkaProperties;
+        this.kafkaTemplate = kafkaTemplate;
     }
 
     public void postData(CommonOutput commonOutput){

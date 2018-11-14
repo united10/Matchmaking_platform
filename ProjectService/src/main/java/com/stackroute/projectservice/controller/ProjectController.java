@@ -20,7 +20,7 @@ public class ProjectController {
     }
 
     @PostMapping("project")
-    public ResponseEntity<> processData(@RequestBody Section project){
+    public ResponseEntity<String> processData(@RequestBody Section project){
         ResponseEntity responseEntity;
         try{
             CommonOutput commonOutput = projectService.processProjectDetails(project);
@@ -34,7 +34,7 @@ public class ProjectController {
     }
 
     @GetMapping("/project")
-    public ResponseEntity<> viewData(@RequestBody Section project){
+    public ResponseEntity<String> viewData(@RequestBody Section project){
         ResponseEntity responseEntity;
         try{
             CommonOutput commonOutput = projectService.processProjectDetails(project);
@@ -46,7 +46,7 @@ public class ProjectController {
         return responseEntity;
     }
     @PutMapping("/project")
-    public ResponseEntity<> updateData(@RequestBody Section project){
+    public ResponseEntity<String> updateData(@RequestBody Section project){
         ResponseEntity responseEntity;
         try{
             CommonOutput commonOutput = projectService.processProjectDetails(project);
@@ -58,7 +58,7 @@ public class ProjectController {
     }
 
     @DeleteMapping("/project")
-    public ResponseEntity<> deleteData(@RequestBody Section project){
+    public ResponseEntity<String> deleteData(@RequestBody Section project){
         ResponseEntity responseEntity;
         try{
             CommonOutput commonOutput = projectService.processProjectDetails(project);
