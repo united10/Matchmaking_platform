@@ -2,8 +2,6 @@
   before_script:
   - apt-get update -qq && apt-get install
 
-
-
   variables:
     SONAR_URL: "http://jenkins-immersive.stackroute.in:9000/"
     SONAR_LOGIN: "admin"
