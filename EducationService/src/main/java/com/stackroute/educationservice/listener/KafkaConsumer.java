@@ -3,7 +3,7 @@ package com.stackroute.educationservice.listener;
 import com.stackroute.educationservice.domain.KafkaProperties;
 import com.stackroute.educationservice.domain.Section;
 import com.stackroute.educationservice.resource.IndexResource;
-import com.oracle.tools.packager.Log;
+
 import com.stackroute.educationservice.domain.CommonOutput;
 import com.stackroute.educationservice.service.EducationService;
 import org.slf4j.Logger;
@@ -18,7 +18,7 @@ import org.springframework.stereotype.Service;
 public class KafkaConsumer {
 
 
-    Logger logger= LoggerFactory.getLogger(KafkaListener.class);
+    Logger logger= LoggerFactory.getLogger(KafkaConsumer.class);
     @Autowired
     EducationService educationService;
     @Autowired
@@ -34,7 +34,7 @@ public class KafkaConsumer {
             containerFactory="${kafka.containerFactory}")
     public void consumeJson(@Payload Section section ) {
 
-        Log.info("consumed json message "+section);
+        //Log.info("consumed json message "+section);
         logger.debug(Marker.ANY_MARKER,section);
         System.out.println("consumed json message "+section);
         CommonOutput commonOutput= educationService.processEducationDetails(section);
