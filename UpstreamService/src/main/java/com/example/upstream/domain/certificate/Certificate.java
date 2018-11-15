@@ -13,5 +13,5 @@ public class Certificate {
     private String sectionId;
     private String userId;
     private String operationType;
-    private Chicklets chicklets;
+    private Chicklets chicklets[];
 }

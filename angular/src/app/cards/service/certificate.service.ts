@@ -1,27 +1,26 @@
+import { Injectable } from '@angular/core';
 import { catchError } from 'rxjs/operators';
-import { Output } from './../outputclass/output';
 import { HttpHeaders, HttpClient, HttpErrorResponse } from '@angular/common/http';
-import { Injectable} from '@angular/core';
-import { SkillSection } from '../skillclasses/skillsection';
+import { CertificateSection } from '../certificateclasses/certificatesection';
 import { Observable, throwError } from 'rxjs';
-
 
 const httpOptions = {
   headers: new HttpHeaders({
     'Content-Type': 'application/json'
   })
 };
+
 @Injectable({
   providedIn: 'root'
 })
-export class SkillService {
+export class CertificateService {
 
-  url = '/api/v1/skills';
+  url = '/api/v1/certificate';
 
   constructor(private httpClient: HttpClient) { }
 
-  addSkillDetails(section: SkillSection): Observable<Output> {
-    return this.httpClient.post<Output>(this.url, section, httpOptions).pipe(catchError(this.errorHandler));
+  addCertificateDetails(section: CertificateSection): Observable<CertificateSection> {
+    return this.httpClient.post<CertificateSection>(this.url, section, httpOptions).pipe(catchError(this.errorHandler));
   }
 
   errorHandler(error: HttpErrorResponse) {
@@ -37,4 +36,3 @@ export class SkillService {
     return throwError('Something bad happened; please try again later.');
   }
 }
-
