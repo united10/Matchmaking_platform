@@ -1,16 +1,19 @@
 package com.stackroute.educationservice.service;
 
 import com.stackroute.educationservice.domain.*;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 @Service
 public class EducationServiceImpl implements EducationService {
 
+    Logger logger= LoggerFactory.getLogger(EducationServiceImpl.class);
     @Override
     public CommonOutput processEducationDetails(Section section) {
 
         System.out.println("Education"+section.toString());
-
+        logger.info("education "+section.toString());
         Chicklets[] chicklets=section.getChicklets();
         Relationships relationship[]=new Relationships[chicklets.length];
         for (int i=0;i<chicklets.length;i++){

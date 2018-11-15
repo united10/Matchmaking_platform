@@ -18,7 +18,7 @@ import org.springframework.stereotype.Service;
 public class KafkaConsumer {
 
 
-    Logger logger= LoggerFactory.getLogger(KafkaListener.class);
+    Logger logger= LoggerFactory.getLogger(KafkaConsumer.class);
     @Autowired
     EducationService educationService;
     @Autowired
