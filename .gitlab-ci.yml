@@ -13,7 +13,7 @@
   - build
   - test
   - package
-  - test-quality
+  - test_quality
 
   sonarqube_master_job:
     stage: test_quality
