@@ -26,8 +26,8 @@
 
 
   maven_build:
-    image: maven:3-jdk-10
     stage: package
+    image: maven:3-jdk-10
     script: "mvn clean compile package" test
     artifacts:
       paths:
