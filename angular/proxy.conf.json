@@ -5,6 +5,12 @@
     "changeOrigin": true,
     "logLevel": "debug"
   },
+    "/api/v1/experience/": {
+      "target": "http://172.23.239.241:9191",
+      "secure": false,
+      "changeOrigin": true,
+      "logLevel": "debug"
+    },
   "/api/v1/certificate": {
     "target": "http://172.23.239.241:9191",
     "secure": false,
@@ -44,17 +50,4 @@
         "changeOrigin": true,
         "logLevel": "debug"
   }
-<<<<<<< HEAD
-<<<<<<< HEAD
-
-
-=======
-<<<<<<< HEAD
-  
-=======
 }
->>>>>>> fb3e2496d5f85d32f3fc3c0a511e479197f8cc41
->>>>>>> 6bcaca6d9593e27d6492f4e1b8d44442c28714ec
-=======
-}
->>>>>>> adecafcde7f43be43347687a933993dc05647685

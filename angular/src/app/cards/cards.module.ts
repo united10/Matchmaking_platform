@@ -38,12 +38,13 @@ import { ProjectdialogComponent } from './projectdialog/projectdialog.component'
                   SkillComponent,
                   CertificatedialogComponent,
                   LocationdialogComponent,
+                  ExperienceComponent,
                   ProjectdialogComponent],
   entryComponents: [DetailsdialogComponent,
                     EducationdialogComponent,
                     SkillComponent,
                     CertificatedialogComponent,
-
+                    ExperienceComponent,
                     LocationdialogComponent,
                     ProjectdialogComponent],
   exports: [CardComponent]
