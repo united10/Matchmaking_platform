@@ -32,10 +32,11 @@
         <module>ProjectService</module>
         <module>LocationService</module>
         <module>ExperienceService</module>
-        <module>EducationService</module>
         <module>CertificationService</module>
         <module>RegistrationService</module>
         <module>DownstreamService</module>
+        <module>EducationService</module>
+
 
     </modules>
 

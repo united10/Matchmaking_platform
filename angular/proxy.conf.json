@@ -39,15 +39,20 @@
 
   },
     "/matchmaker/v1/employees/": {
-        "target": "http://172.23.239.189:8090",
+        "target": "http://172.23.239.241:8090",
         "secure": false,
         "changeOrigin": true,
         "logLevel": "debug"
       },
     "/matchmaker/v1/":{
-        "target": "http://172.23.239.189:8090",
+        "target": "http://172.23.239.241:8090",
         "secure": false,
         "changeOrigin": true,
         "logLevel": "debug"
   }
+<<<<<<< HEAD
 }
+=======
+  
+}
+>>>>>>> 9f7178b3751a1f63814c4fca26724ad8c992a932
