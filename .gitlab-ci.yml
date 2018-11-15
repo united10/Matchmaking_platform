@@ -11,6 +11,7 @@
     SONAR_URL: "http://jenkins-immersive.stackroute.in:9000/"
     SONAR_LOGIN: "admin"
     SONAR_PASSWORD: "Admin12#"
+    MAVEN_OPTS: "-Dmaven.repo.local=.m2/repository"
 
 
   stages:
@@ -26,6 +27,10 @@
     image: maven:3-jdk-10
     script:
     - mvn --batch-mode verify sonar:sonar -Dsonar.host.url=$SONAR_URL -Dsonar.login=$SONAR_LOGIN -Dsonar.password=$SONAR_PASSWORD
+
+  maven_job:
+    script:
+    - mvn clean instal
 
   maven_build:
     image: maven:3-jdk-10
