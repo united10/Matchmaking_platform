@@ -15,6 +15,7 @@ import { ExperienceComponent } from './experience/experience.component';
 import { SkillComponent } from './skill/skill.component';
 import { CertificatedialogComponent } from './certificatedialog/certificatedialog.component';
 import { LocationdialogComponent } from './locationdialog/locationdialog.component';
+import { ProjectdialogComponent } from './projectdialog/projectdialog.component';
 
 @NgModule({
   imports: [
@@ -29,18 +30,22 @@ import { LocationdialogComponent } from './locationdialog/locationdialog.compone
     MatDatepickerModule,
     MatNativeDateModule
   ],
+
   declarations: [CardComponent,
                   DetailsdialogComponent,
                   EducationdialogComponent,
                   ExperienceComponent,
                   SkillComponent,
                   CertificatedialogComponent,
-                  LocationdialogComponent],
+                  LocationdialogComponent,
+                  ProjectdialogComponent],
   entryComponents: [DetailsdialogComponent,
                     EducationdialogComponent,
                     SkillComponent,
                     CertificatedialogComponent,
-                    LocationdialogComponent],
+
+                    LocationdialogComponent,
+                    ProjectdialogComponent],
   exports: [CardComponent]
 })
 export class CardsModule { }

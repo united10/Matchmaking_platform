@@ -31,6 +31,8 @@ public class Employee {
 
     private List<Skills> skills;
 
+    private Location location;
+
    /* String[] skills;
     String[] experience;
     String[] project;

@@ -11,5 +11,8 @@ kafka:
     listeningTopic1: user
     listeningTopic2: education
     listeningTopic3: skills
+    listeningTopic4: location
     containerFactory: userKafkaListenerFactory
+    success: Successfully saved
+    consumed: Consumed
 

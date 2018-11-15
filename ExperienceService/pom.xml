@@ -4,16 +4,16 @@
 	<modelVersion>4.0.0</modelVersion>
 
 
-	<artifactId>experience</artifactId>
+	<artifactId>ExperienceService</artifactId>
 	<packaging>jar</packaging>
 
-	<name>matchMaking</name>
+	<name>ExperienceService</name>
 	<description>MatchMaking project for Spring Boot</description>
 
 	<parent>
-		<groupId>com.stackroute</groupId>
-		<artifactId>matchmaking-platform</artifactId>
-		<version>1.0</version>
+        <groupId>com.stackroute</groupId>
+        <artifactId>matchmaking-platform</artifactId>
+        <version>1.0</version>
 		<relativePath>../pom.xml</relativePath><!-- lookup parent from repository -->
 	</parent>
 

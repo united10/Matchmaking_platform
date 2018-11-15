@@ -4,10 +4,10 @@
 	<modelVersion>4.0.0</modelVersion>
 
 
-	<artifactId>Registration-Service</artifactId>
+	<artifactId>RegistrationService</artifactId>
 	<packaging>jar</packaging>
 
-	<name>registration</name>
+	<name>RegistrationService</name>
 	<description>Registration microservice for Matchmaking Platform</description>
 
 	<parent>
@@ -38,10 +38,7 @@
 			<artifactId>jaxb-api</artifactId>
 			<version>2.3.1</version>
 		</dependency>
-		<dependency>
-			<groupId>org.springframework.kafka</groupId>
-			<artifactId>spring-kafka</artifactId>
-		</dependency>
+
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-netflix-eureka-client</artifactId>
