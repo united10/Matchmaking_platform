@@ -9,13 +9,13 @@ com/stackroute/locationservice/domain/CommonOutput$CommonOutputBuilder.class
 com/stackroute/locationservice/domain/CommonOutput.class
 com/stackroute/locationservice/domain/Relationship.class
 com/stackroute/locationservice/service/LocationServiceImpl.class
-com/stackroute/locationservice/resource/IndexResource.class
 com/stackroute/locationservice/config/KafkaConsumer.class
+com/stackroute/locationservice/resource/IndexResource.class
 com/stackroute/locationservice/domain/CurrentLocation.class
 com/stackroute/locationservice/domain/Chicklets.class
 com/stackroute/locationservice/resource/IndexResourceImpl.class
-com/stackroute/locationservice/domain/CurrentLocation$CurrentLocationBuilder.class
-com/stackroute/locationservice/domain/Section.class
 com/stackroute/locationservice/LocationServiceApplication.class
-com/stackroute/locationservice/domain/KafkaProperties.class
+com/stackroute/locationservice/domain/Section.class
+com/stackroute/locationservice/domain/CurrentLocation$CurrentLocationBuilder.class
 com/stackroute/locationservice/domain/Relationship$RelationshipBuilder.class
+com/stackroute/locationservice/domain/KafkaProperties.class
