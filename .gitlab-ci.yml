@@ -1,49 +1,31 @@
-  image: docker:latest
-  services:
-  - docker:dind
-
+  image: maven:3-jdk-10
   variables:
-    DOCKER_DRIVER: overlay
-    SPRING_PROFILES_ACTIVE: gitlab-ci
+    SONAR_URL: "http://jenkins-immersive.stackroute.in:9000/"
+    SONAR_LOGIN: "admin"
+    SONAR_PASSWORD: "Admin12#"
+
 
   stages:
   - build
   - test
   - package
+  - test-quality
+
+  sonarqube_master_job:
+    stage: test_quality
+    only:
+    - v1.0.0
+    image: maven:3-jdk-10
+    script:
+    - mvn --batch-mode verify sonar:sonar -Dsonar.host.url=$SONAR_URL -Dsonar.login=$SONAR_LOGIN -Dsonar.password=$SONAR_PASSWORD
 
   maven-build:
     image: maven:3-jdk-10
+    stage: package
     script: "mvn package"
     artifacts:
       paths:
       - /target/*.jar
 
-  test:
-      image: maven:3-jdk-10
-      script:
-      - mvn test
-
-  code_quality:
-    image: docker:stable
-    variables:
-      DOCKER_DRIVER: overlay2
-    allow_failure: true
-    services:
-    - docker:stable-dind
-    script:
-    - export SP_VERSION=$(echo "$CI_SERVER_VERSION" | sed 's/^\([0-9]*\)\.\([0-9]*\).*/\1-\2-stable/')
-    - docker run
-        --env SOURCE_CODE="$PWD"
-        --volume "$PWD":/code
-        --volume /var/run/docker.sock:/var/run/docker.sock
-        "registry.gitlab.com/gitlab-org/security-products/codequality:$SP_VERSION" /code
-    artifacts:
-      paths: [gl-code-quality-report.json]
 
 
-  #  docker-build:
-#    stage: package
-#    script:
-#    - docker build -t registry.gitlab.com/marcolenzo/actuator-sample .
-#    - docker login -u gitlab-ci-token -p $CI_BUILD_TOKEN registry.gitlab.com
-#    - docker push registry.gitlab.com/marcolenzo/actuator-sample

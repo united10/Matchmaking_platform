@@ -1,8 +1,6 @@
 package com.stackroute.downstreamservice.service;
 
-import com.stackroute.downstreamservice.domain.Education;
-import com.stackroute.downstreamservice.domain.Employee;
-import com.stackroute.downstreamservice.domain.Skills;
+import com.stackroute.downstreamservice.domain.*;
 import com.stackroute.downstreamservice.exceptions.EmployeeAlreadyExistsException;
 import com.stackroute.downstreamservice.exceptions.EmployeeNotFoundException;
 
@@ -88,6 +86,35 @@ public class EmployeeService {
                 fetchSkills.add(skills1);
             }
             employee.setSkills(fetchSkills);
+            employeeRepository.save(employee);
+
+        }else{
+            throw new EmployeeNotFoundException(environment.getProperty("errors.employeeNotFound"));
+        }
+
+    }
+
+    public void addLocationData(Location locations, String userId) throws EmployeeNotFoundException{
+        if(employeeRepository.existsById(userId)){
+            Employee employee = employeeRepository.findById(userId).get();
+            Location fetchLocation= employee.getLocation();
+            if(fetchLocation==null){
+                fetchLocation=Location.builder().build();
+            }
+            List<PastLocation> pastLocations=fetchLocation.getPastLocation();
+            if(pastLocations==null){
+                pastLocations=new ArrayList<>();
+            }
+
+            if(locations.getCurrentLocation()!=fetchLocation.getCurrentLocation()){
+                fetchLocation.setCurrentLocation(locations.getCurrentLocation());
+            }
+
+            for(PastLocation pastLocation:locations.getPastLocation()) {
+                pastLocations.add(pastLocation);
+            }
+            fetchLocation.setPastLocation(pastLocations);
+            employee.setLocation(fetchLocation);
             employeeRepository.save(employee);
 
         }else{
