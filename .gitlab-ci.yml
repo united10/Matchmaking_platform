@@ -3,7 +3,7 @@
   - apt-get update -qq && apt-get install
 
   cache:
-    key: "maven3"
+    key: "maven:3-jdk-10"
     paths:
      - .m2/repository
 
