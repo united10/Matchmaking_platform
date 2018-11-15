@@ -2,10 +2,7 @@
   before_script:
   - apt-get update -qq && apt-get install
 
-#  cache:
-#    key: "maven:3-jdk-10"
-#    paths:
-#     - .m2/repository
+
 
   variables:
     SONAR_URL: "http://jenkins-immersive.stackroute.in:9000/"
@@ -28,9 +25,7 @@
     script:
     - mvn --batch-mode verify sonar:sonar -Dsonar.host.url=$SONAR_URL -Dsonar.login=$SONAR_LOGIN -Dsonar.password=$SONAR_PASSWORD
 
-  maven_job:
-    script:
-    - mvn clean instal
+
 
   maven_build:
     image: maven:3-jdk-10
