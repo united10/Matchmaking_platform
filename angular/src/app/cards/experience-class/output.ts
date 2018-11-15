@@ -1,4 +1,4 @@
-import { Relationship } from "./relationship";
+import { Relationship } from './relationship';
 export class Output {
     constructor(private operationType: string,
         private sourceNode: string,

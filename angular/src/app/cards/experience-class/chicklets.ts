@@ -1,4 +1,4 @@
-import { ExperienceDetails } from "./experience-details";
+import { ExperienceDetails } from './experience-details';
 
 export class Chicklets {
     constructor(private experienceDetails: ExperienceDetails) {

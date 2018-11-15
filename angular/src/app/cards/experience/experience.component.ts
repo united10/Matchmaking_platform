@@ -25,12 +25,12 @@ export class ExperienceComponent implements OnInit {
   output: Output;
   errorMessage: string;
   totalRow: number;
-  fromDay: number;
-  fromMonth: number;
-  fromYear: number;
-  toDay: number;
-  toMonth: number;
-  toYear: number;
+  fromDay: string;
+  fromMonth: string;
+  fromYear: string;
+  toDay: string;
+  toMonth: string;
+  toYear: string;
   constructor(@Inject(MAT_DIALOG_DATA) private data: any,
     private dialogRef: MatDialogRef<ExperienceComponent>,
     private experienceService: ExperienceService, private fb: FormBuilder) {
@@ -79,42 +79,22 @@ export class ExperienceComponent implements OnInit {
       console.log(fromDate);
       let date;
       date = fromDate.split(' ', 4);
-      let fromDay ;
-      fromDay = parseInt(date[2] , 10);
-      let fromYear;
-      fromYear = parseInt(date[3] , 10);
-      let fromMonthStr;
-      fromMonthStr = date[1];
-      let fromMonth;
+      this.fromDay = date[2];
+      this.fromYear = date[3];
+      this.fromMonth = date[1];
 
-      switch (fromMonthStr) {
-        case 'Jan': fromMonth = 1;
-        break;
-        case 'Feb': fromMonth = 2;
-        break;
-        case 'Mar': fromMonth = 3;
-        break;
-        case 'Apr': fromMonth = 4;
-        break;
-        case 'May': fromMonth = 5;
-        break;
-        case 'Jun': fromMonth = 6;
-        break;
-        case 'Jul': fromMonth = 7;
-        break;
-        case 'Aug': fromMonth = 8;
-        break;
-        case 'Sep': fromMonth = 9;
-        break;
-        case 'Oct': fromMonth = 10;
-        break;
-        case 'Nov': fromMonth = 11;
-        break;
-        case 'Dec': fromMonth = 12;
-        break;
-      }
+      let toDate;
+      toDate = row.value.endDate + '';
+      console.log(fromDate);
+      let date1;
+      date1 = toDate.split(' ', 4);
+      this.toDay = date1[2];
+      this.toYear = date1[3];
+      this.toMonth = date1[1];
 
-      console.log(date);
+
+
+
       const experienceDetails = new ExperienceDetails(row.value.organisation,
                                   row.value.role,
                                   this.fromDay,
