@@ -14,11 +14,13 @@ import org.springframework.stereotype.Service;
 @Service
 public class KafkaListen {
 
-    private LocationService locationService;
+    @Autowired
+    LocationService locationService;
 
     @Autowired
     IndexResource indexResource;
 
+    @Autowired
     private KafkaProperties kafkaProperties;
     public void setApp(KafkaProperties kafkaProperties){
         this.kafkaProperties = kafkaProperties;
