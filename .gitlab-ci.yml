@@ -1,4 +1,6 @@
   image: maven:3-jdk-10
+  before_script:
+  - apt-get update -qq && apt-get install
   variables:
     SONAR_URL: "http://jenkins-immersive.stackroute.in:9000/"
     SONAR_LOGIN: "admin"
@@ -26,6 +28,17 @@
     artifacts:
       paths:
       - /target/*.jar
+
+  codecoverage:
+    stage: test
+    script:
+    - "mvn clean test"
+    - "mvn jacoco:report"
+    - awk -F"," '{ instructions += $4 + $5; covered += $5 } END { print covered, "/",instructions, "instructions covered"; print 100*covered/instructions, "% covered" }' config-server/target/site/jacoco/jacoco.csv
+    coverage: '/Code coverage: \d+\.\d+/'
+    artifacts:
+      paths:
+      - target/site/jacoco/
 
 
 
