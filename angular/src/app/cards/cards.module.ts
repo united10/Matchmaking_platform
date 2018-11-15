@@ -30,6 +30,7 @@ import { ProjectdialogComponent } from './projectdialog/projectdialog.component'
     MatDatepickerModule,
     MatNativeDateModule
   ],
+
   declarations: [CardComponent,
                   DetailsdialogComponent,
                   EducationdialogComponent,
@@ -42,6 +43,7 @@ import { ProjectdialogComponent } from './projectdialog/projectdialog.component'
                     EducationdialogComponent,
                     SkillComponent,
                     CertificatedialogComponent,
+
                     LocationdialogComponent,
                     ProjectdialogComponent],
   exports: [CardComponent]

@@ -11,7 +11,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Builder
 public class PastLocation {
-    private  String currentLocationId;
+    private  String pastLocationId;
     private  String cityName;
     private String stateName;
     private String pincode;

@@ -15,5 +15,5 @@ public class Chicklets {
     private String summary;
     private Skills skill;
     private CurrentLocation currentLocation;
-    private PastLocation pastLocation;
+    private PastLocation[] pastLocation;
 }
