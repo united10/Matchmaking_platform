@@ -2,6 +2,11 @@
   before_script:
   - apt-get update -qq && apt-get install
 
+  cache:
+    key: "maven3"
+    paths:
+     - .m2/repository
+
   variables:
     SONAR_URL: "http://jenkins-immersive.stackroute.in:9000/"
     SONAR_LOGIN: "admin"
@@ -15,6 +20,10 @@
   - package
   - test_quality
 
+  maven_job:
+   script:
+    - mvn clean instal
+
   sonarqube_master_job:
     stage: test_quality
     only:
@@ -26,7 +35,6 @@
 
 
   maven_build:
-    image: maven:3-jdk-10
     script: mvn clean compile package
     artifacts:
       paths:
