@@ -36,6 +36,7 @@
         <module>RegistrationService</module>
         <module>DownstreamService</module>
         <module>EducationService</module>
+        <module>userAuthentication</module>
 
 
     </modules>
