@@ -16,7 +16,7 @@ const httpOptions = {
 })
 export class SkillService {
 
-  url: string = "/api/v1/skills";
+  url = '/api/v1/skills';
 
   constructor(private httpClient: HttpClient) { }
 
@@ -35,5 +35,6 @@ export class SkillService {
     }
     // return an observable with a user-facing error message
     return throwError('Something bad happened; please try again later.');
-  };
+  }
 }
+

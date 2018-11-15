@@ -1,5 +1,6 @@
 package com.example.upstream.controller;
 
+import com.example.upstream.UpstreamServiceApplication;
 import com.example.upstream.domain.certificate.Certificate;
 import com.example.upstream.domain.education.Education;
 import com.example.upstream.domain.experience.Experience;
@@ -7,6 +8,8 @@ import com.example.upstream.domain.location.Location;
 import com.example.upstream.domain.project.Section;
 import org.apache.kafka.common.KafkaException;
 import org.apache.kafka.common.errors.TimeoutException;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -43,6 +46,8 @@ private static final String TOPIC2 = "location";
 private static final String TOPIC3 = "project";
 private static final String TOPIC4 = "experience";
 private static final String TOPIC5 = "certificate";
+
+    static Logger logger= LoggerFactory.getLogger(UpStreamController.class);
 
 //private final Logger logger = LoggerFactory.getLogger(UpstreamServiceApplication.class);
     @PostMapping("${controller.education}")
@@ -86,7 +91,10 @@ private static final String TOPIC5 = "certificate";
     {
         location.setOperationType("add");
         ResponseEntity responseEntity = new ResponseEntity(location,HttpStatus.OK);
+        logger.debug("Location Bound sucessfully");
+        logger.debug(String.valueOf(location));
         kafkaTemplateLocation.send(TOPIC2,location);
+        logger.debug("Location Sent successfully");
 /*        logger.debug("This is a debug message");
         logger.info("This is an info message");
         logger.warn("This is a warn message");
@@ -112,9 +120,12 @@ private static final String TOPIC5 = "certificate";
     @PostMapping("${controller.skills}")
     public ResponseEntity<?> newSkills(@RequestBody com.example.upstream.domain.skills.Section section)
     {
+
         section.setOperationType("add");
         ResponseEntity responseEntity = new ResponseEntity(section,HttpStatus.OK);
+        logger.debug("Skills bound successfully");
         kafkaTemplateSkills.send(TOPIC1,section);
+        logger.debug("Sent Sucessfully");
         return responseEntity;
 
     }
@@ -131,6 +142,7 @@ private static final String TOPIC5 = "certificate";
     public ResponseEntity<?> deleteSkills(@RequestBody com.example.upstream.domain.skills.Section section)
     {
         section.setOperationType("delete");
+
         ResponseEntity responseEntity = new ResponseEntity(section,HttpStatus.OK);
         kafkaTemplateSkills.send(TOPIC1,section);
         return responseEntity;
@@ -195,6 +207,8 @@ private static final String TOPIC5 = "certificate";
     {
         certificate.setOperationType("add");
         ResponseEntity responseEntity = new ResponseEntity(certificate,HttpStatus.OK);
+        System.out.println(certificate);
+        System.out.println("Posting certificate");
         kafkaTemplateCertificate.send(TOPIC5,certificate);
         return responseEntity;
 

@@ -151,3 +151,16 @@ RegistrationService/src/test/java/com/stackroute/eduacation/
 UpstreamService/target/classes/com/
 UpstreamService/target/test-classes/
 spring-skill/src/main/java/com/stackroute/springskill/
+EducationService/.mvn
+ProjectService/.mvn
+RegistrationService/.mvn
+SkillService/.mvn
+UpstreamService/.mvn
+zuulgateway/.mvn
+CertificationService/.mvn
+config-server/.mvn
+DownstreamService/.mvn
+eureka-registry/.mvn
+LocationService/.idea
+ExperienceService/.idea
+LocationService/target

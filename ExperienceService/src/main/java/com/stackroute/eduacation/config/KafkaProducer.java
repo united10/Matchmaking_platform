@@ -29,19 +29,10 @@ public class KafkaProducer {
     public ProducerFactory<String, CommonOutput> producerFactory() {
 
         Map<String, Object> config =new HashMap<>();
-<<<<<<< HEAD:EducationService/src/main/java/com/stackroute/educationservice/config/KafkaProducer.java
         config.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, kafkaProperties.getIpAddress());
         config.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, StringSerializer.class);
         config.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, JsonSerializer.class);
         config.put(JsonSerializer.ADD_TYPE_INFO_HEADERS,false);
-=======
-
-        config.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG,kafkaProperties.getIpAddress());
-        config.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, StringSerializer.class);
-        config.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, JsonSerializer.class);
-
-
->>>>>>> abbc4b9affc0ca2ee5dada13c0ee498c42a34928:ExperienceService/src/main/java/com/stackroute/matchmaking/config/KafkaProducer.java
         return new DefaultKafkaProducerFactory(config);
 
     }
