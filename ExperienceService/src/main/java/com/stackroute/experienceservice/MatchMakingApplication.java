@@ -1,4 +1,4 @@
-package com.stackroute.matchmaking;
+package com.stackroute.experienceservice;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

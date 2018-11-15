@@ -1,4 +1,4 @@
-package com.stackroute.matchmaking.domain;
+package com.stackroute.experienceservice.domain;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

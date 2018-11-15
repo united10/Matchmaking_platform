@@ -1,7 +1,7 @@
-package com.stackroute.matchmaking.config;
+package com.stackroute.experienceservice.config;
 
-import com.stackroute.matchmaking.domain.KafkaProperties;
-import com.stackroute.matchmaking.domain.Section;
+import com.stackroute.experienceservice.domain.KafkaProperties;
+import com.stackroute.experienceservice.domain.Section;
 import org.apache.kafka.clients.consumer.ConsumerConfig;
 import org.apache.kafka.common.serialization.BytesDeserializer;
 import org.apache.kafka.common.serialization.StringDeserializer;

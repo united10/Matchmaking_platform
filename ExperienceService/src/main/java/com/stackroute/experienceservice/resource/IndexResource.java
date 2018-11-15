@@ -1,7 +1,7 @@
-package com.stackroute.matchmaking.resource;
+package com.stackroute.experienceservice.resource;
 
-import com.stackroute.matchmaking.domain.CommonOutput;
-import com.stackroute.matchmaking.domain.KafkaProperties;
+import com.stackroute.experienceservice.domain.CommonOutput;
+import com.stackroute.experienceservice.domain.KafkaProperties;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Service;

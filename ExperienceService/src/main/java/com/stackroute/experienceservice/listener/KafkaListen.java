@@ -1,9 +1,9 @@
-package com.stackroute.matchmaking.listener;
+package com.stackroute.experienceservice.listener;
 
-import com.stackroute.matchmaking.domain.CommonOutput;
-import com.stackroute.matchmaking.domain.Relationships;
-import com.stackroute.matchmaking.domain.Section;
-import com.stackroute.matchmaking.resource.IndexResource;
+import com.stackroute.experienceservice.domain.CommonOutput;
+import com.stackroute.experienceservice.domain.Relationships;
+import com.stackroute.experienceservice.domain.Section;
+import com.stackroute.experienceservice.resource.IndexResource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.messaging.handler.annotation.Payload;

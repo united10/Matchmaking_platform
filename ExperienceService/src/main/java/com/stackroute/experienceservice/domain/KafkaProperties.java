@@ -1,4 +1,4 @@
-package com.stackroute.matchmaking.domain;
+package com.stackroute.experienceservice.domain;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
