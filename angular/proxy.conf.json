@@ -1,51 +1,51 @@
 {
   "/api/v1/education/": {
-    "target": "http://172.23.239.241:9191",
+    "target": "https://172.23.239.241:8087/upstream-service",
     "secure": false,
     "changeOrigin": true,
     "logLevel": "debug"
   },
     "/api/v1/experience/": {
-      "target": "http://172.23.239.241:9191",
+      "target": "http://172.23.239.241:8087/upstream-service",
       "secure": false,
       "changeOrigin": true,
       "logLevel": "debug"
     },
   "/api/v1/certificate": {
-    "target": "http://172.23.239.241:9191",
+    "target": "http://172.23.239.241:8087/upstream-service",
     "secure": false,
     "changeOrigin": true,
     "logLevel": "debug"
   },
   "/api/v1/skills": {
-    "target": "http://172.23.239.241:9191",
+    "target": "http://172.23.239.241:8087/upstream-service",
     "secure": false,
     "changeOrigin": true,
     "logLevel": "debug"
 
   },
   "/api/v1/location": {
-    "target": "http://172.23.239.241:9191",
+    "target": "http://172.23.239.241:8087/upstream-service",
     "secure": false,
     "changeOrigin": true,
     "logLevel": "debug"
 
   },
   "/api/v1/project": {
-    "target": "http://172.23.239.241:9191",
+    "target": "http://172.23.239.241:8087/upstream-service",
     "secure": false,
     "changeOrigin": true,
     "logLevel": "debug"
 
   },
     "/matchmaker/v1/employees/": {
-        "target": "http://172.23.239.189:8090",
+        "target": "http://172.23.239.241:8087/downstream-service",
         "secure": false,
         "changeOrigin": true,
         "logLevel": "debug"
       },
     "/matchmaker/v1/":{
-        "target": "http://172.23.239.189:8090",
+        "target": "http://172.23.239.241:8087/downstream-service",
         "secure": false,
         "changeOrigin": true,
         "logLevel": "debug"
