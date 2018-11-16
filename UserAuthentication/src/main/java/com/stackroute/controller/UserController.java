@@ -17,7 +17,7 @@ import java.util.Date;
 import java.util.List;
 
 @RestController
-@RequestMapping("${usercontroller.base}")
+@RequestMapping("/api/v1")
 @CrossOrigin("*")
 public class UserController {
 
@@ -42,7 +42,7 @@ public class UserController {
         this.userRepository = userRepository;
     }
 
-    @GetMapping("${usercontroller.getall}")
+    @GetMapping("getall")
     public ResponseEntity<?> getallUsers(){
         ResponseEntity responseEntity;
         try{
@@ -54,7 +54,7 @@ public class UserController {
         return responseEntity;
     }
 
-    @PostMapping("${usercontroller.save}")
+    @PostMapping("/saveuser")
     public ResponseEntity<?> saveUser(@RequestBody User user){
         ResponseEntity responseEntity;
         try{
