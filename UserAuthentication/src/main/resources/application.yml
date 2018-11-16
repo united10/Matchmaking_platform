@@ -3,12 +3,12 @@ spring:
     driver-class-name: com.mysql.jdbc.Driver
     url: jdbc:mysql://localhost:3306/login
     username: root
-    password: 1234
+    password: root
   jpa:
     openInView: false
     show_sql: true
-    generate-ddl: false
-    hibernate.ddl-auto: update
+    generate-ddl: true
+    hibernate.ddl-auto: create
 server:
   port: 8088
 usercontroller:

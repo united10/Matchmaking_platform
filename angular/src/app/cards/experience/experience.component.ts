@@ -1,4 +1,5 @@
 import { Component, OnInit, Inject, Renderer2 } from '@angular/core';
+
 import { ExperienceService } from 'src/app/cards/service/experience.service';
 import { Output } from '../experience-class/output';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
@@ -54,8 +55,8 @@ export class ExperienceComponent implements OnInit {
   addRow() {
     const control = <FormArray>this.experienceForm.controls['experience'];
     control.push(this.initItemRow());
-
   }
+
   deleteRow(index: number) {
     const control = <FormArray>this.experienceForm.controls['experience'];
     if (control != null) {
@@ -68,6 +69,7 @@ export class ExperienceComponent implements OnInit {
       return false;
     }
   }
+
 
   onSave() {
     const arr = this.experienceForm.get('experience') as FormArray;
@@ -91,9 +93,6 @@ export class ExperienceComponent implements OnInit {
       this.toDay = date1[2];
       this.toYear = date1[3];
       this.toMonth = date1[1];
-
-
-
 
       const experienceDetails = new ExperienceDetails(row.value.organisation,
                                   row.value.role,

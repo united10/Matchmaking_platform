@@ -20,6 +20,7 @@ public class KafkaListening {
 
     @KafkaListener(topics = "${kafka.listeningTopic}" ,groupId = "${kafka.groupId}",
             containerFactory="${kafka.containerFactory}")
+
     public void consumeJson(@Payload Section section) {
         logger.debug(Marker.ANY_MARKER,section);
         /*
