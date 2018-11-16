@@ -5,6 +5,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { MaterialModule } from './material.module';
 import { HttpClientModule } from '@angular/common/http';
+import { RoutingModule } from 'src/app/routing/routing.module';
 
 
 @NgModule({
@@ -14,7 +15,8 @@ import { HttpClientModule } from '@angular/common/http';
     MaterialModule,
     FormsModule,
     ReactiveFormsModule.withConfig({warnOnNgModelWithFormControl: 'never'}),
-    HttpClientModule
+    HttpClientModule,
+    RoutingModule
   ],
   declarations: [LoginComponent],
   exports: [LoginComponent]
