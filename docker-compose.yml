@@ -205,7 +205,7 @@ services:
 #       - '/home/cgi/data/mysql:/data/db'
   angular:
     image: angular
-    build: angular/.
+    build: angular/
     ports:
       - "4200:4200"
     expose:
