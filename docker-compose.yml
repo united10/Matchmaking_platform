@@ -204,8 +204,8 @@ services:
 #     volumes:
 #       - '/home/cgi/data/mysql:/data/db'
   angular:
-    image: ang-d3
-    build: ang-d3/.
+    image: angular
+    build: angular/.
     ports:
       - "4200:4200"
     expose:
