@@ -51,14 +51,14 @@
         "logLevel": "debug"
   },
   "/api/v1/login": {
-    "target": "https://172.23.239.241:8087/login-service",
+    "target": "https://172.23.239.241:8087/user-authentication-service",
     "secure": false,
     "changeOrigin": true,
     "logLevel": "debug"
 
   },
   "/api/v1/registration/user": {
-    "target": "https://172.23.239.241:8087/login-service",
+    "target": "https://172.23.239.241:8087/registration-service",
     "secure": false,
     "changeOrigin": true,
     "logLevel": "debug"
