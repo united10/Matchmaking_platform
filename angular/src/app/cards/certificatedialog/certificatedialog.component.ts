@@ -5,6 +5,8 @@ import { Certificate } from '../certificateclasses/certificate';
 import { CertificateChicklets } from '../certificateclasses/certificatechicklets';
 import { CertificateSection } from '../certificateclasses/certificatesection';
 import { CertificateService } from '../service/certificate.service';
+import { ReadfromjsonService } from './../service/readfromjson.service';
+
 @Component({
   selector: 'app-certificatedialog',
   templateUrl: './certificatedialog.component.html',
@@ -20,9 +22,11 @@ export class CertificatedialogComponent implements OnInit {
   toDate: string;
   errorMessage: string;
   totalRow: number;
+  dataJson: any;
+  json_url = 'assets/certificate.json';
 
   constructor(@Inject(MAT_DIALOG_DATA) private data: any,
-  private certificateService: CertificateService,
+  private certificateService: CertificateService, private readfromjsonService: ReadfromjsonService,
   private dialogRef: MatDialogRef<CertificatedialogComponent>, private fb: FormBuilder) {
 
 }
@@ -30,6 +34,12 @@ export class CertificatedialogComponent implements OnInit {
     this.certificateForm = this.fb.group({
       certificate: this.fb.array([this.initItemRow()])
     });
+
+    this.dataJson = this.readfromjsonService.readFromJson(this.json_url).subscribe(
+      data => {
+        this.dataJson = data;
+      }
+    );
   }
   initItemRow() {
     return this.fb.group({

@@ -4,10 +4,10 @@
   </div>
   
   <mat-dialog-content >
-      <p>{{dataJson?.title.text}}
+      <p>{{dataJson?.title?.text}}
         <mat-form-field>
           <input matInput name="title" formControlName="title">
-          <mat-error> {{dataJson?.title.error}}</mat-error>
+          <mat-error> {{dataJson?.title?.error}}</mat-error>
         </mat-form-field>
         {{dataJson?.from}}
         <mat-form-field class="date">
@@ -21,39 +21,40 @@
           <mat-datepicker-toggle matSuffix [for]="endDatePicker"></mat-datepicker-toggle>
           <mat-datepicker #endDatePicker></mat-datepicker>
         </mat-form-field>.
-        {{dataJson?.url.text}}
+        {{dataJson?.url?.text}}
           <mat-form-field>
             <input matInput name="url" formControlName="url">
-            <mat-error>{{dataJson?.url.error}}</mat-error>
+            <mat-error>{{dataJson?.url?.error}}</mat-error>
           </mat-form-field>
           {{dataJson?.role}}
           <mat-form-field>
             <input matInput name="role" formControlName="role">
           </mat-form-field>
-          {{dataJson?.description.text}}
+          {{dataJson?.description?.text}}
           <mat-form-field style = "width:80%;">
             <textarea  matInput  minlength="30" maxlength="300" matTextareaAutosize matAutosizeMinRows="3" matAutosizeMaxRows="7" name = "description" formControlName="description"></textarea>
-            <mat-error>{{dataJson?.description.error}}</mat-error> 
+            <mat-error>{{dataJson?.description?.error}}</mat-error> 
           </mat-form-field>
           
         </p>
       
         <div class="card-title">
-            <h4> {{dataJson?.technology.heading}}</h4>
+            <h4> {{dataJson?.technology?.heading}}</h4>
             <mat-icon color="primary" (click)="addRow()" style="cursor:pointer">add</mat-icon>
           </div>
       <div formGroupName="technologiesUsed">
           
       <div class="row-items" *ngFor="let technology of projectForm.controls.technologiesUsed.controls; let i = index;" [formGroupName]="i">
-        <p>{{dataJson?.technology.text1}}
+        <p> 
+          {{ dataJson?.technology?.text1 }}
           <mat-form-field>
             <input matInput placeholder="technology" formControlName="skill" required />
           </mat-form-field>
-          {{dataJson?.technology.text2}}
+          {{dataJson?.technology?.text2}}
           <mat-form-field>
             <input matInput placeholder="expertise" formControlName="level" required />
           </mat-form-field>
-          {{dataJson?.technology.text3}}
+          {{dataJson?.technology?.text3}}
         </p>
         <mat-icon color="primary" (click)="deleteRow(i)" style="cursor:pointer">delete</mat-icon>
       </div>

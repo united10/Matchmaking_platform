@@ -1,4 +1,5 @@
 import { ProjectService } from './../service/project.service';
+import { ReadfromjsonService } from './../service/readfromjson.service';
 import { Project } from './../projectclasses/project';
 import { Skill } from './../projectclasses/skill';
 import { ProjectChicklets } from './../projectclasses/projectchicklets';
@@ -9,11 +10,6 @@ import { Component, OnInit , Inject } from '@angular/core';
 import { FormGroup, FormArray, FormControl, FormBuilder, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 
-const httpOptions = {
-  headers: new HttpHeaders({
-    'Content-Type': 'application/json'
-  })
-};
 
 @Component({
   selector: 'app-projectdialog',
@@ -35,13 +31,12 @@ export class ProjectdialogComponent implements OnInit {
   errorMessage: string;
   totalRow: number;
   dataJson: any;
-
-
   json_url = 'assets/project.json';
 
   constructor(@Inject(MAT_DIALOG_DATA) private data: any,
   private dialogRef: MatDialogRef<ProjectdialogComponent>,
-  private fb: FormBuilder, private projectService: ProjectService, private httpClient: HttpClient) { }
+  private fb: FormBuilder, private projectService: ProjectService,
+  private readfromjsonService: ReadfromjsonService) { }
 
   ngOnInit() {
     const regForUrl = '(https?://)?([\\da-z.-]+)\\.([a-z.]{2,6})[/\\w .-]*/?';
@@ -55,16 +50,11 @@ export class ProjectdialogComponent implements OnInit {
       description: ''
     });
 
-    this.httpClient.get(this.json_url, httpOptions).subscribe(
-        response => {
-            this.dataJson = response;
-             console.log(this.dataJson);
-             // this.sample = JSON.stringify(dataJson);
-       },
-       (err: HttpErrorResponse) => {
-        console.log(err.message);
+    this.dataJson = this.readfromjsonService.readFromJson(this.json_url).subscribe(
+      data => {
+        this.dataJson = data;
       }
-      );
+    );
   }
 
   createTechnology(): FormGroup {

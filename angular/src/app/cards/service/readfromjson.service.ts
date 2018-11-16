@@ -1,9 +1,7 @@
 import { Injectable } from '@angular/core';
-import { catchError } from 'rxjs/operators';
 import { HttpHeaders, HttpClient, HttpErrorResponse } from '@angular/common/http';
-import { ProjectSection } from '../projectclasses/projectsection';
 import { Observable, throwError } from 'rxjs';
-
+import { catchError } from 'rxjs/operators';
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -14,14 +12,11 @@ const httpOptions = {
 @Injectable({
   providedIn: 'root'
 })
-export class ProjectService {
-
-  url = '/api/v1/project';
-
+export class ReadfromjsonService {
   constructor(private httpClient: HttpClient) { }
 
-  addProjectDetails(section: ProjectSection): Observable<ProjectSection> {
-    return this.httpClient.post<ProjectSection>(this.url, section, httpOptions).pipe(catchError(this.errorHandler));
+  readFromJson(json_url: string) {
+    return this.httpClient.get(json_url, httpOptions).pipe(catchError(this.errorHandler));
   }
 
   errorHandler(error: HttpErrorResponse) {

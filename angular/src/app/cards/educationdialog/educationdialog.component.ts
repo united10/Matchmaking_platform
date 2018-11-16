@@ -1,4 +1,5 @@
 import { Component, OnInit, Inject, Renderer2 } from '@angular/core';
+import { ReadfromjsonService } from './../service/readfromjson.service';
 import { Qualification } from '../educationclasses/qualification';
 import { Institution } from '../educationclasses/institution';
 import { EducationChicklets } from '../educationclasses/educationchicklets';
@@ -24,9 +25,11 @@ export class EducationdialogComponent implements OnInit {
   output: Output;
   errorMessage: string;
   totalRow: number;
+  dataJson: any;
+  json_url = 'assets/education.json';
   constructor(@Inject(MAT_DIALOG_DATA) private data: any,
     private dialogRef: MatDialogRef<EducationdialogComponent>,
-    private educationService: EducationService, private fb: FormBuilder) {
+    private educationService: EducationService, private fb: FormBuilder, private readfromjsonService: ReadfromjsonService) {
 
   }
 
@@ -34,7 +37,13 @@ export class EducationdialogComponent implements OnInit {
     this.educationForm = this.fb.group({
       education: this.fb.array([this.initItemRow()])
     });
-  }
+
+    this.dataJson = this.readfromjsonService.readFromJson(this.json_url).subscribe(
+      data => {
+        this.dataJson = data;
+      }
+    );
+}
 
   initItemRow() {
     return this.fb.group({
@@ -91,6 +100,5 @@ export class EducationdialogComponent implements OnInit {
   onClose() {
     this.dialogRef.close();
   }
-
 
 }
