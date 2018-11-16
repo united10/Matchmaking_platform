@@ -59,7 +59,6 @@ private static final String TOPIC5 = "certificate";
         catch (KafkaException e){
             responseEntity = new ResponseEntity(education,HttpStatus.BAD_REQUEST);
         } catch (InterruptedException e) {
-            System.out.println("caught  exception");
             e.printStackTrace();
         } catch (ExecutionException e) {
             e.printStackTrace();

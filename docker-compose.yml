@@ -42,19 +42,19 @@ services:
 #    depends_on:
 #      - zookeeper
 #    restart: always
-
-  education-service:
-    image: education-service:v1
-    build: EducationService/
-    restart: always
-    container_name: education-container
-    network_mode: host
-#    depends_on:
-#      - kafka
-    ports:
-      - "8082:8082"
-    expose:
-      - "8082"
+#
+#  education-service:
+#    image: education-service:v1
+#    build: EducationService/
+#    restart: always
+#    container_name: education-container
+#    network_mode: host
+##    depends_on:
+##      - kafka
+#    ports:
+#      - "8082:8082"
+#    expose:
+#      - "8082"
   authentication-service:
     image: authentication-service:v1
     build: UserAuthentication/
@@ -81,79 +81,79 @@ services:
     - "8086"
 
 
-  certification-service:
-    image: certification-service:v1
-    build: CertificationService/
-    restart: always
-    container_name: certification-container
-    network_mode: host
-#    depends_on:
-#      - kafka
-    ports:
-      - "8085:8085"
-    expose:
-      - "8085"
-  experience-service:
-    image: experience-service:v1
-    build: ExperienceService/
-    restart: always
-    container_name: experience-container
-    network_mode: host
-#    depends_on:
-#    - kafka
-    ports:
-    - "8087:8087"
-    expose:
-    - "8087"
-  location-service:
-    image: location-service:v1
-    build: LocationService/
-    restart: always
-    container_name: location-container
-    network_mode: host
-#    depends_on:
-#    - kafka
-    ports:
-    - "8084:8084"
-    expose:
-    - "8084"
-  project-service:
-    image: project-service:v1
-    build: ProjectService/
-    restart: always
-    container_name: project-container
-    network_mode: host
-#    depends_on:
-#    - kafka
-    ports:
-    - "8083:8083"
-    expose:
-    - "8083"
-  skill-service:
-    image: skill-service:v1
-    build: SkillService/
-    restart: always
-    container_name: skill-container
-    network_mode: host
-#    depends_on:
-#      - kafka
-    ports:
-    - "8081:8081"
-    expose:
-    - "8081"
-
-  upstream-service:
-    image: upstream-service:v1
-    build: UpstreamService/
-    restart: always
-    container_name: upstream-container
-    network_mode: host
-#    depends_on:
-#    - kafka
-    ports:
-    - "9191:9191"
-    expose:
-    - "9191"
+#  certification-service:
+#    image: certification-service:v1
+#    build: CertificationService/
+#    restart: always
+#    container_name: certification-container
+#    network_mode: host
+##    depends_on:
+##      - kafka
+#    ports:
+#      - "8085:8085"
+#    expose:
+#      - "8085"
+#  experience-service:
+#    image: experience-service:v1
+#    build: ExperienceService/
+#    restart: always
+#    container_name: experience-container
+#    network_mode: host
+##    depends_on:
+##    - kafka
+#    ports:
+#    - "8087:8087"
+#    expose:
+#    - "8087"
+#  location-service:
+#    image: location-service:v1
+#    build: LocationService/
+#    restart: always
+#    container_name: location-container
+#    network_mode: host
+##    depends_on:
+##    - kafka
+#    ports:
+#    - "8084:8084"
+#    expose:
+#    - "8084"
+#  project-service:
+#    image: project-service:v1
+#    build: ProjectService/
+#    restart: always
+#    container_name: project-container
+#    network_mode: host
+##    depends_on:
+##    - kafka
+#    ports:
+#    - "8083:8083"
+#    expose:
+#    - "8083"
+#  skill-service:
+#    image: skill-service:v1
+#    build: SkillService/
+#    restart: always
+#    container_name: skill-container
+#    network_mode: host
+##    depends_on:
+##      - kafka
+#    ports:
+#    - "8081:8081"
+#    expose:
+#    - "8081"
+#
+#  upstream-service:
+#    image: upstream-service:v1
+#    build: UpstreamService/
+#    restart: always
+#    container_name: upstream-container
+#    network_mode: host
+##    depends_on:
+##    - kafka
+#    ports:
+#    - "9191:9191"
+#    expose:
+#    - "9191"
   downstream-service:
     image: downstream-service:v1
     build: DownstreamService/
@@ -180,12 +180,12 @@ services:
   #   expose:
   #     - 8092
 
-  mongodb:
-     image: mongo:3.2-jessie
-     ports:
-       - "27017:27017"
-     container_name: mongo-db
-     network_mode: host
+#  mongodb:
+#     image: mongo:3.2-jessie
+#     ports:
+#       - "27017:27017"
+#     container_name: mongo-db
+#     network_mode: host
   mysql:
     image: mysql
     ports:
@@ -202,7 +202,18 @@ services:
 #       - config-server
 #     volumes:
 #       - '/home/cgi/data/mysql:/data/db'
-
+#  angular-app:
+#    container_name: frontend
+#    build: angular
+##      context: .
+##      dockerfile: Dockerfile
+#    volumes:
+#    - '.:/usr/src/app'
+#    - '/usr/src/app/node_modules'
+#    ports:
+#    - '4200:4200'
+#    expose:
+#      - "4200"
   # gateway:
   #   image: zuulgateway:v1
   #   build: zuulgateway/
