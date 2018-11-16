@@ -21,7 +21,7 @@ import java.util.Map;
 
     @Configuration
     @EnableKafka
-    public class kafkaconfig {
+    public class KafkaConfig {
         private KafkaProperties kafkaProperties;
         @Autowired
         public void setApp(KafkaProperties kafkaProperties){
@@ -54,7 +54,6 @@ import java.util.Map;
             configs.put(ConsumerConfig.GROUP_ID_CONFIG,kafkaProperties.getGroupId());
             configs.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class);
             configs.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, JsonDeserializer.class);
-            //configs.put(JsonDeserializer.TRUSTED_PACKAGES, "*");
 
 
             return new DefaultKafkaConsumerFactory<>(configs,new StringDeserializer(),new org.springframework.kafka.support.serializer.JsonDeserializer<>((User.class)));
@@ -64,7 +63,6 @@ import java.util.Map;
         public ConcurrentKafkaListenerContainerFactory<String, User> kafkaUserListenerContainerFactory(){
             ConcurrentKafkaListenerContainerFactory<String,User> factory = new                ConcurrentKafkaListenerContainerFactory<String,User>();
             factory.setConsumerFactory(userConsumerFactory());
-            //  factory.setMessageConverter(new StringJsonMessageConverter());
             return factory;
         }
     }

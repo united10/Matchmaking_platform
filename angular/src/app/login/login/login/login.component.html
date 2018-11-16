@@ -1,5 +1,6 @@
 <div *ngIf="isLoggedIn; else loggedOut">
   Logged in as {{this.email}}
+  <button (click)="logout()">log  out</button>
 </div>
 <ng-template #loggedOut>
 <div class="medium-list">
@@ -33,9 +34,12 @@
                   <div *ngIf="f.submitted && isLoginFailed" class="alert alert-danger">
                     {{errorMessage}}
                   </div>
-          <button mat-button routerLink="/register" class="divider">Register</button>
       </div>
     </form>
+    <div class="form-container">
+      <button mat-button routerLink="/register" class="divider">Register</button>
+    </div>
+    
   </div>
 </div>
 </ng-template>

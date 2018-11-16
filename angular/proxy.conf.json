@@ -39,17 +39,30 @@
 
   },
     "/matchmaker/v1/employees/": {
-        "target": "http://172.23.239.241:8090",
+        "target": "http://172.23.239.189:8090",
         "secure": false,
         "changeOrigin": true,
         "logLevel": "debug"
       },
     "/matchmaker/v1/":{
-        "target": "http://172.23.239.241:8090",
+        "target": "http://172.23.239.189:8090",
         "secure": false,
         "changeOrigin": true,
         "logLevel": "debug"
-  }
+  },
+  "/api/v1/login": {
+    "target": "http://172.23.239.76:8088",
+    "secure": false,
+    "changeOrigin": true,
+    "logLevel": "debug"
 
+  },
+  "/api/v1/registration/user": {
+    "target": "http://172.23.239.76:8086",
+    "secure": false,
+    "changeOrigin": true,
+    "logLevel": "debug"
+
+  }
 }
 
