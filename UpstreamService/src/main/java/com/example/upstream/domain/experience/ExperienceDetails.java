@@ -13,10 +13,10 @@ import lombok.NoArgsConstructor;
 public class ExperienceDetails {
     private String organisation;
     private String role;
-    private int fromDate;
-    private int fromMonth;
-    private int fromYear;
-    private int toDate;
-    private int toMonth;
-    private int toYear;
+    private String fromDate;
+    private String fromMonth;
+    private String fromYear;
+    private String toDate;
+    private String toMonth;
+    private String toYear;
 }

@@ -1,6 +1,5 @@
 package com.example.upstream.controller;
 
-import com.example.upstream.UpstreamServiceApplication;
 import com.example.upstream.domain.certificate.Certificate;
 import com.example.upstream.domain.education.Education;
 import com.example.upstream.domain.experience.Experience;
@@ -8,8 +7,6 @@ import com.example.upstream.domain.location.Location;
 import com.example.upstream.domain.project.Section;
 import org.apache.kafka.common.KafkaException;
 import org.apache.kafka.common.errors.TimeoutException;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -40,22 +37,19 @@ private KafkaTemplate<String,Certificate>kafkaTemplateCertificate;
     }
 
 //Creating topics
-private static final  String  TOPIC ="education";
+private static final String  TOPIC ="education";
 private static final String TOPIC1 = "skills";
 private static final String TOPIC2 = "location";
 private static final String TOPIC3 = "project";
 private static final String TOPIC4 = "experience";
 private static final String TOPIC5 = "certificate";
 
-    static Logger logger= LoggerFactory.getLogger(UpStreamController.class);
-
-//private final Logger logger = LoggerFactory.getLogger(UpstreamServiceApplication.class);
     @PostMapping("${controller.education}")
     public ResponseEntity<?> newEducation(@RequestBody Education education){
         ResponseEntity responseEntity = null;
         try {
             education.setOperationType("add");
-             responseEntity = new ResponseEntity(education, HttpStatus.OK);
+            responseEntity = new ResponseEntity(education, HttpStatus.OK);
             kafkaTemplateEducation.send(TOPIC, education).get();
 
         }
@@ -65,7 +59,6 @@ private static final String TOPIC5 = "certificate";
         catch (KafkaException e){
             responseEntity = new ResponseEntity(education,HttpStatus.BAD_REQUEST);
         } catch (InterruptedException e) {
-            System.out.println("caught  exception");
             e.printStackTrace();
         } catch (ExecutionException e) {
             e.printStackTrace();
@@ -91,14 +84,7 @@ private static final String TOPIC5 = "certificate";
     {
         location.setOperationType("add");
         ResponseEntity responseEntity = new ResponseEntity(location,HttpStatus.OK);
-        logger.debug("Location Bound sucessfully");
-        logger.debug(String.valueOf(location));
         kafkaTemplateLocation.send(TOPIC2,location);
-        logger.debug("Location Sent successfully");
-/*        logger.debug("This is a debug message");
-        logger.info("This is an info message");
-        logger.warn("This is a warn message");
-        logger.error("This is an error message");*/
         return responseEntity;
 
     }
@@ -123,9 +109,7 @@ private static final String TOPIC5 = "certificate";
 
         section.setOperationType("add");
         ResponseEntity responseEntity = new ResponseEntity(section,HttpStatus.OK);
-        logger.debug("Skills bound successfully");
         kafkaTemplateSkills.send(TOPIC1,section);
-        logger.debug("Sent Sucessfully");
         return responseEntity;
 
     }
@@ -207,8 +191,6 @@ private static final String TOPIC5 = "certificate";
     {
         certificate.setOperationType("add");
         ResponseEntity responseEntity = new ResponseEntity(certificate,HttpStatus.OK);
-        System.out.println(certificate);
-        System.out.println("Posting certificate");
         kafkaTemplateCertificate.send(TOPIC5,certificate);
         return responseEntity;
 

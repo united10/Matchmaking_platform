@@ -78,7 +78,7 @@ public class KafkaConsumer {
     }
 
 
-    @KafkaListener(topics = "${kafka.listeningTopic3}" ,groupId = "group_id5",
+    @KafkaListener(topics = "${kafka.listeningTopic3}" ,groupId = "${kafka.groupId}",
             containerFactory="userKafkaListenerFactory")
 
     public void consumeSkillsJson(@Payload SkillsSection skillsSection) {
@@ -107,12 +107,13 @@ public class KafkaConsumer {
     }
 
 
-    @KafkaListener(topics = "${kafka.listeningTopic4}" ,groupId = "group_id5",
+    @KafkaListener(topics = "${kafka.listeningTopic4}" ,groupId = "${kafka.groupId}",
             containerFactory="userKafkaListenerFactory")
 
     public void consumeLocationsJson(@Payload LocationSection locationSection) {
         if( logger.isDebugEnabled()) {
-            logger.debug(String.format("${kafka.consumed}: %s", locationSection));
+            String msg="${kafka.consumed}";
+            logger.debug(String.format(msg+": %s", locationSection));
         }
         Location location=Location.builder().build();
         Chicklets[] chicklets=locationSection.getChicklets();

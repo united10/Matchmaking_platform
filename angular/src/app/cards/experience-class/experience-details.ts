@@ -12,7 +12,7 @@ export class ExperienceDetails {
         this.fromDate = fromDate;
         this.fromMonth = fromMonth;
         this.fromYear = fromYear;
-        this.toMonth = toMonth;
+        this.toDate = toDate;
         this.toMonth = toMonth;
         this.toYear = toYear;
     }

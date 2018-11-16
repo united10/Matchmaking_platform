@@ -75,7 +75,7 @@ export class EducationdialogComponent implements OnInit {
       const chicklet = new EducationChicklets(qualification, institution, this.summary);
       chicklets.push(chicklet);
     }
-    const section = new EducationSection('Education', 'userId', 'add', chicklets);
+    const section = new EducationSection('Education', '476', 'add', chicklets);
     this.educationService.addEducationDetails(section).subscribe(
       data => {
         this.output = data;
