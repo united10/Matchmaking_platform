@@ -1,0 +1,30 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/login
+    username: root
+    password: 1234
+  jpa:
+    openInView: false
+    show_sql: true
+    generate-ddl: false
+    hibernate.ddl-auto: update
+server:
+  port: 8088
+usercontroller:
+  messages:
+    exception1: User Not Found
+    exception2: Sucessfully Created
+    exception3: please fill in username and password
+    exception4: user email not found
+    exception5: Invalid Login.Please check your username and password
+    base: /api/v1
+    getall: getall
+    save: /saveuser
+    login: login
+
+kafka:
+  ipAddress: 172.23.239.245:9092
+  groupId: group_id54
+  listeningTopic: user
+  containerFactory: kafkaUserListenerContainerFactory

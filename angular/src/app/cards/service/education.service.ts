@@ -17,8 +17,13 @@ const httpOptions = {
 })
 export class EducationService {
 
+<<<<<<< HEAD
   url: string = "/api/v1/education/";
   url1 = '/api/v1/experience/';
+=======
+  url = '/api/v1/education/';
+
+>>>>>>> 9e7726043531d9d4e524b8a080637846f68a9cb7
   constructor(private httpClient: HttpClient) { }
 
   addEducationDetails(section: EducationSection): Observable<Output> {

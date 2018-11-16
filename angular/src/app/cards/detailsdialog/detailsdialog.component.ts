@@ -5,6 +5,10 @@ import { EducationdialogComponent } from '../educationdialog/educationdialog.com
 import { ExperienceComponent } from '../experience/experience.component';
 import { SkillComponent } from '../skill/skill.component';
 import { LocationdialogComponent } from '../locationdialog/locationdialog.component';
+<<<<<<< HEAD
+=======
+import { ProjectdialogComponent } from '../projectdialog/projectdialog.component';
+>>>>>>> 9e7726043531d9d4e524b8a080637846f68a9cb7
 
 @Component({
   selector: 'app-detailsdialog',
@@ -49,6 +53,19 @@ export class DetailsdialogComponent implements OnInit {
     dialogConfig.width = '40%';
     this.dialog.open(SkillComponent, dialogConfig);
   }
+<<<<<<< HEAD
+=======
+
+  projectClick() {
+    this.dialogRef.close();
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.disableClose = false;
+    dialogConfig.autoFocus = true;
+    dialogConfig.width = '40%';
+    this.dialog.open(ProjectdialogComponent, dialogConfig);
+  }
+
+>>>>>>> 9e7726043531d9d4e524b8a080637846f68a9cb7
   certificateClick() {
     this.dialogRef.close();
     const dialogConfig = new MatDialogConfig();

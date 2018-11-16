@@ -3,9 +3,8 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<groupId>com.stackroute</groupId>
+
 	<artifactId>DownstreamService</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
 	<name>DownstreamService</name>
@@ -14,7 +13,7 @@
 	<parent>
 			<groupId>com.stackroute</groupId>
 			<artifactId>matchmaking-platform</artifactId>
-			<version>0.0.1-SNAPSHOT</version>
+			<version>1.0</version>
 			<relativePath>../pom.xml</relativePath> <!-- lookup parent from repository -->
 		 <!-- lookup parent from repository -->
 	</parent>
@@ -80,8 +79,14 @@
 			<artifactId>embedmongo-spring</artifactId>
 			<version>RELEASE</version>
 		</dependency>
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-netflix-eureka-client</artifactId>
+            <version>2.0.2.RELEASE</version>
+            <scope>compile</scope>
+        </dependency>
 
-	</dependencies>
+    </dependencies>
 
 	<build>
 		<plugins>

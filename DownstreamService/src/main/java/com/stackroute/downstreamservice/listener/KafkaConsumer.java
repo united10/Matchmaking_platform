@@ -13,6 +13,7 @@ import org.springframework.messaging.handler.annotation.Payload;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 @Service
@@ -35,10 +36,11 @@ public class KafkaConsumer {
                 .email(employee.getEmail()).name(employee.getName())
                 .build();
         if(logger.isDebugEnabled()) {
-            logger.debug(String.format("Consumed: %s", employee1));
+            logger.debug(String.format("${kafka.consumed}: %s", employee1));
         }
         try {
             employeeService.saveEmployee(employee1);
+            logger.info("${kafka.success}");
         }catch (EmployeeAlreadyExistsException exception){
             logger.error(exception.getMessage());
         }catch(Exception exp){
@@ -50,7 +52,7 @@ public class KafkaConsumer {
             containerFactory="${kafka.containerFactory}")
     public void consumeEducationJson(@Payload EducationSection educationSection) {
         if(logger.isDebugEnabled()) {
-            logger.debug(String.format("Consumed : %s", educationSection));
+            logger.debug(String.format("${kafka.consumed} : %s", educationSection));
         }
         List<Education> educationList=new ArrayList<>();
         Chicklets[] chicklets=educationSection.getChicklets();
@@ -65,14 +67,13 @@ public class KafkaConsumer {
 
         try {
             employeeService.addEducationData(educationList,educationSection.getUserId());
+            logger.info("${kafka.success}");
 
         }catch(EmployeeNotFoundException employeeNotFound){
             logger.error(employeeNotFound.getMessage());
+        }catch(Exception exp){
+            logger.error(exp.getMessage());
         }
-
-
-
-
 
     }
 
@@ -82,29 +83,57 @@ public class KafkaConsumer {
 
     public void consumeSkillsJson(@Payload SkillsSection skillsSection) {
        if( logger.isDebugEnabled()) {
-            logger.debug(String.format("Consumed : %s", skillsSection));
+            logger.debug(String.format("${kafka.consumed} : %s", skillsSection));
         }
-//        List<Education> educationList=new ArrayList<>();
-//        Chicklets[] chicklets=skillsSection.getChicklets();
-//        for(Chicklets chicklet:chicklets){
-//            Qualification qualification=chicklet.getQualification();
-//            Institution institution=chicklet.getInstitution();
-//            String summary=chicklet.getSummary();
-//            Education education=Education.builder().qualification(qualification)
-//                    .institution(institution).summary(summary).build();
-//            educationList.add(education);
-//        }
-//
-//        try {
-//            employeeService.addEducationData(educationList,skillsSection.getUserId());
-//
-//        }catch(EmployeeNotFoundException employeeNotFound){
-//            System.out.println(employeeNotFound.getMessage());
-//        }
+        List<Skills> skillsList=new ArrayList<>();
+        Chicklets[] chicklets=skillsSection.getChicklets();
+        for(Chicklets chicklet:chicklets){
+
+           Skills skill=chicklet.getSkill();
+
+           skillsList.add(skill);
+        }
+
+        try {
+            employeeService.addSkillsData(skillsList,skillsSection.getUserId());
+            logger.info("${kafka.success}");
+
+        }catch(EmployeeNotFoundException employeeNotFound){
+            logger.error(employeeNotFound.getMessage());
+        }catch(Exception exp){
+            logger.error(exp.getMessage());
+        }
+
+    }
 
 
+    @KafkaListener(topics = "${kafka.listeningTopic4}" ,groupId = "group_id5",
+            containerFactory="userKafkaListenerFactory")
 
+    public void consumeLocationsJson(@Payload LocationSection locationSection) {
+        if( logger.isDebugEnabled()) {
+            logger.debug(String.format("${kafka.consumed}: %s", locationSection));
+        }
+        Location location=Location.builder().build();
+        Chicklets[] chicklets=locationSection.getChicklets();
+        for(Chicklets chicklet:chicklets){
 
+            CurrentLocation currentLocation=chicklet.getCurrentLocation();
+            PastLocation[] pastLocation=chicklet.getPastLocation();
+            List<PastLocation> pastLocations= Arrays.asList(pastLocation);
+            location.setCurrentLocation(currentLocation);
+            location.setPastLocation(pastLocations);
+        }
+
+        try {
+            employeeService.addLocationData(location,locationSection.getUserId());
+            logger.info("${kafka.success}");
+
+        }catch(EmployeeNotFoundException employeeNotFound){
+            logger.error(employeeNotFound.getMessage());
+        }catch(Exception exp){
+            logger.error(exp.getMessage());
+        }
 
     }
 }

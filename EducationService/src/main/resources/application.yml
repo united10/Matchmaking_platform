@@ -2,7 +2,7 @@ server:
   port: 8082
 kafka:
   ipAddress: 172.23.239.245:9092
-  groupId: group_id12
+  groupId: group_id20
   outputTopic: indexer
   linsteningTopic: education
   containerFactory: userKafkaListenerFactory

@@ -13,6 +13,7 @@ export class Output {
         this.terminalProperties = terminalProperties;
         this.relation = relation;
     }
+<<<<<<< HEAD
 
     // operationType: string;
     // sourceNode: string;
@@ -20,4 +21,6 @@ export class Output {
     // terminalNode: string;
     // terminalProperties: string;
     // relationShip: Relationship;
+=======
+>>>>>>> 9e7726043531d9d4e524b8a080637846f68a9cb7
 }

@@ -5,6 +5,15 @@
     "changeOrigin": true,
     "logLevel": "debug"
   },
+<<<<<<< HEAD
+=======
+    "/api/v1/experience/": {
+      "target": "http://172.23.239.241:9191",
+      "secure": false,
+      "changeOrigin": true,
+      "logLevel": "debug"
+    },
+>>>>>>> 9e7726043531d9d4e524b8a080637846f68a9cb7
   "/api/v1/certificate": {
     "target": "http://172.23.239.241:9191",
     "secure": false,
@@ -25,6 +34,16 @@
     "logLevel": "debug"
 
   },
+<<<<<<< HEAD
+=======
+  "/api/v1/project": {
+    "target": "http://172.23.239.241:9191",
+    "secure": false,
+    "changeOrigin": true,
+    "logLevel": "debug"
+
+  },
+>>>>>>> 9e7726043531d9d4e524b8a080637846f68a9cb7
     "/matchmaker/v1/employees/": {
         "target": "http://172.23.239.189:8090",
         "secure": false,
@@ -36,6 +55,26 @@
         "secure": false,
         "changeOrigin": true,
         "logLevel": "debug"
+<<<<<<< HEAD
   }
 }
   
+=======
+  },
+  "/api/v1/login": {
+    "target": "http://172.23.239.76:8088",
+    "secure": false,
+    "changeOrigin": true,
+    "logLevel": "debug"
+
+  },
+  "/api/v1/registration/user": {
+    "target": "http://172.23.239.76:8086",
+    "secure": false,
+    "changeOrigin": true,
+    "logLevel": "debug"
+
+  }
+}
+
+>>>>>>> 9e7726043531d9d4e524b8a080637846f68a9cb7

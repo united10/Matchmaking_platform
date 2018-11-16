@@ -19,10 +19,10 @@ public class KafkaListen {
     @KafkaListener(topics="${kafka.linsteningTopic}",groupId = "${kafka.groupId}",containerFactory = "${kafka.containerFactory}")
     public void consumeJson(@Payload Section exp)
     {
-
-        Relationships relationships=new Relationships("${kafka.relationshipProperty}","${kafka.linsteningType}");
-        CommonOutput commonOutput=new CommonOutput("${kafka.operationType}","${kafka.sourceNode}","${kafka.sourceNodeProperties}",
-                "${kafka.terminalNode}","${kafka.terminalNodeProperties}",relationships);
+        System.out.println( exp);
+        Relationships relationships=new Relationships("Working","is-a");
+        CommonOutput commonOutput=new CommonOutput("post","vivek","pandey",
+                "Bangalore","Visiting",relationships);
         indexResource.postDate(commonOutput);
     }
 }

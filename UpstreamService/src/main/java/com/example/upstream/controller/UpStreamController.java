@@ -37,20 +37,19 @@ private KafkaTemplate<String,Certificate>kafkaTemplateCertificate;
     }
 
 //Creating topics
-private static final  String  TOPIC ="education";
+private static final String  TOPIC ="education";
 private static final String TOPIC1 = "skills";
 private static final String TOPIC2 = "location";
 private static final String TOPIC3 = "project";
 private static final String TOPIC4 = "experience";
 private static final String TOPIC5 = "certificate";
 
-//private final Logger logger = LoggerFactory.getLogger(UpstreamServiceApplication.class);
     @PostMapping("${controller.education}")
     public ResponseEntity<?> newEducation(@RequestBody Education education){
         ResponseEntity responseEntity = null;
         try {
             education.setOperationType("add");
-             responseEntity = new ResponseEntity(education, HttpStatus.OK);
+            responseEntity = new ResponseEntity(education, HttpStatus.OK);
             kafkaTemplateEducation.send(TOPIC, education).get();
 
         }
@@ -87,10 +86,6 @@ private static final String TOPIC5 = "certificate";
         location.setOperationType("add");
         ResponseEntity responseEntity = new ResponseEntity(location,HttpStatus.OK);
         kafkaTemplateLocation.send(TOPIC2,location);
-/*        logger.debug("This is a debug message");
-        logger.info("This is an info message");
-        logger.warn("This is a warn message");
-        logger.error("This is an error message");*/
         return responseEntity;
 
     }
@@ -112,6 +107,7 @@ private static final String TOPIC5 = "certificate";
     @PostMapping("${controller.skills}")
     public ResponseEntity<?> newSkills(@RequestBody com.example.upstream.domain.skills.Section section)
     {
+
         section.setOperationType("add");
         ResponseEntity responseEntity = new ResponseEntity(section,HttpStatus.OK);
         kafkaTemplateSkills.send(TOPIC1,section);
@@ -131,6 +127,7 @@ private static final String TOPIC5 = "certificate";
     public ResponseEntity<?> deleteSkills(@RequestBody com.example.upstream.domain.skills.Section section)
     {
         section.setOperationType("delete");
+
         ResponseEntity responseEntity = new ResponseEntity(section,HttpStatus.OK);
         kafkaTemplateSkills.send(TOPIC1,section);
         return responseEntity;
