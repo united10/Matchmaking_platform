@@ -1,7 +1,4 @@
 import { Injectable } from '@angular/core';
-<<<<<<< HEAD
-
-=======
 import { Observable, throwError } from 'rxjs';
 import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
 import { ExperienceSection } from '../experience-class/section';
@@ -14,15 +11,12 @@ const httpOptions = {
     'Content-Type': 'application/json'
   })
 };
->>>>>>> 9e7726043531d9d4e524b8a080637846f68a9cb7
+
 @Injectable({
   providedIn: 'root'
 })
 export class ExperienceService {
 
-<<<<<<< HEAD
-  constructor() { }
-=======
   url1 = 'api/v1/experience/';
   constructor(private httpClient: HttpClient) { }
 
@@ -44,5 +38,4 @@ export class ExperienceService {
     // return an observable with a user-facing error message
     return throwError('Something bad happened; please try again later.');
   }
->>>>>>> 9e7726043531d9d4e524b8a080637846f68a9cb7
 }
