@@ -6,59 +6,59 @@
     "logLevel": "debug"
   },
     "/api/v1/experience/": {
-      "target": "http://172.23.239.241:8087/upstream-service",
+      "target": "https://172.23.239.241:8087/upstream-service",
       "secure": false,
       "changeOrigin": true,
       "logLevel": "debug"
     },
   "/api/v1/certificate": {
-    "target": "http://172.23.239.241:8087/upstream-service",
+    "target": "https://172.23.239.241:8087/upstream-service",
     "secure": false,
     "changeOrigin": true,
     "logLevel": "debug"
   },
   "/api/v1/skills": {
-    "target": "http://172.23.239.241:8087/upstream-service",
+    "target": "https://172.23.239.241:8087/upstream-service",
     "secure": false,
     "changeOrigin": true,
     "logLevel": "debug"
 
   },
   "/api/v1/location": {
-    "target": "http://172.23.239.241:8087/upstream-service",
+    "target": "https://172.23.239.241:8087/upstream-service",
     "secure": false,
     "changeOrigin": true,
     "logLevel": "debug"
 
   },
   "/api/v1/project": {
-    "target": "http://172.23.239.241:8087/upstream-service",
+    "target": "https://172.23.239.241:8087/upstream-service",
     "secure": false,
     "changeOrigin": true,
     "logLevel": "debug"
 
   },
     "/matchmaker/v1/employees/": {
-        "target": "http://172.23.239.241:8087/downstream-service",
+        "target": "https://172.23.239.241:8087/downstream-service",
         "secure": false,
         "changeOrigin": true,
         "logLevel": "debug"
       },
     "/matchmaker/v1/":{
-        "target": "http://172.23.239.241:8087/downstream-service",
+        "target": "https://172.23.239.241:8087/downstream-service",
         "secure": false,
         "changeOrigin": true,
         "logLevel": "debug"
   },
   "/api/v1/login": {
-    "target": "http://172.23.239.76:8088",
+    "target": "https://172.23.239.241:8087/login-service",
     "secure": false,
     "changeOrigin": true,
     "logLevel": "debug"
 
   },
   "/api/v1/registration/user": {
-    "target": "http://172.23.239.76:8086",
+    "target": "https://172.23.239.241:8087/login-service",
     "secure": false,
     "changeOrigin": true,
     "logLevel": "debug"
