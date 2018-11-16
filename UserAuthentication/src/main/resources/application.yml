@@ -23,7 +23,7 @@ jwtfilter:
     exception1: Missing or invalid Authorization header
     exception2: Invalid token
 kafka:
-  ipAddress: 172.23.239.245:9092
+  ipAddress: localhost:9092
   groupId: group_id54
   listeningTopic: user
   containerFactory: kafkaUserListenerContainerFactory
