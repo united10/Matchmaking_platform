@@ -1,64 +1,64 @@
 {
   "/api/v1/education/": {
-    "target": "https://172.23.239.241:8087/upstream-service",
+    "target": "https://172.23.239.241:8097/upstream-service",
     "secure": false,
     "changeOrigin": true,
     "logLevel": "debug"
   },
     "/api/v1/experience/": {
-      "target": "https://172.23.239.241:8087/upstream-service",
+      "target": "https://172.23.239.241:8097/upstream-service",
       "secure": false,
       "changeOrigin": true,
       "logLevel": "debug"
     },
   "/api/v1/certificate": {
-    "target": "https://172.23.239.241:8087/upstream-service",
+    "target": "https://172.23.239.241:8097/upstream-service",
     "secure": false,
     "changeOrigin": true,
     "logLevel": "debug"
   },
   "/api/v1/skills": {
-    "target": "https://172.23.239.241:8087/upstream-service",
+    "target": "https://172.23.239.241:8097/upstream-service",
     "secure": false,
     "changeOrigin": true,
     "logLevel": "debug"
 
   },
   "/api/v1/location": {
-    "target": "https://172.23.239.241:8087/upstream-service",
+    "target": "https://172.23.239.241:8097/upstream-service",
     "secure": false,
     "changeOrigin": true,
     "logLevel": "debug"
 
   },
   "/api/v1/project": {
-    "target": "https://172.23.239.241:8087/upstream-service",
+    "target": "https://172.23.239.241:8097/upstream-service",
     "secure": false,
     "changeOrigin": true,
     "logLevel": "debug"
 
   },
     "/matchmaker/v1/employees/": {
-        "target": "https://172.23.239.241:8087/downstream-service",
+        "target": "https://172.23.239.241:8097/downstream-service",
         "secure": false,
         "changeOrigin": true,
         "logLevel": "debug"
       },
     "/matchmaker/v1/":{
-        "target": "https://172.23.239.241:8087/downstream-service",
+        "target": "https://172.23.239.241:8097/downstream-service",
         "secure": false,
         "changeOrigin": true,
         "logLevel": "debug"
   },
   "/api/v1/login": {
-    "target": "https://172.23.239.241:8087/user-authentication-service",
+    "target": "https://172.23.239.241:8097/user-authentication-service",
     "secure": false,
     "changeOrigin": true,
     "logLevel": "debug"
 
   },
   "/api/v1/registration/user": {
-    "target": "https://172.23.239.241:8087/registration-service",
+    "target": "https://172.23.239.241:8097/registration-service",
     "secure": false,
     "changeOrigin": true,
     "logLevel": "debug"
