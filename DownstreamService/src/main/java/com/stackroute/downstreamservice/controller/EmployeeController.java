@@ -13,8 +13,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/matchmaker/v1")
-/*@PropertySource("classpath:/application.yml")*/
+@RequestMapping("${controller.base}")
 public class EmployeeController {
 
     private EmployeeService employeeService;
@@ -25,7 +24,7 @@ public class EmployeeController {
 
     }
 
-    @GetMapping("/employees/{id}")
+    @GetMapping("${controller.employee}")
     public ResponseEntity<?> getEmployees(@PathVariable("id") String employeeId){
         ResponseEntity responseEntity;
         try{
@@ -38,7 +37,7 @@ public class EmployeeController {
         return responseEntity;
     }
 
-    @GetMapping("/employees")
+    @GetMapping("${controller.employees}")
     public ResponseEntity<?> getAllEmployees(){
         ResponseEntity responseEntity;
         try{

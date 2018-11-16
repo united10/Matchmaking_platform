@@ -1,5 +1,10 @@
 server:
   port: 8087
+
+spring:
+  application.name: ExperienceService
+  cloud.config.uri: http://localhost:8888
+
 kafka:
   ipAddress: 172.23.239.245:9092
   groupId: group_id12
