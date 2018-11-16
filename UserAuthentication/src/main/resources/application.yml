@@ -3,12 +3,12 @@ spring:
     driver-class-name: com.mysql.jdbc.Driver
     url: jdbc:mysql://localhost:3306/login
     username: root
-    password: 1234
+    password: root
   jpa:
     openInView: false
     show_sql: true
-    generate-ddl: false
-    hibernate.ddl-auto: update
+    generate-ddl: true
+    hibernate.ddl-auto: create
 server:
   port: 8088
 usercontroller:
@@ -18,6 +18,10 @@ usercontroller:
     exception3: please fill in username and password
     exception4: user email not found
     exception5: Invalid Login.Please check your username and password
+    base: /api/v1
+    getall: getall
+    save: /saveuser
+    login: login
 
 kafka:
   ipAddress: 172.23.239.245:9092

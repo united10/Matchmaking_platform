@@ -6,7 +6,8 @@
   <mat-dialog-content >
       <p>The title of my project is
         <mat-form-field>
-          <input matInput name="title" formControlName="title" required>
+          <input matInput name="title" formControlName="title">
+          <mat-error> Title cannot be empty</mat-error>
         </mat-form-field>
         and I have worked on this project from
         <mat-form-field class="date">
@@ -23,15 +24,18 @@
           The URL for this project is
           <mat-form-field>
             <input matInput name="url" formControlName="url">
+            <mat-error>Enter a valid URL</mat-error>
           </mat-form-field>
           and my role is 
           <mat-form-field>
             <input matInput name="role" formControlName="role">
           </mat-form-field>
           . Here is a short description of the project:
-          <mat-form-field>
-            <textarea  matInput matTextareaAutosize matAutosizeMinRows="2" matAutosizeMaxRows="7" name = "description" formControlName="description"></textarea>
+          <mat-form-field style = "width:80%;">
+            <textarea  matInput  minlength="30" maxlength="300" matTextareaAutosize matAutosizeMinRows="3" matAutosizeMaxRows="7" name = "description" formControlName="description"></textarea>
+            <mat-error>Minimum 30 characters</mat-error> 
           </mat-form-field>
+          
         </p>
       
         <div class="card-title">
@@ -57,6 +61,6 @@
     </mat-dialog-content>
     <div class="button-row">
       <button mat-button mr-2 (click)="onClose()">Close</button>
-      <button mat-raised-button (click)="onSave()" [disabled]="!projectForm.valid">Save</button>
+      <button mat-raised-button (click)="onSave()" [disabled]="projectForm.invalid">Save</button>
     </div>
   </section>

@@ -1,6 +1,7 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { DownstreamBackendService } from '../downstream-backend.service';
 import { ActivatedRoute } from '@angular/router';
+import { TokenStorageService } from 'src/app/login/auth/token-storage.service';
 
 @Component({
   selector: 'app-employee-dashboard-smart',
@@ -10,15 +11,17 @@ import { ActivatedRoute } from '@angular/router';
 export class EmployeeDashboardSmartComponent implements OnInit {
   employee:any;
   @Output()  employeeEmit:EventEmitter<any>=new EventEmitter();
-  constructor(private downstreamService:DownstreamBackendService,private route:ActivatedRoute) { }
-  
+  constructor(private downstreamService:DownstreamBackendService,
+        private route: ActivatedRoute,
+        private token: TokenStorageService) { }
+
   ngOnInit() {
-    let employeeId;
-    this.route.paramMap.subscribe(
-      (params)=>{
-       employeeId=params.get('id');
-      }
-    );
+    let employeeId = this.token.getEmail();
+    // this.route.paramMap.subscribe(
+    //   (params)=>{
+    //    employeeId=params.get('id');
+    //   }
+    // );
     this.downstreamService.getEmployee(employeeId).subscribe((data)=>{
       this.employee=data;
       console.log(this.employee);

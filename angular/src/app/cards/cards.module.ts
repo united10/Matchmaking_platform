@@ -34,18 +34,20 @@ import { ProjectdialogComponent } from './projectdialog/projectdialog.component'
   declarations: [CardComponent,
                   DetailsdialogComponent,
                   EducationdialogComponent,
-                  ExperienceComponent,
                   SkillComponent,
                   CertificatedialogComponent,
                   LocationdialogComponent,
+                  ExperienceComponent,
                   ProjectdialogComponent],
+
   entryComponents: [DetailsdialogComponent,
                     EducationdialogComponent,
                     SkillComponent,
                     CertificatedialogComponent,
-
+                    ExperienceComponent,
                     LocationdialogComponent,
                     ProjectdialogComponent],
+
   exports: [CardComponent]
 })
 export class CardsModule { }

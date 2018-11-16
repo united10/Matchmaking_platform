@@ -31,11 +31,12 @@ export class ProjectdialogComponent implements OnInit {
   private fb: FormBuilder, private projectService: ProjectService) { }
 
   ngOnInit() {
+    const regForUrl = '(https?://)?([\\da-z.-]+)\\.([a-z.]{2,6})[/\\w .-]*/?';
     this.projectForm = this.fb.group({
       title: ['', [Validators.required]],
       startDate: '',
       endDate: '',
-      url: '',
+      url: ['', [ Validators.pattern(regForUrl)]],
       role: '',
       technologiesUsed: this.fb.array([this.createTechnology()]),
       description: ''

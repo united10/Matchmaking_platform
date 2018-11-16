@@ -163,4 +163,5 @@ DownstreamService/.mvn
 eureka-registry/.mvn
 LocationService/.idea
 ExperienceService/.idea
+UserAuthentication/.mvn
 LocationService/target

@@ -11,15 +11,17 @@ const httpOptions = {
     'Content-Type': 'application/json'
   })
 };
+
 @Injectable({
   providedIn: 'root'
 })
 export class ExperienceService {
 
-  url1 = 'https://localhost:8087/api/v1/experience/';
+  url1 = 'api/v1/experience/';
   constructor(private httpClient: HttpClient) { }
 
   addExperienceDetails(section: ExperienceSection): Observable<Output> {
+    console.log(section);
     return this.httpClient.post<Output>(this.url1, section, httpOptions).pipe(catchError(this.errorHandler));
   }
   errorHandler(error: HttpErrorResponse) {
