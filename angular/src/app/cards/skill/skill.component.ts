@@ -66,7 +66,7 @@ export class SkillComponent implements OnInit {
       chicklets.push(chicklet);
     }
     console.log("fjd "+chicklets);
-    const section = new SkillSection("Skill", "userId", "add", chicklets);
+    const section = new SkillSection("Skill", "476", "add", chicklets);
     this.skillService.addSkillDetails(section).subscribe(
       data => {
         this.output = data;
