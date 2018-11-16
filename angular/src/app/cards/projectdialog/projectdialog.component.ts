@@ -3,16 +3,25 @@ import { Project } from './../projectclasses/project';
 import { Skill } from './../projectclasses/skill';
 import { ProjectChicklets } from './../projectclasses/projectchicklets';
 import { ProjectSection } from './../projectclasses/projectsection';
+import { HttpHeaders, HttpClient, HttpErrorResponse } from '@angular/common/http';
 
 import { Component, OnInit , Inject } from '@angular/core';
 import { FormGroup, FormArray, FormControl, FormBuilder, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+
+const httpOptions = {
+  headers: new HttpHeaders({
+    'Content-Type': 'application/json'
+  })
+};
 
 @Component({
   selector: 'app-projectdialog',
   templateUrl: './projectdialog.component.html',
   styleUrls: ['./projectdialog.component.css']
 })
+
+
 export class ProjectdialogComponent implements OnInit {
   projectForm: FormGroup;
   title: string;
@@ -25,10 +34,14 @@ export class ProjectdialogComponent implements OnInit {
   description: string;
   errorMessage: string;
   totalRow: number;
+  dataJson: any;
+
+
+  json_url = 'assets/project.json';
 
   constructor(@Inject(MAT_DIALOG_DATA) private data: any,
   private dialogRef: MatDialogRef<ProjectdialogComponent>,
-  private fb: FormBuilder, private projectService: ProjectService) { }
+  private fb: FormBuilder, private projectService: ProjectService, private httpClient: HttpClient) { }
 
   ngOnInit() {
     const regForUrl = '(https?://)?([\\da-z.-]+)\\.([a-z.]{2,6})[/\\w .-]*/?';
@@ -41,6 +54,17 @@ export class ProjectdialogComponent implements OnInit {
       technologiesUsed: this.fb.array([this.createTechnology()]),
       description: ''
     });
+
+    this.httpClient.get(this.json_url, httpOptions).subscribe(
+        response => {
+            this.dataJson = response;
+             console.log(this.dataJson);
+             // this.sample = JSON.stringify(dataJson);
+       },
+       (err: HttpErrorResponse) => {
+        console.log(err.message);
+      }
+      );
   }
 
   createTechnology(): FormGroup {

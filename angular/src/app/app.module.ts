@@ -17,7 +17,6 @@ import { UserProfileModule } from './user-profile/user-profile.module';
     HttpClientModule,
     RoutingModule,
     UserProfileModule,
-    
   ],
   providers: [EducationService],
   bootstrap: [AppComponent]
