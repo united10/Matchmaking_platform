@@ -5,6 +5,9 @@ import com.stackroute.locationservice.domain.CommonOutput;
 import com.stackroute.locationservice.domain.Section;
 import com.stackroute.locationservice.resource.IndexResource;
 import com.stackroute.locationservice.service.LocationService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.slf4j.Marker;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.messaging.handler.annotation.Payload;
@@ -14,6 +17,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class KafkaListen {
 
+    Logger logger= LoggerFactory.getLogger(KafkaListen.class);
     @Autowired
     LocationService locationService;
 
@@ -32,12 +36,7 @@ public class KafkaListen {
 
     public void consumeJson(@Payload Section section) {
 
-//        Relationship[] relationship = new Relationship[1];
-//        Relationship relationship1 = new Relationship("live","lives in");
-//        relationship[0] = relationship1;
-//        CommonOutput commonOutput=new CommonOutput("add","SourceNode","SourceNodeProperty",
-//                "TargetNode","TargetNodeProperty",relationship);
-
+        logger.debug(Marker.ANY_MARKER,section);
         CommonOutput commonOutput = locationService.processLocationDetails(section);
 
         indexResource.postData(commonOutput);
