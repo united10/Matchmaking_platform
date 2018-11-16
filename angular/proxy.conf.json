@@ -5,6 +5,12 @@
     "changeOrigin": true,
     "logLevel": "debug"
   },
+  "/api/v1/certificate": {
+    "target": "http://172.23.239.241:9191",
+    "secure": false,
+    "changeOrigin": true,
+    "logLevel": "debug"
+  },
   "/api/v1/skills": {
     "target": "http://172.23.239.241:9191",
     "secure": false,
@@ -12,18 +18,24 @@
     "logLevel": "debug"
 
   },
+  "/api/v1/location": {
+    "target": "http://172.23.239.241:9191",
+    "secure": false,
+    "changeOrigin": true,
+    "logLevel": "debug"
+
+  },
     "/matchmaker/v1/employees/": {
-        "target": "http://localhost:8090",
+        "target": "http://172.23.239.189:8090",
         "secure": false,
         "changeOrigin": true,
         "logLevel": "debug"
       },
     "/matchmaker/v1/":{
-        "target": "http://localhost:8090",
+        "target": "http://172.23.239.189:8090",
         "secure": false,
         "changeOrigin": true,
         "logLevel": "debug"
-      }
   }
-
 }
+  

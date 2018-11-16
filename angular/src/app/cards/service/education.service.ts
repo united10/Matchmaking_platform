@@ -2,13 +2,9 @@ import { Injectable } from '@angular/core';
 import { Observable, throwError } from 'rxjs';
 import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
 import { catchError } from 'rxjs/operators';
-<<<<<<< HEAD
-import { Output } from '../classes/output';
-import { ExperienceSection } from '../experience-class/section';
-=======
 import { EducationSection } from '../educationclasses/educationsection';
 import { Output } from '../outputclass/output';
->>>>>>> 852ac48a5695665c9008b18b404a4035b0801772
+import { ExperienceSection } from '../experience-class/section';
 
 
 const httpOptions = {
@@ -44,5 +40,5 @@ export class EducationService {
     }
     // return an observable with a user-facing error message
     return throwError('Something bad happened; please try again later.');
-  };
+  }
 }

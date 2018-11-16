@@ -6,3 +6,10 @@ kafka:
   outputTopic: indexer
   linsteningTopic: experience
   containerFactory: userKafkaListenerFactory
+  relationshipProperty: Working
+  relationshipType: is-a
+  operationType: post
+  sourceNode: vivek
+  sourceNodeProperties: pandey
+  terminalNode: Bangalore
+  terminalNodeProperties: Visiting

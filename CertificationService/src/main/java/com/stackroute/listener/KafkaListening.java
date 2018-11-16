@@ -16,6 +16,7 @@ public class KafkaListening {
 
     @KafkaListener(topics = "${kafka.listeningTopic}" ,groupId = "${kafka.groupId}",
             containerFactory="${kafka.containerFactory}")
+
     public void consumeJson(@Payload Section section) {
         System.out.print("Consumed Message "+ section);
         Relationships[] relationships=new Relationships[1];

@@ -6,30 +6,74 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="config-server" />
-        <module name="EducationService" />
-        <module name="eureka-registry" />
-        <module name="ExperienceService" />
-        <module name="LocationService" />
-        <module name="matchmaking" />
+        <module name="CertificationService (1)" />
+        <module name="CertificationService (2)" />
+        <module name="config-server (1)" />
+        <module name="config-server (2)" />
+        <module name="DownstreamService (1)" />
+        <module name="DownstreamService (2)" />
+        <module name="EducationService (1) (com.stackroute)" />
+        <module name="EducationService (2) (com.matchmaking)" />
+        <module name="eureka-registry (1)" />
+        <module name="eureka-registry (2)" />
+        <module name="experience" />
+        <module name="LocationService (1)" />
+        <module name="LocationService (2)" />
+        <module name="matchMaking" />
+        <module name="maven-archiver" />
         <module name="projectService" />
+        <module name="ProjectService" />
         <module name="registration" />
-        <module name="spring-location" />
-        <module name="spring-location (2)" />
-        <module name="spring-skill" />
-        <module name="UpstreamService" />
-        <module name="zuulgateway" />
+        <module name="Registration-Service" />
+        <module name="spring-skill (1)" />
+        <module name="spring-skill (2)" />
+        <module name="UpstreamService (1) (com.example)" />
+        <module name="UpstreamService (2)" />
+        <module name="zuulgateway (1)" />
+        <module name="zuulgateway (2)" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="spring-boot-certification" target="1.8" />
+      <module name="CertificationService (2)" target="1.8" />
+      <module name="config-server (2)" target="10" />
+      <module name="DownstreamService (2)" target="10" />
+      <module name="EducationService (2) (com.matchmaking)" target="10" />
+      <module name="eureka-registry (2)" target="10" />
+      <module name="LocationService (2)" target="10" />
+      <module name="matchMaking" target="1.8" />
+      <module name="matchmaking-services" target="10" />
+      <module name="projectService" target="10" />
+      <module name="registration" target="1.8" />
+      <module name="spring-skill (1)" target="10" />
+      <module name="UpstreamService (1) (com.example)" target="10" />
+      <module name="zuulgateway (1)" target="10" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
-      <module name="config-server" options="" />
-      <module name="eureka-registry" options="" />
-      <module name="zuulgateway" options="" />
+      <module name="CertificationService (1)" options="-parameters" />
+      <module name="CertificationService (2)" options="-parameters" />
+      <module name="DownstreamService (1)" options="-parameters" />
+      <module name="DownstreamService (2)" options="-parameters" />
+      <module name="EducationService (1) (com.stackroute)" options="-parameters" />
+      <module name="EducationService (2) (com.matchmaking)" options="-parameters" />
+      <module name="LocationService (1)" options="-parameters" />
+      <module name="LocationService (2)" options="-parameters" />
+      <module name="ProjectService" options="-parameters" />
+      <module name="Registration-Service" options="-parameters" />
+      <module name="UpstreamService (1) (com.example)" options="-parameters" />
+      <module name="config-server (1)" options="-parameters" />
+      <module name="config-server (2)" options="-parameters" />
+      <module name="eureka-registry (1)" options="-parameters" />
+      <module name="eureka-registry (2)" options="-parameters" />
+      <module name="experience" options="-parameters" />
+      <module name="matchMaking" options="-parameters" />
+      <module name="projectService" options="-parameters" />
+      <module name="registration" options="-parameters" />
+      <module name="spring-skill (1)" options="-parameters" />
+      <module name="spring-skill (2)" options="-parameters" />
+      <module name="zuulgateway (1)" options="-parameters" />
+      <module name="zuulgateway (2)" options="-parameters" />
     </option>
   </component>
 </project>

@@ -4,6 +4,7 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Certificate } from '../certificateclasses/certificate';
 import { CertificateChicklets } from '../certificateclasses/certificatechicklets';
 import { CertificateSection } from '../certificateclasses/certificatesection';
+import { CertificateService } from '../service/certificate.service';
 @Component({
   selector: 'app-certificatedialog',
   templateUrl: './certificatedialog.component.html',
@@ -21,6 +22,7 @@ export class CertificatedialogComponent implements OnInit {
   totalRow: number;
 
   constructor(@Inject(MAT_DIALOG_DATA) private data: any,
+  private certificateService: CertificateService,
   private dialogRef: MatDialogRef<CertificatedialogComponent>, private fb: FormBuilder) {
 
 }
@@ -61,22 +63,20 @@ export class CertificatedialogComponent implements OnInit {
     const chicklets = new Array<CertificateChicklets>();
     for (let i = 0; i < arr.length; i++) {
       const row = arr.at(i);
-      const certificateDetails = new Certificate(row.value.qualification, row.value.certificateAuthority,
+      const certificateDetails = new Certificate(row.value.certificateName, row.value.certificateAuthority,
         row.value.licenseNumber, row.value.fromDate, row.value.toDate);
       const chicklet = new CertificateChicklets(certificateDetails);
       chicklets.push(chicklet);
     }
      const section = new CertificateSection('Certificate', 'userId', 'add', chicklets);
-    // this.educationService.addEducationDetails(section).subscribe(
-    //   data => {
-    //     this.output = data;
-    //     console.log(this.output);
-    //     this.dialogRef.close();
-    //   },
-    //   error => {
-    //     this.errorMessage = error;
-    //   }
-    // );
+    this.certificateService.addCertificateDetails(section).subscribe(
+      data => {
+        this.dialogRef.close();
+      },
+      error => {
+        this.errorMessage = error;
+      }
+    );
   }
 
   onClose() {

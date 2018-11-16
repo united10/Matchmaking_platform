@@ -20,16 +20,20 @@ import java.util.Map;
 @EnableKafka
 @Configuration
 public class KafkaConsumer {
+
     private KafkaProperties kafkaProperties;
+
+    public KafkaConsumer() {
+    }
+
     @Autowired
-    public void setApp(KafkaProperties kafkaProperties){
+    public KafkaConsumer(KafkaProperties kafkaProperties){
         this.kafkaProperties = kafkaProperties;
     }
+
     @Bean
     public ConsumerFactory<String, String> consumerFactory() {
-
         Map<String, Object> config =new HashMap<>();
-
         config.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG,kafkaProperties.getIpAddress());
         config.put(ConsumerConfig.GROUP_ID_CONFIG, kafkaProperties.getGroupId());
         config.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class);
@@ -41,7 +45,7 @@ public class KafkaConsumer {
 
     @Bean
     public ConcurrentKafkaListenerContainerFactory<String,String> kafkaListenerContainerFactory() {
-        ConcurrentKafkaListenerContainerFactory<String,String> factory=new ConcurrentKafkaListenerContainerFactory();
+        ConcurrentKafkaListenerContainerFactory<String,String> factory= new ConcurrentKafkaListenerContainerFactory();
         factory.setConsumerFactory(consumerFactory());
         return factory;
     }
@@ -60,10 +64,6 @@ public class KafkaConsumer {
         return new DefaultKafkaConsumerFactory<>(config);
     }
 
-    @Bean
-    public StringJsonMessageConverter jsonConverter() {
-        return new StringJsonMessageConverter();
-    }
     @Bean
     public ConcurrentKafkaListenerContainerFactory<String, Section> userKafkaListenerFactory() {
         ConcurrentKafkaListenerContainerFactory<String, Section> factory=new ConcurrentKafkaListenerContainerFactory<>();

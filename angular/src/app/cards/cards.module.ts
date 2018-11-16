@@ -12,11 +12,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { ExperienceComponent } from './experience/experience.component';
-<<<<<<< HEAD
 import { SkillComponent } from './skill/skill.component';
-=======
->>>>>>> 9c196e8daf33e7675773fa7bf723ce0f6a0673bd
 import { CertificatedialogComponent } from './certificatedialog/certificatedialog.component';
+import { LocationdialogComponent } from './locationdialog/locationdialog.component';
 
 @NgModule({
   imports: [
@@ -32,6 +30,7 @@ import { CertificatedialogComponent } from './certificatedialog/certificatedialo
     MatNativeDateModule
   ],
 <<<<<<< HEAD
+<<<<<<< HEAD
   declarations: [CardComponent, DetailsdialogComponent, EducationdialogComponent, ExperienceComponent],
   entryComponents: [DetailsdialogComponent, EducationdialogComponent, ExperienceComponent],
 =======
@@ -43,6 +42,20 @@ import { CertificatedialogComponent } from './certificatedialog/certificatedialo
   entryComponents: [DetailsdialogComponent, EducationdialogComponent, CertificatedialogComponent],
 >>>>>>> 9c196e8daf33e7675773fa7bf723ce0f6a0673bd
 >>>>>>> 852ac48a5695665c9008b18b404a4035b0801772
+=======
+  declarations: [CardComponent,
+                  DetailsdialogComponent,
+                  EducationdialogComponent,
+                  ExperienceComponent,
+                  SkillComponent,
+                  CertificatedialogComponent,
+                  LocationdialogComponent],
+  entryComponents: [DetailsdialogComponent,
+                    EducationdialogComponent,
+                    SkillComponent,
+                    CertificatedialogComponent,
+                    LocationdialogComponent],
+>>>>>>> fee8a28e90d5620b2d6014cef17cf39656d3b12a
   exports: [CardComponent]
 })
 export class CardsModule { }

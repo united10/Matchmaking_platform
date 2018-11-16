@@ -76,8 +76,38 @@ export class ExperienceComponent implements OnInit {
       const row = arr.at(i);
       let fromDate = row.value.startDate + '';
       console.log(fromDate);
-      let date = fromDate.split(' ',4);
-      let fromDay = date[1];
+      let date = fromDate.split(' ', 4);
+      let fromDay = parseInt(date[2] , 10);
+      let fromYear = parseInt(date[3] , 10);
+      let fromMonthStr = date[1];
+
+      switch (fromMonthStr) {
+        case 'Jan': let fromMonth = 01;
+        break;
+        case 'Feb': let fromMonth = 02;
+        break;
+        case 'Mar': let fromMonth = 03;
+        break;
+        case 'Apr': let fromMonth = 04;
+        break;
+        case 'May': let fromMonth = 05;
+        break;
+        case 'Jun': let fromMonth = 06;
+        break;
+        case 'Jul': let fromMonth = 07;
+        break;
+        case 'Aug': let fromMonth = 08;
+        break;
+        case 'Sep': let fromMonth = 09;
+        break;
+        case 'Oct': let fromMonth = 10;
+        break;
+        case 'Nov': let fromMonth = 11;
+        break;
+        case 'Dec': let fromMonth = 12;
+        break;
+      }
+
       console.log(date);
       const experienceDetails = new ExperienceDetails(row.value.organisation,
                                   row.value.role,
