@@ -9,7 +9,7 @@ zuul:
            upstream-service:
              url: http://localhost:9191
            registration-service:
-             url: http://localhost:8086
+             url: http://13.233.180.226:8086
            user-authentication-service:
                url: http://localhost:8088
            certification-service:
