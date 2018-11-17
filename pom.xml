@@ -37,6 +37,7 @@
         <module>DownstreamService</module>
         <module>EducationService</module>
         <module>UserAuthentication</module>
+        <module>SkillService</module>
 
 
     </modules>
