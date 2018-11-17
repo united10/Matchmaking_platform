@@ -1,17 +1,5 @@
 version: '2.0'
 services:
-#   eureka:
-#     image: eureka:v1
-#     build: eureka-registry/
-#     restart: always
-#     container_name: eureka-container
-#     network_mode: host
-#     ports:
-#       - "8091:8091"
-#
-#     expose:
-#       - "8091"
-
   zookeeper:
     image: wurstmeister/zookeeper
     container_name: zookeeper
@@ -50,8 +38,8 @@ services:
     restart: always
     container_name: education-container
     network_mode: host
-#    depends_on:
-#      - kafka
+    depends_on:
+      - kafka
     ports:
       - "8082:8082"
     expose:
@@ -64,22 +52,21 @@ services:
     network_mode: host
     depends_on:
       - mysql
+      - kafka
     ports:
     - "8088:8088"
     expose:
-    - "8088"
+    - 8088
   registration-service:
     image: registration-service:v1
     build: RegistrationService/
     restart: always
     container_name: registration-container
     network_mode: host
-#    depends_on:
-#      - mysql
     ports:
     - "8086:8086"
     expose:
-    - "8086"
+    - 8086
 
 
   certification-service:
@@ -88,8 +75,8 @@ services:
     restart: always
     container_name: certification-container
     network_mode: host
-#    depends_on:
-#      - kafka
+    depends_on:
+      - kafka
     ports:
       - "8085:8085"
     expose:
@@ -112,8 +99,8 @@ services:
     restart: always
     container_name: location-container
     network_mode: host
-#    depends_on:
-#    - kafka
+    depends_on:
+    - kafka
     ports:
     - "8084:8084"
     expose:
@@ -124,8 +111,8 @@ services:
     restart: always
     container_name: project-container
     network_mode: host
-#    depends_on:
-#    - kafka
+    depends_on:
+    - kafka
     ports:
     - "8083:8083"
     expose:
@@ -136,8 +123,8 @@ services:
     restart: always
     container_name: skill-container
     network_mode: host
-#    depends_on:
-#      - kafka
+    depends_on:
+      - kafka
     ports:
     - "8081:8081"
     expose:
@@ -149,8 +136,8 @@ services:
     restart: always
     container_name: upstream-container
     network_mode: host
-#    depends_on:
-#    - kafka
+    depends_on:
+    - kafka
     ports:
     - "9191:9191"
     expose:
@@ -162,7 +149,7 @@ services:
     container_name: downstream-container
     network_mode: host
     depends_on:
-#      - kafka
+      - kafka
       - mongodb
     ports:
       - "8090:8090"
@@ -179,7 +166,7 @@ services:
      ports:
        - "8888:8888"
      expose:
-       - "8888"
+       - 8888
 
   mongodb:
      image: mongo:3.2-jessie
@@ -194,15 +181,8 @@ services:
     container_name: sql-auth
     network_mode: host
     environment:
-      MYSQL_ROOT_PASSWORD: 12345
+      MYSQL_ROOT_PASSWORD: password
       MYSQL_DATABASE: login
-      MYSQL_USER: root
-      MYSQL_PASSWORD: root
-
-  #     depends_on:
-#       - config-server
-#     volumes:
-#       - '/home/cgi/data/mysql:/data/db'
   angular:
     image: angular
     build: angular/
@@ -232,4 +212,4 @@ services:
       ports:
         - "8091:8091"
       expose:
-        - "8091"
+        - 8091
