@@ -1,64 +1,64 @@
 {
   "/api/v1/education/": {
-    "target": "https://localhost:8097/upstream-service",
+    "target": "https://13.233.180.226:8097/upstream-service",
     "secure": false,
     "changeOrigin": true,
     "logLevel": "debug"
   },
     "/api/v1/experience/": {
-      "target": "https://localhost:8097/upstream-service",
+      "target": "https://13.233.180.226:8097/upstream-service",
       "secure": false,
       "changeOrigin": true,
       "logLevel": "debug"
     },
   "/api/v1/certificate": {
-    "target": "https://localhost:8097/upstream-service",
+    "target": "https://13.233.180.226:8097/upstream-service",
     "secure": false,
     "changeOrigin": true,
     "logLevel": "debug"
   },
   "/api/v1/skills": {
-    "target": "https://localhost:8097/upstream-service",
+    "target": "https://13.233.180.226:8097/upstream-service",
     "secure": false,
     "changeOrigin": true,
     "logLevel": "debug"
 
   },
   "/api/v1/location": {
-    "target": "https://localhost:8097/upstream-service",
+    "target": "https://13.233.180.226:8097/upstream-service",
     "secure": false,
     "changeOrigin": true,
     "logLevel": "debug"
 
   },
   "/api/v1/project": {
-    "target": "https://localhost:8097/upstream-service",
+    "target": "https://13.233.180.226:8097/upstream-service",
     "secure": false,
     "changeOrigin": true,
     "logLevel": "debug"
 
   },
     "/matchmaker/v1/employees/": {
-        "target": "https://localhost:8097/downstream-service",
+        "target": "https://13.233.180.226:8097/downstream-service",
         "secure": false,
         "changeOrigin": true,
         "logLevel": "debug"
       },
     "/matchmaker/v1/":{
-        "target": "https://localhost:8097/downstream-service",
+        "target": "https://13.233.180.226:8097/downstream-service",
         "secure": false,
         "changeOrigin": true,
         "logLevel": "debug"
   },
   "/api/v1/login": {
-    "target": "https://localhost:8097/user-authentication-service",
+    "target": "https://13.233.180.226:8097/user-authentication-service",
     "secure": false,
     "changeOrigin": true,
     "logLevel": "debug"
 
   },
   "/api/v1/registration/user": {
-    "target": "https://localhost:8097/registration-service",
+    "target": "https://13.233.180.226:8097/registration-service",
     "secure": false,
     "changeOrigin": true,
     "logLevel": "debug"
