@@ -39,27 +39,27 @@
 
   },
     "/matchmaker/v1/employees/": {
-        "target": "https://13.233.180.226:8097/downstream-service",
+        "target": "http://13.233.180.226:8097/downstream-service",
         "secure": false,
         "changeOrigin": true,
         "logLevel": "debug"
       },
     "/matchmaker/v1/":{
-        "target": "https://13.233.180.226:8097/downstream-service",
+        "target": "http://13.233.180.226:8097/downstream-service",
         "secure": false,
         "changeOrigin": true,
         "logLevel": "debug"
   },
   "/api/v1/login": {
-    "target": "https://13.233.180.226:8097/user-authentication-service",
+    "target": "http://13.233.180.226:8097/user-authentication-service",
     "secure": false,
     "changeOrigin": true,
     "logLevel": "debug"
 
   },
   "/api/v1/registration/user": {
-    "target": "https://13.233.180.226:8097/registration-service",
-    "secure": false,
+    "target": "http://13.233.180.226:8097/registration-service",
+    "secure": true,
     "changeOrigin": true,
     "logLevel": "debug"
 
