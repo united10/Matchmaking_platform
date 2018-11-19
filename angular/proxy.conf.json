@@ -1,48 +1,67 @@
 {
   "/api/v1/education/": {
-    "target": "http://172.23.239.241:9191",
+    "target": "https://13.233.180.226:8097/upstream-service",
     "secure": false,
     "changeOrigin": true,
     "logLevel": "debug"
   },
+    "/api/v1/experience/": {
+      "target": "https://13.233.180.226:8097/upstream-service",
+      "secure": false,
+      "changeOrigin": true,
+      "logLevel": "debug"
+    },
   "/api/v1/certificate": {
-    "target": "http://172.23.239.241:9191",
+    "target": "https://13.233.180.226:8097/upstream-service",
     "secure": false,
     "changeOrigin": true,
     "logLevel": "debug"
   },
   "/api/v1/skills": {
-    "target": "http://172.23.239.241:9191",
+    "target": "https://13.233.180.226:8097/upstream-service",
     "secure": false,
     "changeOrigin": true,
     "logLevel": "debug"
 
   },
   "/api/v1/location": {
-    "target": "http://172.23.239.241:9191",
+    "target": "https://13.233.180.226:8097/upstream-service",
     "secure": false,
     "changeOrigin": true,
     "logLevel": "debug"
 
   },
   "/api/v1/project": {
-    "target": "http://172.23.239.241:9191",
+    "target": "https://13.233.180.226:8097/upstream-service",
     "secure": false,
     "changeOrigin": true,
     "logLevel": "debug"
 
   },
     "/matchmaker/v1/employees/": {
-        "target": "http://172.23.239.241:8090",
+        "target": "https://13.233.180.226:8097/downstream-service",
         "secure": false,
         "changeOrigin": true,
         "logLevel": "debug"
       },
     "/matchmaker/v1/":{
-        "target": "http://172.23.239.241:8090",
+        "target": "https://13.233.180.226:8097/downstream-service",
         "secure": false,
         "changeOrigin": true,
         "logLevel": "debug"
+  },
+  "/api/v1/login": {
+    "target": "https://13.233.180.226:8097/user-authentication-service",
+    "secure": false,
+    "changeOrigin": true,
+    "logLevel": "debug"
+
+  },
+  "/api/v1/registration/user": {
+    "target": "https://13.233.180.226:8097/registration-service",
+    "secure": false,
+    "changeOrigin": true,
+    "logLevel": "debug"
+
   }
-  
 }

@@ -19,7 +19,7 @@ public class KafkaListen {
     @KafkaListener(topics="${kafka.linsteningTopic}",groupId = "${kafka.groupId}",containerFactory = "${kafka.containerFactory}")
     public void consumeJson(@Payload Section exp)
     {
-
+        System.out.println( exp);
         Relationships relationships=new Relationships("Working","is-a");
         CommonOutput commonOutput=new CommonOutput("post","vivek","pandey",
                 "Bangalore","Visiting",relationships);

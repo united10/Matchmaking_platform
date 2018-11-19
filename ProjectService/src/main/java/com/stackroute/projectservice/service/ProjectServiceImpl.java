@@ -28,7 +28,6 @@ public class ProjectServiceImpl implements ProjectService {
                 .targetNodeProperty("target property")
                 .relationship(relationship)
                 .build();
-        System.out.println(commonOutput.toString());
         return commonOutput;
     }
 

@@ -6,21 +6,21 @@
   
   <mat-dialog-content formGroupName="education">
     <div class="row-items" *ngFor="let educationControl of educationForm.controls.education.controls; let i = index" [formGroupName]="i">
-      <p>I have done
+      <p>{{dataJson?.qualification}}
         <mat-form-field>
           <input matInput name="qualification" formControlName="qualification" required />
         </mat-form-field>
-        at
+        {{dataJson?.institute}}
         <mat-form-field>
           <input matInput name="institute" formControlName="institute" required />
         </mat-form-field>
-        from
+        {{dataJson?.from}}
         <mat-form-field class="date">
             <input matInput [matDatepicker]="startDatePicker" placeholder="Choose a date" formControlName="startDate">
             <mat-datepicker-toggle matSuffix [for]="startDatePicker"></mat-datepicker-toggle>
             <mat-datepicker #startDatePicker></mat-datepicker>
         </mat-form-field>
-        to
+        {{dataJson?.to}}
         <mat-form-field class="date">
           <input matInput [matDatepicker]="endDatePicker" placeholder="Choose a date" formControlName="endDate">
           <mat-datepicker-toggle matSuffix [for]="endDatePicker"></mat-datepicker-toggle>

@@ -1,4 +1,4 @@
-import { Chicklets } from "./chicklets";
+import { Chicklets } from './chicklets';
 export class ExperienceSection {
     constructor(private sectionId: string,
         private userId: string,

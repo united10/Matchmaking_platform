@@ -6,6 +6,7 @@ import { SkillChicklets } from '../skillclasses/skillchicklets';
 import { Skill } from '../skillclasses/skill';
 import { SkillSection } from '../skillclasses/skillsection';
 import { Output } from '../outputclass/output';
+import { ReadfromjsonService } from './../service/readfromjson.service';
 
 @Component({
   selector: 'app-skill',
@@ -19,9 +20,12 @@ export class SkillComponent implements OnInit {
   skillLevel: string;
   output: Output;
   errorMessage: string;
-  totalRow:number;
+  totalRow: number;
+  dataJson: any;
+  json_url = 'assets/skill.json';
+
   constructor(@Inject(MAT_DIALOG_DATA) private data: any,
-    private dialogRef: MatDialogRef<SkillComponent>,
+    private dialogRef: MatDialogRef<SkillComponent>, private readfromjsonService: ReadfromjsonService,
     private skillService: SkillService, private fb: FormBuilder) {
 
   }
@@ -30,12 +34,18 @@ export class SkillComponent implements OnInit {
     this.skillForm = this.fb.group({
       skills: this.fb.array([this.initItemRow()])
     });
+
+    this.dataJson = this.readfromjsonService.readFromJson(this.json_url).subscribe(
+      data => {
+        this.dataJson = data;
+      }
+    );
   }
 
   initItemRow() {
     return this.fb.group({
-      skillName: new FormControl('',Validators.required),
-      skillLevel: new FormControl('',Validators.required)
+      skillName: new FormControl('', Validators.required),
+      skillLevel: new FormControl('', Validators.required)
     });
   }
   addRow() {
@@ -43,14 +53,14 @@ export class SkillComponent implements OnInit {
     control.push(this.initItemRow());
 
   }
-  deleteRow(index:number){
+  deleteRow(index: number) {
     const control = <FormArray>this.skillForm.controls['skills'];
-    if(control!=null){
-      this.totalRow=control.value.length;
+    if (control != null) {
+      this.totalRow  = control.value.length;
     }
-    if(this.totalRow>1){
+    if (this.totalRow > 1) {
       control.removeAt(index);
-    }else{
+    } else {
       alert('Add one more details.');
       return false;
     }
@@ -61,16 +71,17 @@ export class SkillComponent implements OnInit {
     var chicklets = new Array<SkillChicklets>();
     for (let i = 0; i < arr.length; i++) {
       const row = arr.at(i);
-      const skill = new Skill("skillId", row.value.skillName,row.value.skillLevel);
+      const skill = new Skill('skillId', row.value.skillName,row.value.skillLevel);
       const chicklet = new SkillChicklets(skill);
       chicklets.push(chicklet);
     }
+
+    //const section = new SkillSection("Skill", "userId", "add", chicklets);
     console.log("fjd "+chicklets);
     const section = new SkillSection("Skill", "476", "add", chicklets);
     this.skillService.addSkillDetails(section).subscribe(
       data => {
         this.output = data;
-        console.log(this.output);
         this.dialogRef.close();
       },
       error => {

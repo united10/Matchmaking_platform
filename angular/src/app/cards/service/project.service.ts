@@ -4,6 +4,7 @@ import { HttpHeaders, HttpClient, HttpErrorResponse } from '@angular/common/http
 import { ProjectSection } from '../projectclasses/projectsection';
 import { Observable, throwError } from 'rxjs';
 
+
 const httpOptions = {
   headers: new HttpHeaders({
     'Content-Type': 'application/json'

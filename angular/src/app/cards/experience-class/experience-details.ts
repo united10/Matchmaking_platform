@@ -1,18 +1,18 @@
 export class ExperienceDetails {
     constructor(private organisation: string,
         private role: string,
-        private fromDate: number,
-        private fromMonth: number,
-        private fromYear: number,
-        private toDate: number,
-        private toMonth: number,
-        private toYear: number) {
+        private fromDate: string,
+        private fromMonth: string,
+        private fromYear: string,
+        private toDate: string,
+        private toMonth: string,
+        private toYear: string) {
         this.organisation = organisation;
         this.role = role;
         this.fromDate = fromDate;
         this.fromMonth = fromMonth;
         this.fromYear = fromYear;
-        this.toMonth = toMonth;
+        this.toDate = toDate;
         this.toMonth = toMonth;
         this.toYear = toYear;
     }

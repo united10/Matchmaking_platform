@@ -1,0 +1,45 @@
+<div *ngIf="isLoggedIn; else loggedOut">
+  Logged in as {{this.email}}
+  <button (click)="logout()">log  out</button>
+</div>
+<ng-template #loggedOut>
+<div class="medium-list">
+  <div class="list-viewer-wrapper">
+    <div class="list-header-title">Login</div>
+    <form [formGroup]="loginForm" (ngSubmit)="loginForm.valid && onLoginSubmit()" #f="ngForm" novalidate>
+      <div class="form-container">  
+        <mat-form-field>
+            <input id="email"
+                   matInput
+                   formControlName="email"
+                   [(ngModel)]="user.email"
+                   placeholder="Enter your email" />
+          </mat-form-field>
+
+        <mat-form-field>
+            <input id="password"
+                   matInput
+                   formControlName="password"
+                   [(ngModel)]="user.password"
+                   placeholder="Enter your password"
+                   [type]="hide ? 'password':'text'" />
+              <mat-icon matSuffix (click)="hide = !hide">
+                {{hide ? 'visibility' : 'visibility_off'}}
+              </mat-icon>
+          </mat-form-field>
+
+          <button mat-button type="submit" 
+                  class="mat-raised-button mat-primary" 
+                  [disabled]="!loginForm.valid">Login</button>
+                  <div *ngIf="f.submitted && isLoginFailed" class="alert alert-danger">
+                    {{errorMessage}}
+                  </div>
+      </div>
+    </form>
+    <div class="form-container">
+      <button mat-button routerLink="/register" class="divider">Register</button>
+    </div>
+    
+  </div>
+</div>
+</ng-template>
