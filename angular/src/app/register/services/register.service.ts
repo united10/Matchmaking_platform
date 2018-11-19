@@ -18,7 +18,7 @@ const httpOptions = {
   providedIn: "root"
 })
 export class RegisterService {
-  private _url = "/api/v1/registration/user";
+  private _url = "http://13.233.180.226:8097/registration-service/api/v1/registration/user";
   constructor(private _http: HttpClient) {}
 
   submit(user: RegisterModel): Observable<RegisterModel> {
