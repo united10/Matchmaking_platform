@@ -10,12 +10,12 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/secure")
-public class securecontroller {
+public class SecureController {
 
    private UserService userService;
 
     @Autowired
-    public securecontroller(UserService userService) {
+    public SecureController(UserService userService) {
         this.userService = userService;
     }
 

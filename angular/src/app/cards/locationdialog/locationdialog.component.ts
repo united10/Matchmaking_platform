@@ -105,7 +105,7 @@ export class LocationdialogComponent implements OnInit {
         console.log(chicklet);
         chicklets.push(chicklet);
 
-      const section = new LocationSection('sectionId', 'userId', 'add', chicklets);
+      const section = new LocationSection('sectionId', '476', 'add', chicklets);
       this.locationService.addLocationDetails(section).subscribe(
         data => {
           this.output = data;

@@ -1,4 +1,4 @@
-gi######################
+######################
 # Project Specific
 ######################
 /build/www/**
@@ -52,7 +52,7 @@ local.properties
 ######################
 # Intellij
 ######################
-.idea/*
+.idea/
 *.iml
 *.iws
 *.ipr
@@ -67,7 +67,6 @@ local.properties
 ######################
 # Maven
 ######################
-target/
 /log/
 /target/
 
@@ -140,28 +139,3 @@ Desktop.ini
 # ESLint
 ######################
 .eslintcache
-ExperienceService/src/main/java/com/stackroute/matchMaking/
-ExperienceService/src/test/java/com/stackroute/matchMaking/
-ExperienceService/target/classes/com/
-ExperienceService/target/test-classes/com/stackroute/matchmaking/service/
-LocationService/target/classes/com/
-LocationService/target/test-classes/
-RegistrationService/src/main/java/com/stackroute/eduacation/
-RegistrationService/src/test/java/com/stackroute/eduacation/
-UpstreamService/target/classes/com/
-UpstreamService/target/test-classes/
-spring-skill/src/main/java/com/stackroute/springskill/
-EducationService/.mvn
-ProjectService/.mvn
-RegistrationService/.mvn
-SkillService/.mvn
-UpstreamService/.mvn
-zuulgateway/.mvn
-CertificationService/.mvn
-config-server/.mvn
-DownstreamService/.mvn
-eureka-registry/.mvn
-LocationService/.idea
-ExperienceService/.idea
-UserAuthentication/.mvn
-LocationService/target

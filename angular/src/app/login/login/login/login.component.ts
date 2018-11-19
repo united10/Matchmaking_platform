@@ -3,6 +3,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { AuthLoginInfo } from 'src/app/login/auth/login-info';
 import { AuthService } from 'src/app/login/auth/auth.service';
 import { TokenStorageService } from 'src/app/login/auth/token-storage.service';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -20,7 +21,10 @@ export class LoginComponent implements OnInit {
   email: string;
 
 
-  constructor(private formBuilder: FormBuilder, private authService: AuthService, private tokenStorageService: TokenStorageService) { }
+  constructor(private formBuilder: FormBuilder,
+         private authService: AuthService,
+         private tokenStorageService: TokenStorageService,
+         private router: Router) { }
 
   ngOnInit() {
     this.loginForm = this.formBuilder.group({
@@ -48,7 +52,8 @@ export class LoginComponent implements OnInit {
       this.tokenStorageService.saveEmail(data.email);
         this.isLoginFailed = false;
         this.isLoggedIn = true;
-        this.reloadPage();
+        // this.reloadPage();
+        this.router.navigate([`/home/user`]);
       }
       ,
       error => {
@@ -57,6 +62,9 @@ export class LoginComponent implements OnInit {
         this.isLoginFailed = true;
       }
     );
+  }
+  logout() {
+    this.tokenStorageService.signOut();
   }
   reloadPage() {
     window.location.reload();

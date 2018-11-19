@@ -1,19 +1,24 @@
-logging:
-  file: logs/apring-boot-logging.log
-  pattern:
-    console: "%d %-5level %logger : %msg%n"
-    file: "%d %-5level [%thread] %logger : %msg%n"
-  level:
-    org.springframework.web: ERROR
-    com.stackroute: DEBUG
-    org.hibernate: ERROR
-    log4j.logger.org.thymeleaf: DEBUG
+#logging:
+#  file: logs/apring-boot-logging.log
+#  pattern:
+#    console: "%d %-5level %logger : %msg%n"
+#    file: "%d %-5level [%thread] %logger : %msg%n"
+#  level:
+#    org.springframework.web: ERROR
+#    com.stackroute: DEBUG
+#    org.hibernate: ERROR
+#    log4j.logger.org.thymeleaf: DEBUG
+#
+server:
+  port: 8086
+
+spring:
+  application.name: RegistrationService
+  cloud.config.uri: http://localhost:8888
 
 controller:
   base: /api/v1/registration
   user: /user
 kafka:
-  ipAddress: 172.23.239.245:9092
+  ipAddress: localhost:9092
 
-server:
-  port: 8086

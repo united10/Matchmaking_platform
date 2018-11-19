@@ -49,7 +49,7 @@ public class UserController {
               List<User> users=userRepository.findAll();
             responseEntity= new ResponseEntity<List<User>>(users, HttpStatus.FOUND);
         }catch (Exception e){
-            responseEntity= new ResponseEntity<String>("User Not Found",HttpStatus.NOT_FOUND);
+            responseEntity= new ResponseEntity<String>(exceptionMessage1,HttpStatus.NOT_FOUND);
         }
         return responseEntity;
     }
@@ -59,7 +59,7 @@ public class UserController {
         ResponseEntity responseEntity;
         try{
             userRepository.save(user);
-            responseEntity= new ResponseEntity<String>("Successfully Created", HttpStatus.CREATED);
+            responseEntity= new ResponseEntity<String>(exceptionMessage2, HttpStatus.CREATED);
 
         }
         catch (Exception e){
@@ -73,7 +73,7 @@ public class UserController {
     public JwtResponse login(@RequestBody User login) throws ServletException {
         JwtResponse jwtToken=new JwtResponse();
         if (login.getEmail() == null || login.getPassword() == null) {
-            throw new ServletException("Please fill in username and password");
+            throw new ServletException(exceptionMessage3);
         }
 
         String email = login.getEmail();
@@ -82,13 +82,13 @@ public class UserController {
         User user = userRepository.findByEmail(email);
 
         if (user == null) {
-            throw new ServletException("User email not found.");
+            throw new ServletException(exceptionMessage4);
         }
 
         String pwd = user.getPassword();
 
         if (!password.equals(pwd)) {
-            throw new ServletException("Invalid login. Please check your name and password.");
+            throw new ServletException(exceptionMessage5);
         }
                System.out.println("got request");
         String jwt;

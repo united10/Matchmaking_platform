@@ -5,11 +5,10 @@
 
 
 	<artifactId>UserAuthentication</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
 	<name>UserAuthentication</name>
-	<description>Demo project for Spring Boot</description>
+	<description>User authentication service for matchmaking-platform</description>
 
 	<parent>
 		<groupId>com.stackroute</groupId>
@@ -60,6 +59,11 @@
             <artifactId>jackson-core</artifactId>
             <version>2.9.7</version>
         </dependency>
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-config</artifactId>
+			<version>2.0.1.RELEASE</version>
+		</dependency>
 	</dependencies>
 
 	<build>

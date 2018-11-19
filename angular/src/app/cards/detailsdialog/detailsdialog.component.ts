@@ -50,7 +50,6 @@ export class DetailsdialogComponent implements OnInit {
     dialogConfig.width = '40%';
     this.dialog.open(SkillComponent, dialogConfig);
   }
-
   projectClick() {
     this.dialogRef.close();
     const dialogConfig = new MatDialogConfig();
