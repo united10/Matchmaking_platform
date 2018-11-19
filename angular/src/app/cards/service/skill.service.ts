@@ -16,7 +16,7 @@ const httpOptions = {
 })
 export class SkillService {
 
-  url = '/api/v1/skills';
+  url = 'http://13.233.180.226:8097/upstream-service/api/v1/skills';
 
   constructor(private httpClient: HttpClient) { }
 

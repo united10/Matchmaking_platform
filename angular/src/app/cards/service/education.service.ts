@@ -17,7 +17,7 @@ const httpOptions = {
 })
 export class EducationService {
 
-  url = '/api/v1/education/';
+  url = 'http://13.233.180.226:8097/upstream-service/api/v1/education/';
 
   constructor(private httpClient: HttpClient) { }
 
