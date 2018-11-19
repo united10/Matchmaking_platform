@@ -19,11 +19,8 @@ import { SignUpModule } from './register/sign-up/sign-up.module';
     HttpClientModule,
     RoutingModule,
     UserProfileModule,
-<<<<<<< HEAD
-=======
     LoginModule,
     SignUpModule
->>>>>>> 26a0bac8a314b4feff0b3f783773890fa237bbc2
   ],
   providers: [EducationService],
   bootstrap: [AppComponent]
