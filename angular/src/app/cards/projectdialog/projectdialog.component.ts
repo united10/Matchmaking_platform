@@ -9,6 +9,7 @@ import { HttpHeaders, HttpClient, HttpErrorResponse } from '@angular/common/http
 import { Component, OnInit , Inject } from '@angular/core';
 import { FormGroup, FormArray, FormControl, FormBuilder, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { TokenStorageService } from 'src/app/login/auth/token-storage.service';
 
 
 @Component({
@@ -36,7 +37,8 @@ export class ProjectdialogComponent implements OnInit {
   constructor(@Inject(MAT_DIALOG_DATA) private data: any,
   private dialogRef: MatDialogRef<ProjectdialogComponent>,
   private fb: FormBuilder, private projectService: ProjectService,
-  private readfromjsonService: ReadfromjsonService) { }
+  private readfromjsonService: ReadfromjsonService,
+  private token: TokenStorageService) { }
 
   ngOnInit() {
     const regForUrl = '(https?://)?([\\da-z.-]+)\\.([a-z.]{2,6})[/\\w .-]*/?';
@@ -103,7 +105,7 @@ export class ProjectdialogComponent implements OnInit {
     const chicklets = new Array<ProjectChicklets>();
     const chicklet = new ProjectChicklets(project);
     chicklets.push(chicklet);
-    const section = new ProjectSection('sectionId', 'userId', 'add', chicklets);
+    const section = new ProjectSection('sectionId', this.token.getEmail(), 'add', chicklets);
     console.log(section);
     this.projectService.addProjectDetails(section).subscribe(
       data => {

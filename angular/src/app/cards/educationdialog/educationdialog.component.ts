@@ -8,6 +8,7 @@ import { Output } from '../outputclass/output';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { FormGroup, FormArray, FormControl, FormBuilder, Validators } from '@angular/forms';
 import { EducationSection } from '../educationclasses/educationsection';
+import { TokenStorageService } from 'src/app/login/auth/token-storage.service';
 
 @Component({
   selector: 'app-educationdialog',
@@ -29,7 +30,9 @@ export class EducationdialogComponent implements OnInit {
   json_url = 'assets/education.json';
   constructor(@Inject(MAT_DIALOG_DATA) private data: any,
     private dialogRef: MatDialogRef<EducationdialogComponent>,
-    private educationService: EducationService, private fb: FormBuilder, private readfromjsonService: ReadfromjsonService) {
+    private educationService: EducationService, private fb: FormBuilder,
+    private readfromjsonService: ReadfromjsonService,
+    private token: TokenStorageService) {
 
   }
 
@@ -84,7 +87,7 @@ export class EducationdialogComponent implements OnInit {
       const chicklet = new EducationChicklets(qualification, institution, this.summary);
       chicklets.push(chicklet);
     }
-    const section = new EducationSection('Education', '476', 'add', chicklets);
+    const section = new EducationSection('Education', this.token.getEmail(), 'add', chicklets);
     this.educationService.addEducationDetails(section).subscribe(
       data => {
         this.output = data;

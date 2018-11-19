@@ -7,6 +7,7 @@ import { FormGroup, FormArray, FormControl, FormBuilder, Validators } from '@ang
 import { ExperienceSection } from '../experience-class/section';
 import { Chicklets } from '../experience-class/chicklets';
 import { ExperienceDetails } from '../experience-class/experience-details';
+import { TokenStorageService } from 'src/app/login/auth/token-storage.service';
 
 
 @Component({
@@ -34,7 +35,8 @@ export class ExperienceComponent implements OnInit {
   toYear: string;
   constructor(@Inject(MAT_DIALOG_DATA) private data: any,
     private dialogRef: MatDialogRef<ExperienceComponent>,
-    private experienceService: ExperienceService, private fb: FormBuilder) {
+    private experienceService: ExperienceService, private fb: FormBuilder,
+    private token: TokenStorageService) {
 
   }
 
@@ -105,7 +107,7 @@ export class ExperienceComponent implements OnInit {
       const chicklet = new Chicklets(experienceDetails);
       chicklets.push(chicklet);
     }
-    const section = new ExperienceSection('Experience', 'userId', 'add', chicklets);
+    const section = new ExperienceSection('Experience', this.token.getEmail(), 'add', chicklets);
     this.experienceService.addExperienceDetails(section).subscribe(
       data => {
         this.output = data;

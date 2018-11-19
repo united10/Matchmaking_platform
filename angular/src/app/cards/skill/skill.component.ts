@@ -7,6 +7,7 @@ import { Skill } from '../skillclasses/skill';
 import { SkillSection } from '../skillclasses/skillsection';
 import { Output } from '../outputclass/output';
 import { ReadfromjsonService } from './../service/readfromjson.service';
+import { TokenStorageService } from 'src/app/login/auth/token-storage.service';
 
 @Component({
   selector: 'app-skill',
@@ -26,7 +27,8 @@ export class SkillComponent implements OnInit {
 
   constructor(@Inject(MAT_DIALOG_DATA) private data: any,
     private dialogRef: MatDialogRef<SkillComponent>, private readfromjsonService: ReadfromjsonService,
-    private skillService: SkillService, private fb: FormBuilder) {
+    private skillService: SkillService, private fb: FormBuilder,
+    private token: TokenStorageService) {
 
   }
 
@@ -78,7 +80,7 @@ export class SkillComponent implements OnInit {
 
     //const section = new SkillSection("Skill", "userId", "add", chicklets);
     console.log("fjd "+chicklets);
-    const section = new SkillSection("Skill", "476", "add", chicklets);
+    const section = new SkillSection("Skill", this.token.getEmail(), "add", chicklets);
     this.skillService.addSkillDetails(section).subscribe(
       data => {
         this.output = data;

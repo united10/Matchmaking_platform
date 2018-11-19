@@ -6,6 +6,7 @@ import { CertificateChicklets } from '../certificateclasses/certificatechicklets
 import { CertificateSection } from '../certificateclasses/certificatesection';
 import { CertificateService } from '../service/certificate.service';
 import { ReadfromjsonService } from './../service/readfromjson.service';
+import { TokenStorageService } from 'src/app/login/auth/token-storage.service';
 
 @Component({
   selector: 'app-certificatedialog',
@@ -27,7 +28,9 @@ export class CertificatedialogComponent implements OnInit {
 
   constructor(@Inject(MAT_DIALOG_DATA) private data: any,
   private certificateService: CertificateService, private readfromjsonService: ReadfromjsonService,
-  private dialogRef: MatDialogRef<CertificatedialogComponent>, private fb: FormBuilder) {
+  private dialogRef: MatDialogRef<CertificatedialogComponent>,
+  private fb: FormBuilder,
+  private token: TokenStorageService) {
 
 }
   ngOnInit() {
@@ -78,7 +81,7 @@ export class CertificatedialogComponent implements OnInit {
       const chicklet = new CertificateChicklets(certificateDetails);
       chicklets.push(chicklet);
     }
-     const section = new CertificateSection('Certificate', 'userId', 'add', chicklets);
+     const section = new CertificateSection('Certificate', this.token.getEmail(), 'add', chicklets);
     this.certificateService.addCertificateDetails(section).subscribe(
       data => {
         this.dialogRef.close();

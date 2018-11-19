@@ -10,6 +10,7 @@ import { Component, OnInit , Inject } from '@angular/core';
 import { FormGroup, FormArray, FormControl, FormBuilder, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Output } from '../outputclass/output';
+import { TokenStorageService } from 'src/app/login/auth/token-storage.service';
 // import { PastLocation } from '../cards/classes1/pastlocation';
 // import { CurrentLocation } from './../cards/classes1/currentlocation';
 // import { Chicklets } from './../cards/classes1/chicklets';
@@ -38,7 +39,8 @@ export class LocationdialogComponent implements OnInit {
 
     constructor(@Inject(MAT_DIALOG_DATA) private data: any,
       private dialogRef: MatDialogRef<LocationdialogComponent>,
-      private locationService: LocationService, private fb: FormBuilder) {
+      private locationService: LocationService, private fb: FormBuilder,
+      private token: TokenStorageService) {
     }
 
     ngOnInit() {
@@ -105,7 +107,7 @@ export class LocationdialogComponent implements OnInit {
         console.log(chicklet);
         chicklets.push(chicklet);
 
-      const section = new LocationSection('sectionId', '476', 'add', chicklets);
+      const section = new LocationSection('sectionId', this.token.getEmail(), 'add', chicklets);
       this.locationService.addLocationDetails(section).subscribe(
         data => {
           this.output = data;
