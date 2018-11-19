@@ -1,11 +1,10 @@
 server:
   port: 8083
-<<<<<<< HEAD
-=======
+
 spring:
   application.name: ProjectService
   cloud.config.uri: http://localhost:8888
->>>>>>> 26a0bac8a314b4feff0b3f783773890fa237bbc2
+
 kafka:
   ipAddress: localhost:9092
   groupId: group_id45
