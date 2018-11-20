@@ -13,7 +13,11 @@ import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.messaging.handler.annotation.Payload;
 import org.springframework.stereotype.Service;
 
-
+/*
+    Class for consuming the data from kafka topic
+    'location' and passing it to index resource which
+    is responsible for producing to the 'indexer' kafka topic
+ */
 @Service
 public class KafkaListen {
 

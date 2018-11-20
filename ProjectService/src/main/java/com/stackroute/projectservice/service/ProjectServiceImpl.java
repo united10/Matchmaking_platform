@@ -7,6 +7,11 @@ import com.stackroute.projectservice.domain.Skill;
 import com.stackroute.projectservice.domain.Relationship;
 import org.springframework.stereotype.Service;
 
+/*This class is a service class and is used
+to create the common output that will be send
+to 'indexer' kafka topic. In this class we filter
+the content from the front end and create a
+object for indexing data to the graphdb (neo4j)*/
 @Service
 public class ProjectServiceImpl implements ProjectService {
 
