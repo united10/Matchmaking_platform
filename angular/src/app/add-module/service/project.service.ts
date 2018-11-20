@@ -16,7 +16,7 @@ const httpOptions = {
 })
 export class ProjectService {
 
-  url = 'https://13.233.180.226:8097/upstream-service/api/v1/project';
+  url = 'http://13.233.180.226:8097/upstream-service/api/v1/project';
 
   constructor(private httpClient: HttpClient) { }
 
