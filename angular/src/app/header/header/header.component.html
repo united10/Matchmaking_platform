@@ -1,0 +1,6 @@
+<mat-toolbar *ngIf="isLoggedIn">
+  <span>MatchMaking Platform</span>
+  <span class="header-spacer"></span>
+  <span class="header-right" routerLink="/Communities">Your Communities</span>
+  <button class="btn default" (click)="Logout()">Logout</button>
+</mat-toolbar>

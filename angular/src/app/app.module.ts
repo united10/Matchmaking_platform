@@ -8,6 +8,8 @@ import { RoutingModule } from './routing/routing.module';
 import { UserProfileModule } from './user-profile/user-profile.module';
 import { LoginModule } from './login/login-module/login.module';
 import { SignUpModule } from './register/sign-up-module/sign-up.module';
+import { HeaderModule } from './header/header.module';
+import { FooterModule } from './footer/footer.module';
 
 
 @NgModule({
@@ -20,7 +22,9 @@ import { SignUpModule } from './register/sign-up-module/sign-up.module';
     RoutingModule,
     UserProfileModule,
     LoginModule,
-    SignUpModule
+    SignUpModule,
+    HeaderModule,
+    FooterModule
   ],
   providers: [],
   bootstrap: [AppComponent]

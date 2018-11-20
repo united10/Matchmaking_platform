@@ -5,7 +5,7 @@
 
 .medium-list {
     margin: auto;
-    width: 600px;
+    width: 533px;
     padding: 10px;
   }
      
@@ -30,3 +30,11 @@
   .divider {
     margin-top: 10px !important; 
   }
+  .header-spacer {
+    flex: 1 1 auto;
+  }
+  .btn {
+    display: inline-block;
+    padding: 0 14px;
+  }
+  .default {color: black;}

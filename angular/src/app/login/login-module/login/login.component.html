@@ -1,8 +1,9 @@
-<div *ngIf="isLoggedIn; else loggedOut">
-  Logged in as {{this.email}}
-  <button (click)="logout()">log  out</button>
-</div>
-<ng-template #loggedOut>
+<mat-toolbar>
+    <span>MatchMaking Platform</span>
+    <span class="header-spacer"></span>
+    <button mt-button class="btn default" routerLink="/register">Register</button>
+  </mat-toolbar>
+
 <div class="medium-list">
   <div class="list-viewer-wrapper">
     <div class="list-header-title">Login</div>
@@ -37,9 +38,9 @@
       </div>
     </form>
     <div class="form-container">
+      <span>Not on Matchmaking yet?</span>
       <button mat-button routerLink="/register" class="divider">Register</button>
     </div>
     
   </div>
 </div>
-</ng-template>

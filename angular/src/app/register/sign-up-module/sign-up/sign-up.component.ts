@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { RegisterModel } from 'src/app/register/models/register.model';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { RegisterService } from 'src/app/register/services/register.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-sign-up',
@@ -17,7 +18,8 @@ export class SignUpComponent implements OnInit {
 
   constructor(
     private formBuilder: FormBuilder,
-    private _registerService: RegisterService
+    private _registerService: RegisterService,
+    private router: Router
   ) {}
 
   ngOnInit() {
