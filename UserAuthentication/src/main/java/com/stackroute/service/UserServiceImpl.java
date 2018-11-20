@@ -13,24 +13,25 @@ public class UserServiceImpl implements UserService {
 
     private UserRepository userRepository;
 
-
-
     @Autowired
     public UserServiceImpl(UserRepository userRepository) {
         this.userRepository = userRepository;
     }
 
+// To save User
     @Override
     public User save(User user) {
-//        user.setRole("consumer");
         return userRepository.save(user);
     }
+
+// Find user by email
 
     @Override
     public User findByEmail(String email) {
         return userRepository.findByEmail(email);
     }
 
+//Kafka Listener
 
 @KafkaListener(topics = "${kafka.listeningTopic}" ,groupId = "${kafka.groupId}",
         containerFactory="${kafka.containerFactory}")

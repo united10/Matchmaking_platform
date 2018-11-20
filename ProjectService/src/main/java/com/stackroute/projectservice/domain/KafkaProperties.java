@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
 
+/* kafka properties class to be used to configure kafka */
 @Data
 @Builder
 @AllArgsConstructor

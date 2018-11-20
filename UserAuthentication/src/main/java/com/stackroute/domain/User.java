@@ -8,6 +8,8 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+// User model class to store registration details.
+
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
