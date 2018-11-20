@@ -9,16 +9,16 @@ import { throwError } from 'rxjs';
 })
 export class DownstreamBackendService {
 
-_url="http://13.233.180.226:8097/downstream-service/matchmaker/v1/employees";
+_url = 'https://13.233.180.226:8097/downstream-service/matchmaker/v1/employees';
 
-  constructor(private httpClient:HttpClient) { }
+  constructor(private httpClient: HttpClient) { }
 
-   getEmployee(employeeId:String){
-     let _url=this._url+"/"+employeeId;
+   getEmployee(employeeId: String) {
+     const _url = this._url + '/' + employeeId;
      return this.httpClient.get(_url).pipe(catchError(this.errorHandler));
-   } 
+   }
 
-   errorHandler(error:Error){
+   errorHandler(error: Error) {
      return throwError(error.message);
    }
 }

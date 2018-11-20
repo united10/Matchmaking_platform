@@ -11,8 +11,8 @@ import { LayoutModule } from '@angular/cdk/layout';
 import { RoutingModule } from '../routing/routing.module';
 import {  HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { CardComponent } from '../cards/card/card.component';
-import { CardsModule } from '../cards/cards.module';
+import { CardComponent } from '../add-module/card/card.component';
+import { CardsModule } from '../add-module/cards.module';
 
 
 @NgModule({
@@ -27,7 +27,7 @@ import { CardsModule } from '../cards/cards.module';
     LayoutModule,
     CardsModule
   ],
-  declarations: [  
+  declarations: [
     EmployeeDashboardDummyComponent,
     EmployeeDashboardSmartComponent,
 ]
