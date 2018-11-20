@@ -3,6 +3,7 @@ package com.stackroute.skillservice.domain;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
 
+/*Kafka properties inorder to remove hardcoded details of kafka consumer and producer operation*/
 @Component
 @ConfigurationProperties("kafka")
 public class KafkaProperties {

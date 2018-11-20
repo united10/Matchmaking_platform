@@ -15,7 +15,7 @@ import org.springframework.kafka.support.serializer.JsonSerializer;
 import java.util.HashMap;
 import java.util.Map;
 
-
+/*Kafka producer to produce data and send it to kafka using channel id*/
 @Configuration
 public class KafkaProducer {
 

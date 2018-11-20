@@ -5,6 +5,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+/*Class to define relationship*/
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
