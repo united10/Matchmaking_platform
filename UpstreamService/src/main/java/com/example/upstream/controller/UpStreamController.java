@@ -47,7 +47,7 @@ private static final String TOPIC3 = "project";
 private static final String TOPIC4 = "experience";
 private static final String TOPIC5 = "certificate";
 private static final String TOPIC6 = "interest";
-
+    //Handling post mapping for education
     @PostMapping("${controller.education}")
     public ResponseEntity<?> newEducation(@RequestBody Education education){
         ResponseEntity responseEntity = null;
@@ -69,6 +69,7 @@ private static final String TOPIC6 = "interest";
         }
         return responseEntity;
     }
+    //Handling put mapping for education
     @PutMapping("${controller.education}")
     public ResponseEntity<?> updateEducation(@RequestBody Education education){
         education.setOperationType("update");
@@ -76,6 +77,7 @@ private static final String TOPIC6 = "interest";
         kafkaTemplateEducation.send(TOPIC,education);
         return responseEntity;
     }
+    //Handling delete mapping for education
     @DeleteMapping("${controller.education}")
     public ResponseEntity<?> deleteEducation(@RequestBody Education education){
         education.setOperationType("delete");
@@ -83,6 +85,7 @@ private static final String TOPIC6 = "interest";
         kafkaTemplateEducation.send(TOPIC,education);
         return responseEntity;
     }
+    //Below methods does the mapping for other domain objects
     @PostMapping("${controller.location}")
     public ResponseEntity<?> newLocation(@RequestBody Location location)
     {

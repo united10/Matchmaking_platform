@@ -24,9 +24,11 @@ public class KafkaConfig {
 
     private KafkaProperties kafkaProperties;
     @Autowired
-    public void setUP(KafkaProperties kafkaProperties){
+    public void setUP(KafkaProperties kafkaProperties)
+    {
         this.kafkaProperties=kafkaProperties;
     }
+    // Creating producer factory for each domain
     @Bean
     public ProducerFactory<String, Education> producerFactoryEducation() {
 
