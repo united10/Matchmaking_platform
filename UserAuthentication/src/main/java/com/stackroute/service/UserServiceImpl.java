@@ -22,7 +22,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public User save(User user) {
-        user.setRole("consumer");
+//        user.setRole("consumer");
         return userRepository.save(user);
     }
 
@@ -36,6 +36,7 @@ public class UserServiceImpl implements UserService {
         containerFactory="${kafka.containerFactory}")
     public void getUserFrmTopic(@Payload User user) {
         System.out.println("Consumed Json Message: "+ user.toString());
+       user.setRole("consumer");
         userRepository.save(user);
     }
 }

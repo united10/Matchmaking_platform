@@ -22,7 +22,7 @@ eureka:         #tells about the Eureka server details and its refresh time
 
 
 kafka:
-  ipAddress: 172.23.239.245:9092
+  ipAddress: localhost:9092
   groupId: group_id20
   outputTopic: indexer
   linsteningTopic: education

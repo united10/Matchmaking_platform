@@ -1,0 +1,27 @@
+<section class="main" [formGroup]="skillForm" >
+  <div class="card-title">
+    <h2>{{dataJson?.heading}}</h2>
+    <mat-icon color="primary" (click)="addRow()" style="cursor:pointer">add</mat-icon>
+  </div>
+  
+  <mat-dialog-content formGroupName="skills">
+    <div class="row-items" *ngFor="let skillControl of skillForm.controls.skills.controls; let i = index" [formGroupName]="i">
+      <p>{{dataJson?.skill}}
+        <mat-form-field>
+          <input matInput name="skillName" formControlName="skillName" required />
+        </mat-form-field>
+        {{dataJson?.of}}
+        <mat-form-field>
+          <input matInput name="skillLevel" formControlName="skillLevel" required />
+        </mat-form-field>
+        {{dataJson?.level}}
+      </p>
+      
+      <mat-icon color="primary" (click)="deleteRow(i)" style="cursor:pointer">delete</mat-icon>
+    </div>
+  </mat-dialog-content>
+  <div class="button-row">
+    <button mat-button mr-2 (click)="onClose()">Close</button>
+    <button mat-raised-button (click)="onSave()"  [disabled]="!skillForm.valid">Save</button>
+  </div>
+</section>

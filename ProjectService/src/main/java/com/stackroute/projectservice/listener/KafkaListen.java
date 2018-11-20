@@ -28,9 +28,6 @@ public class KafkaListen {
     @KafkaListener(topics = "${kafka.listeningTopic}" ,groupId = "${kafka.groupId}",
             containerFactory="${kafka.containerFactory}")
     public void consumeJson(@Payload Section section) {
-
-        System.out.println("consumed Json: " + section );
-
         CommonOutput commonOutput = projectService.processProjectDetails(section);
         indexResource.postData(commonOutput);
     }

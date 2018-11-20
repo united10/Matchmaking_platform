@@ -3,10 +3,10 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>spring-skill</artifactId>
+    <artifactId>SkillService</artifactId>
     <packaging>jar</packaging>
 
-    <name>spring-skill</name>
+    <name>SkillService</name>
     <description>project for Adding and existing skills</description>
 
     <parent>
@@ -49,7 +49,11 @@
         </dependency>
 
 
-
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-config</artifactId>
+            <version>2.0.1.RELEASE</version>
+        </dependency>
 
     </dependencies>
 

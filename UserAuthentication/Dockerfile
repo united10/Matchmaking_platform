@@ -1,8 +1,8 @@
 FROM openjdk:10
 
-ADD ./target/UserAuthentication-0.0.1-SNAPSHOT.jar /usr/src/UserAuthentication-0.0.1-SNAPSHOT.jar
+ADD ./target/UserAuthentication-1.0.jar /usr/src/UserAuthentication-1.0.jar
 HEALTHCHECK --interval=30s --timeout=30s CMD curl -f http://localhost:8088/actuator/health || exit 1
 EXPOSE 8088
 WORKDIR usr/src
-ENTRYPOINT ["java","-jar","UserAuthentication-0.0.1-SNAPSHOT.jar"]
+ENTRYPOINT ["java","-jar","UserAuthentication-1.0.jar"]
 

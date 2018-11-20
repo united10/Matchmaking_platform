@@ -20,5 +20,5 @@ controller:
   base: /api/v1/registration
   user: /user
 kafka:
-  ipAddress: 172.23.239.245:9092
+  ipAddress: localhost:9092
 
