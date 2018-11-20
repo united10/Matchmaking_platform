@@ -186,6 +186,8 @@ services:
   angular:
     image: angular
     build: angular/
+    depends_on:
+      - gateway
     ports:
       - "4200:4200"
     expose:

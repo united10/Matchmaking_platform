@@ -11,10 +11,10 @@
 #      uri: http://localhost:8092
 server:
   port: 8097
-  ssl:
-    key-store-type: PKCS12
-    key-store: classpath:keystore.p12
-    key-store-password: 123456
-    key-alias: tomcat
-security:
-  require-ssl: true
+#  ssl:
+#    key-store-type: PKCS12
+#    key-store: classpath:keystore.p12
+#    key-store-password: 123456
+#    key-alias: tomcat
+#security:
+#  require-ssl: true
