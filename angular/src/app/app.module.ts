@@ -3,12 +3,13 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { CardsModule } from './cards/cards.module';
-import { EducationService } from './cards/service/education.service';
+// import { EducationService } from './cards/service/education.service';
 import { HttpClientModule } from '@angular/common/http';
 import { RoutingModule } from './routing/routing.module';
 import { UserProfileModule } from './user-profile/user-profile.module';
-import { LoginModule } from './login/login/login.module';
-import { SignUpModule } from './register/sign-up/sign-up.module';
+import { LoginModule } from './login/login-module/login.module';
+import { SignUpModule } from './register/sign-up-module/sign-up.module';
+
 
 @NgModule({
   declarations: [
@@ -22,7 +23,7 @@ import { SignUpModule } from './register/sign-up/sign-up.module';
     LoginModule,
     SignUpModule
   ],
-  providers: [EducationService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

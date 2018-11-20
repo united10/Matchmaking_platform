@@ -1,19 +1,19 @@
-import { Component, OnInit } from "@angular/core";
-import { RegisterModel } from "src/app/register/models/register.model";
-import { FormGroup, FormBuilder, Validators } from "@angular/forms";
-import { RegisterService } from "src/app/register/services/register.service";
+import { Component, OnInit } from '@angular/core';
+import { RegisterModel } from 'src/app/register/models/register.model';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { RegisterService } from 'src/app/register/services/register.service';
 
 @Component({
-  selector: "app-sign-up",
-  templateUrl: "./sign-up.component.html",
-  styleUrls: ["./sign-up.component.css"]
+  selector: 'app-sign-up',
+  templateUrl: './sign-up.component.html',
+  styleUrls: ['./sign-up.component.css']
 })
 export class SignUpComponent implements OnInit {
   user: RegisterModel = new RegisterModel();
   registerForm: FormGroup;
   hide = true;
   submitted = false;
-  errorMsg = "";
+  errorMsg = '';
 
   constructor(
     private formBuilder: FormBuilder,

@@ -1,15 +1,15 @@
 import { ProjectService } from './../service/project.service';
 import { ReadfromjsonService } from './../service/readfromjson.service';
-import { Project } from './../projectclasses/project';
-import { Skill } from './../projectclasses/skill';
-import { ProjectChicklets } from './../projectclasses/projectchicklets';
-import { ProjectSection } from './../projectclasses/projectsection';
+import { Project } from './../projectdialog/domain/project';
+import { Skill } from './../projectdialog/domain/skill';
+import { ProjectChicklets } from './../projectdialog/domain/projectchicklets';
+import { ProjectSection } from './../projectdialog/domain/projectsection';
 import { HttpHeaders, HttpClient, HttpErrorResponse } from '@angular/common/http';
 
 import { Component, OnInit , Inject } from '@angular/core';
 import { FormGroup, FormArray, FormControl, FormBuilder, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { TokenStorageService } from 'src/app/login/auth/token-storage.service';
+import { TokenStorageService } from 'src/app/login/service/token-storage.service';
 
 
 @Component({

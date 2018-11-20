@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { catchError } from 'rxjs/operators';
 import { HttpHeaders, HttpClient, HttpErrorResponse } from '@angular/common/http';
-import { ProjectSection } from '../projectclasses/projectsection';
+import { ProjectSection } from '../projectdialog/domain/projectsection';
 import { Observable, throwError } from 'rxjs';
 
 

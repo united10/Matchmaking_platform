@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Observable, throwError } from 'rxjs';
 import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
-import { ExperienceSection } from '../experience-class/section';
-import { Output } from '../experience-class/output';
+import { ExperienceSection } from '../experience/domain/section';
+import { Output } from '../experience/domain/output';
 import { catchError } from 'rxjs/operators';
 
 

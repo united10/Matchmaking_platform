@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { catchError } from 'rxjs/operators';
 import { HttpHeaders, HttpClient, HttpErrorResponse } from '@angular/common/http';
-import { CertificateSection } from '../certificateclasses/certificatesection';
+import { CertificateSection } from '../certificatedialog/domain/certificatesection';
 import { Observable, throwError } from 'rxjs';
 
 const httpOptions = {

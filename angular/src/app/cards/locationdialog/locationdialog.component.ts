@@ -1,8 +1,8 @@
 import { LocationService } from './../service/location.service';
-import { PastLocation } from './../locationclasses/pastlocation';
-import { CurrentLocation } from './../locationclasses/currentlocation';
-import { LocationChicklets } from './../locationclasses/chicklets';
-import { LocationSection } from './../locationclasses/section';
+import { PastLocation } from './../locationdialog/domain/pastlocation';
+import { CurrentLocation } from './../locationdialog/domain/currentlocation';
+import { LocationChicklets } from './../locationdialog/domain/chicklets';
+import { LocationSection } from './../locationdialog/domain/section';
 
 // import { LocationService } from './../cards/service/location.service';
 
@@ -10,7 +10,7 @@ import { Component, OnInit , Inject } from '@angular/core';
 import { FormGroup, FormArray, FormControl, FormBuilder, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Output } from '../outputclass/output';
-import { TokenStorageService } from 'src/app/login/auth/token-storage.service';
+import { TokenStorageService } from 'src/app/login/service/token-storage.service';
 // import { PastLocation } from '../cards/classes1/pastlocation';
 // import { CurrentLocation } from './../cards/classes1/currentlocation';
 // import { Chicklets } from './../cards/classes1/chicklets';

@@ -2,12 +2,12 @@ import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { FormGroup, FormBuilder, FormControl, Validators, FormArray } from '@angular/forms';
 import { Component, OnInit, Inject } from '@angular/core';
 import { SkillService } from '../service/skill.service';
-import { SkillChicklets } from '../skillclasses/skillchicklets';
-import { Skill } from '../skillclasses/skill';
-import { SkillSection } from '../skillclasses/skillsection';
+import { SkillChicklets } from '../skill/domain/skillchicklets';
+import { Skill } from '../skill/domain/skill';
+import { SkillSection } from '../skill/domain/skillsection';
 import { Output } from '../outputclass/output';
 import { ReadfromjsonService } from './../service/readfromjson.service';
-import { TokenStorageService } from 'src/app/login/auth/token-storage.service';
+import { TokenStorageService } from 'src/app/login/service/token-storage.service';
 
 @Component({
   selector: 'app-skill',
@@ -69,18 +69,18 @@ export class SkillComponent implements OnInit {
   }
 
   onSave() {
-    var arr = this.skillForm.get('skills') as FormArray;
-    var chicklets = new Array<SkillChicklets>();
+    const arr = this.skillForm.get('skills') as FormArray;
+    const chicklets = new Array<SkillChicklets>();
     for (let i = 0; i < arr.length; i++) {
       const row = arr.at(i);
-      const skill = new Skill('skillId', row.value.skillName,row.value.skillLevel);
+      const skill = new Skill('skillId', row.value.skillName, row.value.skillLevel);
       const chicklet = new SkillChicklets(skill);
       chicklets.push(chicklet);
     }
 
-    //const section = new SkillSection("Skill", "userId", "add", chicklets);
-    console.log("fjd "+chicklets);
-    const section = new SkillSection("Skill", this.token.getEmail(), "add", chicklets);
+    // const section = new SkillSection("Skill", "userId", "add", chicklets);
+    console.log('fjd ' + chicklets);
+    const section = new SkillSection('Skill', this.token.getEmail(), 'add', chicklets);
     this.skillService.addSkillDetails(section).subscribe(
       data => {
         this.output = data;

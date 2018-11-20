@@ -2,7 +2,7 @@ import { catchError } from 'rxjs/operators';
 import { Output } from './../outputclass/output';
 import { HttpHeaders, HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable} from '@angular/core';
-import { SkillSection } from '../skillclasses/skillsection';
+import { SkillSection } from '../skill/domain/skillsection';
 import { Observable, throwError } from 'rxjs';
 
 

@@ -1,4 +1,4 @@
-import { SkillChicklets } from "./skillchicklets";
+import { SkillChicklets } from './skillchicklets';
 
 
 export class SkillSection {
