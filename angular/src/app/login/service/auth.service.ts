@@ -13,7 +13,7 @@ const httpOptions = {
   providedIn: 'root'
 })
 export class AuthService {
-  private _url = 'https://13.233.180.226:8097/user-authentication-service/api/v1/login';
+  private _url = 'http://13.233.180.226:8097/user-authentication-service/api/v1/login';
   constructor(private _http: HttpClient) { }
   submit(user: AuthLoginInfo): Observable<JwtResponse> {
     return this._http
