@@ -19,7 +19,7 @@ public class IndexResourceImpl implements IndexResource{
     private KafkaProperties kafkaProperties;
 
     /*
-     *  Method is used to get kafka properties (kafka Ip address
+     *  Used to get kafka properties (kafka Ip address
      *  ,kafka port, topic)
      */
     @Autowired
@@ -28,7 +28,7 @@ public class IndexResourceImpl implements IndexResource{
     }
 
     /*
-     *  Method is used to send data(CommonOutput) to indexer topic.
+     *  Used to send data(CommonOutput) to indexer topic.
      */
     @Override
     public void postData(CommonOutput commonOutput)

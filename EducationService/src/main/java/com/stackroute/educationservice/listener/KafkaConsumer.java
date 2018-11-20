@@ -29,7 +29,7 @@ public class KafkaConsumer {
     private KafkaProperties kafkaProperties;
 
     /*
-     *  Method is called to consume data from education topic in json
+     *  Used to consume data from education topic in json
      *  format.
      */
     @KafkaListener(topics = "${kafka.linsteningTopic}" ,groupId = "${kafka.groupId}",

@@ -16,7 +16,7 @@ public class EducationServiceImpl implements EducationService {
     Logger logger= LoggerFactory.getLogger(EducationServiceImpl.class);
 
     /*
-     *  Method will process input and return in common output
+     *  Used to process input and return in common output
      *  format.
      */
     @Override

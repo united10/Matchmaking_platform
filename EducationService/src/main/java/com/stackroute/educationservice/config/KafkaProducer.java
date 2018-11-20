@@ -24,7 +24,7 @@ public class KafkaProducer {
     private KafkaProperties kafkaProperties;
 
     /*
-     *  Method is used to get kafka properties (kafka Ip address
+     *  Used to get kafka properties (kafka Ip address
      *  ,kafka port, groupID)
      */
     @Autowired
@@ -33,7 +33,7 @@ public class KafkaProducer {
     }
 
     /*
-     *  Method is used to set kafka producer config properties
+     * Used to set kafka producer config properties
      *  (kafka Ip address).
      */
     @Bean
@@ -52,7 +52,7 @@ public class KafkaProducer {
     }
 
     /*
-     *  Method is used to create default kafka template.
+     *  Used to create default kafka template.
      */
     @Bean
     public KafkaTemplate<String, CommonOutput> kafkaTemplate() {

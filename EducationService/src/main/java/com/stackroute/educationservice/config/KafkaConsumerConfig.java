@@ -29,7 +29,7 @@ public class KafkaConsumerConfig {
     private KafkaProperties kafkaProperties;
 
     /*
-     *  Method is used to get kafka properties (kafka Ip address
+     *  Used to get kafka properties (kafka Ip address
      *  ,kafka port, groupID)
      */
     @Autowired
@@ -38,7 +38,7 @@ public class KafkaConsumerConfig {
     }
 
     /*
-     *  Method is used to consume data(as string) from particular kafka topic
+     *  Used to consume data(as string) from particular kafka topic
      *  via groupID.
      */
     @Bean
@@ -62,7 +62,7 @@ public class KafkaConsumerConfig {
     }
 
     /*
-     *  Method is used to consume data(as object) from particular kafka topic
+     *  Used to consume data(as object) from particular kafka topic
      *  via groupID.
      */
     @Bean
