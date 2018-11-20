@@ -19,7 +19,7 @@ public class IndexResourceImpl implements IndexResource{
     }
 
     public void postData(CommonOutput commonOutput){
-        System.out.println("output "+commonOutput);
+
         kafkaTemplate.send(kafkaProperties.getOutputTopic(), commonOutput);
     }
 

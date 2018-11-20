@@ -1,16 +1,14 @@
-package com.stackroute.domain;
+package com.example.upstream.domain.interest;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-/*
-Collections of certificate details
- */
+
 @Data
 @Builder
-@AllArgsConstructor
 @NoArgsConstructor
+@AllArgsConstructor
 public class Chicklets {
-    private Certificate certificateDetails;
+    private String interest;
 }
