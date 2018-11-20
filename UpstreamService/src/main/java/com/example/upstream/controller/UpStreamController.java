@@ -25,24 +25,26 @@ private KafkaTemplate<String, Location>kafkaTemplateLocation;
 private KafkaTemplate<String, Section>kafkaTemplateProject;
 private KafkaTemplate<String, Experience>kafkaTemplateExperience;
 private KafkaTemplate<String,Certificate>kafkaTemplateCertificate;
+private KafkaTemplate<String, com.example.upstream.domain.interest.Section>kafkaTemplateInterest;
 
-    @Autowired
-    public UpStreamController(KafkaTemplate<String, Education> kafkaTemplateEducation, KafkaTemplate<String, com.example.upstream.domain.skills.Section> kafkaTemplateSkills, KafkaTemplate<String, Location> kafkaTemplateLocation, KafkaTemplate<String, Section> kafkaTemplateProject, KafkaTemplate<String, Experience> kafkaTemplateExperience, KafkaTemplate<String, Certificate> kafkaTemplateCertificate) {
+    public UpStreamController(KafkaTemplate<String, Education> kafkaTemplateEducation, KafkaTemplate<String, com.example.upstream.domain.skills.Section> kafkaTemplateSkills, KafkaTemplate<String, Location> kafkaTemplateLocation, KafkaTemplate<String, Section> kafkaTemplateProject, KafkaTemplate<String, Experience> kafkaTemplateExperience, KafkaTemplate<String, Certificate> kafkaTemplateCertificate, KafkaTemplate<String, com.example.upstream.domain.interest.Section> kafkaTemplateInterest) {
         this.kafkaTemplateEducation = kafkaTemplateEducation;
         this.kafkaTemplateSkills = kafkaTemplateSkills;
         this.kafkaTemplateLocation = kafkaTemplateLocation;
         this.kafkaTemplateProject = kafkaTemplateProject;
         this.kafkaTemplateExperience = kafkaTemplateExperience;
         this.kafkaTemplateCertificate = kafkaTemplateCertificate;
+        this.kafkaTemplateInterest = kafkaTemplateInterest;
     }
 
-//Creating topics
+    //Creating topics
 private static final String  TOPIC ="education";
 private static final String TOPIC1 = "skills";
 private static final String TOPIC2 = "location";
 private static final String TOPIC3 = "project";
 private static final String TOPIC4 = "experience";
 private static final String TOPIC5 = "certificate";
+private static final String TOPIC6 = "interest";
 
     @PostMapping("${controller.education}")
     public ResponseEntity<?> newEducation(@RequestBody Education education){
@@ -210,6 +212,33 @@ private static final String TOPIC5 = "certificate";
         certificate.setOperationType("delete");
         ResponseEntity responseEntity = new ResponseEntity(certificate,HttpStatus.OK);
         kafkaTemplateCertificate.send(TOPIC5,certificate);
+        return responseEntity;
+
+    }
+    @PostMapping("${controller.interest}")
+    public ResponseEntity<?> newInterest(@RequestBody com.example.upstream.domain.interest.Section section)
+    {
+        section.setOperationType("add");
+        ResponseEntity responseEntity = new ResponseEntity(section,HttpStatus.OK);
+        kafkaTemplateInterest.send(TOPIC6,section);
+        return responseEntity;
+
+    }
+    @PutMapping("${controller.interest}")
+    public ResponseEntity<?> updateInterest(@RequestBody com.example.upstream.domain.interest.Section section)
+    {
+        section.setOperationType("update");
+        ResponseEntity responseEntity = new ResponseEntity(section,HttpStatus.OK);
+        kafkaTemplateInterest.send(TOPIC6,section);
+        return responseEntity;
+
+    }
+    @DeleteMapping("${controller.interest}")
+    public ResponseEntity<?> deleteInterest(@RequestBody com.example.upstream.domain.interest.Section section)
+    {
+        section.setOperationType("delete");
+        ResponseEntity responseEntity = new ResponseEntity(section,HttpStatus.OK);
+        kafkaTemplateInterest.send(TOPIC6,section);
         return responseEntity;
 
     }
