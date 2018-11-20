@@ -3,7 +3,9 @@ package com.stackroute.service;
 import com.stackroute.domain.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Service;
 
+@Service
 public class CertificateServiceImpl implements CertificateService{
     Logger logger= LoggerFactory.getLogger(CertificateServiceImpl.class);
     @Override
