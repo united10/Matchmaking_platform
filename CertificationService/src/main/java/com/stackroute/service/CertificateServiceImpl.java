@@ -5,6 +5,11 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
+/*This class is a service class and is used
+to create the common output that will be send
+to indexer kafka topic in this class we filter
+the content from the front end and create a
+object for indexing data to the graphdb*/
 @Service
 public class CertificateServiceImpl implements CertificateService{
     Logger logger= LoggerFactory.getLogger(CertificateServiceImpl.class);

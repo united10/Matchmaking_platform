@@ -13,6 +13,11 @@ import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.messaging.handler.annotation.Payload;
 import org.springframework.stereotype.Service;
 
+/*
+    It is the class for consuming the data from topic
+    certificate and passing it to index resource which
+    is responsible for producing to the indexer kafka topic
+ */
 @Service
 public class KafkaListening {
     Logger logger= LoggerFactory.getLogger(KafkaListening.class);
