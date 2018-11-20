@@ -4,10 +4,10 @@
 	<modelVersion>4.0.0</modelVersion>
 
 
-	<artifactId>zuulgateway</artifactId>
+	<artifactId>ZuulGateway</artifactId>
 	<packaging>jar</packaging>
 
-	<name>Zuulgateway</name>
+	<name>ZuulGateway</name>
 	<description>Demo project for Spring Boot</description>
 
 	<parent>
