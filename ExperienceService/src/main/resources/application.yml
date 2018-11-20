@@ -1,0 +1,20 @@
+server:
+  port: 8087
+
+spring:
+  application.name: ExperienceService
+  cloud.config.uri: http://localhost:8888
+
+kafka:
+  ipAddress: localhost:9092
+  groupId: group_id12
+  outputTopic: indexer
+  linsteningTopic: experience
+  containerFactory: userKafkaListenerFactory
+  relationshipProperty: Working
+  relationshipType: is-a
+  operationType: post
+  sourceNode: vivek
+  sourceNodeProperties: pandey
+  terminalNode: Bangalore
+  terminalNodeProperties: Visiting

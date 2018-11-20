@@ -1,0 +1,16 @@
+server:
+  port: 8085
+
+spring:
+  application:
+    name: CertificationService
+  cloud:
+    config:
+      uri: http://localhost:8888
+
+kafka:
+  ipAddress: localhost:9092
+  groupId: group_id3
+  outputTopic: indexer
+  listeningTopic: certificate
+  containerFactory: userKafkaListenerFactory
