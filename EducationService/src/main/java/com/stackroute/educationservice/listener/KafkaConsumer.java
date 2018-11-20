@@ -14,6 +14,9 @@ import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.messaging.handler.annotation.Payload;
 import org.springframework.stereotype.Service;
 
+/*
+ *  KafkaConsumer class will listen to education topic in kafka.
+ */
 @Service
 public class KafkaConsumer {
 
@@ -25,18 +28,16 @@ public class KafkaConsumer {
     IndexResource indexResource;
     private KafkaProperties kafkaProperties;
 
-    /*@Autowired
-    public void setApp(KafkaProperties kafkaProperties){
-        this.kafkaProperties=kafkaProperties;
-
-    }*/
+    /*
+     *  Method is called to consume data from education topic in json
+     *  format.
+     */
     @KafkaListener(topics = "${kafka.linsteningTopic}" ,groupId = "${kafka.groupId}",
             containerFactory="${kafka.containerFactory}")
     public void consumeJson(@Payload Section section ) {
 
-        //Log.info("consumed json message "+section);
         logger.debug(Marker.ANY_MARKER,section);
-        System.out.println("consumed json message "+section);
+        // System.out.println("consumed json message "+section);
         CommonOutput commonOutput= educationService.processEducationDetails(section);
         indexResource.postData(commonOutput);
     }

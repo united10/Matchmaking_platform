@@ -14,15 +14,28 @@ import org.springframework.kafka.support.serializer.JsonSerializer;
 
 import java.util.HashMap;
 import java.util.Map;
+
+/*
+ *  KafkaProducer class is used to produce data to a
+ *  particular topic
+ */
 @Configuration
 public class KafkaProducer {
     private KafkaProperties kafkaProperties;
 
+    /*
+     *  Method is used to get kafka properties (kafka Ip address
+     *  ,kafka port, groupID)
+     */
     @Autowired
     public void setApp(KafkaProperties kafkaProperties){
         this.kafkaProperties=kafkaProperties;
     }
 
+    /*
+     *  Method is used to set kafka producer config properties
+     *  (kafka Ip address).
+     */
     @Bean
     public ProducerFactory<String, CommonOutput> producerFactory() {
 
@@ -38,6 +51,9 @@ public class KafkaProducer {
 
     }
 
+    /*
+     *  Method is used to create default kafka template.
+     */
     @Bean
     public KafkaTemplate<String, CommonOutput> kafkaTemplate() {
         return new KafkaTemplate<>(producerFactory());
