@@ -1,9 +1,8 @@
 import { Injectable } from '@angular/core';
-import { LocationSection } from '../locationdialog/domain/section';
-import { Observable, throwError } from 'rxjs';
-import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
 import { catchError } from 'rxjs/operators';
-import { Output } from '../outputclass/output';
+import { HttpHeaders, HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { ProjectSection } from '../project-dialog/domain/projectsection';
+import { Observable, throwError } from 'rxjs';
 
 
 const httpOptions = {
@@ -11,18 +10,18 @@ const httpOptions = {
     'Content-Type': 'application/json'
   })
 };
+
 @Injectable({
   providedIn: 'root'
 })
-export class LocationService {
+export class ProjectService {
 
-  url = 'http://13.233.180.226:8097/upstream-service/api/v1/location';
+  url = 'https://13.233.180.226:8097/upstream-service/api/v1/project';
 
   constructor(private httpClient: HttpClient) { }
 
-  addLocationDetails(section: LocationSection): Observable<Output> {
-    console.log(section);
-    return this.httpClient.post<Output>(this.url, section, httpOptions).pipe(catchError(this.errorHandler));
+  addProjectDetails(section: ProjectSection): Observable<ProjectSection> {
+    return this.httpClient.post<ProjectSection>(this.url, section, httpOptions).pipe(catchError(this.errorHandler));
   }
 
   errorHandler(error: HttpErrorResponse) {
@@ -30,8 +29,6 @@ export class LocationService {
       // A client-side or network error occurred. Handle it accordingly.
       console.error('An error occurred:', error.error.message);
     } else {
-      // The backend returned an unsuccessful response code.
-      // The response body may contain clues as to what went wrong,
       console.error(
         `Backend returned code ${error.status}, ` +
         `body was: ${error.error}`);

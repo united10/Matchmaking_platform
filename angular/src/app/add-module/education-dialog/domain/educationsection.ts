@@ -1,4 +1,4 @@
-import { EducationChicklets } from "./educationchicklets";
+import { EducationChicklets } from './educationchicklets';
 
 export class EducationSection {
     constructor(private sectionId: string,

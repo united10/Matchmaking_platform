@@ -1,12 +1,12 @@
 import { Component, OnInit, Inject, Renderer2 } from '@angular/core';
 
-import { ExperienceService } from 'src/app/cards/service/experience.service';
-import { Output } from '../experience/domain/output';
+import { ExperienceService } from 'src/app/add-module/service/experience.service';
+import { Output } from '../experience-dialog/domain/output';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { FormGroup, FormArray, FormControl, FormBuilder, Validators } from '@angular/forms';
-import { ExperienceSection } from '../experience/domain/section';
-import { Chicklets } from '../experience/domain/chicklets';
-import { ExperienceDetails } from '../experience/domain/experience-details';
+import { ExperienceSection } from '../experience-dialog/domain/section';
+import { Chicklets } from '../experience-dialog/domain/chicklets';
+import { ExperienceDetails } from '../experience-dialog/domain/experience-details';
 import { TokenStorageService } from 'src/app/login/service/token-storage.service';
 
 

@@ -1,8 +1,8 @@
 import { LocationService } from './../service/location.service';
-import { PastLocation } from './../locationdialog/domain/pastlocation';
-import { CurrentLocation } from './../locationdialog/domain/currentlocation';
-import { LocationChicklets } from './../locationdialog/domain/chicklets';
-import { LocationSection } from './../locationdialog/domain/section';
+import { PastLocation } from './../location-dialog/domain/pastlocation';
+import { CurrentLocation } from './../location-dialog/domain/currentlocation';
+import { LocationChicklets } from './../location-dialog/domain/chicklets';
+import { LocationSection } from './../location-dialog/domain/section';
 
 // import { LocationService } from './../cards/service/location.service';
 

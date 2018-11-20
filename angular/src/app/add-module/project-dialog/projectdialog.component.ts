@@ -1,9 +1,9 @@
 import { ProjectService } from './../service/project.service';
 import { ReadfromjsonService } from './../service/readfromjson.service';
-import { Project } from './../projectdialog/domain/project';
-import { Skill } from './../projectdialog/domain/skill';
-import { ProjectChicklets } from './../projectdialog/domain/projectchicklets';
-import { ProjectSection } from './../projectdialog/domain/projectsection';
+import { Project } from './../project-dialog/domain/project';
+import { Skill } from './../project-dialog/domain/skill';
+import { ProjectChicklets } from './../project-dialog/domain/projectchicklets';
+import { ProjectSection } from './../project-dialog/domain/projectsection';
 import { HttpHeaders, HttpClient, HttpErrorResponse } from '@angular/common/http';
 
 import { Component, OnInit , Inject } from '@angular/core';

@@ -1,13 +1,13 @@
 import { Component, OnInit, Inject, Renderer2 } from '@angular/core';
 import { ReadfromjsonService } from './../service/readfromjson.service';
-import { Qualification } from '../educationdialog/domain/qualification';
-import { Institution } from '../educationdialog/domain/institution';
-import { EducationChicklets } from '../educationdialog/domain/educationchicklets';
-import { EducationService } from 'src/app/cards/service/education.service';
+import { Qualification } from '../education-dialog/domain/qualification';
+import { Institution } from '../education-dialog/domain/institution';
+import { EducationChicklets } from '../education-dialog/domain/educationchicklets';
+import { EducationService } from 'src/app/add-module/service/education.service';
 import { Output } from '../outputclass/output';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { FormGroup, FormArray, FormControl, FormBuilder, Validators } from '@angular/forms';
-import { EducationSection } from '../educationdialog/domain/educationsection';
+import { EducationSection } from '../education-dialog/domain/educationsection';
 import { TokenStorageService } from 'src/app/login/service/token-storage.service';
 
 @Component({

@@ -1,5 +1,6 @@
-import { Qualification } from "./qualification";
-import { Institution } from "./institution";
+import { Qualification } from './qualification';
+import { Institution } from './institution';
+
 
 export class EducationChicklets {
     constructor(private qualification: Qualification,

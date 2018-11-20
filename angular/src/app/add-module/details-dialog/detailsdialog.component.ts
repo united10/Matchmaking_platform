@@ -1,11 +1,11 @@
-import { CertificatedialogComponent } from './../certificatedialog/certificatedialog.component';
+import { CertificatedialogComponent } from './../certificate-dialog/certificatedialog.component';
 import { Component, OnInit, Inject } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef, MatDialog, MatDialogConfig } from '@angular/material/dialog';
-import { EducationdialogComponent } from '../educationdialog/educationdialog.component';
-import { ExperienceComponent } from '../experience/experience.component';
-import { SkillComponent } from '../skill/skill.component';
-import { LocationdialogComponent } from '../locationdialog/locationdialog.component';
-import { ProjectdialogComponent } from '../projectdialog/projectdialog.component';
+import { EducationdialogComponent } from '../education-dialog/educationdialog.component';
+import { ExperienceComponent } from '../experience-dialog/experience.component';
+import { SkillComponent } from '../skill-dialog/skill.component';
+import { LocationdialogComponent } from '../location-dialog/locationdialog.component';
+import { ProjectdialogComponent } from '../project-dialog/projectdialog.component';
 
 @Component({
   selector: 'app-detailsdialog',

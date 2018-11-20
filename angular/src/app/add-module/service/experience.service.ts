@@ -1,28 +1,29 @@
 import { Injectable } from '@angular/core';
 import { Observable, throwError } from 'rxjs';
 import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
+import { ExperienceSection } from '../experience-dialog/domain/section';
+import { Output } from '../experience-dialog/domain/output';
 import { catchError } from 'rxjs/operators';
-import { EducationSection } from '../educationdialog/domain/educationsection';
-import { Output } from '../outputclass/output';
+
 
 const httpOptions = {
   headers: new HttpHeaders({
     'Content-Type': 'application/json'
   })
 };
+
 @Injectable({
   providedIn: 'root'
 })
-export class EducationService {
+export class ExperienceService {
 
-  url = 'http://13.233.180.226:8097/upstream-service/api/v1/education/';
-
+  url1 = 'https://13.233.180.226:8097/upstream-service/api/v1/experience/';
   constructor(private httpClient: HttpClient) { }
 
-  addEducationDetails(section: EducationSection): Observable<Output> {
-    return this.httpClient.post<Output>(this.url, section, httpOptions).pipe(catchError(this.errorHandler));
+  addExperienceDetails(section: ExperienceSection): Observable<Output> {
+    console.log(section);
+    return this.httpClient.post<Output>(this.url1, section, httpOptions).pipe(catchError(this.errorHandler));
   }
-
   errorHandler(error: HttpErrorResponse) {
     if (error.error instanceof ErrorEvent) {
       // A client-side or network error occurred. Handle it accordingly.
