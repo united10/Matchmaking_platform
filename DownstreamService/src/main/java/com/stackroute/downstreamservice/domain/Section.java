@@ -5,15 +5,15 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-//This class is to model the  skills data
+//This class is to model the  sections data
 
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class Skills {
-
-    private String skillId;
-    private String skillName;
-    private String skillLevel;
+public class Section {
+    private String sectionId;
+    private String userId;
+    private String operationType;
+    private Chicklets[] chicklets;
 }

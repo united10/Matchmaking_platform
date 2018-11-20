@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 
 import java.util.List;
 
+//This class is to model the locations data
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
