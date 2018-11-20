@@ -16,6 +16,11 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+/*This is a service class to listen to topics in
+Kafka and pass it to EmployeeService class for perform corresponding
+add ,update or delete operations.
+ */
+
 @Service
 public class KafkaConsumer {
 
@@ -29,6 +34,7 @@ public class KafkaConsumer {
         this.employeeService=employeeService;
     }
 
+    //Method for listening to user topic and saving
     @KafkaListener(topics = "${kafka.listeningTopic1}" ,groupId = "${kafka.groupId}",
     containerFactory="${kafka.containerFactory}")
     public void consumeJson(@Payload Employee employee) {
@@ -48,6 +54,7 @@ public class KafkaConsumer {
         }
     }
 
+    //Method for listening to  education topic and using it for saving/updating/deleting
     @KafkaListener(topics = "${kafka.listeningTopic2}" ,groupId = "${kafka.groupId}",
             containerFactory="${kafka.containerFactory}")
     public void consumeEducationJson(@Payload EducationSection educationSection) {
@@ -78,6 +85,7 @@ public class KafkaConsumer {
     }
 
 
+    //Method for listening to  skills topic and using it for saving/updating/deleting
     @KafkaListener(topics = "${kafka.listeningTopic3}" ,groupId = "${kafka.groupId}",
             containerFactory="userKafkaListenerFactory")
 
@@ -107,6 +115,7 @@ public class KafkaConsumer {
     }
 
 
+    //Method for listening to  location topic and using it for saving/updating/deleting
     @KafkaListener(topics = "${kafka.listeningTopic4}" ,groupId = "${kafka.groupId}",
             containerFactory="userKafkaListenerFactory")
 
@@ -128,6 +137,95 @@ public class KafkaConsumer {
 
         try {
             employeeService.addLocationData(location,locationSection.getUserId());
+            logger.info("${kafka.success}");
+
+        }catch(EmployeeNotFoundException employeeNotFound){
+            logger.error(employeeNotFound.getMessage());
+        }catch(Exception exp){
+            logger.error(exp.getMessage());
+        }
+
+    }
+
+
+    //Method for listening to  certificate topic and using it for saving/updating/deleting
+    @KafkaListener(topics = "${kafka.listeningTopic5}" ,groupId = "${kafka.groupId}",
+            containerFactory="userKafkaListenerFactory")
+
+    public void consumeCertificateJson(@Payload Section section) {
+        if( logger.isDebugEnabled()) {
+            logger.debug(String.format("${kafka.consumed} : %s", section));
+        }
+        List<Certificate> certificates=new ArrayList<>();
+        Chicklets[] chicklets=section.getChicklets();
+        for(Chicklets chicklet:chicklets){
+
+            Certificate certificate=chicklet.getCertificateDetails();
+
+            certificates.add(certificate);
+        }
+
+        try {
+            employeeService.addCertificateData(certificates,section.getUserId());
+            logger.info("${kafka.success}");
+
+        }catch(EmployeeNotFoundException employeeNotFound){
+            logger.error(employeeNotFound.getMessage());
+        }catch(Exception exp){
+            logger.error(exp.getMessage());
+        }
+
+    }
+
+
+    //Method for listening to  project topic and using it for saving/updating/deleting
+    @KafkaListener(topics = "${kafka.listeningTopic6}" ,groupId = "${kafka.groupId}",
+            containerFactory="userKafkaListenerFactory")
+    public void consumeProjectJson(@Payload SectionType section) {
+        if( logger.isDebugEnabled()) {
+            logger.debug(String.format("${kafka.consumed} : %s", section));
+        }
+        List<ProjectDetails> projects=new ArrayList<>();
+        Chicklets[] chicklets=section.getChicklets();
+        for(Chicklets chicklet:chicklets){
+
+            ProjectDetails projectDetails=chicklet.getProjectDetails();
+
+            projects.add(projectDetails);
+        }
+
+        try {
+            employeeService.addProjectData(projects,section.getUserId());
+            logger.info("${kafka.success}");
+
+        }catch(EmployeeNotFoundException employeeNotFound){
+            logger.error(employeeNotFound.getMessage());
+        }catch(Exception exp){
+            logger.error(exp.getMessage());
+        }
+
+    }
+
+
+
+    //Method for listening to experience topic and saving
+    @KafkaListener(topics = "${kafka.listeningTopic7}" ,groupId = "${kafka.groupId}",
+            containerFactory="userKafkaListenerFactory")
+    public void consumeExperienceJson(@Payload SectionType section) {
+        if( logger.isDebugEnabled()) {
+            logger.debug(String.format("${kafka.consumed} : %s", section));
+        }
+        List<Experience> experiences=new ArrayList<>();
+        Chicklets[] chicklets=section.getChicklets();
+        for(Chicklets chicklet:chicklets){
+
+            Experience experience=chicklet.getExperienceDetails();
+
+            experiences.add(experience);
+        }
+
+        try {
+            employeeService.addExperienceData(experiences,section.getUserId());
             logger.info("${kafka.success}");
 
         }catch(EmployeeNotFoundException employeeNotFound){

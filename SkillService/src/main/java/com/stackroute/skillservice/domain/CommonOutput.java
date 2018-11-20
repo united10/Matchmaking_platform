@@ -5,6 +5,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+/*Common output which is to be send to indexer*/
 @Data
 @NoArgsConstructor
 @AllArgsConstructor

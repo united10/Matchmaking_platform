@@ -5,7 +5,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
-/*This class is a service class and is used
+/*This service is used
 to create the common output that will be send
 to indexer kafka topic in this class we filter
 the content from the front end and create a
@@ -15,8 +15,6 @@ public class CertificateServiceImpl implements CertificateService{
     Logger logger= LoggerFactory.getLogger(CertificateServiceImpl.class);
     @Override
     public CommonOutput processCertificateDetails(Section section) {
-
-        //System.out.println("Education"+section.toString());
         logger.info("certificate"+section.toString());
         Chicklets[] chicklets=section.getChicklets();
         Relationships relationship[]=new Relationships[chicklets.length];
@@ -25,7 +23,6 @@ public class CertificateServiceImpl implements CertificateService{
                     .relationshipProperty(chicklets[i].getCertificateDetails().getCertificateName())
                     .relationshipType("studiedIn")
                     .build();
-
         }
         CommonOutput commonOutput=CommonOutput.builder()
                 .operationType(section.getOperationType())
@@ -35,7 +32,6 @@ public class CertificateServiceImpl implements CertificateService{
                 .targetNodeProperty("terminal property")
                 .relationships(relationship)
                 .build();
-      //  System.out.println(commonOutput.toString());
         return commonOutput;
     }
 }
