@@ -6,6 +6,10 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+/*
+Past location Details class
+ */
+
 @Data
 @Builder
 @AllArgsConstructor
