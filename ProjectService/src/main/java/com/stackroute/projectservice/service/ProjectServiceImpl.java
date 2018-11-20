@@ -7,10 +7,10 @@ import com.stackroute.projectservice.domain.Skill;
 import com.stackroute.projectservice.domain.Relationship;
 import org.springframework.stereotype.Service;
 
-/*This class is a service class and is used
+/* This service is used
 to create the common output that will be send
-to 'indexer' kafka topic. In this class we filter
-the content from the front end and create a
+to 'indexer' kafka topic. Here we process
+the data from front end and create an
 object for indexing data to the graphdb (neo4j)*/
 @Service
 public class ProjectServiceImpl implements ProjectService {
@@ -24,7 +24,7 @@ public class ProjectServiceImpl implements ProjectService {
             relationship[i] = Relationship.builder()
                     .relationshipProperty(skills[i].getSkill()).relationshipType("knows").build();
         }
-
+/*these hardcoded strings will be removed later*/
         CommonOutput commonOutput = CommonOutput.builder()
                 .operationType(section.getOperationType())
                 .sourceNode(section.getUserId())
