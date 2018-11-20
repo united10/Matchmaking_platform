@@ -185,7 +185,7 @@ services:
       MYSQL_DATABASE: login
   angular:
     image: angular
-    build: angular/
+    build: Angular/
     depends_on:
       - gateway
     ports:

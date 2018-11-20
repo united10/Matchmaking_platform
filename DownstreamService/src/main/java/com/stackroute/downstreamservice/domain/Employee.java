@@ -9,7 +9,9 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 import javax.validation.constraints.NotNull;
 import java.util.List;
-
+/* This is domain class for modelling the employee documents
+in the database
+ */
 @Document(collection="Employees")
 @Data
 @NoArgsConstructor
@@ -32,6 +34,9 @@ public class Employee {
     private List<Skills> skills;
 
     private Location location;
+    private List<Experience> experiences;
+    private List<ProjectDetails> projects;
+    private List<Certificate> certificates;
 
    /* String[] skills;
     String[] experience;

@@ -7,6 +7,11 @@ import lombok.NoArgsConstructor;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
 
+/*
+This class is used to assign kafka properties from the application.yml
+file
+*/
+
 @Component
 @Data
 @NoArgsConstructor

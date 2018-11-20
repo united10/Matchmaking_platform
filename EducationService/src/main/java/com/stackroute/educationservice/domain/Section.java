@@ -8,6 +8,10 @@ import org.springframework.data.annotation.Id;
 
 import javax.validation.constraints.NotNull;
 
+/*
+ *  Section class is input format which comes from
+ *  kafka education topic.
+ */
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
