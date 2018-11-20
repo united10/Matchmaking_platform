@@ -2,6 +2,7 @@ package com.example.upstream.domain;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
+//This class is used to remove hardcoded strings from code using application.yml
 
 @Component
 @ConfigurationProperties("controller")

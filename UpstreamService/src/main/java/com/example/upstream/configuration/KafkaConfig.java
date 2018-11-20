@@ -18,7 +18,7 @@ import org.springframework.kafka.support.serializer.JsonSerializer;
 
 import java.util.HashMap;
 import java.util.Map;
-
+//This class provides configuration on how to connect to kafka server and creates kafka template for each topic.
 @Configuration
 public class KafkaConfig {
 
