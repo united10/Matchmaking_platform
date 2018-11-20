@@ -16,6 +16,7 @@ import { SkillComponent } from './skill-dialog/skill.component';
 import { CertificatedialogComponent } from './certificate-dialog/certificatedialog.component';
 import { LocationdialogComponent } from './location-dialog/locationdialog.component';
 import { ProjectdialogComponent } from './project-dialog/projectdialog.component';
+import { InterestDialogComponent } from './interest-dialog/interest-dialog.component';
 
 @NgModule({
   imports: [
@@ -38,7 +39,8 @@ import { ProjectdialogComponent } from './project-dialog/projectdialog.component
                   CertificatedialogComponent,
                   LocationdialogComponent,
                   ExperienceComponent,
-                  ProjectdialogComponent],
+                  ProjectdialogComponent,
+                  InterestDialogComponent],
 
   entryComponents: [DetailsdialogComponent,
                     EducationdialogComponent,

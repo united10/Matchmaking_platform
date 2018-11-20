@@ -1,7 +1,7 @@
-package com.stackroute.experienceservice.config;
+package com.stackroute.interestservice.config;
 
-import com.stackroute.experienceservice.domain.CommonOutput;
-import com.stackroute.experienceservice.domain.KafkaProperties;
+import com.stackroute.interestservice.domain.CommonOutput;
+import com.stackroute.interestservice.domain.KafkaProperties;
 import org.apache.kafka.clients.producer.ProducerConfig;
 import org.apache.kafka.common.serialization.StringSerializer;
 import org.springframework.beans.factory.annotation.Autowired;

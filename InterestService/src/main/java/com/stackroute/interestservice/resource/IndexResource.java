@@ -1,7 +1,7 @@
-package com.stackroute.experienceservice.resource;
+package com.stackroute.interestservice.resource;
 
-import com.stackroute.experienceservice.domain.CommonOutput;
-import com.stackroute.experienceservice.domain.KafkaProperties;
+import com.stackroute.interestservice.domain.CommonOutput;
+import com.stackroute.interestservice.domain.KafkaProperties;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Service;

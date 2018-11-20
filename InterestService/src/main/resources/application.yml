@@ -1,0 +1,20 @@
+server:
+  port: 8097
+
+spring:
+  application.name: InterestsService
+  cloud.config.uri: http://localhost:8888
+
+kafka:
+  ipAddress: 172.23.239.245:9092
+  groupId: group_id20
+  outputTopic: indexer
+  linsteningTopic: interest
+  containerFactory: userKafkaListenerFactory
+  relationshipProperty: Working
+  relationshipType: is-a
+  operationType: post
+  sourceNode: vivek
+  sourceNodeProperties: pandey
+  terminalNode: Cricket
+  terminalNodeProperties: Playing

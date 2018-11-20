@@ -1,4 +1,4 @@
-package com.stackroute.experienceservice.domain;
+package com.stackroute.interestservice.domain;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
@@ -23,8 +23,6 @@ public class KafkaProperties {
     public void setListeningTopic(String listeningTopic) {
         this.listeningTopic = listeningTopic;
     }
-
-
 
     public String getIpAddress() {
         return ipAddress;
@@ -60,4 +58,3 @@ public class KafkaProperties {
                 '}';
     }
 }
-

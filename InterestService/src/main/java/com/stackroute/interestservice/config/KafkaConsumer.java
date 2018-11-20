@@ -1,7 +1,7 @@
-package com.stackroute.experienceservice.config;
+package com.stackroute.interestservice.config;
 
-import com.stackroute.experienceservice.domain.KafkaProperties;
-import com.stackroute.experienceservice.domain.Section;
+import com.stackroute.interestservice.domain.KafkaProperties;
+import com.stackroute.interestservice.domain.Section;
 import org.apache.kafka.clients.consumer.ConsumerConfig;
 import org.apache.kafka.common.serialization.BytesDeserializer;
 import org.apache.kafka.common.serialization.StringDeserializer;
@@ -61,6 +61,7 @@ public class KafkaConsumer {
         factory.setConsumerFactory(consumerFactory());
         return factory;
     }
+
 
     /*
      *  Method is used to consume data(as object) from particular kafka topic

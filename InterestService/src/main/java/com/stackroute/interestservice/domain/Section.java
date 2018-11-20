@@ -1,9 +1,10 @@
-package com.stackroute.experienceservice.domain;
+package com.stackroute.interestservice.domain;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
 
 /*
  *  Section class is input format which comes from
