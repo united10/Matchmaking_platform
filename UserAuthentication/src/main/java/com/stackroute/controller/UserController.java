@@ -16,6 +16,9 @@ import javax.servlet.ServletException;
 import java.util.Date;
 import java.util.List;
 
+// Receiving login details and checking auth, saving new user from postman
+// Creating jwt token and returning it to the frontend
+
 @RestController
 @RequestMapping("/api/v1")
 @CrossOrigin("*")
