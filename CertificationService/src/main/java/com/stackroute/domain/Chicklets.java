@@ -4,7 +4,9 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
+/*
+Collections of certificate details
+ */
 @Data
 @Builder
 @AllArgsConstructor
