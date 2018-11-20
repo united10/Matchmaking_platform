@@ -1,5 +1,6 @@
 package com.stackroute.config;
 
+// To define kafka properties to receive registration data from kafka ( Kafka Consumer )
 
 import com.stackroute.domain.KafkaProperties;
 import com.stackroute.domain.User;

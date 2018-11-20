@@ -6,6 +6,10 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 
+/*
+ *  CommonOutput class is for sending output to kafka
+ *  indexer topic in this format.
+ */
 @Data
 @NoArgsConstructor
 @AllArgsConstructor

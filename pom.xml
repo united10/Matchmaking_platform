@@ -25,9 +25,9 @@
 
     <modules>
 
-        <module>eureka-registry</module>
-        <module>config-server</module>
-        <module>zuulgateway</module>
+        <module>EurekaRegistry</module>
+        <module>ConfigServer</module>
+        <module>Zuulgateway</module>
         <module>UpstreamService</module>
         <module>ProjectService</module>
         <module>LocationService</module>

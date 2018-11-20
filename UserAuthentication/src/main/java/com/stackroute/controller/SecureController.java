@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+// Authorization using jwt token and updating user details.
+
 @RestController
 @RequestMapping("/secure")
 public class SecureController {

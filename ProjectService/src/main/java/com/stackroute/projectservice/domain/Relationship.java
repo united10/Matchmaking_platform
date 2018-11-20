@@ -6,6 +6,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+/* relationship class to make a relation between nodes in neo4j*/
 @Data
 @Builder
 @NoArgsConstructor

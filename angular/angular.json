@@ -50,8 +50,7 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "matchmaking:build",
-            "proxyConfig": "proxy.conf.json"
+            "browserTarget": "matchmaking:build"
           },
           "configurations": {
             "production": {

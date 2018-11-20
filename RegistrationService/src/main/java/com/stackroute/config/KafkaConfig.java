@@ -1,5 +1,7 @@
 package com.stackroute.config;
 
+//To define the properties of kafka so we can send data to kafka (producing)
+
 import com.stackroute.domain.KafkaProperties;
 import com.stackroute.domain.User;
 import org.springframework.beans.factory.annotation.Autowired;

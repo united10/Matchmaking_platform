@@ -6,6 +6,8 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+/* Input type of the upstream data received*/
+
 @Data
 @Builder
 @NoArgsConstructor

@@ -6,7 +6,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-
+/* section class is the input format for this service*/
 @Data
 @Builder
 @NoArgsConstructor

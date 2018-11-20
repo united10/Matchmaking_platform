@@ -2,12 +2,9 @@ package com.stackroute.locationservice.resource;
 
 import com.stackroute.locationservice.domain.CommonOutput;
 
+/*
+Loosely coupling it with Kafka so that it could be changed for the future
+ */
 public interface IndexResource {
-
-//    @Autowired
-//        private KafkaTemplate<String , CommonOutput> kafkaTemplate;
-//        private static final String TOPIC= "indexer";
-        public void postData(CommonOutput commonOutput);
-
-
+        void postData(CommonOutput commonOutput);
 }
