@@ -33,6 +33,7 @@ public class EducationServiceImpl implements EducationService {
                     .build();
 
         }
+        //dummy
         CommonOutput commonOutput=CommonOutput.builder()
                                     .operationType(section.getOperationType())
                                     .sourceNode(section.getUserId())

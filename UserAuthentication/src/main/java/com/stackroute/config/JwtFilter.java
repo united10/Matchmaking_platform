@@ -1,5 +1,7 @@
 package com.stackroute.config;
 
+// custom jwt filter and wired that into the Spring Security filter chain.
+
 import java.io.IOException;
 
 import javax.servlet.FilterChain;

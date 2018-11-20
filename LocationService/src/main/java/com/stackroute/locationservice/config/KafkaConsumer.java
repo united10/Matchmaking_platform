@@ -17,6 +17,10 @@ import org.springframework.kafka.support.converter.StringJsonMessageConverter;
 import java.util.HashMap;
 import java.util.Map;
 
+
+/*
+Configuration class for consuming data
+ */
 @EnableKafka
 @Configuration
 public class KafkaConsumer {

@@ -6,6 +6,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Service;
 
+/*
+It is an implementation of index resource interface which is
+responsible for producing the data in the Indexer topic
+ */
 @Service
 public class IndexResourceImpl implements IndexResource{
 

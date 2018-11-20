@@ -1,17 +1,14 @@
-package com.stackroute.projectservice.domain;
-
+package com.example.upstream.domain.interest;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-/* collections of project details class*/
 @Data
 @Builder
-@AllArgsConstructor
 @NoArgsConstructor
+@AllArgsConstructor
 public class Chicklets {
-    private ProjectDetails projectDetails;
-
+    private String interest;
 }
