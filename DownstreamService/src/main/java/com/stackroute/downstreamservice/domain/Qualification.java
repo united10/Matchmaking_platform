@@ -5,6 +5,8 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+//This class is to model the  qualifications data
+
 @Data
 @NoArgsConstructor
 @AllArgsConstructor

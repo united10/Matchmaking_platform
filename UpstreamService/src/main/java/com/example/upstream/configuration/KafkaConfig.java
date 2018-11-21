@@ -18,15 +18,17 @@ import org.springframework.kafka.support.serializer.JsonSerializer;
 
 import java.util.HashMap;
 import java.util.Map;
-
+//This class provides configuration on how to connect to kafka server and creates kafka template for each topic.
 @Configuration
 public class KafkaConfig {
 
     private KafkaProperties kafkaProperties;
     @Autowired
-    public void setUP(KafkaProperties kafkaProperties){
+    public void setUP(KafkaProperties kafkaProperties)
+    {
         this.kafkaProperties=kafkaProperties;
     }
+    // Creating producer factory for each domain
     @Bean
     public ProducerFactory<String, Education> producerFactoryEducation() {
 
@@ -105,6 +107,20 @@ public class KafkaConfig {
 
         return new DefaultKafkaProducerFactory(config);
     }
+    @Bean
+    public ProducerFactory<String, com.example.upstream.domain.interest.Section> producerFactoryInterest() {
+
+        Map<String, Object> config =new HashMap<>();
+
+        config.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG,kafkaProperties.getIpAddress());
+        //System.out.println("${kafka.ipAddress}");
+        config.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, StringSerializer.class);
+        config.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, JsonSerializer.class);
+        config.put(JsonSerializer.ADD_TYPE_INFO_HEADERS, false);
+
+        return new DefaultKafkaProducerFactory(config);
+
+    }
         //Creating templates for each objects
     @Bean
     public KafkaTemplate<String, Education> kafkaTemplateEducation()
@@ -135,5 +151,10 @@ public class KafkaConfig {
     public KafkaTemplate<String, Certificate> kafkaTemplateCertificate()
     {
         return new KafkaTemplate<>(producerFactoryCertificate());
+    }
+    @Bean
+    public KafkaTemplate<String, com.example.upstream.domain.interest.Section> kafkaTemplateInterest()
+    {
+        return new KafkaTemplate<>(producerFactoryInterest());
     }
 }

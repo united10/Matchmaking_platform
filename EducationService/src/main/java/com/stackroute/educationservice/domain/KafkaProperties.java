@@ -3,6 +3,10 @@ package com.stackroute.educationservice.domain;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
 
+/*
+ * Kafka properties class map data from .yml
+ * file to object KafkaProperties.
+ */
 @Component
 @ConfigurationProperties("kafka")
 public class KafkaProperties {

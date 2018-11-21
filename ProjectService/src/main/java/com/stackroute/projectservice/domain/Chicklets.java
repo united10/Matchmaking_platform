@@ -6,6 +6,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+/* collections of project details class*/
 @Data
 @Builder
 @AllArgsConstructor

@@ -157,7 +157,7 @@ services:
       - "8090"
   config-server:
      image: config-server:v1
-     build: config-server/
+     build: ConfigServer/
      restart: always
      container_name: config-container
      network_mode: host
@@ -185,7 +185,7 @@ services:
       MYSQL_DATABASE: login
   angular:
     image: angular
-    build: angular/
+    build: Angular/
     depends_on:
       - gateway
     ports:
@@ -195,7 +195,7 @@ services:
     container_name: "angular"
   gateway:
      image: zuulgateway:v1
-     build: zuulgateway/
+     build: ZuulGateway/
      restart: always
      container_name: zuul-container
      network_mode: host
@@ -207,7 +207,7 @@ services:
        - "8097"
   eureka:
       image: eureka:v1
-      build: eureka-registry/
+      build: EurekaRegistry/
       restart: always
       container_name: eureka-container
       network_mode: host

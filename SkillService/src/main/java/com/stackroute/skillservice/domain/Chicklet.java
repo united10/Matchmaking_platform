@@ -5,6 +5,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+/*Defining skill details*/
 @Data
 @NoArgsConstructor
 @AllArgsConstructor

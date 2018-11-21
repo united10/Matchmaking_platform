@@ -5,6 +5,10 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+/*
+Class model for producing data in the indexer topic
+ */
+
 @Data
 @Builder
 @NoArgsConstructor

@@ -17,6 +17,10 @@ import org.springframework.kafka.support.converter.StringJsonMessageConverter;
 import java.util.HashMap;
 import java.util.Map;
 
+
+/*
+Configuration class for consuming data
+ */
 @EnableKafka
 @Configuration
 public class KafkaConsumer {
@@ -25,6 +29,9 @@ public class KafkaConsumer {
     public void setApp(KafkaProperties kafkaProperties){
         this.kafkaProperties = kafkaProperties;
     }
+    /*
+    The function is used for temporarily testing the data in string format
+     */
     @Bean
     public ConsumerFactory<String, String> consumerFactory() {
 
@@ -38,14 +45,18 @@ public class KafkaConsumer {
         return new DefaultKafkaConsumerFactory<>(config);
 
     }
-
+    /*
+        Listening from the consumer factory
+     */
     @Bean
     public ConcurrentKafkaListenerContainerFactory<String,String> kafkaListenerContainerFactory() {
         ConcurrentKafkaListenerContainerFactory<String,String> factory=new ConcurrentKafkaListenerContainerFactory();
         factory.setConsumerFactory(consumerFactory());
         return factory;
     }
-
+    /*
+    the below function is used for listening the certificate section from the topic
+     */
 
     @Bean
     public ConsumerFactory<String, Section> userConsumerFactory() {
@@ -59,11 +70,9 @@ public class KafkaConsumer {
 
         return new DefaultKafkaConsumerFactory<>(config);
     }
-
-    @Bean
-    public StringJsonMessageConverter jsonConverter() {
-        return new StringJsonMessageConverter();
-    }
+    /*
+        This function is used for listening userconsumerfactory function
+     */
     @Bean
     public ConcurrentKafkaListenerContainerFactory<String,Section> userKafkaListenerFactory() {
         ConcurrentKafkaListenerContainerFactory<String,Section> factory=new ConcurrentKafkaListenerContainerFactory<>();

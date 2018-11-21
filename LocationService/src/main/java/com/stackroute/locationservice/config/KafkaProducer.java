@@ -15,7 +15,9 @@ import org.springframework.kafka.support.serializer.JsonSerializer;
 import java.util.HashMap;
 import java.util.Map;
 
-
+/*
+Configuration class for producing the data
+ */
 @Configuration
 public class KafkaProducer {
 

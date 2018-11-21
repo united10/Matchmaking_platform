@@ -2,6 +2,8 @@ package com.stackroute.domain;
 
 import lombok.*;
 
+// The jwt response class
+
 @Data
 @Builder
 @NoArgsConstructor

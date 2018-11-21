@@ -37,6 +37,9 @@ kafka:
     listeningTopic2: education
     listeningTopic3: skills
     listeningTopic4: location
+    listeningTopic5: certificate
+    listeningTopic6: project
+    listeningTopic7: experience
     containerFactory: userKafkaListenerFactory
     success: Successfully saved
     consumed: Consumed

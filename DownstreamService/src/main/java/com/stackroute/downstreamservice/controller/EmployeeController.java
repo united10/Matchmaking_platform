@@ -12,6 +12,10 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+/*This is the rest controller class to handle rest api calls from the frontend
+and other dependent services if any
+ */
+
 @RestController
 @RequestMapping("${controller.base}")
 public class EmployeeController {
@@ -23,7 +27,7 @@ public class EmployeeController {
         this.employeeService = employeeService;
 
     }
-
+    //Handles get request to /matchmaker/v1/employees/id to fetch a particular employee
     @GetMapping("${controller.employee}")
     public ResponseEntity<?> getEmployees(@PathVariable("id") String employeeId){
         ResponseEntity responseEntity;
@@ -36,7 +40,7 @@ public class EmployeeController {
         }
         return responseEntity;
     }
-
+    //Handles get request to /matchmaker/v1/employees to fetch  all employees
     @GetMapping("${controller.employees}")
     public ResponseEntity<?> getAllEmployees(){
         ResponseEntity responseEntity;

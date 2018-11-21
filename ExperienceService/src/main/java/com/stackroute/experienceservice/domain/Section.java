@@ -5,6 +5,10 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+/*
+ *  Section class is input format which comes from
+ *  kafka education topic.
+ */
 @Data
 @Builder
 @NoArgsConstructor
