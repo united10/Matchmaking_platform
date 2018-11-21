@@ -1,3 +1,9 @@
+<mat-toolbar *ngIf="isLoggedIn">
+  <span>MatchMaking Platform</span>
+  <span class="header-spacer"></span>
+  <span class="header-right" routerLink="/Communities">Your Communities</span>
+  <button class="btn default" (click)="logout()">Logout</button>
+</mat-toolbar>
 <app-employee-dashboard-smart
 (employeeEmit)=setEmployees($event)
 ></app-employee-dashboard-smart>

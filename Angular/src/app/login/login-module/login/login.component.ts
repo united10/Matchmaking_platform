@@ -48,12 +48,14 @@ export class LoginComponent implements OnInit {
   onLoginSubmit() {
     console.log(this.loginForm.value);
     this.authService.submit(this.loginForm.value).subscribe( data => {
-      this.tokenStorageService.saveToken(data.token);
-      this.tokenStorageService.saveEmail(data.email);
+      if (data.token != null || data.token !== '') {
+        this.tokenStorageService.saveToken(data.token);
+        this.tokenStorageService.saveEmail(data.email);
         this.isLoginFailed = false;
         this.isLoggedIn = true;
-        // this.reloadPage();
         this.router.navigate([`/home/user`]);
+      }
+        // this.reloadPage();
       }
       ,
       error => {

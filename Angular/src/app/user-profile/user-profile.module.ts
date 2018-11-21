@@ -13,6 +13,7 @@ import {  HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CardComponent } from '../add-module/card/card.component';
 import { CardsModule } from '../add-module/cards.module';
+import { MaterialModule } from '../login/login-module/material.module';
 
 
 @NgModule({
@@ -25,7 +26,8 @@ import { CardsModule } from '../add-module/cards.module';
     MatMenuModule,
     MatButtonModule,
     LayoutModule,
-    CardsModule
+    CardsModule,
+    MaterialModule
   ],
   declarations: [
     EmployeeDashboardDummyComponent,

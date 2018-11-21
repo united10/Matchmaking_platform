@@ -1,18 +1,28 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { map } from 'rxjs/operators';
 import { Breakpoints, BreakpointObserver } from '@angular/cdk/layout';
+import { TokenStorageService } from 'src/app/login/service/token-storage.service';
 
 @Component({
   selector: 'app-employee-dashboard-dummy',
   templateUrl: './employee-dashboard-dummy.component.html',
   styleUrls: ['./employee-dashboard-dummy.component.css'],
 })
-export class EmployeeDashboardDummyComponent {
+export class EmployeeDashboardDummyComponent implements OnInit{
   /** Based on the screen size, switch from standard to one column per row */
 
   cards;
   keys;
-  constructor(private breakpointObserver: BreakpointObserver) {}
+  isLoggedIn = false;
+  constructor(private breakpointObserver: BreakpointObserver,
+    private tokenstorageservice: TokenStorageService ) {}
+
+
+  ngOnInit() {
+    if (this.tokenstorageservice.getToken()) {
+      this.isLoggedIn = true;
+    }
+  }
 
   setEmployees(employees: any) {
     this.cards = this.breakpointObserver.observe(Breakpoints.Handset).pipe(
@@ -115,5 +125,10 @@ export class EmployeeDashboardDummyComponent {
   isTitle(title, check) {
 
     return title === check;
+  }
+
+  logout() {
+    this.tokenstorageservice.signOut();
+    window.location.reload();
   }
 }
