@@ -15,7 +15,7 @@ export class SignUpComponent implements OnInit {
   hide = true;
   submitted = false;
   errorMsg = '';
-  model: RegisterModel;
+  model: String;
 
   constructor(
     private formBuilder: FormBuilder,
