@@ -15,6 +15,7 @@ export class SignUpComponent implements OnInit {
   hide = true;
   submitted = false;
   errorMsg = '';
+  model: RegisterModel;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -34,8 +35,12 @@ export class SignUpComponent implements OnInit {
   }
 
   onRegisterSubmit() {
-    this.submitted = true;
     console.log(this.registerForm.value);
-    this._registerService.submit(this.registerForm.value).subscribe();
+    this._registerService.submit(this.registerForm.value).subscribe(
+        data => {
+          this.model = data;
+          console.log(this.model);
+        }
+    );
   }
 }
