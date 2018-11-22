@@ -1,12 +1,14 @@
 server:
-  port: 8097
+  port: 8095
 
 spring:
   application.name: InterestsService
   cloud.config.uri: http://localhost:8888
+#  datasource.url: …
+#  datasource.driver-class-name: …
 
 kafka:
-  ipAddress: 172.23.239.245:9092
+  ipAddress: 13.233.180.226:9092
   groupId: group_id20
   outputTopic: indexer
   linsteningTopic: interest

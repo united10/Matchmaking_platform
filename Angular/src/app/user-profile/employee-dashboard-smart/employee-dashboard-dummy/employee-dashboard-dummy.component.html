@@ -53,6 +53,26 @@
             </li>
             <li >{{content.skillLevel}}</li>
             </ul>    </mat-card-content>
+        <mat-card-content class="dashboard-card-content" *ngIf="isTitle(card.title,'Project')" >
+              <ul *ngFor="let content of card.contents" style="list-style: none">
+           
+              <li ><h1 class="mat-h2">{{content.projectTitle}}</h1>
+                <button mat-icon-button class="more-button" [matMenuTriggerFor]="menu" aria-label="Toggle menu">
+                  <mat-icon>create</mat-icon>
+                </button>
+                <mat-menu #menu="matMenu" xPosition="before">
+                  <button mat-menu-item>Update</button>
+                  <button mat-menu-item>Delete</button>
+                </mat-menu>
+              </li>
+              <li >{{content.role}}</li>
+              <li >{{content.fromDate}}</li>
+              <li>{{content.toDate}}</li>
+              <li><a href="content.projectUrl">{{content.projectUrl}}</a></li>
+              <li >{{content.description}}</li>
+              </ul>
+            </mat-card-content>
+      
     
       </mat-card>
 

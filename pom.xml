@@ -38,6 +38,7 @@
         <module>EducationService</module>
         <module>UserAuthentication</module>
         <module>SkillService</module>
+        <module>InterestService</module>
 
 
     </modules>
