@@ -40,6 +40,7 @@ export class SignUpComponent implements OnInit {
         data => {
           this.model = data;
           console.log(this.model);
+          this.router.navigate([``]);
         }
     );
   }

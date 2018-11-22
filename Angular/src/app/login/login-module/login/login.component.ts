@@ -50,9 +50,12 @@ export class LoginComponent implements OnInit {
         this.tokenStorageService.saveRole(data.role);
         this.isLoginFailed = false;
         this.isLoggedIn = true;
+        if (data.role === 'consumer' ) {
         this.router.navigate([`/home/user`]);
+        } else {
+          this.router.navigate([`/recruiter`]);
+        }
       }
-        // this.reloadPage();
       }
       ,
       error => {
