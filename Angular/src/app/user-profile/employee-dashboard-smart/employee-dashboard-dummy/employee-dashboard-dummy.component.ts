@@ -125,7 +125,9 @@ export class EmployeeDashboardDummyComponent implements OnInit{
           for (const location of employees.location) {
 
             contents[j] = {
-              'currentLocation' : location.currentLocation,
+              'currentCityName' : location.currentLocation.cityName,
+              'currentStateName' : location.currentLocation.stateName,
+              'currentPinCode' : location.currentLocation.pinCode,
               'pastLocation' : location.pastLocation
             };
 

@@ -10,6 +10,13 @@
   bottom: 15px;
 }
 
+.dashboard-card-content{
+  font-family: 'Roboto', sans-serif;
+}
+.mat-h1{
+  -moz-text-align-last: left;
+  text-align : left;
+}
 .more-button {
   position: absolute;
   top: 5px;

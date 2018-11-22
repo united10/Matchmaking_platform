@@ -24,7 +24,8 @@
         <mat-card-content class="dashboard-card-content" *ngIf="isTitle(card.title,'Education')" >
           <ul *ngFor="let content of card.contents" style="list-style: none">
        
-          <li ><h1 class="mat-h2">{{content.qualification}}</h1>
+          <li >
+            <h1 class="mat-h2">{{content.qualification}}</h1>
             <button mat-icon-button class="more-button" [matMenuTriggerFor]="menu" aria-label="Toggle menu">
               <mat-icon>create</mat-icon>
             </button>
@@ -70,6 +71,31 @@
               <li>{{content.toDate}}</li>
               <li><a href="content.projectUrl">{{content.projectUrl}}</a></li>
               <li >{{content.description}}</li>
+              </ul>
+            </mat-card-content>
+
+            <mat-card-content class="dashboard-card-content" *ngIf="isTitle(card.title,'Location')" >
+              <ul *ngFor="let content of card.contents" style="list-style: none">
+              <h1>Current Location</h1>
+              <li ><h1 class="mat-h2">{{content.currentLocation}}</h1>
+                <button mat-icon-button class="more-button" [matMenuTriggerFor]="menu" aria-label="Toggle menu">
+                  <mat-icon>create</mat-icon>
+                </button>
+                <mat-menu #menu="matMenu" xPosition="before">
+                  <button mat-menu-item>Update</button>
+                  <button mat-menu-item>Delete</button>
+                </mat-menu>
+              </li>
+              <ul *ngFor="let content of card.contents" style="list-style: none">
+                <li>
+                  {{content.pastLocation}}
+                </li>>  
+              </ul>
+              <!-- <li >{{content.pastLocation}}</li>
+              <li >{{content.fromDate}}</li>
+              <li>{{content.toDate}}</li>
+              <li><a href="content.projectUrl">{{content.projectUrl}}</a></li>
+              <li >{{content.description}}</li> -->
               </ul>
             </mat-card-content>
       
