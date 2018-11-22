@@ -106,7 +106,6 @@
             </mat-card-content>
             <mat-card-content class="dashboard-card-content" *ngIf="isTitle(card.title,'Certificate')" >
               <ul *ngFor="let content of card.contents" style="list-style: none">
-              <h1>Certificates</h1>
               <li ><h1 class="mat-h2">{{content.certificateName}}</h1>
                 <button mat-icon-button class="more-button" [matMenuTriggerFor]="menu" aria-label="Toggle menu">
                   <mat-icon>create</mat-icon>

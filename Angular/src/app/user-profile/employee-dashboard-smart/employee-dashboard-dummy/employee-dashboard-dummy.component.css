@@ -14,9 +14,9 @@
   font-family: 'Roboto', sans-serif;
 } 
 .mat-h1{
-  -moz-text-align-last: left;
-  text-align-last : left;
-  text-align: left;
+  -moz-text-align-last: center;
+  text-align-last : center;
+  text-align: center;
 }
 .more-button {
   position: absolute;
@@ -43,7 +43,7 @@
 .header-right {
   padding: 0 14px;
 }
-.btn {
+.btn {  
   display: inline-block;
   padding: 0 14px;
 }
