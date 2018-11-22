@@ -5,6 +5,7 @@ sonar:
     sources: src
     modules: CertificationService, DownstreamService
 
+
 CertificationService.sonar.projectName: Certificate Service
 DownstreamService.sonar.projectName: Downstream Service
 
