@@ -20,9 +20,9 @@ public class KafkaListen {
     public void consumeJson(@Payload Section exp)
     {
         System.out.println( exp);
-        Relationships relationships=new Relationships("Working","is-a");
-        CommonOutput commonOutput=new CommonOutput("post","vivek","pandey",
-                "Bangalore","Visiting",relationships);
+        Relationships relationships=new Relationships("${kafka.relationshipProperty}","${kafka.relationshipType}");
+        CommonOutput commonOutput=new CommonOutput("${kafka.operationType}","${kafka.sourceNode}","${kafka.sourceNodeProperties}",
+                "${kafka.terminalNode}","${kafka.terminalNodeProperties}",relationships);
         indexResource.postDate(commonOutput);
     }
 }

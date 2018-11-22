@@ -1,6 +1,13 @@
 package com.stackroute.skillservice.listener;
 
 
+
+
+/*
+    It is the class for consuming the data from topic
+    certificate and passing it to index resource which
+    is responsible for producing to the indexer kafka topic
+ */
 import com.stackroute.skillservice.domain.Relationship;
 import com.stackroute.skillservice.domain.CommonOutput;
 import com.stackroute.skillservice.domain.Section;

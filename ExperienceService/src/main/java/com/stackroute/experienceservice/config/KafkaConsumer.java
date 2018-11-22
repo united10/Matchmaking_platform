@@ -17,6 +17,10 @@ import org.springframework.kafka.support.converter.StringJsonMessageConverter;
 import java.util.HashMap;
 import java.util.Map;
 
+/*  KafkaConsumerConfig class is used to setup kafka consumer
+ *  properties.
+ *
+ */
 @EnableKafka
 @Configuration
 public class KafkaConsumer {
@@ -24,11 +28,19 @@ public class KafkaConsumer {
 
     private KafkaProperties kafkaProperties;
 
+    /*
+     *  Method is used to get kafka properties (kafka Ip address
+     *  ,kafka port, groupID)
+     */
     @Autowired
     public void setApp(KafkaProperties kafkaProperties){
         this.kafkaProperties=kafkaProperties;
     }
 
+    /*
+     *  Method is used to consume data(as string) from particular kafka topic
+     *  via groupID.
+     */
     @Bean
     public ConsumerFactory<String, String> consumerFactory() {
 
@@ -50,7 +62,10 @@ public class KafkaConsumer {
         return factory;
     }
 
-
+    /*
+     *  Method is used to consume data(as object) from particular kafka topic
+     *  via groupID.
+     */
     @Bean
     public ConsumerFactory<String, Section> userConsumerFactory() {
 
