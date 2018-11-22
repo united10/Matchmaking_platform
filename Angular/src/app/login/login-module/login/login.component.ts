@@ -17,8 +17,6 @@ export class LoginComponent implements OnInit {
   isLoggedIn = false;
   isLoginFailed = false;
   errorMessage = '';
-  token: string;
-  email: string;
 
 
   constructor(private formBuilder: FormBuilder,
@@ -40,8 +38,6 @@ export class LoginComponent implements OnInit {
     });
     if (this.tokenStorageService.getToken()) {
       this.isLoggedIn = true;
-      this.token = this.tokenStorageService.getToken();
-      this.email = this.tokenStorageService.getEmail();
     }
   }
 
@@ -51,6 +47,7 @@ export class LoginComponent implements OnInit {
       if (data.token != null || data.token !== '') {
         this.tokenStorageService.saveToken(data.token);
         this.tokenStorageService.saveEmail(data.email);
+        this.tokenStorageService.saveRole(data.role);
         this.isLoginFailed = false;
         this.isLoggedIn = true;
         this.router.navigate([`/home/user`]);

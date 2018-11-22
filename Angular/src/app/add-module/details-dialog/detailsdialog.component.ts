@@ -6,6 +6,7 @@ import { ExperienceComponent } from '../experience-dialog/experience.component';
 import { SkillComponent } from '../skill-dialog/skill.component';
 import { LocationdialogComponent } from '../location-dialog/locationdialog.component';
 import { ProjectdialogComponent } from '../project-dialog/projectdialog.component';
+import { InterestDialogComponent } from '../interest-dialog/interest-dialog.component';
 
 @Component({
   selector: 'app-detailsdialog',
@@ -42,6 +43,16 @@ export class DetailsdialogComponent implements OnInit {
     dialogConfig.width = '40%';
     this.dialog.open(ExperienceComponent, dialogConfig);
   }
+
+  interestClick() {
+    this.dialogRef.close();
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.disableClose = false;
+    dialogConfig.autoFocus = true;
+    dialogConfig.width = '40%';
+    this.dialog.open(InterestDialogComponent, dialogConfig);
+  }
+
   skillClick() {
     this.dialogRef.close();
     const dialogConfig = new MatDialogConfig();

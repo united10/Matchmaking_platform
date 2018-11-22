@@ -119,21 +119,13 @@ export class EmployeeDashboardDummyComponent implements OnInit{
           let j = 0;
           locationInfo = {
             'title': 'Location',
-            'contents': []
+            'contents':[ {
+              'currentCityName' : employees.location.currentLocation.cityName,
+              'currentStateName' : employees.location.currentLocation.stateName,
+              'currentPinCode' :  employees.location.currentLocation.pinCode,
+              'pastLocation' : employees.location.pastLocation
+            }]
             };
-            const contents = [];
-          for (const location of employees.location) {
-
-            contents[j] = {
-              'currentCityName' : location.currentLocation.cityName,
-              'currentStateName' : location.currentLocation.stateName,
-              'currentPinCode' : location.currentLocation.pinCode,
-              'pastLocation' : location.pastLocation
-            };
-
-            j++;
-          }
-        locationInfo.contents = contents;
         i++;
         cards[i] = locationInfo;
         }
@@ -159,8 +151,9 @@ export class EmployeeDashboardDummyComponent implements OnInit{
         certificateInfo.contents = contents;
         i++;
         cards[i] = certificateInfo;
+        console.log(cards[i]);
         }
-        if (employees.experience != null) {
+        if (employees.experiences != null) {
           let j = 0;
           experienceInfo = {
             'title': 'Experience',
@@ -185,6 +178,7 @@ export class EmployeeDashboardDummyComponent implements OnInit{
         experienceInfo.contents = contents;
         i++;
         cards[i] = experienceInfo;
+        console.log(cards[i]);
         }
         if (matches) {
           for (const index in cards) {

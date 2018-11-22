@@ -12,17 +12,22 @@
 
 .dashboard-card-content{
   font-family: 'Roboto', sans-serif;
-}
+} 
 .mat-h1{
   -moz-text-align-last: left;
-  text-align : left;
+  text-align-last : left;
+  text-align: left;
 }
 .more-button {
   position: absolute;
   top: 5px;
   right: 10px;
 }
-
+.Container{
+  flex-direction: column;
+  flex-wrap: wrap;
+  flex: auto;
+}
 .dashboard-card-content {
   text-align: center;
 }
