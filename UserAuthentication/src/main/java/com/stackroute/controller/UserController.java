@@ -94,11 +94,13 @@ public class UserController {
             throw new ServletException(exceptionMessage5);
         }
                System.out.println("got request");
+        String role = user.getRole();
         String jwt;
-        jwt = Jwts.builder().setSubject(email).claim("roles", email).setIssuedAt(new Date())
+        jwt = Jwts.builder().setSubject(email).claim("roles", role).setIssuedAt(new Date())
                 .signWith(SignatureAlgorithm.HS256, "secretkey").compact();
         jwtToken.setToken(jwt);
         jwtToken.setEmail(email);
+        jwtToken.setRole(role);
         System.out.println(jwtToken);
         return jwtToken;
     }
