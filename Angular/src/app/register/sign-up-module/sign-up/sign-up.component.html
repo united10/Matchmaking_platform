@@ -1,3 +1,8 @@
+<mat-toolbar>
+  <span>MatchMaking Platform</span>
+  <span class="header-spacer"></span>
+  <button mt-button class="btn default" routerLink="">Login</button>
+</mat-toolbar>
 <div class="medium-list">
   <div class="list-viewer-wrapper">
     <div class="list-header-title">Register</div>
@@ -47,8 +52,7 @@
           mat-button
           type="submit"
           class="mat-raised-button mat-primary"
-          [disabled]="!registerForm.valid"
-        >
+          [disabled]="!registerForm.valid">
           Register
         </button>
       </div>

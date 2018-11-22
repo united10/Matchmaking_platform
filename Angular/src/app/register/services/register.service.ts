@@ -21,9 +21,9 @@ export class RegisterService {
   private _url = 'http://13.233.180.226:8097/registration-service/api/v1/registration/user';
   constructor(private _http: HttpClient) {}
 
-  submit(user: RegisterModel): Observable<RegisterModel> {
+  submit(user: RegisterModel): Observable<String> {
     return this._http
-      .post<RegisterModel>(this._url, user, httpOptions)
+      .post<String>(this._url, user, httpOptions)
       .pipe(catchError(this.errorHandler));
   }
   errorHandler(error: HttpErrorResponse) {

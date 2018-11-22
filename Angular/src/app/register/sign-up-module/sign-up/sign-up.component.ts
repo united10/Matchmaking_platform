@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { RegisterModel } from 'src/app/register/models/register.model';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { RegisterService } from 'src/app/register/services/register.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-sign-up',
@@ -14,10 +15,12 @@ export class SignUpComponent implements OnInit {
   hide = true;
   submitted = false;
   errorMsg = '';
+  model: String;
 
   constructor(
     private formBuilder: FormBuilder,
-    private _registerService: RegisterService
+    private _registerService: RegisterService,
+    private router: Router
   ) {}
 
   ngOnInit() {
@@ -32,8 +35,12 @@ export class SignUpComponent implements OnInit {
   }
 
   onRegisterSubmit() {
-    this.submitted = true;
     console.log(this.registerForm.value);
-    this._registerService.submit(this.registerForm.value).subscribe();
+    this._registerService.submit(this.registerForm.value).subscribe(
+        data => {
+          this.model = data;
+          console.log(this.model);
+        }
+    );
   }
 }

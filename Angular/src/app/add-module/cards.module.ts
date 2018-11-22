@@ -48,7 +48,8 @@ import { InterestDialogComponent } from './interest-dialog/interest-dialog.compo
                     CertificatedialogComponent,
                     ExperienceComponent,
                     LocationdialogComponent,
-                    ProjectdialogComponent],
+                    ProjectdialogComponent,
+                    InterestDialogComponent],
 
   exports: [CardComponent]
 })

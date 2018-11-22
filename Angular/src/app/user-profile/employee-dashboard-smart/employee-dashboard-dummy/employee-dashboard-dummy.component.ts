@@ -1,18 +1,28 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { map } from 'rxjs/operators';
 import { Breakpoints, BreakpointObserver } from '@angular/cdk/layout';
+import { TokenStorageService } from 'src/app/login/service/token-storage.service';
 
 @Component({
   selector: 'app-employee-dashboard-dummy',
   templateUrl: './employee-dashboard-dummy.component.html',
   styleUrls: ['./employee-dashboard-dummy.component.css'],
 })
-export class EmployeeDashboardDummyComponent {
+export class EmployeeDashboardDummyComponent implements OnInit{
   /** Based on the screen size, switch from standard to one column per row */
 
   cards;
   keys;
-  constructor(private breakpointObserver: BreakpointObserver) {}
+  isLoggedIn = false;
+  constructor(private breakpointObserver: BreakpointObserver,
+    private tokenstorageservice: TokenStorageService ) {}
+
+
+  ngOnInit() {
+    if (this.tokenstorageservice.getToken()) {
+      this.isLoggedIn = true;
+    }
+  }
 
   setEmployees(employees: any) {
     this.cards = this.breakpointObserver.observe(Breakpoints.Handset).pipe(
@@ -22,6 +32,10 @@ export class EmployeeDashboardDummyComponent {
         let basicInfo;
         let educationInfo;
         let skillsInfo;
+        let projectInfo;
+        let locationInfo;
+        let certificateInfo;
+        let experienceInfo;
         let i = 0;
         console.log(employees);
 
@@ -76,8 +90,100 @@ export class EmployeeDashboardDummyComponent {
         i++;
         cards[i] = skillsInfo;
         }
+        if (employees.projects != null) {
+          let j = 0;
+          projectInfo = {
+            'title': 'Project',
+            'contents': []
+            };
+            const contents = [];
+          for (const projects of employees.projects) {
 
+            contents[j] = {
+              'title': projects.title,
+              'fromDate': projects.fromDate,
+              'toDate' : projects.toDate,
+              'projectUrl' : projects.projectUrl,
+              'role' : projects.role,
+              'technologiesUsed' : projects.technologiesUsed,
+              'description' : projects.description
+            };
 
+            j++;
+          }
+        projectInfo.contents = contents;
+        i++;
+        cards[i] = projectInfo;
+        }
+        if (employees.location != null) {
+          let j = 0;
+          locationInfo = {
+            'title': 'Location',
+            'contents': []
+            };
+            const contents = [];
+          for (const location of employees.location) {
+
+            contents[j] = {
+              'currentLocation' : location.currentLocation,
+              'pastLocation' : location.pastLocation
+            };
+
+            j++;
+          }
+        locationInfo.contents = contents;
+        i++;
+        cards[i] = locationInfo;
+        }
+        if (employees.certificates != null) {
+          let j = 0;
+          certificateInfo = {
+            'title': 'Certificate',
+            'contents': []
+            };
+            const contents = [];
+          for (const certificates of employees.certificates) {
+
+            contents[j] = {
+              'certificateName' : certificates.certificateName,
+              'certificateAuthority' : certificates.certificateAuthority,
+              'licenseNumber' : certificates.licenseNumber,
+              'fromDate' : certificates.fromDate,
+              'toDate' : certificates.toDate
+            };
+
+            j++;
+          }
+        certificateInfo.contents = contents;
+        i++;
+        cards[i] = certificateInfo;
+        }
+        if (employees.experience != null) {
+          let j = 0;
+          experienceInfo = {
+            'title': 'Experience',
+            'contents': []
+            };
+            const contents = [];
+          for (const experiences of employees.experiences) {
+
+            contents[j] = {
+              'organisation' :  experiences.organisation,
+              'role' : experiences.role,
+              'fromDate' : experiences.fromDate,
+              'toDate' : experiences.toDate,
+              'fromMonth' : experiences.fromMonth,
+              'toMonth' : experiences.toMonth,
+              'fromYear' : experiences.fromYear,
+              'toYear' : experiences.toYear
+            };
+
+            j++;
+          }
+        experienceInfo.contents = contents;
+        i++;
+        cards[i] = experienceInfo;
+        }
         if (matches) {
           for (const index in cards) {
             cards[index].cols = 2;
@@ -115,5 +221,10 @@ export class EmployeeDashboardDummyComponent {
   isTitle(title, check) {
 
     return title === check;
+  }
+
+  logout() {
+    this.tokenstorageservice.signOut();
+    window.location.reload();
   }
 }
