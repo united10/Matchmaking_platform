@@ -9,9 +9,6 @@
   color: aliceblue;
   font-family: 'IBM Plex Sans', sans-serif;
 }
-.spacer {
-    flex-grow: 1;
-}
 .medium-list {
   border-radius: 25px;
     margin: auto;
