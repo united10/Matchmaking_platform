@@ -22,7 +22,7 @@
           <div ><h2 class="mat-h1">{{card.contents.email}}</h2></div>
         </mat-card-content>
         <mat-card-content class="dashboard-card-content" *ngIf="isTitle(card.title,'Education')" >
-          <ul *ngFor="let content of card.contents" style="list-style: none">
+          <!-- <ul *ngFor="let content of card.contents" style="list-style: none">
           <div class = "Container">
             <div class="Summary">  
           <li >
@@ -44,7 +44,29 @@
                 </mat-menu>
           </div>
           </div>      
-          </ul>
+          </ul> -->
+          <div class ="Wrapper">
+            <mat-card *ngFor="let content of card.contents" >
+              <mat-card-content>
+                  <div class = "button">
+                      <button mat-icon-button class="more-button">
+                          <mat-icon>edit</mat-icon>
+                        </button>
+                        <button mat-icon-button class="delete-button">
+                            <mat-icon>delete</mat-icon>
+                          </button>
+                        <!-- <mat-menu #menu="matMenu" xPosition="before">
+                          <button mat-menu-item>Update</button>
+                          <button mat-menu-item>Delete</button>
+                        </mat-menu> -->
+                  </div>
+                <div>{{content.qualification}}</div>
+                <div>{{content.summary}}</div>
+                <div>{{content.institution}}</div>
+                <div>{{content.startDate}} - {{content.endDate}}</div>
+              </mat-card-content>
+            </mat-card>
+            </div>
         </mat-card-content>
         <mat-card-content class="dashboard-card-content" *ngIf="isTitle(card.title,'Skills')" >
           <ul *ngFor="let content of card.contents" style="list-style: none">

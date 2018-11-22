@@ -198,10 +198,12 @@ export class EmployeeDashboardDummyComponent implements OnInit{
           } else {
             if(cards[index].title  === 'Skills') {
               cards[index].rows = cards[index].contents.length/2 ;
-            }
+              cards[index].cols = 1;
+            }else{
             console.log(cards[index].contents.length);
             cards[index].rows = cards[index].contents.length ;
             cards[index].cols = 1;
+            }
           }
 
         }

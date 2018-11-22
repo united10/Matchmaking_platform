@@ -1,13 +1,13 @@
 .grid-container {
-  margin: 20px;
+  margin: 50px;
 }
 
 .dashboard-card {
   position: absolute;
   top: 15px;
   left: 15px;
-  right: 15px;
-  bottom: 15px;
+  right: 5px;
+  bottom: 5px;
 }
 
 .dashboard-card-content{
@@ -21,7 +21,13 @@
 .more-button {
   position: absolute;
   top: 5px;
-  right: 10px;
+  right: 25px;
+}
+
+.delete-button {
+  position: absolute;
+  top: 5px;
+  right: 5px;
 }
 .Container{
   flex-direction: column;
