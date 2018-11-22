@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 
 const TOKEN_KEY = 'AuthToken';
 const EMAIL_KEY = 'AuthEmail';
+const ROLE_KEY = 'AuthRole';
 @Injectable({
   providedIn: 'root'
 })
@@ -24,5 +25,12 @@ export class TokenStorageService {
   }
   public getEmail(): string {
     return localStorage.getItem(EMAIL_KEY);
+  }
+  public saveRole(role: string) {
+    localStorage.removeItem(ROLE_KEY);
+    localStorage.setItem(ROLE_KEY, role);
+  }
+  public getRole(): string {
+    return localStorage.getItem(ROLE_KEY);
   }
 }
