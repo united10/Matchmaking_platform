@@ -10,10 +10,20 @@ import { Router } from '@angular/router';
 export class AppComponent {
   title = 'matchmaking';
   constructor(tokenStorageService: TokenStorageService , router: Router) {
+  //   if (tokenStorageService.getToken()) {
+  //     router.navigate(['home/user']);
+  //   } else {
+  //     router.navigate(['']);
+  //   }
+  // }
     if (tokenStorageService.getToken()) {
+      if ( tokenStorageService.getRole() === 'consumer' ) {
       router.navigate(['home/user']);
-    } else {
+    } else if ( tokenStorageService.getRole() === 'recruiter') {
+       router.navigate(['/search']);
+     }
+  } else {
       router.navigate(['']);
     }
-  }
+}
 }
