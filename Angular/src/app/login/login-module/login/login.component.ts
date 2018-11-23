@@ -53,7 +53,7 @@ export class LoginComponent implements OnInit {
         if (data.role === 'consumer' ) {
         this.router.navigate([`/home/user`]);
         } else {
-          this.router.navigate([`/recruiter`]);
+          this.router.navigate([`/search`]);
         }
       }
       }

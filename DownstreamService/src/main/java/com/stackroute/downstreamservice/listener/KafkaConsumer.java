@@ -73,7 +73,18 @@ public class KafkaConsumer {
         }
 
         try {
-            employeeService.addEducationData(educationList,educationSection.getUserId());
+            String operation=educationSection.getOperationType();
+            String userId=educationSection.getUserId();
+            if(operation.equals("add")) {
+                employeeService.addEducationData(educationList,userId );
+            }else if(operation.equals("delete")){
+                employeeService.deleteEducationData(educationList.get(0),userId);
+            }else if(operation.equals("update")){
+
+            }else{
+                logger.info("");
+            }
+
             logger.info("${kafka.success}");
 
         }catch(EmployeeNotFoundException employeeNotFound){
@@ -89,7 +100,7 @@ public class KafkaConsumer {
     @KafkaListener(topics = "${kafka.listeningTopic3}" ,groupId = "${kafka.groupId}",
             containerFactory="userKafkaListenerFactory")
 
-    public void consumeSkillsJson(@Payload SkillsSection skillsSection) {
+    public void consumeSkillsJson(@Payload Section skillsSection) {
        if( logger.isDebugEnabled()) {
             logger.debug(String.format("${kafka.consumed} : %s", skillsSection));
         }
@@ -103,7 +114,16 @@ public class KafkaConsumer {
         }
 
         try {
-            employeeService.addSkillsData(skillsList,skillsSection.getUserId());
+            String operation=skillsSection.getOperationType();
+            String userId=skillsSection.getUserId();
+
+            if(operation.equals("add")) {
+                employeeService.addSkillsData(skillsList, skillsSection.getUserId());
+            }else if(operation.equals("delete")){
+                employeeService.deleteSkillsData(skillsList.get(0),userId);
+            }else{
+
+            }
             logger.info("${kafka.success}");
 
         }catch(EmployeeNotFoundException employeeNotFound){
@@ -127,7 +147,6 @@ public class KafkaConsumer {
         Location location=Location.builder().build();
         Chicklets[] chicklets=locationSection.getChicklets();
         for(Chicklets chicklet:chicklets){
-
             CurrentLocation currentLocation=chicklet.getCurrentLocation();
             PastLocation[] pastLocation=chicklet.getPastLocation();
             List<PastLocation> pastLocations= Arrays.asList(pastLocation);
@@ -136,8 +155,19 @@ public class KafkaConsumer {
         }
 
         try {
-            employeeService.addLocationData(location,locationSection.getUserId());
-            logger.info("${kafka.success}");
+            String operation=locationSection.getOperationType();
+            String userId=locationSection.getUserId();
+            if(operation.equals("add")) {
+            employeeService.addLocationData(location, userId);
+        }else if(operation.equals("delete")){
+                if(location.getCurrentLocation()==null) {
+                    employeeService.deletePastLocation(location.getPastLocation().get(0), userId);
+                }else {
+                    employeeService.deleteCurrentLocationData(location.getCurrentLocation(), userId);
+                }
+                }else{
+
+        }logger.info("${kafka.success}");
 
         }catch(EmployeeNotFoundException employeeNotFound){
             logger.error(employeeNotFound.getMessage());
@@ -166,7 +196,17 @@ public class KafkaConsumer {
         }
 
         try {
-            employeeService.addCertificateData(certificates,section.getUserId());
+            String operation=section.getOperationType();
+            String userId=section.getUserId();
+
+            if(operation.equals("add")) {
+                employeeService.addCertificateData(certificates, userId);
+            }else if(operation.equals("delete")){
+                employeeService.deleteCertificateData(certificates.get(0),userId);
+
+            }else {
+
+            }
             logger.info("${kafka.success}");
 
         }catch(EmployeeNotFoundException employeeNotFound){
@@ -195,7 +235,16 @@ public class KafkaConsumer {
         }
 
         try {
-            employeeService.addProjectData(projects,section.getUserId());
+            String operation=section.getOperationType();
+            String userId=section.getUserId();
+
+            if(operation.equals("add")) {
+                employeeService.addProjectData(projects, section.getUserId());
+            }else if(operation.equals("delete")){
+                employeeService.deleteProjectData(projects.get(0),userId);
+            }else{
+
+            }
             logger.info("${kafka.success}");
 
         }catch(EmployeeNotFoundException employeeNotFound){
@@ -225,8 +274,17 @@ public class KafkaConsumer {
         }
 
         try {
-            employeeService.addExperienceData(experiences,section.getUserId());
-            logger.info("${kafka.success}");
+
+            String operation=section.getOperationType();
+            String userId=section.getUserId();
+
+            if(operation.equals("add")) {
+                employeeService.addExperienceData(experiences, userId);
+            }else if(operation.equals("delete")){
+                employeeService.deleteExperienceData(experiences.get(0),userId);
+            }else{
+
+            }logger.info("${kafka.success}");
 
         }catch(EmployeeNotFoundException employeeNotFound){
             logger.error(employeeNotFound.getMessage());
