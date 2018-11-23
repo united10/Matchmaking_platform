@@ -1,6 +1,6 @@
 .main{
   background-image: url('src\assets\images\bg2.jpg');
-  height: 100vh;
+  height: 100%;
 }
 .header{
   background-color: rgba(238, 238, 238, 0);

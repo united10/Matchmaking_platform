@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Renderer2, Inject } from '@angular/core';
 import { DOCUMENT } from '@angular/platform-browser';
+import { TokenStorageService } from 'src/app/login/service/token-storage.service';
 
 @Component({
   selector: 'app-search',
@@ -9,9 +10,16 @@ import { DOCUMENT } from '@angular/platform-browser';
 })
 export class SearchComponent implements OnInit {
 
-  constructor(private _renderer2: Renderer2, @Inject(DOCUMENT) private _document) { }
+  constructor(private _renderer2: Renderer2,
+    private tokenstorageservice: TokenStorageService,
+     @Inject(DOCUMENT) private _document) { }
+
+  isLoggedIn = false;
 
   ngOnInit() {
+    if (this.tokenstorageservice.getToken()) {
+        this.isLoggedIn = true;
+      }
     const s1 = this._renderer2.createElement('script');
         s1.type = `application/ld+json`;
         s1.text = `
@@ -54,5 +62,8 @@ export class SearchComponent implements OnInit {
         this._renderer2.appendChild(this._document.body, s4);
         this._renderer2.appendChild(this._document.body, s5);
   }
-
+  logout() {
+    this.tokenstorageservice.signOut();
+    window.location.reload();
+  }
 }
