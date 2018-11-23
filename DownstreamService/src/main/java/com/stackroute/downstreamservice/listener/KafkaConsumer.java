@@ -58,9 +58,8 @@ public class KafkaConsumer {
     @KafkaListener(topics = "${kafka.listeningTopic2}" ,groupId = "${kafka.groupId}",
             containerFactory="${kafka.containerFactory}")
     public void consumeEducationJson(@Payload EducationSection educationSection) {
-        if(logger.isDebugEnabled()) {
-            logger.debug(String.format("${kafka.consumed} : %s", educationSection));
-        }
+         logger.info(String.format("${kafka.consumed} : %s", educationSection));
+
         List<Education> educationList=new ArrayList<>();
         Chicklets[] chicklets=educationSection.getChicklets();
         for(Chicklets chicklet:chicklets){
@@ -75,9 +74,11 @@ public class KafkaConsumer {
         try {
             String operation=educationSection.getOperationType();
             String userId=educationSection.getUserId();
+            logger.info(operation);
             if(operation.equals("add")) {
                 employeeService.addEducationData(educationList,userId );
             }else if(operation.equals("delete")){
+                logger.info(educationList.get(0).toString());
                 employeeService.deleteEducationData(educationList.get(0),userId);
             }else if(operation.equals("update")){
 

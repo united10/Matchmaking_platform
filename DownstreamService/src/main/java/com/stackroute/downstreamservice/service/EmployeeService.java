@@ -197,7 +197,7 @@ public class EmployeeService {
             Employee employee = employeeRepository.findById(userId).get();
             List<Education> fetchEducation = employee.getEducations();
             for (Education tempEducation : fetchEducation) {
-                if (tempEducation.toString().equals(education.toString())) {
+                if (tempEducation.getQualification().getQualificationId().toString().equals(education.getQualification().getQualificationId().toString())) {
                     fetchEducation.remove(tempEducation);
                     break;
                 }
