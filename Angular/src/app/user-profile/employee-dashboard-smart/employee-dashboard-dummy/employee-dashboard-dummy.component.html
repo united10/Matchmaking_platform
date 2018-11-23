@@ -22,124 +22,139 @@
           <div ><h2 class="mat-h1">{{card.contents.email}}</h2></div>
         </mat-card-content>
         <mat-card-content class="dashboard-card-content" *ngIf="isTitle(card.title,'Education')" >
-          <ul *ngFor="let content of card.contents" style="list-style: none">
-          <div class = "Container">
-            <div class="Summary">  
-          <li >
-            <h1 class="mat-h2">{{content.qualification}}</h1>
-          </li>
-          <li >{{content.summary}}</li>
-          <li>{{content.institution}}</li>
-          <li >{{content.startDate}}</li>
-          <li >{{content.endDate}}</li>
-          
-          </div>
-          <div class = "button">
-              <button mat-icon-button class="more-button" [matMenuTriggerFor]="menu" aria-label="Toggle menu">
-                  <mat-icon>create</mat-icon>
-                </button>
-                <mat-menu #menu="matMenu" xPosition="before">
-                  <button mat-menu-item>Update</button>
-                  <button mat-menu-item>Delete</button>
-                </mat-menu>
-          </div>
-          </div>      
-          </ul>
+          <div class ="Wrapper">
+            <mat-card class="card1" *ngFor="let content of card.contents" >
+              <mat-card-content>
+                  <div class = "button">
+                      <button mat-icon-button class="more-button">
+                          <mat-icon>edit</mat-icon>
+                        </button>
+                        <button mat-icon-button class="delete-button">
+                            <mat-icon>delete</mat-icon>
+                          </button>
+                  </div>
+                <div>{{content.qualification}}</div>
+                <div>{{content.summary}}</div>
+                <div>{{content.institution}}</div>
+                <div>{{content.startDate}} - {{content.endDate}}</div>
+              </mat-card-content>
+            </mat-card>
+            </div>
         </mat-card-content>
         <mat-card-content class="dashboard-card-content" *ngIf="isTitle(card.title,'Skills')" >
-          <ul *ngFor="let content of card.contents" style="list-style: none">
-       
-            <li ><h1 class="mat-h2">{{content.skillName}}</h1>
-              <button mat-icon-button class="more-button" [matMenuTriggerFor]="menu" aria-label="Toggle menu">
-                <mat-icon>create</mat-icon>
-              </button>
-              <mat-menu #menu="matMenu" xPosition="before">
-                <button mat-menu-item>Update</button>
-                <button mat-menu-item>Delete</button>
-              </mat-menu>
-            </li>
-            <li >{{content.skillLevel}}</li>
-            </ul>    </mat-card-content>
-        <mat-card-content class="dashboard-card-content" *ngIf="isTitle(card.title,'Project')" >
-              <ul *ngFor="let content of card.contents" style="list-style: none">
-           
-              <li ><h1 class="mat-h2">{{content.projectTitle}}</h1>
-                <button mat-icon-button class="more-button" [matMenuTriggerFor]="menu" aria-label="Toggle menu">
-                  <mat-icon>create</mat-icon>
-                </button>
-                <mat-menu #menu="matMenu" xPosition="before">
-                  <button mat-menu-item>Update</button>
-                  <button mat-menu-item>Delete</button>
-                </mat-menu>
-              </li>
-              <li >{{content.role}}</li>
-              <li >{{content.fromDate}}</li>
-              <li>{{content.toDate}}</li>
-              <li><a href="content.projectUrl">{{content.projectUrl}}</a></li>
-              <li >{{content.description}}</li>
-              </ul>
-            </mat-card-content>
+            <div class ="Wrapper">
+              <mat-card class="card1" *ngFor="let content of card.contents" >
+                <mat-card-content>
+                    <div class = "button">
+                        <button mat-icon-button class="more-button">
+                            <mat-icon>edit</mat-icon>
+                          </button>
+                          <button mat-icon-button class="delete-button">
+                              <mat-icon>delete</mat-icon>
+                            </button>
+                    </div>
+                  <div>{{content.skillName}}</div>
+                  <div>{{content.skillLevel}}</div>
 
+                </mat-card-content>
+              </mat-card>
+              </div>
+          </mat-card-content>
+          <mat-card-content class="dashboard-card-content" *ngIf="isTitle(card.title,'Project')" >
+              <div class ="Wrapper">
+                <mat-card class="card1" *ngFor="let content of card.contents" >
+                  <mat-card-content>
+                      <div class = "button">
+                          <button mat-icon-button class="more-button">
+                              <mat-icon>edit</mat-icon>
+                            </button>
+                            <button mat-icon-button class="delete-button">
+                                <mat-icon>delete</mat-icon>
+                              </button>
+                      </div>
+                    <div>{{content.projectTitle}}</div>
+                    <div>{{content.role}}</div>
+                    <div>{{content.fromDate-content.toDate}}</div>
+                    <div><a href="content.projectUrl">{{content.projectUrl}}</a></div>
+                    <div>{{content.description}}</div>
+                    <div *ngFor= "let skill of content.technologiesUsed">
+                        <div>
+                          {{skill.level}}
+                        </div>
+                    </div>
+
+                  </mat-card-content>
+                </mat-card>
+                </div>
+            </mat-card-content>
             <mat-card-content class="dashboard-card-content" *ngIf="isTitle(card.title,'Location')" >
-              <ul *ngFor="let content of card.contents" style="list-style: none">
-              <h1>Current Location</h1>
-              <li ><h1 class="mat-h2">{{content.currentCityName}}</h1>
-                <button mat-icon-button class="more-button" [matMenuTriggerFor]="menu" aria-label="Toggle menu">
-                  <mat-icon>create</mat-icon>
-                </button>
-                <mat-menu #menu="matMenu" xPosition="before">
-                  <button mat-menu-item>Update</button>
-                  <button mat-menu-item>Delete</button>
-                </mat-menu>
-              </li>
-              <ul *ngFor="let pastLocation of content.pastLocation" style="list-style: none">
-                <li>
-                  {{pastLocation.cityName}},{{pastLocation.stateName}}
-                </li>  
-              </ul>
-              <!-- <li >{{content.pastLocation}}</li>
-              <li >{{content.fromDate}}</li>
-              <li>{{content.toDate}}</li>
-              <li><a href="content.projectUrl">{{content.projectUrl}}</a></li>
-              <li >{{content.description}}</li> -->
-              </ul>
+              <div class ="Wrapper">
+                <mat-card class="card1" *ngFor="let content of card.contents" >
+                  <mat-card-content>
+                      <div class = "button">
+                          <button mat-icon-button class="more-button">
+                              <mat-icon>edit</mat-icon>
+                            </button>
+                            <button mat-icon-button class="delete-button">
+                                <mat-icon>delete</mat-icon>
+                              </button>
+                      </div>
+                    <div>{{content.currentLocation}}</div>
+                    <div>{{content.fromDate-content.toDate}}</div>
+                    <div *ngFor= "let pastLocation of content.pastLocation">
+                        <div>
+                          {{pastLocation.location}}
+                        </div>
+                        <div>{{pastLocation.fromDate-pastLocation.toDate}}</div>
+
+                    </div>
+
+                  </mat-card-content>
+                </mat-card>
+                </div>
             </mat-card-content>
             <mat-card-content class="dashboard-card-content" *ngIf="isTitle(card.title,'Certificate')" >
-              <ul *ngFor="let content of card.contents" style="list-style: none">
-              <h1>Certificates</h1>
-              <li ><h1 class="mat-h2">{{content.certificateName}}</h1>
-                <button mat-icon-button class="more-button" [matMenuTriggerFor]="menu" aria-label="Toggle menu">
-                  <mat-icon>create</mat-icon>
-                </button>
-                <mat-menu #menu="matMenu" xPosition="before">
-                  <button mat-menu-item>Update</button>
-                  <button mat-menu-item>Delete</button>
-                </mat-menu>
-              </li>
-              <li >{{content.certificateAuthority}}</li>
-              <li >{{content.licenseNumber}}</li>
-              <li>{{content.fromDate}}</li>
-              <li >{{content.toDate}}</li>
-              </ul>
-            </mat-card-content>
+                <div class ="Wrapper">
+                  <mat-card class="card1" *ngFor="let content of card.contents" >
+                    <mat-card-content>
+                        <div class = "button">
+                            <button mat-icon-button class="more-button">
+                                <mat-icon>edit</mat-icon>
+                              </button>
+                              <button mat-icon-button class="delete-button">
+                                  <mat-icon>delete</mat-icon>
+                                </button>
+                        </div>
+                      <div><h2>{{content.certificateName}}</h2></div>
+                      <div>{{content.certificateAuthority}}</div>
+                      <div>{{content.licenseNumber}}</div>
+                      <div>{{content.fromDate - content.toDate}}</div>
+    
+                    </mat-card-content>
+                  </mat-card>
+                  </div>
+              </mat-card-content>
             <mat-card-content class="dashboard-card-content" *ngIf="isTitle(card.title,'Experience')" >
-              <ul *ngFor="let content of card.contents" style="list-style: none">
-              <h1>Experience</h1>
-              <li ><h1 class="mat-h2">{{content.organisationName}}</h1>
-                <h2 class="mat-h2">{{content.role}}</h2>
-                <button mat-icon-button class="more-button" [matMenuTriggerFor]="menu" aria-label="Toggle menu">
-                  <mat-icon>create</mat-icon>
-                </button>
-                <mat-menu #menu="matMenu" xPosition="before">
-                  <button mat-menu-item>Update</button>
-                  <button mat-menu-item>Delete</button>
-                </mat-menu>
-              </li>
-              <li >{{content.fromYear}}</li>
-              <li >{{content.toYear}}</li>
-              </ul>
-            </mat-card-content>
-
+                <div class ="Wrapper">
+                  <mat-card class="card1" *ngFor="let content of card.contents" >
+                    <mat-card-content>
+                        <div class = "button">
+                            <button mat-icon-button class="more-button">
+                                <mat-icon>edit</mat-icon>
+                              </button>
+                              <button mat-icon-button class="delete-button">
+                                  <mat-icon>delete</mat-icon>
+                                </button>
+                        </div>
+                      <div><h2>{{content.organisationName}}</h2></div>
+                      <div>{{content.role}}</div>
+                      <div>{{content.fromMonth-content.fromYear - content.toMonth -content.toYear}}</div>
+    
+                    </mat-card-content>
+                  </mat-card>
+                  </div>
+              </mat-card-content>
+        
 
     
       </mat-card>

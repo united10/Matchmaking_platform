@@ -14,7 +14,7 @@ export const appRoutes: Routes = [
   }, {
     path: '',
     component: LoginComponent
-  },{
+  }, {
     path: 'search',
     component: SearchComponent
   }, {
