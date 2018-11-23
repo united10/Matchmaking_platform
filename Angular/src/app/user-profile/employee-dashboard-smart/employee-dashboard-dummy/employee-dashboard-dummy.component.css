@@ -1,27 +1,37 @@
 .grid-container {
-  margin: 20px;
+  margin: 50px;
+}
+
+.card1{
+  padding-bottom: 10px;
 }
 
 .dashboard-card {
   position: absolute;
   top: 15px;
   left: 15px;
-  right: 15px;
-  bottom: 15px;
+  right: 5px;
+  bottom: 5px;
 }
 
 .dashboard-card-content{
   font-family: 'Roboto', sans-serif;
 } 
 .mat-h1{
-  -moz-text-align-last: left;
-  text-align-last : left;
-  text-align: left;
+  -moz-text-align-last: center;
+  text-align-last : center;
+  text-align: center;
 }
 .more-button {
   position: absolute;
   top: 5px;
-  right: 10px;
+  right: 25px;
+}
+
+.delete-button {
+  position: absolute;
+  top: 5px;
+  right: 5px;
 }
 .Container{
   flex-direction: column;
@@ -43,7 +53,7 @@
 .header-right {
   padding: 0 14px;
 }
-.btn {
+.btn {  
   display: inline-block;
   padding: 0 14px;
 }
