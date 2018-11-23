@@ -37,7 +37,11 @@ export class LoginComponent implements OnInit {
       ]]
     });
     if (this.tokenStorageService.getToken()) {
-      this.isLoggedIn = true;
+      if (this.tokenStorageService.getRole() === 'consumer' ) {
+        this.router.navigate([`/home/user`]);
+        } else {
+          this.router.navigate([`/search`]);
+        }
     }
   }
 
