@@ -52,7 +52,7 @@ private static final String TOPIC6 = "interest";
     public ResponseEntity<?> newEducation(@RequestBody Education education){
         ResponseEntity responseEntity = null;
         try {
-            education.setOperationType("add");
+//            education.setOperationType("add");
             responseEntity = new ResponseEntity(education, HttpStatus.OK);
             kafkaTemplateEducation.send(TOPIC, education).get();
 
@@ -72,7 +72,7 @@ private static final String TOPIC6 = "interest";
     //Handling put mapping for education
     @PutMapping("${controller.education}")
     public ResponseEntity<?> updateEducation(@RequestBody Education education){
-        education.setOperationType("update");
+//        education.setOperationType("update");
         ResponseEntity responseEntity = new ResponseEntity(education,HttpStatus.OK);
         kafkaTemplateEducation.send(TOPIC,education);
         return responseEntity;
@@ -80,7 +80,7 @@ private static final String TOPIC6 = "interest";
     //Handling delete mapping for education
     @DeleteMapping("${controller.education}")
     public ResponseEntity<?> deleteEducation(@RequestBody Education education){
-        education.setOperationType("delete");
+//        education.setOperationType("delete");
         ResponseEntity responseEntity = new ResponseEntity(education,HttpStatus.OK);
         kafkaTemplateEducation.send(TOPIC,education);
         return responseEntity;
@@ -89,7 +89,7 @@ private static final String TOPIC6 = "interest";
     @PostMapping("${controller.location}")
     public ResponseEntity<?> newLocation(@RequestBody Location location)
     {
-        location.setOperationType("add");
+//        location.setOperationType("add");
         ResponseEntity responseEntity = new ResponseEntity(location,HttpStatus.OK);
         kafkaTemplateLocation.send(TOPIC2,location);
         return responseEntity;
@@ -97,14 +97,14 @@ private static final String TOPIC6 = "interest";
     }
     @PutMapping("${controller.location}")
     public ResponseEntity<?> updateLocation(@RequestBody Location location){
-        location.setOperationType("update");
+//        location.setOperationType("update");
         ResponseEntity responseEntity = new ResponseEntity(location,HttpStatus.OK);
         kafkaTemplateLocation.send(TOPIC2,location);
         return responseEntity;
     }
     @DeleteMapping("${controller.location}")
     public ResponseEntity<?> deleteLocation(@RequestBody Location location){
-        location.setOperationType("delete");
+//        location.setOperationType("delete");
         ResponseEntity responseEntity = new ResponseEntity(location,HttpStatus.OK);
         kafkaTemplateLocation.send(TOPIC2,location);
         return responseEntity;
@@ -114,7 +114,7 @@ private static final String TOPIC6 = "interest";
     public ResponseEntity<?> newSkills(@RequestBody com.example.upstream.domain.skills.Section section)
     {
 
-        section.setOperationType("add");
+//        section.setOperationType("add");
         ResponseEntity responseEntity = new ResponseEntity(section,HttpStatus.OK);
         kafkaTemplateSkills.send(TOPIC1,section);
         return responseEntity;
@@ -123,7 +123,7 @@ private static final String TOPIC6 = "interest";
     @PutMapping("${controller.skills}")
     public ResponseEntity<?> updateSkills(@RequestBody com.example.upstream.domain.skills.Section section)
     {
-        section.setOperationType("update");
+//        section.setOperationType("update");
         ResponseEntity responseEntity = new ResponseEntity(section,HttpStatus.OK);
         kafkaTemplateSkills.send(TOPIC1,section);
         return responseEntity;
@@ -132,7 +132,7 @@ private static final String TOPIC6 = "interest";
     @DeleteMapping("${controller.skills}")
     public ResponseEntity<?> deleteSkills(@RequestBody com.example.upstream.domain.skills.Section section)
     {
-        section.setOperationType("delete");
+//        section.setOperationType("delete");
 
         ResponseEntity responseEntity = new ResponseEntity(section,HttpStatus.OK);
         kafkaTemplateSkills.send(TOPIC1,section);
@@ -142,7 +142,7 @@ private static final String TOPIC6 = "interest";
     @PostMapping("${controller.project}")
     public ResponseEntity<?> newProject(@RequestBody Section section)
     {
-        section.setOperationType("add");
+//        section.setOperationType("add");
         ResponseEntity responseEntity = new ResponseEntity(section,HttpStatus.OK);
         kafkaTemplateProject.send(TOPIC3, section);
         return responseEntity;
@@ -151,7 +151,7 @@ private static final String TOPIC6 = "interest";
     @PutMapping("${controller.project}")
     public ResponseEntity<?> updateProject(@RequestBody Section section)
     {
-        section.setOperationType("update");
+//        section.setOperationType("update");
         ResponseEntity responseEntity = new ResponseEntity(section,HttpStatus.OK);
         kafkaTemplateProject.send(TOPIC3, section);
         return responseEntity;
@@ -160,7 +160,7 @@ private static final String TOPIC6 = "interest";
     @DeleteMapping("${controller.project}")
     public ResponseEntity<?> deleteProject(@RequestBody Section section)
     {
-        section.setOperationType("delete");
+//        section.setOperationType("delete");
         ResponseEntity responseEntity = new ResponseEntity(section,HttpStatus.OK);
         kafkaTemplateProject.send(TOPIC3, section);
         return responseEntity;
@@ -169,7 +169,7 @@ private static final String TOPIC6 = "interest";
     @PostMapping("${controller.experience}")
     public ResponseEntity<?> newExperience(@RequestBody Experience experience)
     {
-        experience.setOperationType("add");
+//        experience.setOperationType("add");
         ResponseEntity responseEntity = new ResponseEntity(experience,HttpStatus.OK);
         kafkaTemplateExperience.send(TOPIC4,experience);
         return responseEntity;
@@ -178,7 +178,7 @@ private static final String TOPIC6 = "interest";
     @PutMapping("${controller.experience}")
     public ResponseEntity<?> updateExperience(@RequestBody Experience experience)
     {
-        experience.setOperationType("update");
+//        experience.setOperationType("update");
         ResponseEntity responseEntity = new ResponseEntity(experience,HttpStatus.OK);
         kafkaTemplateExperience.send(TOPIC4,experience);
         return responseEntity;
@@ -187,7 +187,7 @@ private static final String TOPIC6 = "interest";
     @DeleteMapping("${controller.experience}")
     public ResponseEntity<?> deleteExperience(@RequestBody Experience experience)
     {
-        experience.setOperationType("delete");
+//        experience.setOperationType("delete");
         ResponseEntity responseEntity = new ResponseEntity(experience,HttpStatus.OK);
         kafkaTemplateExperience.send(TOPIC4,experience);
         return responseEntity;
@@ -196,7 +196,7 @@ private static final String TOPIC6 = "interest";
     @PostMapping("${controller.certificate}")
     public ResponseEntity<?> newCertificate(@RequestBody Certificate certificate)
     {
-        certificate.setOperationType("add");
+//        certificate.setOperationType("add");
         ResponseEntity responseEntity = new ResponseEntity(certificate,HttpStatus.OK);
         kafkaTemplateCertificate.send(TOPIC5,certificate);
         return responseEntity;
@@ -205,7 +205,7 @@ private static final String TOPIC6 = "interest";
     @PutMapping("${controller.certificate}")
     public ResponseEntity<?> updateCertificate(@RequestBody Certificate certificate)
     {
-        certificate.setOperationType("update");
+//        certificate.setOperationType("update");
         ResponseEntity responseEntity = new ResponseEntity(certificate,HttpStatus.OK);
         kafkaTemplateCertificate.send(TOPIC5,certificate);
         return responseEntity;
@@ -214,7 +214,7 @@ private static final String TOPIC6 = "interest";
     @DeleteMapping("${controller.certificate}")
     public ResponseEntity<?> deleteCertificate(@RequestBody Certificate certificate)
     {
-        certificate.setOperationType("delete");
+//        certificate.setOperationType("delete");
         ResponseEntity responseEntity = new ResponseEntity(certificate,HttpStatus.OK);
         kafkaTemplateCertificate.send(TOPIC5,certificate);
         return responseEntity;
@@ -223,7 +223,7 @@ private static final String TOPIC6 = "interest";
     @PostMapping("${controller.interest}")
     public ResponseEntity<?> newInterest(@RequestBody com.example.upstream.domain.interest.Section section)
     {
-        section.setOperationType("add");
+//        section.setOperationType("add");
         ResponseEntity responseEntity = new ResponseEntity(section,HttpStatus.OK);
         kafkaTemplateInterest.send(TOPIC6,section);
         return responseEntity;
@@ -232,7 +232,7 @@ private static final String TOPIC6 = "interest";
     @PutMapping("${controller.interest}")
     public ResponseEntity<?> updateInterest(@RequestBody com.example.upstream.domain.interest.Section section)
     {
-        section.setOperationType("update");
+//        section.setOperationType("update");
         ResponseEntity responseEntity = new ResponseEntity(section,HttpStatus.OK);
         kafkaTemplateInterest.send(TOPIC6,section);
         return responseEntity;
@@ -241,7 +241,7 @@ private static final String TOPIC6 = "interest";
     @DeleteMapping("${controller.interest}")
     public ResponseEntity<?> deleteInterest(@RequestBody com.example.upstream.domain.interest.Section section)
     {
-        section.setOperationType("delete");
+//        section.setOperationType("delete");
         ResponseEntity responseEntity = new ResponseEntity(section,HttpStatus.OK);
         kafkaTemplateInterest.send(TOPIC6,section);
         return responseEntity;
