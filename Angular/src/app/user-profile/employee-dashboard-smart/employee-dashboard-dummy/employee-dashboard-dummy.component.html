@@ -6,7 +6,8 @@
 </mat-toolbar>
 <app-employee-dashboard-smart
 (employeeEmit)=setEmployees($event)
-></app-employee-dashboard-smart>
+>
+</app-employee-dashboard-smart>
 <div class="grid-container">
   <h1 class="mat-h1">Dashboard</h1>
   <mat-grid-list cols="2" rowHeight="250px">
@@ -24,17 +25,19 @@
         <mat-card-content class="dashboard-card-content" *ngIf="isTitle(card.title,'Education')" >
           <div class ="Wrapper">
             <mat-card class="card1" *ngFor="let content of card.contents" >
+              <mat-card-header>
+                <h3 class="mat-h3">{{content.qualification}}</h3>
+              </mat-card-header>
               <mat-card-content>
                   <div class = "button">
                       <button mat-icon-button class="more-button">
                           <mat-icon>edit</mat-icon>
                         </button>
-                        <button mat-icon-button class="delete-button">
+                        <button mat-icon-button class="delete-button" (click)=onDelete(content,card.title)>
                             <mat-icon>delete</mat-icon>
                           </button>
                   </div>
-                <div>{{content.qualification}}</div>
-                <div>{{content.summary}}</div>
+                <div><p>{{content.summary}}</p></div>
                 <div>{{content.institution}}</div>
                 <div>{{content.startDate}} - {{content.endDate}}</div>
               </mat-card-content>
@@ -152,11 +155,8 @@
     
                     </mat-card-content>
                   </mat-card>
-                  </div>
+                </div>
               </mat-card-content>
-        
-
-    
       </mat-card>
 
      

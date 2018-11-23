@@ -12,6 +12,8 @@ import { ProjectSection } from 'src/app/add-module/project-dialog/domain/project
 import { CertificateChicklets } from 'src/app/add-module/certificate-dialog/domain/certificatechicklets';
 import { CertificateSection } from 'src/app/add-module/certificate-dialog/domain/certificatesection';
 import { ExperienceSection } from 'src/app/add-module/experience-dialog/domain/section';
+import { Qualification } from 'src/app/add-module/education-dialog/domain/qualification';
+import { Institution } from 'src/app/add-module/education-dialog/domain/institution';
 
 @Component({
   selector: 'app-employee-dashboard-dummy',
@@ -70,7 +72,8 @@ export class EmployeeDashboardDummyComponent implements OnInit{
               'institution': education.institution.institutionName,
               'institution data':education.institution,
               'startDate': education.institution.startDate,
-              'endDate': education.institution.endDate
+              'endDate': education.institution.endDate,
+              'education': education
             };
 
             j++;
@@ -246,10 +249,13 @@ export class EmployeeDashboardDummyComponent implements OnInit{
 
   onDelete(content,title){
     if(title==='Education'){
-      
-      var  educationChicklets=new EducationChicklets(content.qualification,content.institution,content.summary);
+      const qualification=new Qualification(content.education.title,content.education.qualificationId);
+      const institution=new Institution(content.education.institutionId,content.education.institutionName,
+        content.startDate,content.endDate) ;
+      var  educationChicklets=new EducationChicklets(qualification,institution,content.summary);
       const chicklets=[educationChicklets];
-      var educationSection=new EducationSection("Education","userId","delete",chicklets);
+      var educationSection=new EducationSection("Education",this.tokenstorageservice.getEmail(),"delete",chicklets);
+      console.log(educationSection);
       this.downstreamBackendService.deleteEducationDetails(educationSection)
       .subscribe(
         (data)=>{
