@@ -1,3 +1,9 @@
+.nav-content{
+  display: flex;
+  align-items: center;
+  flex-flow: row wrap;
+}
+
 .grid-container {
   margin: 50px;
 }
@@ -53,12 +59,7 @@
   right: 10px;
   bottom: 10px;
 }
-.header-spacer {
-  flex: 1 1 auto;
-}
-.header-right {
-  padding: 0 14px;
-}
+
 .btn {  
   display: inline-block;
   padding: 0 14px;
