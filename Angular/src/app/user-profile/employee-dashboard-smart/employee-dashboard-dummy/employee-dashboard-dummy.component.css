@@ -1,9 +1,29 @@
+.nav-content{
+  display: flex;
+  align-items: center;
+  flex-flow: row wrap;
+}
+
 .grid-container {
   margin: 50px;
 }
-
+.body{
+  background-color:#ffb6c1;
+}
 .card1{
-  padding-bottom: 10px;
+  padding-bottom: 20px;
+  margin: 15px;
+}
+.mat-card{
+  background-color: ghostwhite;
+  justify-content: space-evenly;
+}
+.mat-card-header{
+  font-family: 'Oswald', sans-serif;
+  font-display: inherit;
+}
+.Wrapper{
+  height: 100%;
 }
 
 .dashboard-card {
@@ -11,16 +31,19 @@
   top: 15px;
   left: 15px;
   right: 5px;
-  bottom: 5px;
+  height: 100%;
 }
 
 .dashboard-card-content{
   font-family: 'Roboto', sans-serif;
+  height: 100%;
+  
 } 
 .mat-h1{
   -moz-text-align-last: center;
   text-align-last : center;
   text-align: center;
+  -moz-text-decoration-color: black;
 }
 .more-button {
   position: absolute;
@@ -43,16 +66,11 @@
 }
 
 .fab-button{
-  position: absolute;
+  position: fixed;
   right: 10px;
   bottom: 10px;
 }
-.header-spacer {
-  flex: 1 1 auto;
-}
-.header-right {
-  padding: 0 14px;
-}
+
 .btn {  
   display: inline-block;
   padding: 0 14px;

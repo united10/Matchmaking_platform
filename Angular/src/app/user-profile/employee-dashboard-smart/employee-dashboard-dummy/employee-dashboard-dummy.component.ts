@@ -14,20 +14,22 @@ import { CertificateSection } from 'src/app/add-module/certificate-dialog/domain
 import { ExperienceSection } from 'src/app/add-module/experience-dialog/domain/section';
 import { Qualification } from 'src/app/add-module/education-dialog/domain/qualification';
 import { Institution } from 'src/app/add-module/education-dialog/domain/institution';
+import { Chicklets } from 'src/app/add-module/experience-dialog/domain/chicklets';
 
 @Component({
   selector: 'app-employee-dashboard-dummy',
   templateUrl: './employee-dashboard-dummy.component.html',
   styleUrls: ['./employee-dashboard-dummy.component.css'],
 })
-export class EmployeeDashboardDummyComponent implements OnInit{
+export class EmployeeDashboardDummyComponent implements OnInit {
   /** Based on the screen size, switch from standard to one column per row */
 
   cards;
   keys;
   isLoggedIn = false;
+  public isCollapsed = false;
   constructor(private breakpointObserver: BreakpointObserver,
-    private tokenstorageservice: TokenStorageService ,private downstreamBackendService:DownstreamBackendService) {}
+    private tokenstorageservice: TokenStorageService , private downstreamBackendService: DownstreamBackendService) {}
 
 
   ngOnInit() {
@@ -57,7 +59,7 @@ export class EmployeeDashboardDummyComponent implements OnInit{
         }};
         cards[i] = basicInfo;
 
-        if (employees.educations != null) {
+        if (employees.educations != null && employees.educations.length !== '0') {
           let j = 0;
           educationInfo = {
             'title': 'Education',
@@ -70,10 +72,10 @@ export class EmployeeDashboardDummyComponent implements OnInit{
               'qualification': education.qualification.title,
               'summary': education.summary,
               'institution': education.institution.institutionName,
-              'institution data':education.institution,
+              'institutionId': education.institution.institutionId,
               'startDate': education.institution.startDate,
               'endDate': education.institution.endDate,
-              'education': education
+              'id': education.qualification.qualificationId
             };
 
             j++;
@@ -83,7 +85,7 @@ export class EmployeeDashboardDummyComponent implements OnInit{
         cards[i] = educationInfo;
         }
 
-        if (employees.skills != null) {
+        if (employees.skills != null && employees.skills.length !== 0) {
           let j = 0;
           skillsInfo = {
             'title': 'Skills',
@@ -95,7 +97,7 @@ export class EmployeeDashboardDummyComponent implements OnInit{
             contents[j] = {
               'skillName': skill.skillName,
               'skillLevel': skill.skillLevel,
-              'skill':skill
+              'skill': skill
 
             };
 
@@ -105,7 +107,7 @@ export class EmployeeDashboardDummyComponent implements OnInit{
         i++;
         cards[i] = skillsInfo;
         }
-        if (employees.projects != null) {
+        if (employees.projects != null && employees.projects.length !== 0) {
           let j = 0;
           projectInfo = {
             'title': 'Project',
@@ -122,7 +124,7 @@ export class EmployeeDashboardDummyComponent implements OnInit{
               'role' : projects.role,
               'technologiesUsed' : projects.technologiesUsed,
               'description' : projects.description,
-              'project':projects
+              'project': projects
             };
 
             j++;
@@ -131,11 +133,11 @@ export class EmployeeDashboardDummyComponent implements OnInit{
         i++;
         cards[i] = projectInfo;
         }
-        if (employees.location != null) {
-          let j = 0;
+        if (employees.location != null  && employees.location.length !== 0) {
+          const j = 0;
           locationInfo = {
             'title': 'Location',
-            'contents':[ {
+            'contents': [ {
               'currentCityName' : employees.location.currentLocation.cityName,
               'currentStateName' : employees.location.currentLocation.stateName,
               'currentPinCode' :  employees.location.currentLocation.pinCode,
@@ -145,7 +147,7 @@ export class EmployeeDashboardDummyComponent implements OnInit{
         i++;
         cards[i] = locationInfo;
         }
-        if (employees.certificates != null) {
+        if (employees.certificates != null  && employees.certificates.length !== 0) {
           let j = 0;
           certificateInfo = {
             'title': 'Certificate',
@@ -160,7 +162,7 @@ export class EmployeeDashboardDummyComponent implements OnInit{
               'licenseNumber' : certificates.licenseNumber,
               'fromDate' : certificates.fromDate,
               'toDate' : certificates.toDate,
-              'certificate':certificates
+              'certificate': certificates
             };
 
             j++;
@@ -170,7 +172,7 @@ export class EmployeeDashboardDummyComponent implements OnInit{
         cards[i] = certificateInfo;
         console.log(cards[i]);
         }
-        if (employees.experiences != null) {
+        if (employees.experiences != null  && employees.experiences.length !== 0) {
           let j = 0;
           experienceInfo = {
             'title': 'Experience',
@@ -214,10 +216,10 @@ export class EmployeeDashboardDummyComponent implements OnInit{
           if (index === '0') {cards[index].cols = 2;
             cards[index].rows = 1;
           } else {
-            if(cards[index].title  === 'Skills') {
-              cards[index].rows = cards[index].contents.length/2 ;
+            if (cards[index].title  === 'Skills') {
+              cards[index].rows = cards[index].contents.length / 2 ;
               cards[index].cols = 1;
-            }else{
+            } else {
             console.log(cards[index].contents.length);
             cards[index].rows = cards[index].contents.length ;
             cards[index].cols = 1;
@@ -247,74 +249,75 @@ export class EmployeeDashboardDummyComponent implements OnInit{
     window.location.reload();
   }
 
-  onDelete(content,title){
-    if(title==='Education'){
-      const qualification=new Qualification(content.education.title,content.education.qualificationId);
-      const institution=new Institution(content.education.institutionId,content.education.institutionName,
-        content.startDate,content.endDate) ;
-      var  educationChicklets=new EducationChicklets(qualification,institution,content.summary);
-      const chicklets=[educationChicklets];
-      var educationSection=new EducationSection("Education",this.tokenstorageservice.getEmail(),"delete",chicklets);
+  onDelete(content, title) {
+    if (title === 'Education') {
+      const qualification = new Qualification(content.id, content.qualification);
+      const institution = new Institution(content.institutionId, content.institution,
+        content.startDate, content.endDate) ;
+      const  educationChicklets = new EducationChicklets(qualification, institution, content.summary);
+      const chicklets = new Array<EducationChicklets>();
+      chicklets.push(educationChicklets);
+      const educationSection = new EducationSection('Education', this.tokenstorageservice.getEmail(), 'delete', chicklets);
       console.log(educationSection);
       this.downstreamBackendService.deleteEducationDetails(educationSection)
       .subscribe(
-        (data)=>{
+        (data) => {
           console.log(data);
-          location.reload();
         }
       );
-    }
-    else if(title==='Skills'){
-      var skillChicklet=new SkillChicklets(content.skill);
-      const chicklets=[skillChicklet];
-      var skillSection=new SkillSection("Skills","userId","delete",chicklets);
+    } else if (title === 'Skills') {
+      const skillChicklet = new SkillChicklets(content.skill);
+      const chicklets = [skillChicklet];
+      const skillSection = new SkillSection('Skills', this.tokenstorageservice.getEmail(), 'delete', chicklets);
       this.downstreamBackendService.deleteSkillsDetails(skillSection)
       .subscribe(
-        (data)=>{
+        (data) => {
           console.log(data);
           location.reload();
         }
       );
-    }    else if(title==='Project'){
-      var projectChicklet=new ProjectChicklets(content.project);
-      const chicklets=[projectChicklet];
-      var projectSection=new ProjectSection("Project","userId","delete",chicklets);
+    }    else if (title === 'Project') {
+      const projectChicklet = new ProjectChicklets(content.project);
+      const chicklets = [projectChicklet];
+      const projectSection = new ProjectSection('Project', this.tokenstorageservice.getEmail(), 'delete', chicklets);
       this.downstreamBackendService.deleteProjectDetails(projectSection)
       .subscribe(
-        (data)=>{
+        (data) => {
           console.log(data);
           location.reload();
         }
       );
-    }    else if(title==='Certificate'){
-      var certificateChicklet=new CertificateChicklets(content.certificate);
-      const chicklets=[certificateChicklet];
-      var certificateSection=new CertificateSection("Certificate","userId","delete",chicklets);
+    }    else if (title === 'Certificate') {
+      const certificateChicklet = new CertificateChicklets(content.certificate);
+      const chicklets = [certificateChicklet];
+      const certificateSection = new CertificateSection('Certificate', this.tokenstorageservice.getEmail(), 'delete', chicklets);
       this.downstreamBackendService.deleteCerificateDetails(certificateSection)
       .subscribe(
-        (data)=>{
+        (data) => {
           console.log(data);
           location.reload();
         }
       );
-    }    else if(title==='Experience'){
-      var experienceChicklet=new experienceChicklet(content.skill);
-      const chicklets=[experienceChicklet];
-      var experienceSection=new ExperienceSection("Experience","userId","delete",chicklets);
+    }    else if (title === 'Experience') {
+      const experienceChicklet = new Chicklets(content.experience);
+      const chicklets = Array<Chicklets>();
+      chicklets.push(experienceChicklet);
+
+      const experienceSection = new ExperienceSection('Experience', this.tokenstorageservice.getEmail(), 'delete', chicklets);
       this.downstreamBackendService.deleteExperienceDetails(experienceSection)
       .subscribe(
-        (data)=>{
+        (data) => {
           console.log(data);
           location.reload();
         }
       );
-    }    else if(title==='Location'){
-      var skillChicklet=new SkillChicklets(content.skill);
-      const chicklets=[skillChicklet];
-      var skillSection=new SkillSection("Skills","userId","delete",chicklets);
+    }    else if (title === 'Location') {
+      const skillChicklet = new SkillChicklets(content.skill);
+      const chicklets = [skillChicklet];
+      const skillSection = new SkillSection('Skills', this.tokenstorageservice.getEmail(), 'delete', chicklets);
       this.downstreamBackendService.deleteSkillsDetails(skillSection)
       .subscribe(
-        (data)=>{
+        (data) => {
           console.log(data);
           location.reload();
         }
