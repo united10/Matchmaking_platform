@@ -1,11 +1,19 @@
 .grid-container {
   margin: 50px;
 }
-
+.body{
+  background-color:lightpink;
+}
 .card1{
   padding-bottom: 10px;
 }
-
+.mat-card{
+  background-color: aquamarine;
+}
+.mat-card-header{
+  font-family: 'Oswald', sans-serif;
+  font-display: inherit;
+}
 .Wrapper{
   flex-direction: row;
   flex-wrap:wrap;
@@ -27,6 +35,7 @@
   -moz-text-align-last: center;
   text-align-last : center;
   text-align: center;
+  -moz-text-decoration-color: black;
 }
 .more-button {
   position: absolute;
