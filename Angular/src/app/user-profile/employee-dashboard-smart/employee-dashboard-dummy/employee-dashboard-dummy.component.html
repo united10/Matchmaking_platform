@@ -29,7 +29,7 @@
   <h1 class="mat-h1">Dashboard</h1>
   <mat-grid-list cols="2" rowHeight="250px">
     <mat-grid-tile  *ngFor="let card of cards | async" [colspan]="card.cols" [rowspan]="card.rows">
-      <mat-card class="dashboard-card" style="background-color:aqua" *ngIf="card.contents.length!=='0'">
+      <mat-card class="dashboard-card" *ngIf="card.contents.length!=='0'">
         <mat-card-header>
           <mat-card-title>
             <h2 class="mat-h1">{{card.title}}</h2>
@@ -42,9 +42,9 @@
         <mat-card-content class="dashboard-card-content" *ngIf="isTitle(card.title,'Education')" >
           <div class ="Wrapper">
             <mat-card class="card1" *ngFor="let content of card.contents" >
-              <mat-card-header>
+              <!-- <mat-card-header>
                 <h3 class="mat-h3">{{content.qualification}}</h3>
-              </mat-card-header>
+              </mat-card-header> -->
               <mat-card-content>
                   <div class = "button">
                       <button mat-icon-button class="more-button">
@@ -54,6 +54,7 @@
                             <mat-icon>delete</mat-icon>
                           </button>
                   </div>
+                <div> <h2 class="mat-h3">{{content.qualification}}</h2></div>
                 <div><p>{{content.summary}}</p></div>
                 <div>{{content.institution}}</div>
                 <div>{{content.startDate}} - {{content.endDate}}</div>
