@@ -12,7 +12,7 @@
   <h1 class="mat-h1">Dashboard</h1>
   <mat-grid-list cols="2" rowHeight="250px">
     <mat-grid-tile  *ngFor="let card of cards | async" [colspan]="card.cols" [rowspan]="card.rows">
-      <mat-card class="dashboard-card" style="background-color:aqua">
+      <mat-card class="dashboard-card" style="background-color:aqua" *ngIf="card.contents.length!=='0'">
         <mat-card-header>
           <mat-card-title>
             <h2 class="mat-h1">{{card.title}}</h2>
@@ -45,18 +45,20 @@
             </div>
         </mat-card-content>
         <mat-card-content class="dashboard-card-content" *ngIf="isTitle(card.title,'Skills')" >
-            <div class ="Wrapper">
+            <div class ="container">
               <mat-card class="card1" *ngFor="let content of card.contents" >
-                <mat-card-content>
+                <mat-card-title>
+                    <div>{{content.skillName}}</div>
                     <div class = "button">
                         <button mat-icon-button class="more-button">
                             <mat-icon>edit</mat-icon>
                           </button>
-                          <button mat-icon-button class="delete-button">
+                          <button mat-icon-button class="delete-button" (click)=onDelete(content,card.title)>
                               <mat-icon>delete</mat-icon>
                             </button>
                     </div>
-                  <div>{{content.skillName}}</div>
+                </mat-card-title>
+                <mat-card-content>
                   <div>{{content.skillLevel}}</div>
 
                 </mat-card-content>
@@ -71,18 +73,18 @@
                           <button mat-icon-button class="more-button">
                               <mat-icon>edit</mat-icon>
                             </button>
-                            <button mat-icon-button class="delete-button">
+                            <button mat-icon-button class="delete-button" (click)=onDelete(content,card.title)>
                                 <mat-icon>delete</mat-icon>
                               </button>
                       </div>
                     <div>{{content.projectTitle}}</div>
                     <div>{{content.role}}</div>
-                    <div>{{content.fromDate-content.toDate}}</div>
+                    <div>{{content.fromDate}}-{{content.toDate}}</div>
                     <div><a href="content.projectUrl">{{content.projectUrl}}</a></div>
                     <div>{{content.description}}</div>
-                    <div *ngFor= "let skill of content.technologiesUsed">
+                    <div *ngFor= "let skills of content.technologiesUsed">
                         <div>
-                          {{skill.level}}
+                          {{skills.skill}}
                         </div>
                     </div>
 
@@ -98,17 +100,17 @@
                           <button mat-icon-button class="more-button">
                               <mat-icon>edit</mat-icon>
                             </button>
-                            <button mat-icon-button class="delete-button">
+                            <button mat-icon-button class="delete-button" (click)=onDelete(content,card.title)>
                                 <mat-icon>delete</mat-icon>
                               </button>
                       </div>
-                    <div>{{content.currentLocation}}</div>
-                    <div>{{content.fromDate-content.toDate}}</div>
+                    <div>{{content.currentCityName}}</div>
+                    <div>{{content.cuurentStateName}}</div>
                     <div *ngFor= "let pastLocation of content.pastLocation">
                         <div>
-                          {{pastLocation.location}}
+                          {{pastLocation.cityName}}
                         </div>
-                        <div>{{pastLocation.fromDate-pastLocation.toDate}}</div>
+                        <div>{{pastLocation.stateName}}</div>
 
                     </div>
 
@@ -124,14 +126,14 @@
                             <button mat-icon-button class="more-button">
                                 <mat-icon>edit</mat-icon>
                               </button>
-                              <button mat-icon-button class="delete-button">
+                              <button mat-icon-button class="delete-button" (click)=onDelete(content,card.title)>
                                   <mat-icon>delete</mat-icon>
                                 </button>
                         </div>
                       <div><h2>{{content.certificateName}}</h2></div>
                       <div>{{content.certificateAuthority}}</div>
                       <div>{{content.licenseNumber}}</div>
-                      <div>{{content.fromDate - content.toDate}}</div>
+                      <div>{{content.fromDate}} - {{content.toDate}}</div>
     
                     </mat-card-content>
                   </mat-card>
@@ -145,13 +147,13 @@
                             <button mat-icon-button class="more-button">
                                 <mat-icon>edit</mat-icon>
                               </button>
-                              <button mat-icon-button class="delete-button">
+                              <button mat-icon-button class="delete-button" (click)=onDelete(content,card.title)>
                                   <mat-icon>delete</mat-icon>
                                 </button>
                         </div>
-                      <div><h2>{{content.organisationName}}</h2></div>
+                      <div><h2>{{content.organisation}}</h2></div>
                       <div>{{content.role}}</div>
-                      <div>{{content.fromMonth-content.fromYear - content.toMonth -content.toYear}}</div>
+                      <div>{{content.fromMonth}} - {{content.toMonth}}</div>
     
                     </mat-card-content>
                   </mat-card>

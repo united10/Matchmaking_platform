@@ -14,6 +14,7 @@ import { CertificateSection } from 'src/app/add-module/certificate-dialog/domain
 import { ExperienceSection } from 'src/app/add-module/experience-dialog/domain/section';
 import { Qualification } from 'src/app/add-module/education-dialog/domain/qualification';
 import { Institution } from 'src/app/add-module/education-dialog/domain/institution';
+import { Chicklets } from 'src/app/add-module/experience-dialog/domain/chicklets';
 
 @Component({
   selector: 'app-employee-dashboard-dummy',
@@ -57,7 +58,7 @@ export class EmployeeDashboardDummyComponent implements OnInit{
         }};
         cards[i] = basicInfo;
 
-        if (employees.educations != null) {
+        if (employees.educations != null && employees.educations.length!='0') {
           let j = 0;
           educationInfo = {
             'title': 'Education',
@@ -70,10 +71,10 @@ export class EmployeeDashboardDummyComponent implements OnInit{
               'qualification': education.qualification.title,
               'summary': education.summary,
               'institution': education.institution.institutionName,
-              'institution data':education.institution,
+              'institutionId':education.institution.institutionId,
               'startDate': education.institution.startDate,
               'endDate': education.institution.endDate,
-              'education': education
+              'id': education.qualification.qualificationId
             };
 
             j++;
@@ -83,7 +84,7 @@ export class EmployeeDashboardDummyComponent implements OnInit{
         cards[i] = educationInfo;
         }
 
-        if (employees.skills != null) {
+        if (employees.skills != null && employees.skills.length != 0) {
           let j = 0;
           skillsInfo = {
             'title': 'Skills',
@@ -105,7 +106,7 @@ export class EmployeeDashboardDummyComponent implements OnInit{
         i++;
         cards[i] = skillsInfo;
         }
-        if (employees.projects != null) {
+        if (employees.projects != null && employees.projects.length != 0) {
           let j = 0;
           projectInfo = {
             'title': 'Project',
@@ -131,7 +132,7 @@ export class EmployeeDashboardDummyComponent implements OnInit{
         i++;
         cards[i] = projectInfo;
         }
-        if (employees.location != null) {
+        if (employees.location != null  && employees.location.length != 0) {
           let j = 0;
           locationInfo = {
             'title': 'Location',
@@ -145,7 +146,7 @@ export class EmployeeDashboardDummyComponent implements OnInit{
         i++;
         cards[i] = locationInfo;
         }
-        if (employees.certificates != null) {
+        if (employees.certificates != null  && employees.certificates.length != 0) {
           let j = 0;
           certificateInfo = {
             'title': 'Certificate',
@@ -170,7 +171,7 @@ export class EmployeeDashboardDummyComponent implements OnInit{
         cards[i] = certificateInfo;
         console.log(cards[i]);
         }
-        if (employees.experiences != null) {
+        if (employees.experiences != null  && employees.experiences.length != 0) {
           let j = 0;
           experienceInfo = {
             'title': 'Experience',
@@ -249,25 +250,25 @@ export class EmployeeDashboardDummyComponent implements OnInit{
 
   onDelete(content,title){
     if(title==='Education'){
-      const qualification=new Qualification(content.education.title,content.education.qualificationId);
-      const institution=new Institution(content.education.institutionId,content.education.institutionName,
+      const qualification=new Qualification(content.id,content.qualification);
+      const institution=new Institution(content.institutionId,content.institution,
         content.startDate,content.endDate) ;
       var  educationChicklets=new EducationChicklets(qualification,institution,content.summary);
-      const chicklets=[educationChicklets];
+      const chicklets=new Array<EducationChicklets>();
+      chicklets.push(educationChicklets);
       var educationSection=new EducationSection("Education",this.tokenstorageservice.getEmail(),"delete",chicklets);
       console.log(educationSection);
       this.downstreamBackendService.deleteEducationDetails(educationSection)
       .subscribe(
         (data)=>{
           console.log(data);
-          location.reload();
         }
       );
     }
     else if(title==='Skills'){
       var skillChicklet=new SkillChicklets(content.skill);
       const chicklets=[skillChicklet];
-      var skillSection=new SkillSection("Skills","userId","delete",chicklets);
+      var skillSection=new SkillSection("Skills",this.tokenstorageservice.getEmail(),"delete",chicklets);
       this.downstreamBackendService.deleteSkillsDetails(skillSection)
       .subscribe(
         (data)=>{
@@ -278,7 +279,7 @@ export class EmployeeDashboardDummyComponent implements OnInit{
     }    else if(title==='Project'){
       var projectChicklet=new ProjectChicklets(content.project);
       const chicklets=[projectChicklet];
-      var projectSection=new ProjectSection("Project","userId","delete",chicklets);
+      var projectSection=new ProjectSection("Project",this.tokenstorageservice.getEmail(),"delete",chicklets);
       this.downstreamBackendService.deleteProjectDetails(projectSection)
       .subscribe(
         (data)=>{
@@ -289,7 +290,7 @@ export class EmployeeDashboardDummyComponent implements OnInit{
     }    else if(title==='Certificate'){
       var certificateChicklet=new CertificateChicklets(content.certificate);
       const chicklets=[certificateChicklet];
-      var certificateSection=new CertificateSection("Certificate","userId","delete",chicklets);
+      var certificateSection=new CertificateSection("Certificate",this.tokenstorageservice.getEmail(),"delete",chicklets);
       this.downstreamBackendService.deleteCerificateDetails(certificateSection)
       .subscribe(
         (data)=>{
@@ -298,9 +299,11 @@ export class EmployeeDashboardDummyComponent implements OnInit{
         }
       );
     }    else if(title==='Experience'){
-      var experienceChicklet=new experienceChicklet(content.skill);
-      const chicklets=[experienceChicklet];
-      var experienceSection=new ExperienceSection("Experience","userId","delete",chicklets);
+      var experienceChicklet=new Chicklets(content.experience);
+      const chicklets=Array<Chicklets>();
+      chicklets.push(experienceChicklet);
+
+      var experienceSection=new ExperienceSection("Experience",this.tokenstorageservice.getEmail(),"delete",chicklets);
       this.downstreamBackendService.deleteExperienceDetails(experienceSection)
       .subscribe(
         (data)=>{
@@ -311,7 +314,7 @@ export class EmployeeDashboardDummyComponent implements OnInit{
     }    else if(title==='Location'){
       var skillChicklet=new SkillChicklets(content.skill);
       const chicklets=[skillChicklet];
-      var skillSection=new SkillSection("Skills","userId","delete",chicklets);
+      var skillSection=new SkillSection("Skills",this.tokenstorageservice.getEmail(),"delete",chicklets);
       this.downstreamBackendService.deleteSkillsDetails(skillSection)
       .subscribe(
         (data)=>{
