@@ -4,9 +4,12 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.stereotype.Component;
+
 /*
 Class model for producing data in the indexer topic
  */
+@Component
 @Data
 @Builder
 @NoArgsConstructor
@@ -16,6 +19,7 @@ public class CommonOutput {
     private String sourceNode;
     private String sourceNodeProperty;
     private String targetNode;
-    private String targetNodeProperty;
-    private Relationships[] relationships;
+    private TargetProperty[] targetNodeProperty;
+    private String relationships;
+    private Property[] properties;
 }
