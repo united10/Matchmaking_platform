@@ -6,6 +6,12 @@
   padding-bottom: 10px;
 }
 
+.Wrapper{
+  flex-direction: row;
+  flex-wrap:wrap;
+  justify-content: space-around
+}
+
 .dashboard-card {
   position: absolute;
   top: 15px;
