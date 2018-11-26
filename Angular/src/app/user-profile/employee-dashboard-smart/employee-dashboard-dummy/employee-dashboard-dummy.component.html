@@ -1,9 +1,26 @@
-<mat-toolbar *ngIf="isLoggedIn">
-  <span>MatchMaking Platform</span>
-  <span class="header-spacer"></span>
-  <span class="header-right" routerLink="/Communities">Your Communities</span>
-  <button class="btn default" (click)="logout()">Logout</button>
-</mat-toolbar>
+<nav *ngIf="isLoggedIn" class="navbar navbar-expand-sm navbar-light bg-light">
+  <a class="navbar-brand" href="#">
+    <img src="/src/assets/images/nav-logo.png" class="d-inline-block align-top" alt="">
+    MatchMaking
+  </a>
+  <button class="navbar-toggler" type="button" (click)="isCollapsed = !isCollapsed" [attr.aria-expanded]="!isCollapsed" aria-controls="navToggle" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navToggle" [ngbCollapse]="isCollapsed">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <a class="nav-link"  href="#">
+            <span class="header-right" routerLink="/Communities">Your Communities</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">
+            <button mat-stroked-button (click)="logout()">Logout</button>
+          </a>
+        </li>
+      </ul>
+    </div>
+</nav>
 <app-employee-dashboard-smart
 (employeeEmit)=setEmployees($event)
 >
@@ -108,9 +125,7 @@
                           <h2>{{pastLocation.cityName}}</h2>
                         </div>
                         <div>{{pastLocation.stateName}}</div>
-
                     </div>
-
                   </mat-card-content>
                 </mat-card>
                 </div>
