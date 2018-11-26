@@ -161,7 +161,7 @@ export class EmployeeDashboardDummyComponent implements OnInit{
               'licenseNumber' : certificates.licenseNumber,
               'fromDate' : certificates.fromDate,
               'toDate' : certificates.toDate,
-              'certificate':certificates
+              'certificate': certificates
             };
 
             j++;
