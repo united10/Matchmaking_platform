@@ -227,3 +227,9 @@ services:
     - "8095:8095"
     expose:
     - "8095"
+  neo4jdb:
+     image: madhuri23/neo4j:3.0
+     ports:
+       - "7474:7474"
+     container_name: neo4j-db
+     network_mode: host
