@@ -39,6 +39,8 @@
         <module>UserAuthentication</module>
         <module>SkillService</module>
         <module>InterestService</module>
+        <module>NlpPipeline</module>
+        <module>CacheService</module>
 
 
     </modules>
