@@ -41,7 +41,8 @@
         <module>InterestService</module>
         <module>NlpPipeline</module>
         <module>CacheService</module>
-
+        <module>IndexerService</module>
+        <module>QueryService</module>
 
     </modules>
 

@@ -57,6 +57,33 @@ services:
       - "8093:8093"
       expose:
       - "8093"
+
+  indexer-service:
+    image: indexer-service:v1
+    build: IndexerService/
+    restart: always
+    container_name: indexer-container
+    network_mode: host
+    depends_on:
+    - kafka
+    ports:
+    - "8001:8001"
+    expose:
+    - "8001"
+
+  query-service:
+    image: query-service:v1
+    build: QueryService/
+    restart: always
+    container_name: query-container
+    network_mode: host
+    depends_on:
+    - kafka
+    ports:
+    - "8095:8095"
+    expose:
+    - "8095"
+
   education-service:
     image: education-service:v1
     build: EducationService/
@@ -245,9 +272,9 @@ services:
     build: InterestService/
     restart: always
     container_name: interest-container
-#    network_mode: host
-    #    depends_on:
-    #    - kafka
+    network_mode: host
+    depends_on:
+    - kafka
     ports:
     - "8095:8095"
     expose:
