@@ -12,6 +12,7 @@ import com.stackroute.skillservice.domain.Relationship;
 import com.stackroute.skillservice.domain.CommonOutput;
 import com.stackroute.skillservice.domain.Section;
 import com.stackroute.skillservice.resource.IndexResource;
+import com.stackroute.skillservice.service.SkillService;
 import com.stackroute.skillservice.service.SkillServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.kafka.annotation.KafkaListener;
@@ -22,7 +23,7 @@ import org.springframework.stereotype.Service;
 public class KafkaConsumer {
 
     @Autowired
-    private IndexResource indexResource;
+    private SkillService skillService;
 
 
     @KafkaListener(topics = "${kafka.linsteningTopic}", groupId ="${kafka.groupId}",
@@ -30,10 +31,8 @@ public class KafkaConsumer {
             containerFactory = "${kafka.containerFactory}")
 
     public void consumeJson(@Payload Section section) {
+    skillService.processSameOutput(section);
 
-        CommonOutput commonOutput= new SkillServiceImpl().processSameOutput(section);
-        indexResource.postData(commonOutput);
-
-    }
+          }
 
 }

@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.stereotype.Component;
 
 
 /*
@@ -11,6 +12,7 @@ import lombok.NoArgsConstructor;
  *  indexer topic in this format.
  */
 @Data
+@Component
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
@@ -18,9 +20,10 @@ public class CommonOutput {
 
     private String operationType;
     private String sourceNode;
-    private String sourceNodeProperties;
-    private String terminalNode;
-    private String terminalNodeProperties;
-    private Relationships[] relationships;
+    private String sourceNodeProperty;
+    private String targetNode;
+    private TargetProperty[] targetNodeProperty;
+    private String relationships;
+    private Property[] properties;
 
 }
