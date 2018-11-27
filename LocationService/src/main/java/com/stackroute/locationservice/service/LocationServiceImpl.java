@@ -24,14 +24,14 @@ public class LocationServiceImpl implements LocationService{
 
     @Override
     public void processLocationDetails(Section section){
-        commonOutput.setOperationType(section.getOperationType());
-        commonOutput.setSourceNode(section.getUserId());
+        commonOutput.setOperationType(section.getOperationType().toLowerCase());
+        commonOutput.setSourceNode(section.getUserId().toLowerCase());
         commonOutput.setSourceNodeProperty(null);
         commonOutput.setTargetNode("location");
         commonOutput.setRelationships("lives_in");
         for(int i=0;i<section.getChicklets().length;i++)
         {
-            targetProperties[0].setName(section.getChicklets()[i].getCurrentLocation().getCityName());
+            targetProperties[0].setName(section.getChicklets()[i].getCurrentLocation().getCityName().toLowerCase());
             commonOutput.setTargetNodeProperty(targetProperties);
             indexResource.postData(commonOutput);
         }
