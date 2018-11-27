@@ -23,6 +23,6 @@ controller:
 
 
 kafka:
-  ipAddress: http://172.23.239.245:9092
+  ipAddress: http://localhost:9092
   groupId: group_id69
   outputTopic: query

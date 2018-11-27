@@ -15,7 +15,7 @@ const httpOptions = {
 })
 export class SearchService {
 
-  url = 'http://localhost:8095/matchmaker/v1/search';
+  url = 'http://localhost:8097/query-service/matchmaker/v1/search';
 
   constructor(private httpClient: HttpClient) { }
 
