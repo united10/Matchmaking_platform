@@ -25,8 +25,6 @@ public class KafkaListen {
     @Autowired
     LocationService locationService;
 
-    @Autowired
-    IndexResource indexResource;
 
     @Autowired
     private KafkaProperties kafkaProperties;
@@ -41,8 +39,6 @@ public class KafkaListen {
     public void consumeJson(@Payload Section section) {
 
         logger.debug(Marker.ANY_MARKER,section);
-        CommonOutput commonOutput = locationService.processLocationDetails(section);
-
-        indexResource.postData(commonOutput);
+        locationService.processLocationDetails(section);
     }
 }

@@ -1,63 +1,61 @@
 <div class="main">
-<mat-toolbar class="header">
-  <span class="header-title">MATCHMAKING PLATFORM</span>
-  <span class="header-spacer"></span>
-  <!-- <button mt-button class="btn default" routerLink="">Login</button> -->
-</mat-toolbar>
-<div class="medium-list">
-  <div class="list-viewer-wrapper">
-    <div class="list-viewer-title">
-      <img src="/src/assets/images/logo.png" width="150vh"/>
-    </div>
-    <div class="alert alert-danger" *ngIf="errorMsg">{{ errorMsg }}</div>
-    <form
-      [formGroup]="registerForm"
-      *ngIf="!submitted"
-      (ngSubmit)="registerForm.valid && onRegisterSubmit()"
-      novalidate
-    >
-      <div class="form-container">
-       
+  <mat-toolbar class="header">
+    <span class="header-title"><b>MATCHMAKING PLATFORM</b></span>
+    <span class="header-spacer"></span>
+  </mat-toolbar>
+  <div class="medium-list">
+    <div class="list-viewer-wrapper">
+      <div class="list-viewer-title">
+        <img src="/src/assets/images/logo.png" width="140vh" />
+      </div>
+      <form
+        [formGroup]="registerForm"
+        *ngIf="!submitted"
+        (ngSubmit)="registerForm.valid && onRegisterSubmit()"
+        novalidate
+      >
+        <div class="form-container">
           <input
             id="name"
             formControlName="name"
             [(ngModel)]="user.name"
-            placeholder="Enter your name"
+            placeholder=" Enter your name"
           />
-        
 
-       
           <input
             id="email"
             formControlName="email"
             [(ngModel)]="user.email"
-            placeholder="Enter your email"
+            placeholder=" Enter your email"
           />
-      
-      <div>
-          <input
-            id="password"
-            formControlName="password"
-            [(ngModel)]="user.password"
-            placeholder="Enter your password"
-            [type]="hide ? 'password' : 'text'"
-          />
-          <mat-icon matSuffix (click)="hide = !hide">
-            {{ hide ? "visibility" : "visibility_off" }}
-          </mat-icon>
+
+          <div>
+            <input
+              id="password"
+              formControlName="password"
+              [(ngModel)]="user.password"
+              placeholder=" Enter your password"
+              [type]="hide ? 'password' : 'text'"
+            />
+            <mat-icon matSuffix (click)="hide = !hide">
+              {{ hide ? "visibility" : "visibility_off" }}
+            </mat-icon>
+          </div>
+          <button
+            mat-button
+            type="submit"
+            class="mat-raised-button mat-primary"
+            [disabled]="!registerForm.valid"
+          >
+            Register
+          </button>
+        </div>
+      </form>
+      <div class="form-container">
+        <span class="suggest"
+          >Already registered? <a routerLink=""> Login </a></span
+        >
       </div>
-        <button
-          mat-button
-          type="submit"
-          class="mat-raised-button mat-primary"
-          [disabled]="!registerForm.valid">
-          Register
-        </button>
-      </div>
-    </form>
-    <div class="form-container">
-      <span class="suggest">Already registered? <a routerLink="" > Login </a></span>
     </div>
   </div>
-</div>
 </div>

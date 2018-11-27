@@ -10,7 +10,7 @@ spring:
 
 kafka:
   ipAddress: localhost:9092
-  groupId: group_id3
+  groupId: group_id33
   outputTopic: indexer
   listeningTopic: certificate
   containerFactory: userKafkaListenerFactory

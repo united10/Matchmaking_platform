@@ -1,44 +1,62 @@
 <div class="main">
-<mat-toolbar class="header">
+  <mat-toolbar class="header">
     <span class="header-title"><b>MATCHMAKING PLATFORM</b></span>
     <span class="header-spacer"></span>
-    <!-- <button mt-button class="btn default" routerLink="/register">Register</button> -->
+    <!--
+      <button mt-button class="btn default" routerLink="/register">Register</button>
+    -->
   </mat-toolbar>
 
-<div class="medium-list">
-  <div class="list-viewer-wrapper">
-    <div class="list-viewer-title">
-      <img src="/src/assets/images/logo.png" width="150vh"/>
-    </div>
-    <form [formGroup]="loginForm" (ngSubmit)="loginForm.valid && onLoginSubmit()" #f="ngForm" novalidate>
-      <div class="form-container">  
-        
-            <input type="text" id="email"
-                   formControlName="email"
-                   [(ngModel)]="user.email"
-                   placeholder=" Enter your email" />
-          
-<div>
-            <input id="password"
-                   formControlName="password"
-                   [(ngModel)]="user.password"
-                   placeholder=" Enter your password"
-                   [type]="hide ? 'password':'text'" />
-              <mat-icon matSuffix id="hide" (click)="hide = !hide">
-                {{hide ? 'visibility' : 'visibility_off'}}
-              </mat-icon>
+  <div class="medium-list">
+    <div class="list-viewer-wrapper">
+      <div class="list-viewer-title">
+        <img src="/src/assets/images/logo.png" width="150vh" />
       </div>
-          <button mat-button type="submit" 
-                  class="mat-raised-button mat-primary" 
-                  [disabled]="!loginForm.valid">Login</button>
-                  <div *ngIf="f.submitted && isLoginFailed" class="alert alert-danger">
-                    {{errorMessage}}
-                  </div>
+      <form
+        [formGroup]="loginForm"
+        (ngSubmit)="loginForm.valid && onLoginSubmit()"
+        #f="ngForm"
+        novalidate
+      >
+        <div class="form-container">
+          <input
+            type="text"
+            id="email"
+            formControlName="email"
+            [(ngModel)]="user.email"
+            placeholder=" Enter your email"
+          />
+
+          <div>
+            <input
+              id="password"
+              formControlName="password"
+              [(ngModel)]="user.password"
+              placeholder=" Enter your password"
+              [type]="hide ? 'password' : 'text'"
+            />
+            <mat-icon matSuffix id="hide" (click)="hide = !hide">
+              {{ hide ? "visibility" : "visibility_off" }}
+            </mat-icon>
+          </div>
+          <button
+            mat-button
+            type="submit"
+            class="mat-raised-button mat-primary"
+            [disabled]="!loginForm.valid"
+          >
+            Login
+          </button>
+          <div *ngIf="f.submitted && isLoginFailed" class="alert alert-danger">
+            {{ errorMessage }}
+          </div>
+        </div>
+      </form>
+      <div class="form-container">
+        <span class="suggest"
+          >Not on matchmaking yet? <a routerLink="/register">Register </a></span
+        >
       </div>
-    </form>
-    <div class="form-container">
-      <span class="suggest">Not on matchmaking yet? <a routerLink="/register" >Register </a></span>
     </div>
   </div>
-</div>
 </div>
