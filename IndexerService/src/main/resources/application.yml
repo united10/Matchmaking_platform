@@ -1,0 +1,12 @@
+kafka:
+  ipAddress: localhost:9092
+  groupId: group_id50
+  listeningTopic: indexer
+  containerFactory: userKafkaListenerFactory
+
+server:
+  port: 8001
+  data:
+    neo4j:
+      uri: bolt://localhost
+
