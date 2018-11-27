@@ -32,6 +32,31 @@ services:
      - zookeeper
     restart: always
 
+  nplpipeline-service:
+    image: nlppipeline-service:v1
+    build: NlpPipeline/
+    restart: always
+    container_name: nlp-pipeline
+    network_mode: host
+    depends_on:
+    - kafka
+    ports:
+    - "8093:8093"
+    expose:
+    - "8093"
+
+    cache-service:
+      image: cache-service:v1
+      build: CacheService/
+      restart: always
+      container_name: cache-container
+      network_mode: host
+      depends_on:
+      - kafka
+      ports:
+      - "8093:8093"
+      expose:
+      - "8093"
   education-service:
     image: education-service:v1
     build: EducationService/
