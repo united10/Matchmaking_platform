@@ -61,4 +61,27 @@ delete_url5 = 'https://matchmaker-zuul.stackroute.in/upstream-service/api/v1/cer
   deleteProjectDetails(section: ProjectSection){
     return this.httpClient.post<any>(this.delete_url4, section, httpOptions).pipe(catchError(this.errorHandler));
   }
+
+  
+
+  updateEducationDetails(section: EducationSection){
+    console.log(section);
+    return this.httpClient.post<any>(this.delete_url, section, httpOptions).pipe(catchError(this.errorHandler));
+  }
+
+  updateSkillsDetails(section: SkillSection){
+    return this.httpClient.post<any>(this.delete_url1, section, httpOptions).pipe(catchError(this.errorHandler));
+  }
+  updateExperienceDetails(section: ExperienceSection){
+    return this.httpClient.post<any>(this.delete_url3, section, httpOptions).pipe(catchError(this.errorHandler));
+  }
+  updateLocationDetails(section:  LocationSection){
+    return this.httpClient.post<any>(this.delete_url2, section, httpOptions).pipe(catchError(this.errorHandler));
+  }
+  updateCerificateDetails(section: CertificateSection){
+    return this.httpClient.post<any>(this.delete_url5, section, httpOptions).pipe(catchError(this.errorHandler));
+  }
+  updateProjectDetails(section: ProjectSection){
+    return this.httpClient.post<any>(this.delete_url4, section, httpOptions).pipe(catchError(this.errorHandler));
+  }
 }

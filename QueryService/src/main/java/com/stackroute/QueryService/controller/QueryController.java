@@ -6,9 +6,11 @@ import com.stackroute.QueryService.service.QueryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.web.bind.annotation.*;
 
+/*
+Controller class for handling post request from search page
+ */
 @CrossOrigin
 @RestController
 @RequestMapping("${controller.base}")
@@ -22,7 +24,7 @@ public class QueryController {
         this.queryService = queryService;
     }
 
-    //Below methods does the mapping for other domain objects
+    // Below method is calling methods to send queryData to both kafka and database
     @PostMapping("${controller.search}")
     public ResponseEntity<QueryData> addQueryData(@RequestBody QueryData queryData)
     {

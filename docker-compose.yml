@@ -1,5 +1,13 @@
 version: '2.0'
 services:
+  redis:
+    container_name: redis
+    image: redis
+    ports:
+      - "6379:6379"
+    volumes:
+      - ../data/redis:/data
+    restart: always
   zookeeper:
     image: wurstmeister/zookeeper
     container_name: zookeeper
@@ -32,70 +40,71 @@ services:
       - zookeeper
     restart: always
 
-#  nplpipeline-service:
-#    image: nlppipeline-service:v1
-#    build: NlpPipeline/
-#    restart: always
-#    container_name: nlp-pipeline
-#    network_mode: host
-#    depends_on:
-#      - kafka
-#    ports:
-#      - "8093:8093"
-#    expose:
-#      - "8093"
-
-#  cache-service:
-#    image: cache-service:v1
-#    build: CacheService/
-#    restart: always
-#    container_name: cache-container
-#    network_mode: host
-#    depends_on:
-#      - kafka
-#    ports:
-#      - "8008:8008"
-#    expose:
-#      - "8008"
-
-#  indexer-service:
-#    image: indexer-service:v1
-#    build: IndexerService/
-#    restart: always
-#    container_name: indexer-container
-#    network_mode: host
-#    depends_on:
-#      - kafka
-#    ports:
-#      - "8001:8001"
-#    expose:
-#      - "8001"
-
-#  query-service:
-#    image: query-service:v1
-#    build: QueryService/
-#    restart: always
-#    container_name: query-container
-#    network_mode: host
-#    depends_on:
-#      - kafka
-#    ports:
-#      - "8095:8095"
-#    expose:
-#      - "8095"
-
-  education-service:
-    image: education-service:v1
-    build: EducationService/
+  nplpipeline-service:
+    image: nlppipeline-service:v1
+    build: NlpPipeline/
     restart: always
-    container_name: education-container
+    container_name: nlp-pipeline
+    network_mode: host
+    depends_on:
+      - kafka
+      - redis
+    ports:
+      - "8093:8093"
+    expose:
+      - "8093"
+
+  cache-service:
+    image: cache-service:v1
+    build: CacheService/
+    restart: always
+    container_name: cache-container
     network_mode: host
     depends_on:
       - kafka
     ports:
-      - "8082:8082"
+      - "8008:8008"
     expose:
-      - "8082"
+      - "8008"
+
+  indexer-service:
+    image: indexer-service:v1
+    build: IndexerService/
+    restart: always
+    container_name: indexer-container
+    network_mode: host
+    depends_on:
+      - kafka
+    ports:
+      - "8001:8001"
+    expose:
+      - "8001"
+
+  query-service:
+    image: query-service:v1
+    build: QueryService/
+    restart: always
+    container_name: query-container
+    network_mode: host
+    depends_on:
+      - kafka
+    ports:
+      - "8095:8095"
+    expose:
+      - "8095"
+
+#  education-service:
+#    image: education-service:v1
+#    build: EducationService/
+#    restart: always
+#    container_name: education-container
+#    network_mode: host
+#    depends_on:
+#      - kafka
+#    ports:
+#      - "8082:8082"
+#    expose:
+#      - "8082"
   authentication-service:
     image: authentication-service:v1
     build: UserAuthentication/
@@ -169,18 +178,18 @@ services:
 #      - "8083:8083"
 #    expose:
 #      - "8083"
-  skill-service:
-    image: skill-service:v1
-    build: SkillService/
-    restart: always
-    container_name: skill-container
-    network_mode: host
-    depends_on:
-      - kafka
-    ports:
-      - "8081:8081"
-    expose:
-      - "8081"
+#  skill-service:
+#    image: skill-service:v1
+#    build: SkillService/
+#    restart: always
+#    container_name: skill-container
+#    network_mode: host
+#    depends_on:
+#      - kafka
+#    ports:
+#      - "8081:8081"
+#    expose:
+#      - "8081"
 
   upstream-service:
     image: upstream-service:v1

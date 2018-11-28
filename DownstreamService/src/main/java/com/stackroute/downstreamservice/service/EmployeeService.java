@@ -219,7 +219,7 @@ public class EmployeeService {
             Employee employee = employeeRepository.findById(userId).get();
             List<ProjectDetails> fetchProject = employee.getProjects();
             for (ProjectDetails tempProjects : fetchProject) {
-                if (tempProjects.getTitle().toString().equals(project.getTitle().toString())) {
+                if (tempProjects.getTitle().equals(project.getTitle())) {
                     fetchProject.remove(tempProjects);
                     break;
                 }
@@ -319,9 +319,9 @@ public class EmployeeService {
         if (employeeRepository.existsById(userId)) {
             Employee employee = employeeRepository.findById(userId).get();
             Location fetchLocation = employee.getLocation();
-            List<PastLocation> pastLocationList=fetchLocation.getPastLocation();
-            for(PastLocation pastLocation:pastLocationList){
-                if(pastLocation.getPastLocationId().equals(pastLocations.getPastLocationId())){
+            List<PastLocation> pastLocationList = fetchLocation.getPastLocation();
+            for (PastLocation pastLocation : pastLocationList) {
+                if (pastLocation.getPastLocationId().equals(pastLocations.getPastLocationId())) {
                     pastLocationList.remove(pastLocation);
                     break;
                 }
@@ -336,4 +336,168 @@ public class EmployeeService {
         }
 
     }
+
+
+    public boolean updateSkillsData(Skills skills, String userId) throws EmployeeAlreadyExistsException {
+
+        if (employeeRepository.existsById(userId)) {
+            int i=0;
+            Employee employee = employeeRepository.findById(userId).get();
+            List<Skills> fetchSkills = employee.getSkills();
+            for (Skills tempSkills : fetchSkills) {
+                if (tempSkills.getSkillId().toString().equals(skills.getSkillId().toString())) {
+                    fetchSkills.remove(tempSkills);
+                    fetchSkills.add(i,skills);
+                    break;
+                }
+                i++;
+            }
+            employee.setSkills(fetchSkills);
+            employeeRepository.save(employee);
+            return true;
+
+        } else {
+            throw new EmployeeAlreadyExistsException(environment.getProperty("errors.employeeNotFound"));
+        }
+    }
+
+    public boolean updateCertificateData(Certificate certificate, String userId) throws EmployeeAlreadyExistsException {
+
+        if (employeeRepository.existsById(userId)) {
+            int i=0;
+            Employee employee = employeeRepository.findById(userId).get();
+            List<Certificate> fetchCertificate = employee.getCertificates();
+            for (Certificate tempCertificate : fetchCertificate) {
+                if (tempCertificate.getLicenseNumber().toString().equals(certificate.getLicenseNumber().toString())) {
+                    fetchCertificate.remove(tempCertificate);
+                    fetchCertificate.add(certificate);
+                    break;
+                }
+                i++;
+            }
+            employee.setCertificates(fetchCertificate);
+            employeeRepository.save(employee);
+            return true;
+
+        } else {
+            throw new EmployeeAlreadyExistsException(environment.getProperty("errors.employeeNotFound"));
+        }
+    }
+
+    public boolean updateExperienceData(Experience experience, String userId) throws EmployeeAlreadyExistsException {
+
+        if (employeeRepository.existsById(userId)) {
+            Employee employee = employeeRepository.findById(userId).get();
+            List<Experience> fetchExperience = employee.getExperiences();
+            int i=0;
+            for (Experience tempExperience : fetchExperience) {
+                if (tempExperience.getFromDate().equals(experience.getFromDate())
+                        && tempExperience.getFromMonth().equals(experience.getFromMonth())
+                        && tempExperience.getFromYear().equals(experience.getFromYear())
+                        || tempExperience.getOrganisation().equals(experience.getOrganisation())
+                ) {
+                    fetchExperience.remove(tempExperience);
+                    fetchExperience.add(i,experience);
+                    break;
+                }
+                i++;
+            }
+            employee.setExperiences(fetchExperience);
+            employeeRepository.save(employee);
+            return true;
+
+        } else {
+            throw new EmployeeAlreadyExistsException(environment.getProperty("errors.employeeNotFound"));
+        }
+    }
+
+    public boolean updateProjectData(ProjectDetails project, String userId) throws EmployeeAlreadyExistsException {
+
+        if (employeeRepository.existsById(userId)) {
+            Employee employee = employeeRepository.findById(userId).get();
+            List<ProjectDetails> fetchProject = employee.getProjects();
+            int i=0;
+            for (ProjectDetails tempProjects : fetchProject) {
+                if (tempProjects.getTitle().toString().equals(project.getTitle().toString())) {
+                    fetchProject.remove(tempProjects);
+                    fetchProject.add(i,project);
+                    break;
+                }
+                i++;
+            }
+            employee.setProjects(fetchProject);
+            employeeRepository.save(employee);
+            return true;
+
+        } else {
+            throw new EmployeeAlreadyExistsException(environment.getProperty("errors.employeeNotFound"));
+        }
+    }
+
+
+    public boolean updateEducationData(Education education, String userId) throws EmployeeAlreadyExistsException {
+
+        if (employeeRepository.existsById(userId)) {
+            Employee employee = employeeRepository.findById(userId).get();
+            int i=0;
+            List<Education> fetchEducation = employee.getEducations();
+            for (Education tempEducation : fetchEducation) {
+                if (tempEducation.getQualification().getQualificationId().toString().equals(education.getQualification().getQualificationId().toString())) {
+                    fetchEducation.remove(tempEducation);
+                    fetchEducation.add(i,education);
+                    break;
+                }
+                i++;
+            }
+            employee.setEducations(fetchEducation);
+            employeeRepository.save(employee);
+            return true;
+
+        } else {
+            throw new EmployeeAlreadyExistsException(environment.getProperty("errors.employeeNotFound"));
+        }
+    }
+
+    public boolean updateCurrentLocationData(CurrentLocation currentLocation, String userId) throws EmployeeAlreadyExistsException {
+
+        if (employeeRepository.existsById(userId)) {
+            Employee employee = employeeRepository.findById(userId).get();
+            Location fetchLocation = employee.getLocation();
+            fetchLocation.setCurrentLocation(currentLocation);
+            employee.setLocation(fetchLocation);
+            employeeRepository.save(employee);
+            return true;
+
+        } else {
+            throw new EmployeeAlreadyExistsException(environment.getProperty("errors.employeeNotFound"));
+        }
+    }
+
+    public boolean updatePastLocation(PastLocation pastLocations, String userId) throws Exception {
+
+        if (employeeRepository.existsById(userId)) {
+            Employee employee = employeeRepository.findById(userId).get();
+            Location fetchLocation = employee.getLocation();
+            List<PastLocation> pastLocationList = fetchLocation.getPastLocation();
+            int i=0;
+            for (PastLocation pastLocation : pastLocationList) {
+                if (pastLocation.getPastLocationId().equals(pastLocations.getPastLocationId())) {
+                    pastLocationList.remove(pastLocation);
+                    pastLocationList.add(i,pastLocations);
+                    break;
+                }
+                i++;
+            }
+            fetchLocation.setPastLocation(pastLocationList);
+            employee.setLocation(fetchLocation);
+            employeeRepository.save(employee);
+            return true;
+
+        } else {
+            throw new EmployeeAlreadyExistsException(environment.getProperty("errors.employeeNotFound"));
+        }
+
+    }
+
+
 }
