@@ -13,7 +13,6 @@ import java.util.regex.Pattern;
 public class TokenizerImpl implements Tokenizer{
 
     private Pattern regex;
-
     public TokenizerImpl(Pattern regex) {
         this.regex = regex;
     }
@@ -21,7 +20,6 @@ public class TokenizerImpl implements Tokenizer{
     public TokenizerImpl() {
         this(Pattern.compile("\\b\\w\\w+"));
     }
-
     @Override
     public List<String> tokenize(String text) {
         List<String> tokens = new ArrayList<>();

@@ -1,7 +1,6 @@
 package com.stackroute.tokenizer.service;
 
 import edu.stanford.nlp.util.StringUtils;
-import com.stackroute.tokenizer.service.TextTokenizer;
 //import org.apache.commons.lang3.StringUtils;
 
 import java.util.*;

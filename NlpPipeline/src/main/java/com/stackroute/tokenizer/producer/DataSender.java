@@ -8,19 +8,13 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class DataSender{
-
     @Autowired
-     KafkaTemplate<String, Output> kafkaTemplate;
+    KafkaTemplate<String, Output> kafkaTemplate;
     @Autowired
     KafkaProperties kafkaProperties;
-
     public void postData(Output tokens)
-
     {
-
-
         kafkaTemplate.send(kafkaProperties.getOutputTopic(),tokens);
-
     }
 
-}
+ }
