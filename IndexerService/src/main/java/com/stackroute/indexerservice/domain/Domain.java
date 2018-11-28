@@ -5,7 +5,6 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.neo4j.ogm.annotation.Id;
-import org.neo4j.ogm.annotation.NodeEntity;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -13,8 +12,7 @@ import org.springframework.stereotype.Component;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@NodeEntity
-public class Project {
+public class Domain {
     @Id
     private String name;
 }
