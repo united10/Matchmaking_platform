@@ -71,6 +71,8 @@ public class ProjectServiceImpl implements ProjectService {
         projectRelationshipProperty.setUser(user);
         projectRelationshipProperty.setProperties(prop);
         projectRepository.save(projectRelationshipProperty);
+        projectRepository.saveNode(project.getName());
+
 
         ProjectCompanyRelationshipProperty projectCompanyRelationshipProperty = new ProjectCompanyRelationshipProperty();
         projectCompanyRelationshipProperty.setRelationship("project_by");
