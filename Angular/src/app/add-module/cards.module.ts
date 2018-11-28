@@ -17,6 +17,10 @@ import { CertificatedialogComponent } from './certificate-dialog/certificatedial
 import { LocationdialogComponent } from './location-dialog/locationdialog.component';
 import { ProjectdialogComponent } from './project-dialog/projectdialog.component';
 import { InterestDialogComponent } from './interest-dialog/interest-dialog.component';
+import { MatAutocompleteModule, MatProgressSpinnerModule } from '@angular/material';
+import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
+import { EducationService } from './service/education.service';
 
 @NgModule({
   imports: [
@@ -29,7 +33,11 @@ import { InterestDialogComponent } from './interest-dialog/interest-dialog.compo
     FormsModule,
     ReactiveFormsModule,
     MatDatepickerModule,
-    MatNativeDateModule
+    MatNativeDateModule,
+    MatAutocompleteModule,
+    BrowserModule,
+    HttpClientModule,
+    MatProgressSpinnerModule
   ],
 
   declarations: [CardComponent,
@@ -50,7 +58,7 @@ import { InterestDialogComponent } from './interest-dialog/interest-dialog.compo
                     LocationdialogComponent,
                     ProjectdialogComponent,
                     InterestDialogComponent],
-
+  providers: [EducationService],
   exports: [CardComponent]
 })
 export class CardsModule { }

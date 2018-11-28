@@ -11,6 +11,6 @@ controller:
 
 
 kafka:
-  ipAddress: http://localhost:9092
+  ipAddress: localhost:9092
   groupId: group_id69
   outputTopic: query
