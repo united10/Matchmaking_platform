@@ -1,6 +1,7 @@
 package com.stackroute.cacheservice.RedisService;
 
 import com.stackroute.cacheservice.RedisDomain.RedisEducation;
+import com.stackroute.cacheservice.RedisDomain.RedisQualification;
 import com.stackroute.cacheservice.RedisRepository.EducRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -25,10 +26,12 @@ public class EducServiceImpl implements EducService {
        return education1;
     }
 
+
     @Override
     public List<RedisEducation> getALlRedisEducation() {
        return (List<RedisEducation>) educRepository.findAll();
     }
+
 
     @Override
     public List<RedisEducation> searchCollege(String term){

@@ -22,10 +22,9 @@ public class KafkaListening {
 
     @KafkaListener(topics = "${kafka.listeningTopic}" , groupId = "${kafka.groupId}",
                 containerFactory="${kafka.containerFactory}")
+
     public void consumeJson(@Payload CommonOutput commonOutput) {
-
         CommonOutput indexerData=convertToLowercase(commonOutput);
-
         if(commonOutput.getOperationType().equals("post"))
         {
             ontologyService.createNode(indexerData);
@@ -36,8 +35,10 @@ public class KafkaListening {
         }
         else if(commonOutput.getOperationType().equals("put"))
         {
+
             ontologyService.updateNode(indexerData);
         }
+
     }
 
     public CommonOutput convertToLowercase(CommonOutput commonOutput){
@@ -50,6 +51,7 @@ public class KafkaListening {
         commonOutputLower.setOperationType(commonOutput.getOperationType().toLowerCase());
         commonOutputLower.setSourceNode(commonOutput.getSourceNode().toLowerCase());
         commonOutputLower.setTargetNode(commonOutput.getTargetNode().toLowerCase());
+
 
         for(int i=0;i<commonOutput.getTargetNodeProperty().length;i++)
         {

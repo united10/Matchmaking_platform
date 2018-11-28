@@ -21,4 +21,6 @@ public interface EducationRepository extends Neo4jRepository<education, Long>{
 // @Query("match(n:Organization)<-[r:is_in]-(p)-[:provides]-(q) return p,q")
     List<education> getAllEducation();
 
+    @Query("match(n:education)<-[r:is_a]-(p) return p")
+    List<education> getAllQualification();
 }
