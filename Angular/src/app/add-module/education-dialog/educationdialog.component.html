@@ -8,8 +8,16 @@
     <div class="row-items" *ngFor="let educationControl of educationForm.controls.education.controls; let i = index" [formGroupName]="i">
       <p>{{dataJson?.qualification}}
         <mat-form-field>
-          <input matInput name="qualification" formControlName="qualification" required />
+          <input matInput name="qualification" formControlName="qualification" [matAutocomplete]="auto" (keyup)="onKeyUp(i)" required />
         </mat-form-field>
+        <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
+          <mat-option *ngIf="isLoading" class="is-loading"><mat-spinner diameter="50"></mat-spinner></mat-option>
+          <ng-container *ngIf="!isLoading">
+            <mat-option *ngFor="let qualificatioon of filteredQualifications" [value]="qualificatioon">
+              <span>{{ qualificatioon.name }}</span>
+            </mat-option>
+          </ng-container>
+        </mat-autocomplete>
         {{dataJson?.institute}}
         <mat-form-field>
           <input matInput name="institute" formControlName="institute" required />
