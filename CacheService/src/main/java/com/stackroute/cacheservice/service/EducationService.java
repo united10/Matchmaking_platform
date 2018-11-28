@@ -22,4 +22,8 @@ public class EducationService {
         //System.out.println("hjsdjskdjskdjsk" + educationRepository.getAllEducation());
         return educationRepository.getAllEducation();
     }
+
+    public List<education> getAllQualification(){
+        return educationRepository.getAllQualification();
+    }
 }
