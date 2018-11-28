@@ -37,7 +37,11 @@ export class LoginComponent implements OnInit {
       ]]
     });
     if (this.tokenStorageService.getToken()) {
-      this.isLoggedIn = true;
+      if (this.tokenStorageService.getRole() === 'consumer' ) {
+        this.router.navigate([`/home/user`]);
+        } else {
+          this.router.navigate([`/search`]);
+        }
     }
   }
 
@@ -50,9 +54,12 @@ export class LoginComponent implements OnInit {
         this.tokenStorageService.saveRole(data.role);
         this.isLoginFailed = false;
         this.isLoggedIn = true;
+        if (data.role === 'consumer' ) {
         this.router.navigate([`/home/user`]);
+        } else {
+          this.router.navigate([`/search`]);
+        }
       }
-        // this.reloadPage();
       }
       ,
       error => {

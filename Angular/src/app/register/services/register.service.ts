@@ -8,11 +8,11 @@ import {
 import { catchError } from 'rxjs/operators';
 import { throwError, Observable } from 'rxjs';
 
-const httpOptions = {
-  headers: new HttpHeaders({
-    'Content-Type': 'application/json'
-  })
-};
+// const httpOptions = new HttpHeaders({
+//     'Content-Type': 'application/json'
+// });
+
+const headers = new HttpHeaders().set('Content-Type', 'text/plain; charset=utf-8');
 
 @Injectable({
   providedIn: 'root'
@@ -21,9 +21,9 @@ export class RegisterService {
   private _url = 'http://13.233.180.226:8097/registration-service/api/v1/registration/user';
   constructor(private _http: HttpClient) {}
 
-  submit(user: RegisterModel): Observable<String> {
+  submit(user: RegisterModel) {
     return this._http
-      .post<String>(this._url, user, httpOptions)
+      .post(this._url, user, { responseType: 'text'} )
       .pipe(catchError(this.errorHandler));
   }
   errorHandler(error: HttpErrorResponse) {

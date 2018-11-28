@@ -16,6 +16,6 @@ public class ProjectDetails {
     private String toDate;
     private String projectUrl;
     private String role;
-    private Skills[] technologiesUsed;
+    private ProjectSkill[] technologiesUsed;
     private String description;
 }

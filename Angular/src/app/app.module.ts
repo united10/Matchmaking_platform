@@ -9,6 +9,7 @@ import { UserProfileModule } from './user-profile/user-profile.module';
 import { LoginModule } from './login/login-module/login.module';
 import { SignUpModule } from './register/sign-up-module/sign-up.module';
 import { FooterModule } from './footer/footer.module';
+import { SearchModule } from './search/search-module/search.module';
 
 
 @NgModule({
@@ -20,6 +21,7 @@ import { FooterModule } from './footer/footer.module';
     HttpClientModule,
     RoutingModule,
     UserProfileModule,
+    SearchModule,
     LoginModule,
     SignUpModule,
     FooterModule

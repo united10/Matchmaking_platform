@@ -4,10 +4,8 @@ import { Project } from './../project-dialog/domain/project';
 import { Skill } from './../project-dialog/domain/skill';
 import { ProjectChicklets } from './../project-dialog/domain/projectchicklets';
 import { ProjectSection } from './../project-dialog/domain/projectsection';
-import { HttpHeaders, HttpClient, HttpErrorResponse } from '@angular/common/http';
-
 import { Component, OnInit , Inject } from '@angular/core';
-import { FormGroup, FormArray, FormControl, FormBuilder, Validators } from '@angular/forms';
+import { FormGroup, FormArray, FormBuilder, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { TokenStorageService } from 'src/app/login/service/token-storage.service';
 

@@ -1,37 +1,180 @@
+@import url("https://fonts.googleapis.com/css?family=Nunito+Sans");
+.body{
+  background-color:#b0b0b0;
+  padding-bottom: 5%; 
+  font-family: 'Nunito Sans', sans-serif;
+}
+/*
+  design of nav bar
+*/
+.main-nav{
+  background-color: #57574d;
+}
+/*
+  design of main content
+*/
+.content{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+/*
+  dummy division
+*/
+.dummy{
+  flex: 1;
+}
+/*
+  design of card division
+*/
 .grid-container {
-  margin: 20px;
+  flex: 10;
+  background-color: #e7e7e7;
+  padding-bottom: 5%;
+}
+/*
+  design of basic detail
+*/
+.basic-detail{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  background-color: #0D9965;
+  height: 20rem;
+}
+/*
+  design of user pin in baisc detail
+*/
+.user-pic{
+  flex-basis: 25%;
+  padding: 5px;
+}
+
+.user-pic>img{
+  width: 100%;
+  max-width: 220px;
+}
+
+.user-detail{
+  flex-basis: 75%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 1rem;
+  color: white;
+}
+.user-detail>h6{
+  font-size: 1.5em;
+  font-weight: 500;
+}
+hr{
+  display: block;
+  width: 50%;
+  height: 1px;
+  border: 0;
+  margin: 1em 0;
+  padding: 0;
+  border-top: 1px solid #ccc;
+}
+.card-rule{
+  display: block;
+  width: 100%;
+  height: 1px;
+  border: 0;
+  margin: 1em 0;
+  padding: 0;
+  border-top: 2px solid #ccc;
+}
+.title-row{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+/* .title{
+
+} */
+.add-delete{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+mat-icon{
+  cursor: pointer;
+}
+@media only screen and (max-width: 425px){
+  .dummy{
+    flex: 0;
+  }
+  .grid-container {
+    flex: 10;
+  }
+  .user-pic{
+    flex-basis: 40%;
+  }
+  .user-detail{
+    flex-basis: 60%;
+  }
+  .user-detail>h6{
+    font-size: 1.1em;
+    font-weight: 500;
+  }
+  hr{
+    width: 60%;
+  }
+}
+.card1{
+  padding-bottom: 20px;
+  margin: 15px;
+}
+.mat-card{
+  background-color: ghostwhite;
+  justify-content: space-evenly;
+}
+.mat-card-header{
+  font-display: inherit;
+}
+.Wrapper{
+  
 }
 
 .dashboard-card {
   position: absolute;
   top: 15px;
   left: 15px;
-  right: 15px;
-  bottom: 15px;
+  right: 5px;
+ 
 }
+
+.dashboard-card-content{
+  
+} 
 
 .more-button {
   position: absolute;
   top: 5px;
-  right: 10px;
+  right: 25px;
 }
 
-.dashboard-card-content {
-  text-align: center;
+.delete-button {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+}
+.Container{
+  flex-direction: column;
+  flex-wrap: wrap;
+  flex: auto;
 }
 
 .fab-button{
-  position: absolute;
+  position: fixed;
   right: 10px;
   bottom: 10px;
 }
-.header-spacer {
-  flex: 1 1 auto;
-}
-.header-right {
-  padding: 0 14px;
-}
-.btn {
+
+.btn {  
   display: inline-block;
   padding: 0 14px;
 }

@@ -24,8 +24,7 @@ public class KafkaConsumer {
     Logger logger= LoggerFactory.getLogger(KafkaConsumer.class);
     @Autowired
     EducationService educationService;
-    @Autowired
-    IndexResource indexResource;
+
     private KafkaProperties kafkaProperties;
 
     /*
@@ -38,7 +37,6 @@ public class KafkaConsumer {
 
         logger.debug(Marker.ANY_MARKER,section);
         // System.out.println("consumed json message "+section);
-        CommonOutput commonOutput= educationService.processEducationDetails(section);
-        indexResource.postData(commonOutput);
+        educationService.processEducationDetails(section);
     }
 }
