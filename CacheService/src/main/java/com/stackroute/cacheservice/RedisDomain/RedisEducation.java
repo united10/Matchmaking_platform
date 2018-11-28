@@ -9,6 +9,9 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.redis.core.RedisHash;
 
 import java.io.Serializable;
+import java.lang.annotation.Documented;
+import java.security.PrivateKey;
+import java.util.List;
 
 
 @Data
