@@ -25,14 +25,10 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.*;
 
-
 public class ProcessQuery {
 
     @Autowired
-    DataSender dataSender;
-
-    static Tagging tagging;
-
+    private DataSender dataSender;
     /*
      *  Query will be  tokenize and redundant tokens will be removed out.
      */

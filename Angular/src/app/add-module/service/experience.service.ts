@@ -17,7 +17,7 @@ const httpOptions = {
 })
 export class ExperienceService {
 
-  url1 = 'http://13.233.180.226:8097/upstream-service/api/v1/experience/';
+  url1 = 'https://matchmaker-zuul.stackroute.in/upstream-service/api/v1/experience/';
   constructor(private httpClient: HttpClient) { }
 
   addExperienceDetails(section: ExperienceSection): Observable<Output> {

@@ -9,6 +9,8 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { FormGroup, FormArray, FormControl, FormBuilder, Validators } from '@angular/forms';
 import { EducationSection } from '../education-dialog/domain/educationsection';
 import { TokenStorageService } from 'src/app/login/service/token-storage.service';
+import { debounceTime, tap, switchMap, finalize } from 'rxjs/operators';
+import { IQualificationResponse, Qualificationn } from './domain/qualificationn';
 
 @Component({
   selector: 'app-educationdialog',
@@ -16,7 +18,8 @@ import { TokenStorageService } from 'src/app/login/service/token-storage.service
   styleUrls: ['./educationdialog.component.css']
 })
 export class EducationdialogComponent implements OnInit {
-
+  filteredQualifications: Qualificationn[] = [];
+  isLoading = false;
   educationForm: FormGroup;
   qualification: string;
   institute: string;
@@ -28,6 +31,7 @@ export class EducationdialogComponent implements OnInit {
   totalRow: number;
   dataJson: any;
   json_url = 'assets/education.json';
+  temp: FormArray;
   constructor(@Inject(MAT_DIALOG_DATA) private data: any,
     private dialogRef: MatDialogRef<EducationdialogComponent>,
     private educationService: EducationService, private fb: FormBuilder,
@@ -46,6 +50,25 @@ export class EducationdialogComponent implements OnInit {
         this.dataJson = data;
       }
     );
+    }
+  onKeyUp(index: number) {
+    console.log('qualif' + index);
+    this.temp = this.educationForm.get('education') as FormArray;
+    this.temp.at(index).get('qualification').valueChanges.pipe(
+      debounceTime(300),
+      tap(() => this.isLoading = true),
+      switchMap(value =>
+        this.educationService.search({name: value}, 1)
+      .pipe(
+        finalize(() => this.isLoading = false),
+        )
+      )
+    )
+    .subscribe(qualifications => this.filteredQualifications = qualifications.educations);
+ }
+displayFn(qualification: Qualificationn) {
+  if (qualification) {
+    return qualification.name; }
 }
 
   initItemRow() {
@@ -73,7 +96,6 @@ export class EducationdialogComponent implements OnInit {
       return false;
     }
   }
-
   onSave() {
     const arr = this.educationForm.get('education') as FormArray;
     const chicklets = new Array<EducationChicklets>();

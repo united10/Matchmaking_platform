@@ -210,20 +210,61 @@ export class EmployeeDashboardDummyComponent implements OnInit {
         }
         if (matches) {
           for (const index in cards) {
-            cards[index].cols = 2;
-            cards[index].rows = 1;
+            if (cards[index].title === 'Education') {
+              console.log("education length " + cards[index].contents.length);
+              if (cards[index].contents.length <= 2) {
+                cards[index].rows = cards[index].contents.length * 3.8 ;
+              } else {
+                cards[index].rows = cards[index].contents.length * 3.2;
+              }
+              cards[index].cols = 2;
+            }else if (cards[index].title  === 'Skills') {
+              console.log("skill length " + cards[index].contents.length);
+                cards[index].rows = cards[index].contents.length * 2.5;
+                cards[index].cols = 2;
+              } else if (cards[index].title  === 'Project') {
+                cards[index].rows = cards[index].contents.length * 6.5;
+                cards[index].cols = 2;
+              } else if (cards[index].title  === 'Certificate') {
+                console.log("certificate length " + cards[index].contents.length);
+                cards[index].rows = cards[index].contents.length * 5.5 ;
+                cards[index].cols = 2;
+              } else if (cards[index].title  === 'Location') {
+                console.log(cards[index].contents.length);
+                cards[index].rows = cards[index].contents.length * 5.5 ;
+                cards[index].cols = 2;
+              }
           }
           return cards;
         }
 
         for (const index in cards) {
-            if (cards[index].title  === 'Skills') {
-              cards[index].rows = cards[index].contents.length / 2 ;
-              cards[index].cols = 1;
+          if (cards[index].title === 'Education') {
+            console.log("education length " + cards[index].contents.length);
+            if (cards[index].contents.length <= 2) {
+              cards[index].rows = cards[index].contents.length * 3.8 ;
             } else {
-            console.log(cards[index].contents.length);
-            cards[index].rows = cards[index].contents.length ;
+              cards[index].rows = cards[index].contents.length * 3.2;
+            }
             cards[index].cols = 1;
+          }else if (cards[index].title  === 'Skills') {
+            console.log("skill length " + cards[index].contents.length);
+              cards[index].rows = cards[index].contents.length * 2.5;
+              cards[index].cols = 1;
+            } else if (cards[index].title  === 'Project') {
+              cards[index].rows = cards[index].contents.length * 6.5;
+              cards[index].cols = 1;
+            } else if (cards[index].title  === 'Certificate') {
+              console.log("certificate length " + cards[index].contents.length);
+              if (cards[index].contents.length === 1){
+                cards[index].rows = cards[index].contents.length * 5.5 ;
+              }
+              cards[index].rows = cards[index].contents.length * 4.8 ;
+              cards[index].cols = 1;
+            } else if (cards[index].title  === 'Location') {
+              console.log(cards[index].contents.length);
+              cards[index].rows = cards[index].contents.length * 5.5 ;
+              cards[index].cols = 1;
             }
         }
         return cards;

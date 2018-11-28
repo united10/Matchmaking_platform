@@ -19,4 +19,7 @@ public class ProjectDetails {
     private String role;
     private List<Skill> technologiesUsed;
     private String description;
+    private String domain;
+    private String company;
+    private String client;
 }

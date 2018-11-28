@@ -27,8 +27,6 @@ public class DocProcessor {
     public static Map sortByValues(Map map) {
 
         List list = new LinkedList(map.entrySet());
-
-
         Collections.sort(list,(o1,o2) ->
                 ((Comparable) ((Map.Entry) (o2)).getValue()).compareTo(((Map.Entry) (o1)).getValue())
         );

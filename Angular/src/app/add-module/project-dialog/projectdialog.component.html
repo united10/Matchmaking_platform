@@ -26,9 +26,21 @@
             <input matInput name="url" formControlName="url">
             <mat-error>{{dataJson?.url?.error}}</mat-error>
           </mat-form-field>
+          {{dataJson?.domain}}
+          <mat-form-field>
+            <input matInput name="domain" formControlName="domain">
+          </mat-form-field>
           {{dataJson?.role}}
           <mat-form-field>
             <input matInput name="role" formControlName="role">
+          </mat-form-field>
+          {{dataJson?.company}}
+          <mat-form-field>
+            <input matInput name="company" formControlName="company">
+          </mat-form-field>
+          {{dataJson?.client}}
+          <mat-form-field>
+            <input matInput name="client" formControlName="client">
           </mat-form-field>
           {{dataJson?.description?.text}}
           <mat-form-field style = "width:80%;">

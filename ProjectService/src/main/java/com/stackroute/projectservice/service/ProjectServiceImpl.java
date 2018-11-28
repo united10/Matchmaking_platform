@@ -25,7 +25,8 @@ public class ProjectServiceImpl implements ProjectService {
                     .relationshipProperty(skills[i].getSkill()).relationshipType("knows").build();
         }
 /*these hardcoded strings will be removed later*/
-        CommonOutput commonOutput = CommonOutput.builder()
+        CommonOutput commonOutput;
+        commonOutput = CommonOutput.builder()
                 .operationType(section.getOperationType())
                 .sourceNode(section.getUserId())
                 .sourceNodeProperty("property1")
@@ -33,7 +34,7 @@ public class ProjectServiceImpl implements ProjectService {
                 .targetNodeProperty("target property")
                 .relationship(relationship)
                 .build();
-        return commonOutput;
+                return commonOutput;
     }
 
 }

@@ -17,6 +17,8 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.*;
 
+/*This class is for tagging the tokens under different tags (i.e- education,location,etc)*/
+
 @Component
 public class Tagging {
     private static FileReader jsonFile;
@@ -101,7 +103,6 @@ public class Tagging {
             }
 
         }
-        System.out.println("---------------------- Output --------------------------------");
         Output output = Output.builder()
                 .educations(educations)
                 .skills(skills)
