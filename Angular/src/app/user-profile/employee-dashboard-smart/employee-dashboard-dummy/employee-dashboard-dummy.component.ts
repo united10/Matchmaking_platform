@@ -33,6 +33,7 @@ export class EmployeeDashboardDummyComponent implements OnInit {
   basicLength = 0;
   isLoggedIn = false;
   basicInfo;
+  educationLength: number;
   public isCollapsed = false;
   constructor(private breakpointObserver: BreakpointObserver,
     private tokenstorageservice: TokenStorageService , private downstreamBackendService: DownstreamBackendService) {}
@@ -212,10 +213,12 @@ export class EmployeeDashboardDummyComponent implements OnInit {
           for (const index in cards) {
             if (cards[index].title === 'Education') {
               console.log("education length " + cards[index].contents.length);
-              if (cards[index].contents.length <= 2) {
-                cards[index].rows = cards[index].contents.length * 3.8 ;
+              if (cards[index].contents.length === 1) {
+                this.educationLength = cards[index].contents.length * 4.5;
+                cards[index].rows =  this.educationLength;
               } else {
-                cards[index].rows = cards[index].contents.length * 3.2;
+                this.educationLength = 4.5;
+                cards[index].rows = this.educationLength + cards[index].contents.length ;
               }
               cards[index].cols = 2;
             }else if (cards[index].title  === 'Skills') {
@@ -240,26 +243,32 @@ export class EmployeeDashboardDummyComponent implements OnInit {
 
         for (const index in cards) {
           if (cards[index].title === 'Education') {
-            console.log("education length " + cards[index].contents.length);
-            if (cards[index].contents.length <= 2) {
-              cards[index].rows = cards[index].contents.length * 3.8 ;
+            if (cards[index].contents.length === 1) {
+              cards[index].rows =  4.5;
             } else {
-              cards[index].rows = cards[index].contents.length * 3.2;
+              cards[index].rows = 4.5 + cards[index].contents.length ;
             }
             cards[index].cols = 1;
-          }else if (cards[index].title  === 'Skills') {
-            console.log("skill length " + cards[index].contents.length);
-              cards[index].rows = cards[index].contents.length * 2.5;
+          } else if (cards[index].title  === 'Skills') {
+              if (cards[index].contents.length === 1) {
+                cards[index].rows =  3.5;
+              } else {
+                cards[index].rows = 3.5 + cards[index].contents.length ;
+              }
               cards[index].cols = 1;
             } else if (cards[index].title  === 'Project') {
-              cards[index].rows = cards[index].contents.length * 6.5;
+              if (cards[index].contents.length === 1) {
+                cards[index].rows =  6.5;
+              } else {
+                cards[index].rows = 8.5 + cards[index].contents.length ;
+              }
               cards[index].cols = 1;
             } else if (cards[index].title  === 'Certificate') {
-              console.log("certificate length " + cards[index].contents.length);
-              if (cards[index].contents.length === 1){
-                cards[index].rows = cards[index].contents.length * 5.5 ;
+              if (cards[index].contents.length === 1) {
+                cards[index].rows =  5.5;
+              } else {
+                cards[index].rows = 5.5 + cards[index].contents.length ;
               }
-              cards[index].rows = cards[index].contents.length * 4.8 ;
               cards[index].cols = 1;
             } else if (cards[index].title  === 'Location') {
               console.log(cards[index].contents.length);
