@@ -14,7 +14,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CardComponent } from '../add-module/card/card.component';
 import { CardsModule } from '../add-module/cards.module';
 import { MaterialModule } from '../login/login-module/material.module';
-
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   imports: [
@@ -27,7 +27,8 @@ import { MaterialModule } from '../login/login-module/material.module';
     MatButtonModule,
     LayoutModule,
     CardsModule,
-    MaterialModule
+    MaterialModule,
+    NgbModule
   ],
   declarations: [
     EmployeeDashboardDummyComponent,

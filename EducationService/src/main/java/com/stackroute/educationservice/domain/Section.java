@@ -23,5 +23,5 @@ public class Section {
     private String userId;
     @NotNull
     private String operationType;
-    private Chicklets chicklets[];
+    private Chicklets[] chicklets;
 }

@@ -15,7 +15,7 @@ const httpOptions = {
 })
 export class CertificateService {
 
-  url = 'http://13.233.180.226:8097/upstream-service/api/v1/certificate';
+  url = 'https://matchmaker-zuul.stackroute.in/upstream-service/api/v1/certificate';
 
   constructor(private httpClient: HttpClient) { }
 

@@ -24,6 +24,8 @@ zuul:
                url: http://localhost:8087
            education-service:
                url: http://localhost:8082
+           query-service:
+               url: http://localhost:8095
 
 
 #eureka:         #tells about the Eureka server details and its refresh time
