@@ -32,57 +32,57 @@ services:
       - zookeeper
     restart: always
 
-  nplpipeline-service:
-    image: nlppipeline-service:v1
-    build: NlpPipeline/
-    restart: always
-    container_name: nlp-pipeline
-    network_mode: host
-    depends_on:
-      - kafka
-    ports:
-      - "8093:8093"
-    expose:
-      - "8093"
+#  nplpipeline-service:
+#    image: nlppipeline-service:v1
+#    build: NlpPipeline/
+#    restart: always
+#    container_name: nlp-pipeline
+#    network_mode: host
+#    depends_on:
+#      - kafka
+#    ports:
+#      - "8093:8093"
+#    expose:
+#      - "8093"
 
-  cache-service:
-    image: cache-service:v1
-    build: CacheService/
-    restart: always
-    container_name: cache-container
-    network_mode: host
-    depends_on:
-      - kafka
-    ports:
-      - "8008:8008"
-    expose:
-      - "8008"
+#  cache-service:
+#    image: cache-service:v1
+#    build: CacheService/
+#    restart: always
+#    container_name: cache-container
+#    network_mode: host
+#    depends_on:
+#      - kafka
+#    ports:
+#      - "8008:8008"
+#    expose:
+#      - "8008"
 
-  indexer-service:
-    image: indexer-service:v1
-    build: IndexerService/
-    restart: always
-    container_name: indexer-container
-    network_mode: host
-    depends_on:
-      - kafka
-    ports:
-      - "8001:8001"
-    expose:
-      - "8001"
+#  indexer-service:
+#    image: indexer-service:v1
+#    build: IndexerService/
+#    restart: always
+#    container_name: indexer-container
+#    network_mode: host
+#    depends_on:
+#      - kafka
+#    ports:
+#      - "8001:8001"
+#    expose:
+#      - "8001"
 
-  query-service:
-    image: query-service:v1
-    build: QueryService/
-    restart: always
-    container_name: query-container
-    network_mode: host
-    depends_on:
-      - kafka
-    ports:
-      - "8095:8095"
-    expose:
-      - "8095"
+#  query-service:
+#    image: query-service:v1
+#    build: QueryService/
+#    restart: always
+#    container_name: query-container
+#    network_mode: host
+#    depends_on:
+#      - kafka
+#    ports:
+#      - "8095:8095"
+#    expose:
+#      - "8095"
 
   education-service:
     image: education-service:v1
@@ -133,42 +133,42 @@ services:
       - "8085:8085"
     expose:
       - "8085"
-  experience-service:
-    image: experience-service:v1
-    build: ExperienceService/
-    restart: always
-    container_name: experience-container
-    network_mode: host
-    depends_on:
-      - kafka
-    ports:
-      - "8087:8087"
-    expose:
-      - "8087"
-  location-service:
-    image: location-service:v1
-    build: LocationService/
-    restart: always
-    container_name: location-container
-    network_mode: host
-    depends_on:
-      - kafka
-    ports:
-      - "8084:8084"
-    expose:
-      - "8084"
-  project-service:
-    image: project-service:v1
-    build: ProjectService/
-    restart: always
-    container_name: project-container
-    network_mode: host
-    depends_on:
-      - kafka
-    ports:
-      - "8083:8083"
-    expose:
-      - "8083"
+#  experience-service:
+#    image: experience-service:v1
+#    build: ExperienceService/
+#    restart: always
+#    container_name: experience-container
+#    network_mode: host
+#    depends_on:
+#      - kafka
+#    ports:
+#      - "8087:8087"
+#    expose:
+#      - "8087"
+#  location-service:
+#    image: location-service:v1
+#    build: LocationService/
+#    restart: always
+#    container_name: location-container
+#    network_mode: host
+#    depends_on:
+#      - kafka
+#    ports:
+#      - "8084:8084"
+#    expose:
+#      - "8084"
+#  project-service:
+#    image: project-service:v1
+#    build: ProjectService/
+#    restart: always
+#    container_name: project-container
+#    network_mode: host
+#    depends_on:
+#      - kafka
+#    ports:
+#      - "8083:8083"
+#    expose:
+#      - "8083"
   skill-service:
     image: skill-service:v1
     build: SkillService/
@@ -267,18 +267,18 @@ services:
       - "8091:8091"
     expose:
       - 8091
-  interest-service:
-    image: interest-service:v1
-    build: InterestService/
-    restart: always
-    container_name: interest-container
-    network_mode: host
-    depends_on:
-      - kafka
-    ports:
-      - "8099:8099"
-    expose:
-    - "8099"
+#  interest-service:
+#    image: interest-service:v1
+#    build: InterestService/
+#    restart: always
+#    container_name: interest-container
+#    network_mode: host
+#    depends_on:
+#      - kafka
+#    ports:
+#      - "8099:8099"
+#    expose:
+#    - "8099"
 #  neo4jdb:
 #    image: madhuri23/neo4j:3.0
 #    ports:

@@ -16,7 +16,7 @@ const httpOptions = {
 })
 export class SkillService {
 
-  url = 'http://13.233.180.226:8097/upstream-service/api/v1/skills';
+  url = 'https://matchmaker-zuul.stackroute.in/upstream-service/api/v1/skills';
 
   constructor(private httpClient: HttpClient) { }
 

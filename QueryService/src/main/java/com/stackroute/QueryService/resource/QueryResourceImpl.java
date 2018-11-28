@@ -7,8 +7,8 @@ import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Service;
 
 /*
-It is an implementation of index resource interface which is
-responsible for producing the data in the Indexer topic
+It is an implementation of query resource interface which is
+responsible for producing the data in the query topic of kafka
  */
 @Service
 public class QueryResourceImpl implements QueryResource {
