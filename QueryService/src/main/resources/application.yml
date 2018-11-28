@@ -4,18 +4,6 @@ server:
 spring:
   application:
     name: QueryService
-#  cloud:
-#    config:
-#      uri: http://localhost:8888
-#data:
-#  mongodb:
-#    database: queryData
-#    uri: mongodb://localhost:27017
-
-eureka:
-  client:
-    register-with-eureka: false
-    fetch-registry: false
 
 controller:
   base: /matchmaker/v1
