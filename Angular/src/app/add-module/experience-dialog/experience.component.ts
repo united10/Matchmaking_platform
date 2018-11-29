@@ -8,6 +8,7 @@ import { ExperienceSection } from '../experience-dialog/domain/section';
 import { Chicklets } from '../experience-dialog/domain/chicklets';
 import { ExperienceDetails } from '../experience-dialog/domain/experience-details';
 import { TokenStorageService } from 'src/app/login/service/token-storage.service';
+import { Organisation } from './domain/organisation';
 
 
 @Component({
@@ -20,6 +21,7 @@ export class ExperienceComponent implements OnInit {
 
 
   experienceForm: FormGroup;
+  filteredOrganisations: Organisation[] = [];
   organistion: string;
   role: string;
   startDate: string;

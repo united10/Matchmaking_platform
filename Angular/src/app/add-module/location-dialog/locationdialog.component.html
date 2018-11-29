@@ -9,16 +9,24 @@
       <p>Current Location</p>
       <p>
         <mat-form-field>
-          <input matInput placeholder="currentId" formControlName="currentId" required />
+          <input matInput placeholder="Street Address" formControlName="currentId" required />
         </mat-form-field>
         <mat-form-field>
-          <input matInput placeholder="cityName" formControlName="currentCityName" required />
+          <input matInput placeholder="City Name" formControlName="currentCityName" [matAutocomplete]="auto" (keyup)="onKeyUp(i)" required />
+        </mat-form-field>
+        <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
+          <mat-option *ngIf="isLoading" class="is-loading"><mat-spinner diameter="50"></mat-spinner></mat-option>
+          <ng-container *ngIf="!isLoading">
+            <mat-option *ngFor="let currentcityname of filteredCurrentCityName" [value]="currentcityname">
+              <span>{{ currentcityname.name }}</span>
+            </mat-option>
+          </ng-container>
+        </mat-autocomplete>
+        <mat-form-field>
+          <input matInput placeholder="State Name" formControlName="currentStateName" required />
         </mat-form-field>
         <mat-form-field>
-          <input matInput placeholder="stateName" formControlName="currentStateName" required />
-        </mat-form-field>
-        <mat-form-field>
-          <input matInput placeholder="pincode" formControlName="currentPincode" required />
+          <input matInput placeholder="pin code" formControlName="currentPincode" required />
         </mat-form-field>
       </p>
       <!-- <mat-icon color="primary" (click)="deleteRow(i)" style="cursor:pointer">delete</mat-icon> -->
@@ -28,16 +36,24 @@
     <div class="row-items" *ngFor="let locationControl of locationForm.controls.pastLocation.controls; let i = index" [formGroupName]="i">
       <p>
         <mat-form-field>
-          <input matInput placeholder="pastId" formControlName="pastId" required />
+          <input matInput placeholder="Street Address" formControlName="pastId" required />
         </mat-form-field>
         <mat-form-field>
-          <input matInput placeholder="cityName" formControlName="pastCityName" required />
+          <input matInput placeholder="City Name" formControlName="pastCityName" [matAutocomplete]="auto1" (keyup)="onKeyUp1(i)" required />
+        </mat-form-field>
+        <mat-autocomplete #auto1="matAutocomplete" [displayWith]="displayFn1">
+          <mat-option *ngIf="isLoading1" class="is-loading"><mat-spinner diameter="50"></mat-spinner></mat-option>
+          <ng-container *ngIf="!isLoading1">
+            <mat-option *ngFor="let pastcityname of filteredPastCityName" [value]="pastcityname">
+              <span>{{ pastcityname.name }}</span>
+            </mat-option>
+          </ng-container>
+        </mat-autocomplete>
+        <mat-form-field>
+          <input matInput placeholder="State Name" formControlName="pastStateName" required />
         </mat-form-field>
         <mat-form-field>
-          <input matInput placeholder="stateName" formControlName="pastStateName" required />
-        </mat-form-field>
-        <mat-form-field>
-          <input matInput placeholder="pincode" formControlName="pastPincode" required />
+          <input matInput placeholder="pin code" formControlName="pastPincode" required />
         </mat-form-field>
       </p>
       <mat-icon color="primary" (click)="deleteRow(i)" style="cursor:pointer">delete</mat-icon>

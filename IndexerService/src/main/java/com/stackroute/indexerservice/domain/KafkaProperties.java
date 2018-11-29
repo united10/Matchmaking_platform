@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component;
 /*To remove the hard coded data of the kafka this class is configured and required configuration written in applicaton.yml
 
  */
-
+@Data
 @Builder
 @Data
 @AllArgsConstructor
