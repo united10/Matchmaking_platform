@@ -22,6 +22,7 @@ import java.util.Map;
 @EnableKafka
 @Configuration
 public class KafkaConsumer {
+
     private KafkaProperties kafkaProperties;
     @Autowired
     public void setApp(KafkaProperties kafkaProperties){
