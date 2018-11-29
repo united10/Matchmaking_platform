@@ -1,16 +1,16 @@
 package com.stackroute.projectservice.domain;
 
-
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.stereotype.Component;
 
-/* collections of project details class*/
+@Component
 @Data
 @Builder
-@AllArgsConstructor
 @NoArgsConstructor
-public class Chicklets {
-    private ProjectDetails projectDetails;
+@AllArgsConstructor
+public class TargetNodeProperty {
+    private String name;
 }

@@ -7,6 +7,9 @@ import { CertificateSection } from '../certificate-dialog/domain/certificatesect
 import { CertificateService } from '../service/certificate.service';
 import { ReadfromjsonService } from './../service/readfromjson.service';
 import { TokenStorageService } from 'src/app/login/service/token-storage.service';
+import { Certi } from './domain/Certi';
+import { debounceTime, tap, switchMap, finalize } from 'rxjs/operators';
+import { Authority } from './domain/Authority';
 
 @Component({
   selector: 'app-certificatedialog',
@@ -14,7 +17,9 @@ import { TokenStorageService } from 'src/app/login/service/token-storage.service
   styleUrls: ['./certificatedialog.component.css']
 })
 export class CertificatedialogComponent implements OnInit {
-
+  filteredCertificates: Certi[] = [];
+  filteredAuthorities: Authority[] = [];
+  isLoading = false;
   certificateForm: FormGroup;
   certificateName: string;
   certificateAuthority: string;
@@ -24,6 +29,8 @@ export class CertificatedialogComponent implements OnInit {
   errorMessage: string;
   totalRow: number;
   dataJson: any;
+  temp: FormArray;
+  temp1: FormArray;
   json_url = 'assets/certificate.json';
 
   constructor(@Inject(MAT_DIALOG_DATA) private data: any,
@@ -44,6 +51,44 @@ export class CertificatedialogComponent implements OnInit {
       }
     );
   }
+  onKeyUp(index: number) {
+    console.log('qualif' + index);
+    this.temp = this.certificateForm.get('certificate') as FormArray;
+    this.temp.at(index).get('certificateName').valueChanges.pipe(
+      debounceTime(300),
+      tap(() => this.isLoading = true),
+      switchMap(value =>
+        this.certificateService.search({name: value}, 1)
+      .pipe(
+        finalize(() => this.isLoading = false),
+        )
+      )
+    )
+    .subscribe(response => this.filteredCertificates = response.certifications);
+ }
+displayFn(certi: Certi) {
+  if (certi) {
+    return certi.name; }
+}
+onKeyUp1(index: number) {
+  console.log('qualif' + index);
+  this.temp = this.certificateForm.get('certificate') as FormArray;
+  this.temp.at(index).get('certificateAuthority').valueChanges.pipe(
+    debounceTime(300),
+    tap(() => this.isLoading = true),
+    switchMap(value =>
+      this.certificateService.search1({name: value}, 1)
+    .pipe(
+      finalize(() => this.isLoading = false),
+      )
+    )
+  )
+  .subscribe(response => this.filteredAuthorities = response.authorities);
+}
+displayFn1(authority: Authority) {
+if (authority) {
+  return authority.name; }
+}
   initItemRow() {
     return this.fb.group({
       certificateName: new FormControl('', Validators.required),

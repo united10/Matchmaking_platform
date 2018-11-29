@@ -8,8 +8,16 @@
     <div class="row-items" *ngFor="let exprienceControl of experienceForm.controls.experience.controls; let i = index" [formGroupName]="i">
       <p>I Worked in
         <mat-form-field>
-          <input matInput name="organisation" formControlName="organisation" required />
+          <input matInput name="organisation" formControlName="organisation" [matAutocomplete]="auto" (keyup)="onKeyUp(i)" required />
         </mat-form-field>
+        <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
+          <mat-option *ngIf="isLoading" class="is-loading"><mat-spinner diameter="50"></mat-spinner></mat-option>
+          <ng-container *ngIf="!isLoading">
+            <mat-option *ngFor="let organisation of filteredOrganisations" [value]="organisation">
+              <span>{{ organisation.name }}</span>
+            </mat-option>
+          </ng-container>
+        </mat-autocomplete>
         as
         <mat-form-field>
           <input matInput name="role" formControlName="role" required />
