@@ -16,7 +16,9 @@ import org.springframework.kafka.support.converter.StringJsonMessageConverter;
 
 import java.util.HashMap;
 import java.util.Map;
+/* This is the configuration of the kafka consumer for consuming the data from indexer topic
 
+ */
 @EnableKafka
 @Configuration
 public class KafkaConsumer {
@@ -46,7 +48,9 @@ public class KafkaConsumer {
         return factory;
     }
 
+    /*This method is responsible for listening the common output in the indexer
 
+     */
     @Bean
     public ConsumerFactory<String, CommonOutput> userConsumerFactory() {
 

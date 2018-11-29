@@ -1,13 +1,10 @@
 package com.stackroute.cacheservice.resource;
 
 import com.stackroute.cacheservice.RedisDomain.*;
-import com.stackroute.cacheservice.RedisService.EducService;
-import com.stackroute.cacheservice.RedisService.ExpService;
-import com.stackroute.cacheservice.RedisService.LocService;
-import com.stackroute.cacheservice.RedisService.SkillServices;
+import com.stackroute.cacheservice.RedisService.*;
 
 import com.stackroute.cacheservice.domain.Experience;
-
+import com.stackroute.cacheservice.RedisDomain.*;
 import com.stackroute.cacheservice.domain.education;
 import com.stackroute.cacheservice.domain.Location;
 import com.stackroute.cacheservice.domain.Skill;
@@ -22,18 +19,19 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 @RestController
-@RequestMapping("rest/neo4j")
+@RequestMapping("api/v1")
 public class ExperienceResource {
 
 
-    ExperienceService experienceService;
-    EducationService educationService;
-    LocationService locationService;
-    SkillService skillService;
-    EducService educService;
-    ExpService expService;
-    LocService locService;
-    SkillServices skillServices;
+    private ExperienceService experienceService;
+    private EducationService educationService;
+    private LocationService locationService;
+    private SkillService skillService;
+    private EducService educService;
+    private ExpService expService;
+    private LocService locService;
+    private SkillServices skillServices;
+    private QualificationService qualificationService;
 
     @Autowired
     public ExperienceResource(ExperienceService experienceService,
@@ -43,7 +41,8 @@ public class ExperienceResource {
                               EducService educService ,
                               ExpService expService,
                               LocService locService ,
-                              SkillServices skillServices) {
+                              SkillServices skillServices,
+                              QualificationService qualificationService) {
         this.experienceService=experienceService;
         this.educationService=educationService;
         this.locationService=locationService;
@@ -52,6 +51,7 @@ public class ExperienceResource {
         this.expService = expService;
         this.locService = locService;
         this.skillServices = skillServices;
+        this.qualificationService = qualificationService;
     }
 
     @GetMapping("/experience")
@@ -74,9 +74,23 @@ public class ExperienceResource {
         return redisExperiences;
     }
 
+    @GetMapping("/redisExperience/{term}")
+    public List<RedisExperience> searchOrganization(@PathVariable("term") String term){
+        List<RedisExperience> redisExperiences  = expService.getAllRedisExperience();
+        List<RedisExperience> autoOrganization = new ArrayList<>();
+        Pattern regex = Pattern.compile("(" + term.toLowerCase() + ")");
+        for(int i = 0 ; i<redisExperiences.size(); i++){
+            Matcher m = regex.matcher(redisExperiences.get(i).toString().toLowerCase());
+            if (m.find()) {
+                autoOrganization.add(redisExperiences.get(i));
+            }
+        }
+        System.out.println(autoOrganization);
+        return autoOrganization;
+    }
+
    @GetMapping("/education")
     public List<education> getAlleducation(){
-//        return educationService.getAlleducation();
        List<education> educationsCollection = educationService.getAlleducation();
        System.out.println(educationsCollection);
        for(int i = 0; i<educationsCollection.size();i++ ){
@@ -90,15 +104,40 @@ public class ExperienceResource {
        return educationsCollection;
     }
 
-    @GetMapping("/redisEducation")
-    public List<RedisEducation> getAllRedisEducation(){
-        List<RedisEducation> redisEducations = educService.getALlRedisEducation();
-        System.out.println(educService.getALlRedisEducation());
-        return redisEducations;
+    @GetMapping("/qualification")
+    public List<education> getAllQualification(){
+        List<education> qualificationCollection = educationService.getAllQualification();
+        System.out.println(qualificationCollection);
+        for(int i = 0; i<qualificationCollection.size();i++ ){
+            RedisQualification redisQualification=new RedisQualification();
+            education education1=qualificationCollection.get(i);
+            redisQualification.setId(education1.getId());
+            redisQualification.setName(education1.getName());
+            qualificationService.saveQualification(redisQualification);
+          //  System.out.println("22222"+qualificationService.saveQualification(redisQualification));
+        }
+        System.out.println("22" + qualificationService.getAllRedisQualification());
+        return qualificationCollection;
     }
 
-    @GetMapping("/redisEducation/{term}")
-    public List<RedisEducation> searchCollege(@PathVariable("term") String term){
+    @GetMapping("/redisEducation/education")
+    public EducationOutput getAllRedisEducation(){
+        List<RedisEducation> redisEducations = educService.getALlRedisEducation();
+        EducationOutput educationOutput =EducationOutput.builder().educations(redisEducations).build();
+        System.out.println(educService.getALlRedisEducation());
+        return educationOutput;
+    }
+
+    @GetMapping("/redisEducation/qualification")
+    public QualificationOutput getAllRedisQualification(){
+        List<RedisQualification> redisQualifications = qualificationService.getAllRedisQualification();
+        QualificationOutput qualificationOutput =QualificationOutput.builder().Qualifications(redisQualifications).build();
+        System.out.println("srk" + qualificationService.getAllRedisQualification());
+        return qualificationOutput;
+    }
+
+    @GetMapping("/redisEducation/education/{term}")
+    public EducationOutput searchCollege(@PathVariable("term") String term){
         List<RedisEducation> redisEducations = educService.getALlRedisEducation();
         List<RedisEducation> autoCollege = new ArrayList<>();
         Pattern regex = Pattern.compile("(" + term.toLowerCase() + ")");
@@ -108,13 +147,29 @@ public class ExperienceResource {
                 autoCollege.add(redisEducations.get(i));
             }
         }
+        EducationOutput educationOutput = EducationOutput.builder().educations(autoCollege).build();
         System.out.println(autoCollege);
-        return autoCollege;
+        return educationOutput;
+    }
+
+    @GetMapping("/redisEducation/qualification/{term}")
+    public QualificationOutput searchQualification(@PathVariable("term") String term){
+        List<RedisQualification> redisQualifications = qualificationService.getAllRedisQualification();
+        List<RedisQualification> autoQualification = new ArrayList<>();
+        Pattern regex = Pattern.compile("(" + term.toLowerCase() + ")");
+        for(int i = 0 ; i<redisQualifications.size(); i++){
+            Matcher m = regex.matcher(redisQualifications.get(i).toString().toLowerCase());
+            if (m.find()) {
+                autoQualification.add(redisQualifications.get(i));
+            }
+        }
+        QualificationOutput qualificationOutput = QualificationOutput.builder().Qualifications(autoQualification).build();
+        System.out.println(autoQualification);
+        return qualificationOutput;
     }
 
    @GetMapping("/location")
     public List<Location> getAlllocation(){
-        //return locationService.getAlllocation();
        List<Location> locationsCollection = locationService.getAlllocation();
        for(int i = 0 ; i< locationsCollection.size() ; i++){
            RedisLocation redisLocation = new RedisLocation();
@@ -134,11 +189,9 @@ public class ExperienceResource {
 
     @GetMapping("/redisLocation/{term}")
     public List<RedisLocation> cityAutoComplete(@PathVariable("term") String term) {
-       // List<City> allCities = new ArrayList<City>();
         List<RedisLocation> locationsCollection = locService.getAllRedisLocation();
         List<RedisLocation> autoCities = new ArrayList<>();
         Pattern regex = Pattern.compile("(" + term.toLowerCase() + ")");
-        //locationsCollection = (List<location>) cityRepository.findAll();
         for (int i = 0; i < locationsCollection.size(); i++) {
             Matcher m = regex.matcher(locationsCollection.get(i).toString().toLowerCase());
             if (m.find()) {
@@ -173,6 +226,7 @@ public class ExperienceResource {
    @GetMapping("/redisSkill/{term}")
    public List<RedisSkill> searchSkill(@PathVariable("term") String term){
         List<RedisSkill> redisSkills = skillServices.getAllRedisSkill();
+       System.out.println("all skills"+redisSkills);
         List<RedisSkill> autoSkill = new ArrayList<>();
        Pattern regex = Pattern.compile("(" + term.toLowerCase() + ")");
         for(int i = 0 ; i< redisSkills.size(); i++){
@@ -191,25 +245,13 @@ public class ExperienceResource {
         List<RedisEducation> redisEducationList = educService.getALlRedisEducation();
         List<RedisLocation> redisLocationList = locService.getAllRedisLocation();
         List<RedisSkill> redisSkillList = skillServices.getAllRedisSkill();
+        List<RedisExperience> redisExperienceList = expService.getAllRedisExperience();
         Output output = Output.builder().education(redisEducationList)
                                         .locations(redisLocationList)
                                         .skills(redisSkillList)
+                                        .experiences(redisExperienceList)
                                         .build();
        System.out.println(output);
        return output;
    }
-
-//   @PostMapping("/output")
-//    public Output getAll(@RequestBody Output output){
-//       List<RedisEducation> redisEducationList = educService.getALlRedisEducation();
-//      List<RedisLocation> redisLocationList = locService.getAllRedisLocation();
-//       List<RedisSkill> redisSkillList = skillServices.getAllRedisSkill();
-//       output = Output.builder().education(redisEducationList)
-//               .locations(redisLocationList)
-//               .skills(redisSkillList)
-//               .build();
-//       System.out.println(output);
-//       return output;
-//   }
-
 }

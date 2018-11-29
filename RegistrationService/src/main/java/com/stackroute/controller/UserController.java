@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 // Receiving data from registration front end and passing it to kafka
 
 @RestController
-@CrossOrigin
+@CrossOrigin("*")
 @RequestMapping(value="${controller.base}")
 public class UserController {
     @Autowired

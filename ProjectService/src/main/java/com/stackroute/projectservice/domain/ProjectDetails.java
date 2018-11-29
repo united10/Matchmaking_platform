@@ -15,7 +15,10 @@ public class ProjectDetails {
     private String fromDate;
     private String toDate;
     private String projectUrl;
+    private String domain;
     private String role;
+    private String company;
+    private String client;
     private Skill[] technologiesUsed;
     private String description;
 }
