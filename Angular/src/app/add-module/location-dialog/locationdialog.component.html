@@ -23,8 +23,16 @@
           </ng-container>
         </mat-autocomplete>
         <mat-form-field>
-          <input matInput placeholder="State Name" formControlName="currentStateName" required />
+          <input matInput placeholder="State Name" formControlName="currentStateName" [matAutocomplete]="auto2" (keyup)="onKeyUp2(i)" #input (input)="input.value=$event.target.value.toLowerCase()" required />
         </mat-form-field>
+        <mat-autocomplete #auto2="matAutocomplete" [displayWith]="displayFn2">
+          <mat-option *ngIf="isLoading2" class="is-loading"><mat-spinner diameter="50"></mat-spinner></mat-option>
+          <ng-container *ngIf="!isLoading2">
+            <mat-option *ngFor="let state of filteredStates" [value]="state">
+              <span>{{ state.name }}</span>
+            </mat-option>
+          </ng-container>
+        </mat-autocomplete>
         <mat-form-field>
           <input matInput placeholder="pin code" formControlName="currentPincode" required />
         </mat-form-field>
@@ -50,8 +58,16 @@
           </ng-container>
         </mat-autocomplete>
         <mat-form-field>
-          <input matInput placeholder="State Name" formControlName="pastStateName" required />
+          <input matInput placeholder="State Name" formControlName="pastStateName" [matAutocomplete]="auto3" (keyup)="onKeyUp3(i)" #input (input)="input.value=$event.target.value.toLowerCase()" required />
         </mat-form-field>
+        <mat-autocomplete #auto3="matAutocomplete" [displayWith]="displayFn3">
+          <mat-option *ngIf="isLoading3" class="is-loading"><mat-spinner diameter="50"></mat-spinner></mat-option>
+          <ng-container *ngIf="!isLoading3">
+            <mat-option *ngFor="let paststate of filteredPastStates" [value]="paststate">
+              <span>{{ paststate.name }}</span>
+            </mat-option>
+          </ng-container>
+        </mat-autocomplete>
         <mat-form-field>
           <input matInput placeholder="pin code" formControlName="pastPincode" required />
         </mat-form-field>

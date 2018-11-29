@@ -21,6 +21,8 @@ import { MatAutocompleteModule, MatProgressSpinnerModule } from '@angular/materi
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { EducationService } from './service/education.service';
+import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
+import { InMemDataService } from './location-dialog/domain/in-memory-data.service';
 
 @NgModule({
   imports: [
@@ -37,7 +39,9 @@ import { EducationService } from './service/education.service';
     MatAutocompleteModule,
     BrowserModule,
     HttpClientModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    HttpClientInMemoryWebApiModule.forRoot(
+      InMemDataService, { dataEncapsulation: false, delay: 1000 }),
   ],
 
   declarations: [CardComponent,
