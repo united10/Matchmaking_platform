@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 /*
 Controller class for handling post request from search page
  */
-@CrossOrigin
+@CrossOrigin("*")
 @RestController
 @RequestMapping("${controller.base}")
 public class QueryController {
