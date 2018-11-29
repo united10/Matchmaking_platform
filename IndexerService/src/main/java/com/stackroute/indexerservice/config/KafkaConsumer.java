@@ -1,5 +1,6 @@
 package com.stackroute.indexerservice.config;
 
+
 import com.stackroute.indexerservice.domain.KafkaProperties;
 import com.stackroute.indexerservice.domain.input.CommonOutput;
 import org.apache.kafka.clients.consumer.ConsumerConfig;
@@ -16,10 +17,13 @@ import org.springframework.kafka.support.converter.StringJsonMessageConverter;
 
 import java.util.HashMap;
 import java.util.Map;
+/* This is the configuration of the kafka consumer for consuming the data from indexer topic
 
+ */
 @EnableKafka
 @Configuration
 public class KafkaConsumer {
+
     private KafkaProperties kafkaProperties;
     @Autowired
     public void setApp(KafkaProperties kafkaProperties){
@@ -46,7 +50,9 @@ public class KafkaConsumer {
         return factory;
     }
 
+    /*This method is responsible for listening the common output in the indexer
 
+     */
     @Bean
     public ConsumerFactory<String, CommonOutput> userConsumerFactory() {
 

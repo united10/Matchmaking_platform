@@ -15,7 +15,7 @@ import java.util.List;
 /*This is the rest controller class to handle rest api calls from the frontend
 and other dependent services if any
  */
-
+@CrossOrigin("*")
 @RestController
 @RequestMapping("${controller.base}")
 public class EmployeeController {

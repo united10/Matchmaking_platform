@@ -7,6 +7,9 @@ import lombok.NoArgsConstructor;
 import org.neo4j.ogm.annotation.Id;
 import org.springframework.stereotype.Component;
 
+/*
+    This domain is used for creating node of the education and linking with the user
+ */
 @Component
 @Data
 @Builder

@@ -1,5 +1,13 @@
 version: '2.0'
 services:
+  redis:
+    container_name: redis
+    image: redis
+    ports:
+      - "6379:6379"
+    volumes:
+      - ../data/redis:/data
+    restart: always
   zookeeper:
     image: wurstmeister/zookeeper
     container_name: zookeeper
@@ -40,11 +48,16 @@ services:
     network_mode: host
     depends_on:
       - kafka
+<<<<<<< HEAD
       - eureka
+=======
+      - redis
+>>>>>>> 7a979b91a9ecccf9acd5ec2241511704b300308b
     ports:
       - "8093:8093"
     expose:
       - "8093"
+<<<<<<< HEAD
 
   cache-service:
     image: cache-service:v1
@@ -87,20 +100,61 @@ services:
       - "8095:8095"
     expose:
       - "8095"
+=======
 
-  education-service:
-    image: education-service:v1
-    build: EducationService/
+  cache-service:
+    image: cache-service:v1
+    build: CacheService/
     restart: always
-    container_name: education-container
+    container_name: cache-container
+    network_mode: host
+    depends_on:
+      - kafka
+    ports:
+      - "8008:8008"
+    expose:
+      - "8008"
+
+  indexer-service:
+    image: indexer-service:v1
+    build: IndexerService/
+    restart: always
+    container_name: indexer-container
+    network_mode: host
+    depends_on:
+      - kafka
+    ports:
+      - "8001:8001"
+    expose:
+      - "8001"
+>>>>>>> 7a979b91a9ecccf9acd5ec2241511704b300308b
+
+  query-service:
+    image: query-service:v1
+    build: QueryService/
+    restart: always
+    container_name: query-container
     network_mode: host
     depends_on:
       - kafka
       - eureka
     ports:
-      - "8082:8082"
+      - "8095:8095"
     expose:
-      - "8082"
+      - "8095"
+
+#  education-service:
+#    image: education-service:v1
+#    build: EducationService/
+#    restart: always
+#    container_name: education-container
+#    network_mode: host
+#    depends_on:
+#      - kafka
+#    ports:
+#      - "8082:8082"
+#    expose:
+#      - "8082"
   authentication-service:
     image: authentication-service:v1
     build: UserAuthentication/
@@ -195,7 +249,6 @@ services:
       - "8081:8081"
     expose:
       - "8081"
-
   upstream-service:
     image: upstream-service:v1
     build: UpstreamService/

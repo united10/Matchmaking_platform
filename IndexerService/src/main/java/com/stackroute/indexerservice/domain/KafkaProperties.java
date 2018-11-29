@@ -7,8 +7,12 @@ import lombok.NoArgsConstructor;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
 
-@Data
+/*To remove the hard coded data of the kafka this class is configured and required configuration written in applicaton.yml
+
+ */
+
 @Builder
+@Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Component

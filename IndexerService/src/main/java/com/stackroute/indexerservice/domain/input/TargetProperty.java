@@ -7,6 +7,9 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.stereotype.Component;
 
+/*
+    This stores the node details with which the user node will be connected
+ */
 @Component
 @Data
 @Builder

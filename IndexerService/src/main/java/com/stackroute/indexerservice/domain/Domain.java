@@ -7,6 +7,10 @@ import lombok.NoArgsConstructor;
 import org.neo4j.ogm.annotation.Id;
 import org.springframework.stereotype.Component;
 
+/*
+this model is responsible for the mapping of company domain and project name
+
+ */
 @Component
 @Data
 @Builder
