@@ -100,13 +100,13 @@ onKeyUp1(index: number) {
     debounceTime(300),
     tap(() => this.isLoading1 = true),
     switchMap(value =>
-      this.projectService.searchtcompany({name: value}, 1)
+      this.projectService.searchcompany({name: value}, 1)
     .pipe(
       finalize(() => this.isLoading1 = false),
       )
     )
   )
-  .subscribe(response => this.filteredOrganisation = response.organisations);
+  .subscribe(response => this.filteredOrganisation = response.organizations);
 }
 displayFn1(organisation: Organisation) {
 if (organisation) {
@@ -125,7 +125,7 @@ onKeyUp2(index: number) {
       )
     )
   )
-  .subscribe(response => this.filteredClients = response.clients);
+  .subscribe(response => this.filteredClients = response.organizations);
 }
 displayFn2(client: Client) {
 if (client) {

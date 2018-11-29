@@ -51,24 +51,26 @@ export class ProjectService {
       })
       );
   }
-  searchtcompany(filter: {name: string} = {name: ''}, page = 1): Observable<OrganisationResponse> {
+  searchcompany(filter: {name: string} = {name: ''}, page = 1): Observable<OrganisationResponse> {
     console.log('inside service ' + filter.name);
-    return this.httpClient.get<OrganisationResponse>('http://172.23.239.135:8081/api/v1/redisEducation/' + filter.name)
+    return this.httpClient.get<OrganisationResponse>('http://13.233.180.226:8008/api/v1/redisOrganization/' + filter.name)
     .pipe(
       tap((response: OrganisationResponse) => {
-        response.organisations = response.organisations
-          .map(organisation => new Organisation(organisation.name, organisation.id));
+        response.organizations = response.organizations
+          .map(organisation => new Organisation(organisation.name, organisation.id))
+          .filter(organisation => organisation.name.includes(filter.name));
         return response;
       })
       );
   }
   searchclient(filter: {name: string} = {name: ''}, page = 1): Observable<ClientResponse> {
     console.log('inside service ' + filter.name);
-    return this.httpClient.get<ClientResponse>('http://172.23.239.135:8081/api/v1/redisEducation/' + filter.name)
+    return this.httpClient.get<ClientResponse>('http://13.233.180.226:8008/api/v1/redisOrganization/' + filter.name)
     .pipe(
       tap((response: ClientResponse) => {
-        response.clients = response.clients
-          .map(client => new Client(client.name, client.id));
+        response.organizations = response.organizations
+          .map(client => new Client(client.name, client.id))
+          .filter(client => client.name.includes(filter.name));
         return response;
       })
       );
