@@ -23,7 +23,10 @@ export class ProjectdialogComponent implements OnInit {
   startDate: string;
   endDate: string;
   url: string;
+  domain: string;
   role: string;
+  company: string;
+  client: string;
   skill: string;
   level: string;
   description: string;
@@ -45,7 +48,10 @@ export class ProjectdialogComponent implements OnInit {
       startDate: '',
       endDate: '',
       url: ['', [ Validators.pattern(regForUrl)]],
+      domain : '',
       role: '',
+      company: '',
+      client: '',
       technologiesUsed: this.fb.array([this.createTechnology()]),
       description: ''
     });
@@ -88,7 +94,10 @@ export class ProjectdialogComponent implements OnInit {
     this.startDate = this.projectForm.get('startDate').value as string;
     this.endDate = this.projectForm.get('endDate').value as string;
     this.url = this.projectForm.get('url').value as string;
+    this.domain = this.projectForm.get('domain').value as string;
     this.role = this.projectForm.get('role').value as string;
+    this.company = this.projectForm.get('company').value as string;
+    this.client = this.projectForm.get('client').value as string;
     this.description = this.projectForm.get('description').value as string;
 
     const technologies = new Array<Skill>();
@@ -99,7 +108,9 @@ export class ProjectdialogComponent implements OnInit {
         technologies.push(technology);
       }
 
-    const project = new Project(this.title, this.startDate, this.endDate, this.url, this.role , technologies , this.description );
+    const project = new Project(this.title, this.startDate, this.endDate,
+       this.url, this.domain, this.role , this.company, this.client ,
+        technologies , this.description );
     const chicklets = new Array<ProjectChicklets>();
     const chicklet = new ProjectChicklets(project);
     chicklets.push(chicklet);

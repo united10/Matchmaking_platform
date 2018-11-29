@@ -1,6 +1,6 @@
 export class Qualificationn {
-    constructor(public name: string, public id: number) {}
+    constructor(public id: number, public name: string) {}
   }
 export class IQualificationResponse {
-    educations: Qualificationn[];
+    qualifications: Qualificationn[];
 }

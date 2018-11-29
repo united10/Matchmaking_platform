@@ -4,17 +4,14 @@ import { CurrentLocation } from './../location-dialog/domain/currentlocation';
 import { LocationChicklets } from './../location-dialog/domain/chicklets';
 import { LocationSection } from './../location-dialog/domain/section';
 
-// import { LocationService } from './../cards/service/location.service';
-
 import { Component, OnInit , Inject } from '@angular/core';
 import { FormGroup, FormArray, FormControl, FormBuilder, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Output } from '../outputclass/output';
 import { TokenStorageService } from 'src/app/login/service/token-storage.service';
-// import { PastLocation } from '../cards/classes1/pastlocation';
-// import { CurrentLocation } from './../cards/classes1/currentlocation';
-// import { Chicklets } from './../cards/classes1/chicklets';
-// import { Section } from './../cards/classes1/section';
+import { Currentcities } from './domain/currentcities';
+import { Pastcities } from './domain/pastcities';
+import { debounceTime, tap, switchMap, finalize } from 'rxjs/operators';
 
 @Component({
   selector: 'app-locationdialog',
@@ -23,6 +20,10 @@ import { TokenStorageService } from 'src/app/login/service/token-storage.service
 })
 export class LocationdialogComponent implements OnInit {
     locationForm: FormGroup;
+    filteredCurrentCityName: Currentcities[] = [];
+    filteredPastCityName: Pastcities[] = [];
+    isLoading = false;
+    isLoading1 = false;
     output: Output;
     currentId: string;
     currentCityName: string;
@@ -36,6 +37,7 @@ export class LocationdialogComponent implements OnInit {
     // pastlocation: string;
     errorMessage: string;
     totalRow: number;
+    temp: FormArray;
 
     constructor(@Inject(MAT_DIALOG_DATA) private data: any,
       private dialogRef: MatDialogRef<LocationdialogComponent>,
@@ -52,15 +54,44 @@ export class LocationdialogComponent implements OnInit {
         pastLocation: this.fb.array([this.initItemRow()])
       });
     }
-    // initCurrentLocationRow() {
+    onKeyUp(index: number) {
+      console.log('qualif' + index);
+      this.locationForm.get('currentCityName').valueChanges.pipe(
+        debounceTime(300),
+        tap(() => this.isLoading = true),
+        switchMap(value =>
+          this.locationService.searchcurrentcities({name: value}, 1)
+        .pipe(
+          finalize(() => this.isLoading = false),
+          )
+        )
+      )
+      .subscribe(response => this.filteredCurrentCityName = response.cities);
+   }
+  displayFn(currentcity: Currentcities) {
+    if (currentcity) {
+      return currentcity.name; }
+  }
+  onKeyUp1(index: number) {
+    console.log('qualif' + index);
+    this.temp = this.locationForm.get('pastLocation') as FormArray;
+    this.temp.at(index).get('pastCityName').valueChanges.pipe(
+      debounceTime(300),
+      tap(() => this.isLoading1 = true),
+      switchMap(value =>
+        this.locationService.searchpastcities({name: value}, 1)
+      .pipe(
+        finalize(() => this.isLoading1 = false),
+        )
+      )
+    )
+    .subscribe(response => this.filteredPastCityName = response.cities);
+ }
+displayFn1(pastcity: Pastcities) {
+  if (pastcity) {
+    return pastcity.name; }
+}
 
-    //   return this.fb.group({
-    //     currentId: new FormControl(''),
-    //     currentCityName: new FormControl(''),
-    //     currentStateName: new FormControl(''),
-    //     currentPincode: new FormControl('')
-    //   });
-    // }
     initItemRow() {
       return this.fb.group({
         pastId: new FormControl(''),
