@@ -12,7 +12,6 @@ import org.springframework.stereotype.Component;
  */
 @Data
 @Builder
-@Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Component
