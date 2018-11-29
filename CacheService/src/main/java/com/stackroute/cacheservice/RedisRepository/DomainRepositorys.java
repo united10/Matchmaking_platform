@@ -1,10 +1,10 @@
 package com.stackroute.cacheservice.RedisRepository;
 
-import com.stackroute.cacheservice.RedisDomain.RedisExperience;
+import com.stackroute.cacheservice.RedisDomain.RedisDomain;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
-@Repository
-public interface ExpRepository extends CrudRepository<RedisExperience, Long> {
 
+@Repository
+public interface DomainRepositorys extends CrudRepository<RedisDomain , Long> {
 }

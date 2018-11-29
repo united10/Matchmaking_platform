@@ -8,9 +8,9 @@ import lombok.NoArgsConstructor;
 import java.util.List;
 
 @Data
-@AllArgsConstructor
-@NoArgsConstructor
 @Builder
-public class SkillOutput {
-    List<RedisSkill> Skills;
+@NoArgsConstructor
+@AllArgsConstructor
+public class OrganizationOutput {
+    List<RedisOrganization> Organizations;
 }
