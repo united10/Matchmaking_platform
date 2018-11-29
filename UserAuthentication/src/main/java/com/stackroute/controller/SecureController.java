@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 // Authorization using jwt token and updating user details.
 
 @RestController
+@CrossOrigin("*")
 @RequestMapping("/secure")
 public class SecureController {
 
