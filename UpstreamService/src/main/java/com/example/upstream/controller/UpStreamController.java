@@ -17,7 +17,7 @@ import java.util.concurrent.ExecutionException;
 //This class is the controller which handles post,put and delete mapping of each topic.
 //It also adds the operation type to incoming json
 //It checks for Sectiontype from json and sends data to respective kafka topic.
-@CrossOrigin
+@CrossOrigin("*")
 @RestController
 @RequestMapping("${controller.base}")
 public class UpStreamController {

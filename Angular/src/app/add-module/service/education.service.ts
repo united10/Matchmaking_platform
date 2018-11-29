@@ -5,6 +5,8 @@ import { catchError, tap } from 'rxjs/operators';
 import { EducationSection } from '../education-dialog/domain/educationsection';
 import { Output } from '../outputclass/output';
 import { IQualificationResponse, Qualificationn } from '../education-dialog/domain/qualificationn';
+import { Institute, InstituteResponse } from '../education-dialog/domain/institute';
+
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -40,11 +42,23 @@ export class EducationService {
   }
   search(filter: {name: string} = {name: ''}, page = 1): Observable<IQualificationResponse> {
     console.log('inside service ' + filter.name);
-    return this.httpClient.get<IQualificationResponse>('http://172.23.239.135:8081/api/v1/redisEducation/' + filter.name)
+    return this.httpClient.get<IQualificationResponse>('http://13.233.180.226:8008/api/v1/redisEducation/qualification/' + filter.name)
     .pipe(
       tap((response: IQualificationResponse) => {
+        response.qualifications = response.qualifications
+          .map(qualification => new Qualificationn(qualification.id, qualification.name));
+          console.log(response);
+        return response;
+      })
+      );
+  }
+  search1(filter: {name: string} = {name: ''}, page = 1): Observable<InstituteResponse> {
+    console.log('inside service ' + filter.name);
+    return this.httpClient.get<InstituteResponse>('http://13.233.180.226:8008/api/v1/redisEducation/education/' + filter.name)
+    .pipe(
+      tap((response: InstituteResponse) => {
         response.educations = response.educations
-          .map(qualification => new Qualificationn(qualification.name, qualification.id));
+          .map(institute => new Institute(institute.id, institute.name));
         return response;
       })
       );

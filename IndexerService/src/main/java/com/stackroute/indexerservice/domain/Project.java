@@ -8,6 +8,9 @@ import org.neo4j.ogm.annotation.Id;
 import org.neo4j.ogm.annotation.NodeEntity;
 import org.springframework.stereotype.Component;
 
+/*
+    The domain is responsible for mapping project and user
+ */
 @Component
 @Data
 @Builder
