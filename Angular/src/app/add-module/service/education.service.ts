@@ -40,7 +40,7 @@ export class EducationService {
   }
   search(filter: {name: string} = {name: ''}, page = 1): Observable<IQualificationResponse> {
     console.log('inside service ' + filter.name);
-    return this.httpClient.get<IQualificationResponse>('http://172.23.239.135:8081/api/v1/redisEducation/' + filter.name)
+    return this.httpClient.get<IQualificationResponse>('http://13.233.180.226:8008/api/v1/redisEducation/' + filter.name)
     .pipe(
       tap((response: IQualificationResponse) => {
         response.educations = response.educations

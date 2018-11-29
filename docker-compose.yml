@@ -61,7 +61,8 @@ services:
     container_name: cache-container
     network_mode: host
     depends_on:
-      - kafka
+      - neo4jdb
+      - redis
     ports:
       - "8008:8008"
     expose:
@@ -288,9 +289,14 @@ services:
 #      - "8099:8099"
 #    expose:
 #    - "8099"
-#  neo4jdb:
-#    image: madhuri23/neo4j:3.0
-#    ports:
-#      - "7474:7474"
-#    container_name: neo4j-db
-#    network_mode: host
+  neo4jdb:
+    image: neo4j:3.0
+    ports:
+      - "7474:7474"
+    expose:
+      - 7474
+    volumes:
+      - ../neo4jData/data:/data
+      - ../neo4jData/import:/var/lib/neo4j/import
+    container_name: neo4j-db
+    network_mode: host

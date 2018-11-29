@@ -243,8 +243,9 @@ export class EmployeeDashboardDummyComponent implements OnInit {
 
         for (const index in cards) {
           if (cards[index].title === 'Education') {
+            console.log("education length "+cards[index].length);
             if (cards[index].contents.length === 1) {
-              cards[index].rows =  4.5;
+              cards[index].rows =  3 + (cards[index].contents.length * 3);
             } else {
               cards[index].rows = 4.5 + cards[index].contents.length ;
             }
