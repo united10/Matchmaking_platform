@@ -7,9 +7,12 @@ import org.springframework.data.neo4j.repository.Neo4jRepository;
 import org.springframework.data.repository.query.Param;
 
 public interface ProjectRepository extends Neo4jRepository<ProjectRelationshipProperty,String> {
-    @Query("MATCH (a:Project),(b:Project)\n" +
-            "WHERE a.name = 'project' AND b.name = {name} \n" +
-            "CREATE (a)-[r:has_a]->(b)\n" +
-            "RETURN type(r)")
+    @Query("MATCH(a:Project)\n" +
+            "MATCH(m:Project) WHERE a.name = 'project' AND m.name = {name}\n" +
+            "MERGE(a)-[:has_a]->(m)")
     public void saveNode(@Param("name") String name);
+
+    @Query("MATCH (n{userId:{name}})-[r:project_in]->()\n" +
+            "DELETE r")
+    public void deleteNode(@Param("name") String name);
 }

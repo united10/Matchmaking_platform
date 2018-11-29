@@ -7,7 +7,9 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.neo4j.ogm.annotation.Id;
 import org.springframework.stereotype.Component;
-
+/*
+this domain is responsible for mapping location and user
+ */
 @Component
 @Data
 @Builder

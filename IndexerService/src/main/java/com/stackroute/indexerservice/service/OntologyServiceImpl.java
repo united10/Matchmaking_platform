@@ -75,6 +75,10 @@ public class OntologyServiceImpl implements OntologyService {
             certificateService.deleteNode(commonOutput);
 
         }
+        else if(commonOutput.getTargetNode().equals("project")){
+
+            projectService.deleteNode(commonOutput);
+        }
     }
 
     public void updateNode(CommonOutput commonOutput){
@@ -98,6 +102,10 @@ public class OntologyServiceImpl implements OntologyService {
 
             certificateService.updateNode(commonOutput);
 
+        }
+        else if(commonOutput.getTargetNode().equals("project")){
+
+            projectService.updateNode(commonOutput);
         }
     }
 }

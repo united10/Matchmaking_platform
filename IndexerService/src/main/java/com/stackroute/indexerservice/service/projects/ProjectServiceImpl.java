@@ -66,7 +66,7 @@ public class ProjectServiceImpl implements ProjectService {
             value = property[i].getPropertyValue();
             prop.put(key, value);
         }
-        projectRelationshipProperty.setRelationship("project_in");
+        projectRelationshipProperty.setRelationship(commonOutput.getRelationships());
         projectRelationshipProperty.setProject(project);
         projectRelationshipProperty.setUser(user);
         projectRelationshipProperty.setProperties(prop);
@@ -101,6 +101,74 @@ public class ProjectServiceImpl implements ProjectService {
             technologyUsedRelationshipProperty.setRelationship("technology_used");
             projectTechnologyRepository.save(technologyUsedRelationshipProperty);
         }
+    }
 
+    public void deleteNode(CommonOutput commonOutput){
+        ProjectRelationshipProperty projectRelationshipProperty = new ProjectRelationshipProperty();
+        user.setUserId(commonOutput.getSourceNode());
+        project.setName(commonOutput.getTargetNodeProperty()[0].getName());
+        property=commonOutput.getProperties();
+        for(int i=0;i<property.length;i++)
+        {
+            key = property[i].getPropertyName();
+            value = property[i].getPropertyValue();
+            prop.put(key, value);
+        }
+        projectRelationshipProperty.setRelationship(commonOutput.getRelationships());
+        projectRelationshipProperty.setProject(project);
+        projectRelationshipProperty.setUser(user);
+        projectRelationshipProperty.setProperties(prop);
+        projectRepository.deleteNode(user.getUserId());
+    }
+
+    public void updateNode(CommonOutput commonOutput){
+        company = new Organization();
+        client = new Organization();
+        ProjectRelationshipProperty projectRelationshipProperty = new ProjectRelationshipProperty();
+        user.setUserId(commonOutput.getSourceNode());
+        project.setName(commonOutput.getTargetNodeProperty()[0].getName());
+        company.setName(commonOutput.getTargetNodeProperty()[1].getName());
+        client.setName(commonOutput.getTargetNodeProperty()[2].getName());
+        domain.setName(commonOutput.getTargetNodeProperty()[3].getName());
+        property=commonOutput.getProperties();
+        for(int i=0;i<property.length;i++)
+        {
+            key = property[i].getPropertyName();
+            value = property[i].getPropertyValue();
+            prop.put(key, value);
+        }
+        projectRelationshipProperty.setRelationship(commonOutput.getRelationships());
+        projectRelationshipProperty.setProject(project);
+        projectRelationshipProperty.setUser(user);
+        projectRelationshipProperty.setProperties(prop);
+        projectRepository.save(projectRelationshipProperty);
+
+        ProjectCompanyRelationshipProperty projectCompanyRelationshipProperty = new ProjectCompanyRelationshipProperty();
+        projectCompanyRelationshipProperty.setRelationship("project_by");
+        projectCompanyRelationshipProperty.setOrganization(company);
+        projectCompanyRelationshipProperty.setProject(project);
+        projectByRepository.save(projectCompanyRelationshipProperty);
+
+        ProjectClientRelationshipProperty projectClientRelationshipProperty = new ProjectClientRelationshipProperty();
+        projectClientRelationshipProperty.setRelationship("project_for");
+        projectClientRelationshipProperty.setProject(project);
+        projectClientRelationshipProperty.setOrganization(client);
+        projectForRepository.save(projectClientRelationshipProperty);
+
+        ProjectDomainRelationshipProperty projectDomainRelationshipProperty = new ProjectDomainRelationshipProperty();
+        projectDomainRelationshipProperty.setDomain(domain);
+        projectDomainRelationshipProperty.setProject(project);
+        projectDomainRelationshipProperty.setRelationship("in_the");
+        inDomainRepository.save(projectDomainRelationshipProperty);
+
+        TechnologyUsedRelationshipProperty technologyUsedRelationshipProperty = new TechnologyUsedRelationshipProperty();
+        for(int j=4;j<commonOutput.getTargetNodeProperty().length;j++)
+        {
+            skill.setName(commonOutput.getTargetNodeProperty()[j].getName());
+            technologyUsedRelationshipProperty.setSkill(skill);
+            technologyUsedRelationshipProperty.setProject(project);
+            technologyUsedRelationshipProperty.setRelationship("technology_used");
+            projectTechnologyRepository.save(technologyUsedRelationshipProperty);
+        }
     }
 }

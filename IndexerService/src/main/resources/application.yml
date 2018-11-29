@@ -5,7 +5,7 @@ kafka:
   containerFactory: userKafkaListenerFactory
 
 server:
-  port: 8010
+  port: 8001
 spring:
   data:
     neo4j:
