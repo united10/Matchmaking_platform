@@ -70,6 +70,10 @@ local.properties
 target/
 /log/
 /target/
+logs
+
+
+
 
 ######################
 # Gradle

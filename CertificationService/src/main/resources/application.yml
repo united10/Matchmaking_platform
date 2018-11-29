@@ -1,8 +1,6 @@
 server:
   port: 8085
 
-
-
 kafka:
   ipAddress: localhost:9092
   groupId: group_id33
