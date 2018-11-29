@@ -8,16 +8,32 @@
     <div class="row-items" *ngFor="let certificateControl of certificateForm.controls.certificate.controls; let i = index" [formGroupName]="i">
       <p>{{dataJson?.certificate?.name}}
         <mat-form-field>
-          <input matInput name="certificateName" formControlName="certificateName" required />
+          <input matInput name="certificateName" formControlName="certificateName" [matAutocomplete]="auto" (keyup)="onKeyUp(i)" required />
         </mat-form-field>
+        <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
+          <mat-option *ngIf="isLoading" class="is-loading"><mat-spinner diameter="50"></mat-spinner></mat-option>
+          <ng-container *ngIf="!isLoading">
+            <mat-option *ngFor="let certificate of filteredCertificates" [value]="certificate">
+              <span>{{ certificate.name }}</span>
+            </mat-option>
+          </ng-container>
+        </mat-autocomplete>
         {{dataJson?.certificate?.number}}
         <mat-form-field>
           <input matInput name="licenseNumber" formControlName="licenseNumber" required />
         </mat-form-field>
         {{dataJson?.certificate?.authority}}
         <mat-form-field>
-          <input matInput name="certificateAuthority" formControlName="certificateAuthority" required />
+          <input matInput name="certificateAuthority" formControlName="certificateAuthority" [matAutocomplete]="auto1" (keyup)="onKeyUp1(i)" required />
         </mat-form-field>
+        <mat-autocomplete #auto1="matAutocomplete" [displayWith]="displayFn1">
+          <mat-option *ngIf="isLoading" class="is-loading"><mat-spinner diameter="50"></mat-spinner></mat-option>
+          <ng-container *ngIf="!isLoading">
+            <mat-option *ngFor="let authority of filteredAuthorities" [value]="authority">
+              <span>{{ authority.name }}</span>
+            </mat-option>
+          </ng-container>
+        </mat-autocomplete>
         {{dataJson?.certificate?.from}}
         <mat-form-field class="date">
             <input matInput [matDatepicker]="startDatePicker" placeholder="Choose a date" formControlName="fromDate">

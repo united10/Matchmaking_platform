@@ -11,6 +11,7 @@ import { EducationSection } from '../education-dialog/domain/educationsection';
 import { TokenStorageService } from 'src/app/login/service/token-storage.service';
 import { debounceTime, tap, switchMap, finalize } from 'rxjs/operators';
 import { IQualificationResponse, Qualificationn } from './domain/qualificationn';
+import { Institute } from './domain/institute';
 
 @Component({
   selector: 'app-educationdialog',
@@ -19,7 +20,9 @@ import { IQualificationResponse, Qualificationn } from './domain/qualificationn'
 })
 export class EducationdialogComponent implements OnInit {
   filteredQualifications: Qualificationn[] = [];
+  filteredInstitutions: Institute[] = [];
   isLoading = false;
+  isLoading1 = false;
   educationForm: FormGroup;
   qualification: string;
   institute: string;
@@ -32,6 +35,7 @@ export class EducationdialogComponent implements OnInit {
   dataJson: any;
   json_url = 'assets/education.json';
   temp: FormArray;
+  temp1: FormArray;
   constructor(@Inject(MAT_DIALOG_DATA) private data: any,
     private dialogRef: MatDialogRef<EducationdialogComponent>,
     private educationService: EducationService, private fb: FormBuilder,
@@ -64,11 +68,30 @@ export class EducationdialogComponent implements OnInit {
         )
       )
     )
-    .subscribe(qualifications => this.filteredQualifications = qualifications.educations);
+    .subscribe(qualificationn => this.filteredQualifications = qualificationn.qualifications);
  }
 displayFn(qualification: Qualificationn) {
   if (qualification) {
     return qualification.name; }
+}
+onKeyUp1(index: number) {
+  console.log('Instit' + index);
+  this.temp1 = this.educationForm.get('education') as FormArray;
+  this.temp1.at(index).get('institute').valueChanges.pipe(
+    debounceTime(300),
+    tap(() => this.isLoading1 = true),
+    switchMap(value =>
+      this.educationService.search1({name: value}, 1)
+    .pipe(
+      finalize(() => this.isLoading1 = false),
+      )
+    )
+  )
+  .subscribe(institutions => this.filteredInstitutions = institutions.educations);
+}
+displayFn1(institute: Institute) {
+if (institute) {
+  return institute.name; }
 }
 
   initItemRow() {

@@ -2,8 +2,10 @@ import { Injectable } from '@angular/core';
 import { LocationSection } from '../location-dialog/domain/section';
 import { Observable, throwError } from 'rxjs';
 import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
-import { catchError } from 'rxjs/operators';
+import { catchError, tap } from 'rxjs/operators';
 import { Output } from '../outputclass/output';
+import { CurrentCityResponse, Currentcities } from '../location-dialog/domain/currentcities';
+import { PastCityResponse, Pastcities } from '../location-dialog/domain/pastcities';
 
 
 const httpOptions = {
@@ -38,5 +40,27 @@ export class LocationService {
     }
     // return an observable with a user-facing error message
     return throwError('Something bad happened; please try again later.');
+  }
+  searchcurrentcities(filter: {name: string} = {name: ''}, page = 1): Observable<CurrentCityResponse> {
+    return this.httpClient.get<CurrentCityResponse>('http://13.233.180.226:8008/api/v1/redisLocation/' + filter.name)
+    .pipe(
+      tap((response: CurrentCityResponse) => {
+        response.locations = response.locations
+          .map(currentcities => new Currentcities(currentcities.name, currentcities.id))
+          .filter(currentcities => currentcities.name.includes(filter.name));
+        return response;
+      })
+      );
+  }
+  searchpastcities(filter: {name: string} = {name: ''}, page = 1): Observable<PastCityResponse> {
+    return this.httpClient.get<PastCityResponse>('http://13.233.180.226:8008/api/v1/redisLocation/' + filter.name)
+    .pipe(
+      tap((response: PastCityResponse) => {
+        response.locations = response.locations
+          .map(pastcities => new Pastcities(pastcities.name, pastcities.id))
+          .filter(pastcities => pastcities.name.includes(filter.name));
+        return response;
+      })
+      );
   }
 }

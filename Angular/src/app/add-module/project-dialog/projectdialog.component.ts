@@ -8,6 +8,11 @@ import { Component, OnInit , Inject } from '@angular/core';
 import { FormGroup, FormArray, FormBuilder, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { TokenStorageService } from 'src/app/login/service/token-storage.service';
+import { Domain } from './domain/domain';
+import { Organisation } from './domain/organisation';
+import { Client } from './domain/client';
+import { Tech } from './domain/Tech';
+import { debounceTime, tap, switchMap, finalize } from 'rxjs/operators';
 
 
 @Component({
@@ -19,6 +24,14 @@ import { TokenStorageService } from 'src/app/login/service/token-storage.service
 
 export class ProjectdialogComponent implements OnInit {
   projectForm: FormGroup;
+  filteredDomains: Domain[] = [];
+  filteredOrganisation: Organisation[] = [];
+  filteredClients: Client[] = [];
+  filteredTech: Tech[] = [];
+  isLoading = false;
+  isLoading1 = false;
+  isLoading2 = false;
+  isLoading3 = false;
   title: string;
   startDate: string;
   endDate: string;
@@ -34,6 +47,7 @@ export class ProjectdialogComponent implements OnInit {
   totalRow: number;
   dataJson: any;
   json_url = 'assets/project.json';
+  temp: FormArray;
 
   constructor(@Inject(MAT_DIALOG_DATA) private data: any,
   private dialogRef: MatDialogRef<ProjectdialogComponent>,
@@ -62,6 +76,81 @@ export class ProjectdialogComponent implements OnInit {
       }
     );
   }
+  onKeyUp(index: number) {
+    this.projectForm.get('domain').valueChanges.pipe(
+      debounceTime(300),
+      tap(() => this.isLoading = true),
+      switchMap(value =>
+        this.projectService.searchdomain({name: value}, 1)
+      .pipe(
+        finalize(() => this.isLoading = false),
+        )
+      )
+    )
+    .subscribe(response => this.filteredDomains = response.domains);
+ }
+displayFn(domain: Domain) {
+  if (domain) {
+    return domain.name; }
+}
+
+onKeyUp1(index: number) {
+  console.log('qualif' + index);
+  this.projectForm.get('company').valueChanges.pipe(
+    debounceTime(300),
+    tap(() => this.isLoading1 = true),
+    switchMap(value =>
+      this.projectService.searchtcompany({name: value}, 1)
+    .pipe(
+      finalize(() => this.isLoading1 = false),
+      )
+    )
+  )
+  .subscribe(response => this.filteredOrganisation = response.organisations);
+}
+displayFn1(organisation: Organisation) {
+if (organisation) {
+  return organisation.name; }
+}
+
+onKeyUp2(index: number) {
+  console.log('qualif' + index);
+  this.projectForm.get('client').valueChanges.pipe(
+    debounceTime(300),
+    tap(() => this.isLoading2 = true),
+    switchMap(value =>
+      this.projectService.searchclient({name: value}, 1)
+    .pipe(
+      finalize(() => this.isLoading2 = false),
+      )
+    )
+  )
+  .subscribe(response => this.filteredClients = response.clients);
+}
+displayFn2(client: Client) {
+if (client) {
+  return client.name; }
+}
+
+  onKeyUp3(index: number) {
+    console.log('qualif' + index);
+    this.temp = this.projectForm.get('technologiesUsed') as FormArray;
+    this.temp.at(index).get('skill').valueChanges.pipe(
+      debounceTime(300),
+      tap(() => this.isLoading3 = true),
+      switchMap(value =>
+        this.projectService.searchtech({name: value}, 1)
+      .pipe(
+        finalize(() => this.isLoading3 = false),
+        )
+      )
+    )
+    .subscribe(techs => this.filteredTech = techs.technologies);
+ }
+displayFn3(tech: Tech) {
+  if (tech) {
+    return tech.name; }
+}
 
   createTechnology(): FormGroup {
     return this.fb.group({

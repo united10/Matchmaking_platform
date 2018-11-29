@@ -1,8 +1,10 @@
 import { Injectable } from '@angular/core';
-import { catchError } from 'rxjs/operators';
+import { catchError, tap } from 'rxjs/operators';
 import { HttpHeaders, HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { CertificateSection } from '../certificate-dialog/domain/certificatesection';
 import { Observable, throwError } from 'rxjs';
+import { CertificateResponse, Certi } from '../certificate-dialog/domain/Certi';
+import { AuthorityResponse, Authority } from '../certificate-dialog/domain/Authority';
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -34,5 +36,27 @@ export class CertificateService {
     }
     // return an observable with a user-facing error message
     return throwError('Something bad happened; please try again later.');
+  }
+  search(filter: {name: string} = {name: ''}, page = 1): Observable<CertificateResponse> {
+    console.log('inside service ' + filter.name);
+    return this.httpClient.get<CertificateResponse>('http://172.23.239.135:8081/api/v1/redisEducation/' + filter.name)
+    .pipe(
+      tap((response: CertificateResponse) => {
+        response.certifications = response.certifications
+          .map(certi => new Certi(certi.name, certi.id));
+        return response;
+      })
+      );
+  }
+  search1(filter: {name: string} = {name: ''}, page = 1): Observable<AuthorityResponse> {
+    console.log('inside service ' + filter.name);
+    return this.httpClient.get<AuthorityResponse>('http://172.23.239.135:8081/api/v1/redisEducation/' + filter.name)
+    .pipe(
+      tap((response: AuthorityResponse) => {
+        response.authorities = response.authorities
+          .map(authority => new Authority(authority.name, authority.id));
+        return response;
+      })
+      );
   }
 }

@@ -5,8 +5,8 @@ kafka:
   containerFactory: userKafkaListenerFactory
 
 server:
-  port: 8010
+  port: 8001
 spring:
   data:
     neo4j:
-      uri: bolt://172.23.239.111
+      uri: bolt://0.0.0.0

@@ -3,17 +3,17 @@ server:
 
 
 
-management:
-  security:
-    enabled: false
-eureka:         #tells about the Eureka server details and its refresh time
-  client:
-    serviceUrl:
-      defaultZone: http://localhost:8091/eureka/
-    healthcheck:
-      enabled: true
-    lease:
-      duration: 5
+#management:
+#  security:
+#    enabled: false
+#eureka:         #tells about the Eureka server details and its refresh time
+#  client:
+#    serviceUrl:
+#      defaultZone: http://localhost:8091/eureka/
+#    healthcheck:
+#      enabled: true
+#    lease:
+#      duration: 5
 
 
 kafka:
