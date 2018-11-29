@@ -9,6 +9,7 @@ import { Chicklets } from '../experience-dialog/domain/chicklets';
 import { ExperienceDetails } from '../experience-dialog/domain/experience-details';
 import { TokenStorageService } from 'src/app/login/service/token-storage.service';
 import { Organisation } from './domain/organisation';
+import { debounceTime, tap, switchMap, finalize } from 'rxjs/operators';
 
 
 @Component({
@@ -22,7 +23,8 @@ export class ExperienceComponent implements OnInit {
 
   experienceForm: FormGroup;
   filteredOrganisations: Organisation[] = [];
-  organistion: string;
+  isLoading = false;
+  organisation: string;
   role: string;
   startDate: string;
   endDate: string;
@@ -35,6 +37,7 @@ export class ExperienceComponent implements OnInit {
   toDay: string;
   toMonth: string;
   toYear: string;
+  temp: FormArray;
   constructor(@Inject(MAT_DIALOG_DATA) private data: any,
     private dialogRef: MatDialogRef<ExperienceComponent>,
     private experienceService: ExperienceService, private fb: FormBuilder,
@@ -47,6 +50,25 @@ export class ExperienceComponent implements OnInit {
       experience: this.fb.array([this.initItemRow()])
     });
   }
+  onKeyUp(index: number) {
+    console.log('qualif' + index);
+    this.temp = this.experienceForm.get('experience') as FormArray;
+    this.temp.at(index).get('organisation').valueChanges.pipe(
+      debounceTime(300),
+      tap(() => this.isLoading = true),
+      switchMap(value =>
+        this.experienceService.search({name: value}, 1)
+      .pipe(
+        finalize(() => this.isLoading = false),
+        )
+      )
+    )
+    .subscribe(response => this.filteredOrganisations = response.organisations);
+ }
+displayFn(organisation: Organisation) {
+  if (organisation) {
+    return organisation.name; }
+}
 
   initItemRow() {
     return this.fb.group({

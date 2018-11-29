@@ -55,7 +55,6 @@ export class LocationdialogComponent implements OnInit {
       });
     }
     onKeyUp(index: number) {
-      console.log('qualif' + index);
       this.locationForm.get('currentCityName').valueChanges.pipe(
         debounceTime(300),
         tap(() => this.isLoading = true),
@@ -66,14 +65,13 @@ export class LocationdialogComponent implements OnInit {
           )
         )
       )
-      .subscribe(response => this.filteredCurrentCityName = response.cities);
+      .subscribe(response => this.filteredCurrentCityName = response.locations);
    }
   displayFn(currentcity: Currentcities) {
     if (currentcity) {
       return currentcity.name; }
   }
   onKeyUp1(index: number) {
-    console.log('qualif' + index);
     this.temp = this.locationForm.get('pastLocation') as FormArray;
     this.temp.at(index).get('pastCityName').valueChanges.pipe(
       debounceTime(300),
@@ -85,7 +83,7 @@ export class LocationdialogComponent implements OnInit {
         )
       )
     )
-    .subscribe(response => this.filteredPastCityName = response.cities);
+    .subscribe(response => this.filteredPastCityName = response.locations);
  }
 displayFn1(pastcity: Pastcities) {
   if (pastcity) {

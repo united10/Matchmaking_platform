@@ -39,12 +39,12 @@ export class SkillService {
     return throwError('Something bad happened; please try again later.');
   }
   search(filter: {name: string} = {name: ''}, page = 1): Observable<SkillResponse> {
-    console.log('inside service ' + filter.name);
-    return this.httpClient.get<SkillResponse>('http://172.23.239.135:8081/api/v1/redisSkill/' + filter.name)
+    return this.httpClient.get<SkillResponse>('http://13.233.180.226:8008/api/v1/redisSkill/' + filter.name)
     .pipe(
       tap((response: SkillResponse) => {
         response.skills = response.skills
-          .map(skill => new Skillauto(skill.name, skill.id));
+          .map(skill => new Skillauto(skill.name, skill.id))
+          .filter(skill => skill.name.includes(filter.name));
         return response;
       })
       );

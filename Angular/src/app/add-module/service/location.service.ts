@@ -42,23 +42,23 @@ export class LocationService {
     return throwError('Something bad happened; please try again later.');
   }
   searchcurrentcities(filter: {name: string} = {name: ''}, page = 1): Observable<CurrentCityResponse> {
-    console.log('inside service ' + filter.name);
-    return this.httpClient.get<CurrentCityResponse>('http://172.23.239.135:8081/api/v1/redisEducation/' + filter.name)
+    return this.httpClient.get<CurrentCityResponse>('http://13.233.180.226:8008/api/v1/redisLocation/' + filter.name)
     .pipe(
       tap((response: CurrentCityResponse) => {
-        response.cities = response.cities
-          .map(currentcities => new Currentcities(currentcities.name, currentcities.id));
+        response.locations = response.locations
+          .map(currentcities => new Currentcities(currentcities.name, currentcities.id))
+          .filter(currentcities => currentcities.name.includes(filter.name));
         return response;
       })
       );
   }
   searchpastcities(filter: {name: string} = {name: ''}, page = 1): Observable<PastCityResponse> {
-    console.log('inside service ' + filter.name);
-    return this.httpClient.get<PastCityResponse>('http://172.23.239.135:8081/api/v1/redisEducation/' + filter.name)
+    return this.httpClient.get<PastCityResponse>('http://13.233.180.226:8008/api/v1/redisLocation/' + filter.name)
     .pipe(
       tap((response: PastCityResponse) => {
-        response.cities = response.cities
-          .map(pastcities => new Pastcities(pastcities.name, pastcities.id));
+        response.locations = response.locations
+          .map(pastcities => new Pastcities(pastcities.name, pastcities.id))
+          .filter(pastcities => pastcities.name.includes(filter.name));
         return response;
       })
       );
