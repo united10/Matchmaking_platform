@@ -15,6 +15,7 @@ public class CommonOutput {
     private String sourceNode;
     private String sourceNodeProperty;
     private String targetNode;
-    private String targetNodeProperty;
-    private Relationship[] relationship;
+    private TargetNodeProperty[] targetNodeProperty;
+    private String relationships;
+    private Property[] properties;
 }

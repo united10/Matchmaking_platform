@@ -5,5 +5,5 @@ import com.stackroute.projectservice.domain.Section;
 
 /*It is an interface for the certificate service*/
 public interface ProjectService {
-    CommonOutput processProjectDetails(Section section);
+    void processProjectDetails(Section section);
 }
