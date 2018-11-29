@@ -1,10 +1,6 @@
 server:
   port: 8095
 
-spring:
-  application:
-    name: QueryService
-
 controller:
   base: /matchmaker/v1
   search: /search

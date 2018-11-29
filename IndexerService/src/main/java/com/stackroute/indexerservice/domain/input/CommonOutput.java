@@ -6,6 +6,9 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.stereotype.Component;
 
+/*Class model of the common output the listener maps the incoming data to this domain
+
+ */
 @Component
 @Data
 @Builder

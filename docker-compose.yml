@@ -48,6 +48,7 @@ services:
     network_mode: host
     depends_on:
       - kafka
+      - eureka
       - redis
     ports:
       - "8093:8093"
@@ -61,7 +62,9 @@ services:
     container_name: cache-container
     network_mode: host
     depends_on:
-      - kafka
+      - neo4jdb
+      - redis
+      - eureka
     ports:
       - "8008:8008"
     expose:
@@ -75,6 +78,7 @@ services:
     network_mode: host
     depends_on:
       - kafka
+      - eureka
     ports:
       - "8001:8001"
     expose:
@@ -88,23 +92,25 @@ services:
     network_mode: host
     depends_on:
       - kafka
+      - eureka
     ports:
       - "8095:8095"
     expose:
       - "8095"
 
-#  education-service:
-#    image: education-service:v1
-#    build: EducationService/
-#    restart: always
-#    container_name: education-container
-#    network_mode: host
-#    depends_on:
-#      - kafka
-#    ports:
-#      - "8082:8082"
-#    expose:
-#      - "8082"
+  education-service:
+    image: education-service:v1
+    build: EducationService/
+    restart: always
+    container_name: education-container
+    network_mode: host
+    depends_on:
+      - kafka
+      - eureka
+    ports:
+      - "8082:8082"
+    expose:
+      - "8082"
   authentication-service:
     image: authentication-service:v1
     build: UserAuthentication/
@@ -114,6 +120,7 @@ services:
     depends_on:
       - mysql
       - kafka
+      - eureka
     ports:
       - "8088:8088"
     expose:
@@ -124,6 +131,9 @@ services:
     restart: always
     container_name: registration-container
     network_mode: host
+    depends_on:
+      - kafka
+      - eureka
     ports:
       - "8086:8086"
     expose:
@@ -138,59 +148,63 @@ services:
     network_mode: host
     depends_on:
       - kafka
+      - eureka
     ports:
       - "8085:8085"
     expose:
       - "8085"
-#  experience-service:
-#    image: experience-service:v1
-#    build: ExperienceService/
-#    restart: always
-#    container_name: experience-container
-#    network_mode: host
-#    depends_on:
-#      - kafka
-#    ports:
-#      - "8087:8087"
-#    expose:
-#      - "8087"
-#  location-service:
-#    image: location-service:v1
-#    build: LocationService/
-#    restart: always
-#    container_name: location-container
-#    network_mode: host
-#    depends_on:
-#      - kafka
-#    ports:
-#      - "8084:8084"
-#    expose:
-#      - "8084"
-#  project-service:
-#    image: project-service:v1
-#    build: ProjectService/
-#    restart: always
-#    container_name: project-container
-#    network_mode: host
-#    depends_on:
-#      - kafka
-#    ports:
-#      - "8083:8083"
-#    expose:
-#      - "8083"
-#  skill-service:
-#    image: skill-service:v1
-#    build: SkillService/
-#    restart: always
-#    container_name: skill-container
-#    network_mode: host
-#    depends_on:
-#      - kafka
-#    ports:
-#      - "8081:8081"
-#    expose:
-#      - "8081"
-
+  experience-service:
+    image: experience-service:v1
+    build: ExperienceService/
+    restart: always
+    container_name: experience-container
+    network_mode: host
+    depends_on:
+      - kafka
+      - eureka
+    ports:
+      - "8087:8087"
+    expose:
+      - "8087"
+  location-service:
+    image: location-service:v1
+    build: LocationService/
+    restart: always
+    container_name: location-container
+    network_mode: host
+    depends_on:
+      - kafka
+      - eureka
+    ports:
+      - "8084:8084"
+    expose:
+      - "8084"
+  project-service:
+    image: project-service:v1
+    build: ProjectService/
+    restart: always
+    container_name: project-container
+    network_mode: host
+    depends_on:
+      - kafka
+      - eureka
+    ports:
+      - "8083:8083"
+    expose:
+      - "8083"
+  skill-service:
+    image: skill-service:v1
+    build: SkillService/
+    restart: always
+    container_name: skill-container
+    network_mode: host
+    depends_on:
+      - kafka
+      - eureka
+    ports:
+      - "8081:8081"
+    expose:
+      - "8081"
   upstream-service:
     image: upstream-service:v1
     build: UpstreamService/
@@ -199,6 +213,7 @@ services:
     network_mode: host
     depends_on:
       - kafka
+      - eureka
     ports:
       - "9191:9191"
     expose:
@@ -212,6 +227,7 @@ services:
     depends_on:
       - kafka
       - mongodb
+      - eureka
     ports:
       - "8090:8090"
     expose:
@@ -262,6 +278,7 @@ services:
     network_mode: host
     depends_on:
       - mongodb
+      - eureka
     ports:
       - "8097:8097"
     expose:
@@ -276,21 +293,30 @@ services:
       - "8091:8091"
     expose:
       - 8091
-#  interest-service:
-#    image: interest-service:v1
-#    build: InterestService/
-#    restart: always
-#    container_name: interest-container
-#    network_mode: host
-#    depends_on:
-#      - kafka
-#    ports:
-#      - "8099:8099"
-#    expose:
-#    - "8099"
-#  neo4jdb:
-#    image: madhuri23/neo4j:3.0
-#    ports:
-#      - "7474:7474"
-#    container_name: neo4j-db
-#    network_mode: host
+
+  neo4jdb:
+    image: neo4j:3.0
+    ports:
+      - "7474:7474"
+    expose:
+      - 7474
+    volumes:
+      - ../neo4jData/data:/data
+      - ../neo4jData/import:/var/lib/neo4j/import
+    container_name: neo4j-db
+    network_mode: host
+
+  interest-service:
+    image: interest-service:v1
+    build: InterestService/
+    restart: always
+    container_name: interest-container
+    network_mode: host
+    depends_on:
+      - kafka
+      - eureka
+    ports:
+      - "8099:8099"
+    expose:
+      - "8099"
+

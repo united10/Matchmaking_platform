@@ -1,6 +1,6 @@
 package com.stackroute.cacheservice.service;
 
-import com.stackroute.cacheservice.domain.education;
+import com.stackroute.cacheservice.domain.Education;
 import com.stackroute.cacheservice.repository.EducationRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -18,12 +18,12 @@ public class EducationService {
     }
 
 
-    public List<education> getAlleducation(){
+    public List<Education> getAlleducation(){
         //System.out.println("hjsdjskdjskdjsk" + educationRepository.getAllEducation());
         return educationRepository.getAllEducation();
     }
 
-    public List<education> getAllQualification(){
+    public List<Education> getAllQualification(){
         return educationRepository.getAllQualification();
     }
 }

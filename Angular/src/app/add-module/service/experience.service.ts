@@ -3,7 +3,8 @@ import { Observable, throwError } from 'rxjs';
 import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
 import { ExperienceSection } from '../experience-dialog/domain/section';
 import { Output } from '../experience-dialog/domain/output';
-import { catchError } from 'rxjs/operators';
+import { catchError, tap } from 'rxjs/operators';
+import { OrganisationResponse, Organisation } from '../experience-dialog/domain/organisation';
 
 
 const httpOptions = {
@@ -37,5 +38,16 @@ export class ExperienceService {
     }
     // return an observable with a user-facing error message
     return throwError('Something bad happened; please try again later.');
+  }
+  search(filter: {name: string} = {name: ''}, page = 1): Observable<OrganisationResponse> {
+    console.log('inside service ' + filter.name);
+    return this.httpClient.get<OrganisationResponse>('http://172.23.239.135:8081/api/v1/redisEducation/' + filter.name)
+    .pipe(
+      tap((response: OrganisationResponse) => {
+        response.organisations = response.organisations
+          .map(organisation => new Organisation(organisation.name, organisation.id));
+        return response;
+      })
+      );
   }
 }

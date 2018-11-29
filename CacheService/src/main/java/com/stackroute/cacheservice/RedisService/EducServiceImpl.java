@@ -21,8 +21,8 @@ public class EducServiceImpl implements EducService {
     }
 
     @Override
-    public RedisEducation saveEducation(RedisEducation education){
-       RedisEducation education1 =  educRepository.save(education);
+    public RedisEducation saveEducation(RedisEducation Education){
+       RedisEducation education1 =  educRepository.save(Education);
        return education1;
     }
 

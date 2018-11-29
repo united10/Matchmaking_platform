@@ -17,3 +17,7 @@
     justify-content: space-between;
     align-items: baseline;
 }
+.is-loading ::ng-deep .mat-option-text {
+    display: flex;
+    justify-content: center;
+  }
