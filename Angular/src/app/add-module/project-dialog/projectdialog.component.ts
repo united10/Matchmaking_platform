@@ -95,7 +95,6 @@ displayFn(domain: Domain) {
 }
 
 onKeyUp1(index: number) {
-  console.log('qualif' + index);
   this.projectForm.get('company').valueChanges.pipe(
     debounceTime(300),
     tap(() => this.isLoading1 = true),
@@ -114,7 +113,6 @@ if (organisation) {
 }
 
 onKeyUp2(index: number) {
-  console.log('qualif' + index);
   this.projectForm.get('client').valueChanges.pipe(
     debounceTime(300),
     tap(() => this.isLoading2 = true),
@@ -133,7 +131,6 @@ if (client) {
 }
 
   onKeyUp3(index: number) {
-    console.log('qualif' + index);
     this.temp = this.projectForm.get('technologiesUsed') as FormArray;
     this.temp.at(index).get('skill').valueChanges.pipe(
       debounceTime(300),
@@ -145,7 +142,7 @@ if (client) {
         )
       )
     )
-    .subscribe(techs => this.filteredTech = techs.technologies);
+    .subscribe(techs => this.filteredTech = techs.skills);
  }
 displayFn3(tech: Tech) {
   if (tech) {

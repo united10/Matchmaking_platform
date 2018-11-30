@@ -54,7 +54,7 @@ export class SkillComponent implements OnInit {
       debounceTime(300),
       tap(() => this.isLoading = true),
       switchMap(value =>
-        this.skillService.search({name: value}, 1)
+        this.skillService.searchskills({name: value}, 1)
       .pipe(
         finalize(() => this.isLoading = false),
         )
