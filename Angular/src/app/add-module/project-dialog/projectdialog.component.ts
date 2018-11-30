@@ -181,17 +181,17 @@ displayFn3(tech: Tech) {
     this.startDate = this.projectForm.get('startDate').value as string;
     this.endDate = this.projectForm.get('endDate').value as string;
     this.url = this.projectForm.get('url').value as string;
-    this.domain = this.projectForm.get('domain').value as string;
+    this.domain = this.projectForm.get('domain').value.name as string;
     this.role = this.projectForm.get('role').value as string;
-    this.company = this.projectForm.get('company').value as string;
-    this.client = this.projectForm.get('client').value as string;
+    this.company = this.projectForm.get('company').value.name as string;
+    this.client = this.projectForm.get('client').value.name as string;
     this.description = this.projectForm.get('description').value as string;
 
     const technologies = new Array<Skill>();
       const arr = this.projectForm.get('technologiesUsed') as FormArray;
       const values = arr.value;
       for (const row of values) {
-        const technology = new Skill(row.skill , row.level);
+        const technology = new Skill(row.skill.name , row.level);
         technologies.push(technology);
       }
 

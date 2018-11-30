@@ -122,9 +122,9 @@ if (institute) {
     const chicklets = new Array<EducationChicklets>();
     for (let i = 0; i < arr.length; i++) {
       const row = arr.at(i);
-      const qualification = new Qualification('qualificationId', row.value.qualification);
+      const qualification = new Qualification('qualificationId', row.value.qualification.name);
       const institution = new Institution('institutionId',
-        row.value.institute,
+        row.value.institute.name,
         row.value.startDate,
         row.value.endDate);
       const chicklet = new EducationChicklets(qualification, institution, this.summary);

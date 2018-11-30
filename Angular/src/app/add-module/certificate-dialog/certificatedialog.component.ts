@@ -119,7 +119,7 @@ if (authority) {
     const chicklets = new Array<CertificateChicklets>();
     for (let i = 0; i < arr.length; i++) {
       const row = arr.at(i);
-      const certificateDetails = new Certificate(row.value.certificateName, row.value.certificateAuthority,
+      const certificateDetails = new Certificate(row.value.certificateName.name, row.value.certificateAuthority.name,
         row.value.licenseNumber, row.value.fromDate, row.value.toDate);
       const chicklet = new CertificateChicklets(certificateDetails);
       chicklets.push(chicklet);
