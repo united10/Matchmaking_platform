@@ -38,7 +38,7 @@ export class SkillService {
     // return an observable with a user-facing error message
     return throwError('Something bad happened; please try again later.');
   }
-  search(filter: {name: string} = {name: ''}, page = 1): Observable<SkillResponse> {
+  searchskills(filter: {name: string} = {name: ''}, page = 1): Observable<SkillResponse> {
     return this.httpClient.get<SkillResponse>('http://13.233.180.226:8008/api/v1/redisSkill/' + filter.name)
     .pipe(
       tap((response: SkillResponse) => {

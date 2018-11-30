@@ -40,25 +40,24 @@ export class EducationService {
     // return an observable with a user-facing error message
     return throwError('Something bad happened; please try again later.');
   }
-  search(filter: {name: string} = {name: ''}, page = 1): Observable<IQualificationResponse> {
-    console.log('inside service ' + filter.name);
+  searchqualification(filter: {name: string} = {name: ''}, page = 1): Observable<IQualificationResponse> {
     return this.httpClient.get<IQualificationResponse>('http://13.233.180.226:8008/api/v1/redisEducation/qualification/' + filter.name)
     .pipe(
       tap((response: IQualificationResponse) => {
         response.qualifications = response.qualifications
-          .map(qualification => new Qualificationn(qualification.id, qualification.name));
-          console.log(response);
+          .map(qualification => new Qualificationn(qualification.id, qualification.name))
+          .filter(qualification => qualification.name.includes(filter.name));
         return response;
       })
       );
   }
-  search1(filter: {name: string} = {name: ''}, page = 1): Observable<InstituteResponse> {
-    console.log('inside service ' + filter.name);
+  searchinstitution(filter: {name: string} = {name: ''}, page = 1): Observable<InstituteResponse> {
     return this.httpClient.get<InstituteResponse>('http://13.233.180.226:8008/api/v1/redisEducation/education/' + filter.name)
     .pipe(
       tap((response: InstituteResponse) => {
         response.educations = response.educations
-          .map(institute => new Institute(institute.id, institute.name));
+          .map(institute => new Institute(institute.id, institute.name))
+          .filter(institute => institute.name.includes(filter.name));
         return response;
       })
       );
