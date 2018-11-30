@@ -51,7 +51,6 @@ export class ExperienceComponent implements OnInit {
     });
   }
   onKeyUp(index: number) {
-    console.log('qualif' + index);
     this.temp = this.experienceForm.get('experience') as FormArray;
     this.temp.at(index).get('organisation').valueChanges.pipe(
       debounceTime(300),
@@ -63,7 +62,7 @@ export class ExperienceComponent implements OnInit {
         )
       )
     )
-    .subscribe(response => this.filteredOrganisations = response.organisations);
+    .subscribe(response => this.filteredOrganisations = response.organizations);
  }
 displayFn(organisation: Organisation) {
   if (organisation) {

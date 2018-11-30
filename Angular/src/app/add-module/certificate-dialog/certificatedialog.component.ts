@@ -52,7 +52,6 @@ export class CertificatedialogComponent implements OnInit {
     );
   }
   onKeyUp(index: number) {
-    console.log('qualif' + index);
     this.temp = this.certificateForm.get('certificate') as FormArray;
     this.temp.at(index).get('certificateName').valueChanges.pipe(
       debounceTime(300),
@@ -71,19 +70,18 @@ displayFn(certi: Certi) {
     return certi.name; }
 }
 onKeyUp1(index: number) {
-  console.log('qualif' + index);
   this.temp = this.certificateForm.get('certificate') as FormArray;
   this.temp.at(index).get('certificateAuthority').valueChanges.pipe(
     debounceTime(300),
     tap(() => this.isLoading = true),
     switchMap(value =>
-      this.certificateService.search1({name: value}, 1)
+      this.certificateService.searchauthrity({name: value}, 1)
     .pipe(
       finalize(() => this.isLoading = false),
       )
     )
   )
-  .subscribe(response => this.filteredAuthorities = response.authorities);
+  .subscribe(response => this.filteredAuthorities = response.organizations);
 }
 displayFn1(authority: Authority) {
 if (authority) {

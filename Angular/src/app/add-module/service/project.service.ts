@@ -45,40 +45,38 @@ export class ProjectService {
     .pipe(
       tap((response: DomainResponse) => {
         response.domains = response.domains
-          .map(domain => new Domain(domain.name, domain.id))
-          .filter(currentcities => currentcities.name.includes(filter.name));
+          .map(domain => new Domain(domain.name, domain.id));
         return response;
       })
       );
   }
-  searchtcompany(filter: {name: string} = {name: ''}, page = 1): Observable<OrganisationResponse> {
-    console.log('inside service ' + filter.name);
-    return this.httpClient.get<OrganisationResponse>('http://172.23.239.135:8081/api/v1/redisEducation/' + filter.name)
+  searchcompany(filter: {name: string} = {name: ''}, page = 1): Observable<OrganisationResponse> {
+    return this.httpClient.get<OrganisationResponse>('http://13.233.180.226:8008/api/v1/redisOrganization/' + filter.name)
     .pipe(
       tap((response: OrganisationResponse) => {
-        response.organisations = response.organisations
-          .map(organisation => new Organisation(organisation.name, organisation.id));
+        response.organizations = response.organizations
+          .map(organisation => new Organisation(organisation.name, organisation.id))
+          .filter(organisation => organisation.name.includes(filter.name));
         return response;
       })
       );
   }
   searchclient(filter: {name: string} = {name: ''}, page = 1): Observable<ClientResponse> {
-    console.log('inside service ' + filter.name);
-    return this.httpClient.get<ClientResponse>('http://172.23.239.135:8081/api/v1/redisEducation/' + filter.name)
+    return this.httpClient.get<ClientResponse>('http://13.233.180.226:8008/api/v1/redisOrganization/' + filter.name)
     .pipe(
       tap((response: ClientResponse) => {
-        response.clients = response.clients
-          .map(client => new Client(client.name, client.id));
+        response.organizations = response.organizations
+          .map(client => new Client(client.name, client.id))
+          .filter(client => client.name.includes(filter.name));
         return response;
       })
       );
   }
   searchtech(filter: {name: string} = {name: ''}, page = 1): Observable<TechResponse> {
-    console.log('inside service ' + filter.name);
-    return this.httpClient.get<TechResponse>('http://172.23.239.135:8081/api/v1/redisEducation/' + filter.name)
+    return this.httpClient.get<TechResponse>('http://13.233.180.226:8008/api/v1/redisSkill/' + filter.name)
     .pipe(
       tap((response: TechResponse) => {
-        response.technologies = response.technologies
+        response.skills = response.skills
           .map(tech => new Tech(tech.name, tech.id));
         return response;
       })

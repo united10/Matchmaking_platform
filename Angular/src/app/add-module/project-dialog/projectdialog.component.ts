@@ -95,18 +95,17 @@ displayFn(domain: Domain) {
 }
 
 onKeyUp1(index: number) {
-  console.log('qualif' + index);
   this.projectForm.get('company').valueChanges.pipe(
     debounceTime(300),
     tap(() => this.isLoading1 = true),
     switchMap(value =>
-      this.projectService.searchtcompany({name: value}, 1)
+      this.projectService.searchcompany({name: value}, 1)
     .pipe(
       finalize(() => this.isLoading1 = false),
       )
     )
   )
-  .subscribe(response => this.filteredOrganisation = response.organisations);
+  .subscribe(response => this.filteredOrganisation = response.organizations);
 }
 displayFn1(organisation: Organisation) {
 if (organisation) {
@@ -114,7 +113,6 @@ if (organisation) {
 }
 
 onKeyUp2(index: number) {
-  console.log('qualif' + index);
   this.projectForm.get('client').valueChanges.pipe(
     debounceTime(300),
     tap(() => this.isLoading2 = true),
@@ -125,7 +123,7 @@ onKeyUp2(index: number) {
       )
     )
   )
-  .subscribe(response => this.filteredClients = response.clients);
+  .subscribe(response => this.filteredClients = response.organizations);
 }
 displayFn2(client: Client) {
 if (client) {
@@ -133,7 +131,6 @@ if (client) {
 }
 
   onKeyUp3(index: number) {
-    console.log('qualif' + index);
     this.temp = this.projectForm.get('technologiesUsed') as FormArray;
     this.temp.at(index).get('skill').valueChanges.pipe(
       debounceTime(300),
@@ -145,7 +142,7 @@ if (client) {
         )
       )
     )
-    .subscribe(techs => this.filteredTech = techs.technologies);
+    .subscribe(techs => this.filteredTech = techs.skills);
  }
 displayFn3(tech: Tech) {
   if (tech) {
