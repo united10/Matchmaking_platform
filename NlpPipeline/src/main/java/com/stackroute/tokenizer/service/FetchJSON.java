@@ -10,7 +10,7 @@ import org.springframework.web.client.RestTemplate;
 @Component
 public class FetchJSON {
 
-private final static  String url="http://13.233.180.226:8008/api/v1/output";     // This hardcode is for testing
+private final static  String url="http://10.20.1.211:8008/api/v1/output";     // This hardcode is for testing
 
     Logger logger = LoggerFactory.getLogger(FetchJSON.class);
     public String  getAllData(){
