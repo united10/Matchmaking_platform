@@ -7,6 +7,8 @@ import com.stackroute.indexerservice.domain.input.CommonOutput;
 import com.stackroute.indexerservice.domain.input.Property;
 import com.stackroute.indexerservice.domain.relationships.CertificateRelationshipProperty;
 import com.stackroute.indexerservice.repository.CertifiedRepository;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -28,9 +30,10 @@ public class CertificateServiceImpl implements CertificateService{
     public CertificateServiceImpl(){
         prop = new HashMap<>();
     }
-
+    Logger logger = LoggerFactory.getLogger(CertificateServiceImpl.class);
     public void createNode(CommonOutput commonOutput) {
         user.setUserId(commonOutput.getSourceNode());
+        logger.info("-------------In Certification Service Node Creation--------------------");
         for (int i = 0; i < commonOutput.getTargetNodeProperty().length; i++)
         {
             organization.setName(commonOutput.getTargetNodeProperty()[i].getName());
@@ -46,10 +49,12 @@ public class CertificateServiceImpl implements CertificateService{
             }
             certificateRelationshipProperty.setProperties(prop);
             certifiedRepository.save(certificateRelationshipProperty);
+            logger.info("-------------In Certification Service Node Created--------------------");
         }
     }
 
     public void deleteNode(CommonOutput commonOutput){
+        logger.info("-------------In Certification Service Node Deleted--------------------");
         user.setUserId(commonOutput.getSourceNode());
         for (int i = 0; i < commonOutput.getTargetNodeProperty().length; i++)
         {
@@ -67,9 +72,11 @@ public class CertificateServiceImpl implements CertificateService{
             certificateRelationshipProperty.setProperties(prop);
             certifiedRepository.deleteById(certificateRelationshipProperty.getRelationship());
         }
+        logger.info("-------------In Certification Service Node Deleted--------------------");
     }
 
     public void updateNode(CommonOutput commonOutput) {
+        logger.info("-------------In Certification Service Node Updating--------------------");
         user.setUserId(commonOutput.getSourceNode());
         for (int i = 0; i < commonOutput.getTargetNodeProperty().length; i++)
         {
@@ -87,6 +94,7 @@ public class CertificateServiceImpl implements CertificateService{
             certificateRelationshipProperty.setProperties(prop);
             certifiedRepository.save(certificateRelationshipProperty);
         }
+        logger.info("-------------In Certification Service Node Updated--------------------");
     }
 
 }

@@ -7,6 +7,8 @@ import com.stackroute.indexerservice.domain.input.CommonOutput;
 import com.stackroute.indexerservice.domain.input.Property;
 import com.stackroute.indexerservice.domain.relationships.InterestRelationshipProperty;
 import com.stackroute.indexerservice.repository.InterestRepository;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -22,7 +24,9 @@ public class InterestServiceImpl implements InterestService {
     @Autowired
     private Interest interest;
 
+    Logger logger = LoggerFactory.getLogger(InterestServiceImpl.class);
     public void createNode(CommonOutput commonOutput){
+        logger.info("-------------In Interest Service Node Created--------------------");
         user.setUserId(commonOutput.getSourceNode());
         for(int i=0;i<commonOutput.getTargetNodeProperty().length;i++){
             interest.setName(commonOutput.getTargetNodeProperty()[i].getName());
@@ -32,9 +36,11 @@ public class InterestServiceImpl implements InterestService {
             interestRelationshipProperty.setInterest(interest);
             interestRepository.save(interestRelationshipProperty);
         }
+        logger.info("-------------In Interest Service Node Created--------------------");
     }
 
     public void deleteNode(CommonOutput commonOutput){
+        logger.info("-------------In Interest Service Node Deleting--------------------");
         user.setUserId(commonOutput.getSourceNode());
         for(int i=0;i<commonOutput.getTargetNodeProperty().length;i++){
             interest.setName(commonOutput.getTargetNodeProperty()[i].getName());
@@ -44,8 +50,10 @@ public class InterestServiceImpl implements InterestService {
             interestRelationshipProperty.setInterest(interest);
             interestRepository.delete(interestRelationshipProperty);
         }
+        logger.info("-------------In Interest Service Node Deleted--------------------");
     }
     public void updateNode(CommonOutput commonOutput){
+        logger.info("-------------In Interest Service Node Updating--------------------");
         user.setUserId(commonOutput.getSourceNode());
         for(int i=0;i<commonOutput.getTargetNodeProperty().length;i++){
             interest.setName(commonOutput.getTargetNodeProperty()[i].getName());
@@ -55,5 +63,6 @@ public class InterestServiceImpl implements InterestService {
             interestRelationshipProperty.setInterest(interest);
             interestRepository.save(interestRelationshipProperty);
         }
+        logger.info("-------------In Interest Service Node Updated--------------------");
     }
 }

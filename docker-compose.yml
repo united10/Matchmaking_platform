@@ -228,6 +228,7 @@ services:
       - kafka
       - mongodb
       - config-server
+      - eureka
     ports:
       - "8090:8090"
     expose:
@@ -279,6 +280,7 @@ services:
     depends_on:
       - mongodb
       - config-server
+      - eureka
     ports:
       - "8097:8097"
     expose:
@@ -314,6 +316,7 @@ services:
     network_mode: host
     depends_on:
       - kafka
+      - eureka
       - config-server
     ports:
       - "8099:8099"
