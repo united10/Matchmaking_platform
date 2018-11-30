@@ -24,11 +24,11 @@ export class DownstreamBackendService {
 
 _url = 'https://matchmaker-zuul.stackroute.in/downstream-service/matchmaker/v1/employees';
 delete_url = 'https://matchmaker-zuul.stackroute.in/upstream-service/api/v1/education/';
-delete_url1 = 'https://matchmaker-zuul.stackroute.in/upstream-service/api/v1/skills/';
-delete_url2 = 'https://matchmaker-zuul.stackroute.in/upstream-service/api/v1/location/';
-delete_url3 = 'https://matchmaker-zuul.stackroute.in/upstream-service/api/v1/experience/';
-delete_url4 = 'https://matchmaker-zuul.stackroute.in/upstream-service/api/v1/project/';
-delete_url5 = 'https://matchmaker-zuul.stackroute.in/upstream-service/api/v1/certificate/';
+delete_url1= 'https://matchmaker-zuul.stackroute.in/upstream-service/api/v1/skills/';
+delete_url2= 'https://matchmaker-zuul.stackroute.in/upstream-service/api/v1/location/';
+delete_url3= 'https://matchmaker-zuul.stackroute.in/upstream-service/api/v1/experience/';
+delete_url4= 'https://matchmaker-zuul.stackroute.in/upstream-service/api/v1/project/';
+delete_url5= 'https://matchmaker-zuul.stackroute.in/upstream-service/api/v1/certificate/';
 
   constructor(private httpClient: HttpClient) { }
 
@@ -65,7 +65,6 @@ delete_url5 = 'https://matchmaker-zuul.stackroute.in/upstream-service/api/v1/cer
   
 
   updateEducationDetails(section: EducationSection){
-    console.log(section);
     return this.httpClient.post<any>(this.delete_url, section, httpOptions).pipe(catchError(this.errorHandler));
   }
 

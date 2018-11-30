@@ -10,7 +10,7 @@ import java.util.List;
 
 @Repository
 public interface SkillRepository  extends Neo4jRepository<Skill,Long> {
-    @Query("match(n:Skill)-[:is_a]-(p)-[:same_as]-(q) return p")
+    @Query("match(n:Skill)-[:is_a]-(p) return p")
 
     List<Skill> getAllSkills();
 }

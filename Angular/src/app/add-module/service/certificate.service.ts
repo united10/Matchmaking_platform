@@ -37,9 +37,8 @@ export class CertificateService {
     // return an observable with a user-facing error message
     return throwError('Something bad happened; please try again later.');
   }
-  search(filter: {name: string} = {name: ''}, page = 1): Observable<CertificateResponse> {
-    console.log('inside service ' + filter.name);
-    return this.httpClient.get<CertificateResponse>('http://172.23.239.135:8081/api/v1/redisEducation/' + filter.name)
+  searchcertificate(filter: {name: string} = {name: ''}, page = 1): Observable<CertificateResponse> {
+    return this.httpClient.get<CertificateResponse>('https://matchmaker-zuul.stackroute.in/cache-service/api/v1/redisCertification/' + filter.name)
     .pipe(
       tap((response: CertificateResponse) => {
         response.certifications = response.certifications
@@ -48,13 +47,13 @@ export class CertificateService {
       })
       );
   }
-  search1(filter: {name: string} = {name: ''}, page = 1): Observable<AuthorityResponse> {
-    console.log('inside service ' + filter.name);
-    return this.httpClient.get<AuthorityResponse>('http://172.23.239.135:8081/api/v1/redisEducation/' + filter.name)
+  searchauthrity(filter: {name: string} = {name: ''}, page = 1): Observable<AuthorityResponse> {
+    return this.httpClient.get<AuthorityResponse>('https://matchmaker-zuul.stackroute.in/cache-service/api/v1/redisOrganization/' + filter.name)
     .pipe(
       tap((response: AuthorityResponse) => {
-        response.authorities = response.authorities
-          .map(authority => new Authority(authority.name, authority.id));
+        response.organizations = response.organizations
+          .map(authority => new Authority(authority.name, authority.id))
+          .filter(authority => authority.name.includes(filter.name));
         return response;
       })
       );

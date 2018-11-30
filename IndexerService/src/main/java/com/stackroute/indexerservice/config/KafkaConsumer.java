@@ -1,5 +1,6 @@
 package com.stackroute.indexerservice.config;
 
+
 import com.stackroute.indexerservice.domain.KafkaProperties;
 import com.stackroute.indexerservice.domain.input.CommonOutput;
 import org.apache.kafka.clients.consumer.ConsumerConfig;

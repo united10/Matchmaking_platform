@@ -12,6 +12,8 @@ import { TokenStorageService } from 'src/app/login/service/token-storage.service
 import { Currentcities } from './domain/currentcities';
 import { Pastcities } from './domain/pastcities';
 import { debounceTime, tap, switchMap, finalize } from 'rxjs/operators';
+import { State } from './domain/state';
+import { Paststate } from './domain/paststates';
 
 @Component({
   selector: 'app-locationdialog',
@@ -22,8 +24,12 @@ export class LocationdialogComponent implements OnInit {
     locationForm: FormGroup;
     filteredCurrentCityName: Currentcities[] = [];
     filteredPastCityName: Pastcities[] = [];
+    filteredStates: State[] = [];
+    filteredPastStates: Paststate[] = [];
     isLoading = false;
     isLoading1 = false;
+    isLoading2 = false;
+    isLoading3 = false;
     output: Output;
     currentId: string;
     currentCityName: string;
@@ -38,6 +44,7 @@ export class LocationdialogComponent implements OnInit {
     errorMessage: string;
     totalRow: number;
     temp: FormArray;
+    temp1: FormArray;
 
     constructor(@Inject(MAT_DIALOG_DATA) private data: any,
       private dialogRef: MatDialogRef<LocationdialogComponent>,
@@ -55,7 +62,6 @@ export class LocationdialogComponent implements OnInit {
       });
     }
     onKeyUp(index: number) {
-      console.log('qualif' + index);
       this.locationForm.get('currentCityName').valueChanges.pipe(
         debounceTime(300),
         tap(() => this.isLoading = true),
@@ -66,14 +72,13 @@ export class LocationdialogComponent implements OnInit {
           )
         )
       )
-      .subscribe(response => this.filteredCurrentCityName = response.cities);
+      .subscribe(response => this.filteredCurrentCityName = response.locations);
    }
   displayFn(currentcity: Currentcities) {
     if (currentcity) {
       return currentcity.name; }
   }
   onKeyUp1(index: number) {
-    console.log('qualif' + index);
     this.temp = this.locationForm.get('pastLocation') as FormArray;
     this.temp.at(index).get('pastCityName').valueChanges.pipe(
       debounceTime(300),
@@ -85,11 +90,46 @@ export class LocationdialogComponent implements OnInit {
         )
       )
     )
-    .subscribe(response => this.filteredPastCityName = response.cities);
+    .subscribe(response => this.filteredPastCityName = response.locations);
  }
 displayFn1(pastcity: Pastcities) {
   if (pastcity) {
     return pastcity.name; }
+}
+onKeyUp2(index: number) {
+  this.locationForm.get('currentStateName').valueChanges.pipe(
+    debounceTime(300),
+    tap(() => this.isLoading2 = true),
+    switchMap(value =>
+      this.locationService.searchcurrentstates({name: value}, 1)
+    .pipe(
+      finalize(() => this.isLoading2 = false),
+      )
+    )
+  )
+  .subscribe(response => this.filteredStates = response.results);
+}
+displayFn2(currentstate: State) {
+if (currentstate) {
+  return currentstate.name; }
+}
+onKeyUp3(index: number) {
+  this.temp1 = this.locationForm.get('pastLocation') as FormArray;
+  this.temp1.at(index).get('pastStateName').valueChanges.pipe(
+    debounceTime(300),
+    tap(() => this.isLoading3 = true),
+    switchMap(value =>
+      this.locationService.searchpaststates({name: value}, 1)
+    .pipe(
+      finalize(() => this.isLoading3 = false),
+      )
+    )
+  )
+  .subscribe(response => this.filteredPastStates = response.results);
+}
+displayFn3(paststate: Paststate) {
+if (paststate) {
+  return paststate.name; }
 }
 
     initItemRow() {
@@ -118,7 +158,7 @@ displayFn1(pastcity: Pastcities) {
     }
   onSave() {
     this.currentId = this.locationForm.get('currentId').value as string;
-    this.currentCityName = this.locationForm.get('currentCityName').value as string;
+    this.currentCityName = this.locationForm.get('currentCityName').value.name as string;
     this.currentStateName = this.locationForm.get('currentStateName').value as string;
     this.currentPincode = this.locationForm.get('currentPincode').value as string;
 
@@ -129,7 +169,7 @@ displayFn1(pastcity: Pastcities) {
       const pastLocations = new Array<PastLocation>();
       for (const row of values) {
         const pastlocation = new PastLocation(
-          row.pastId , row.pastCityName, row.pastStateName , row.pastPincode);
+          row.pastId , row.pastCityName.name, row.pastStateName , row.pastPincode);
           console.log(pastlocation);
         pastLocations.push(pastlocation);
         console.log(chicklets);

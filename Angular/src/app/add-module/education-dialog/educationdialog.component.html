@@ -13,8 +13,8 @@
         <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
           <mat-option *ngIf="isLoading" class="is-loading"><mat-spinner diameter="50"></mat-spinner></mat-option>
           <ng-container *ngIf="!isLoading">
-            <mat-option *ngFor="let qualification of filteredQualifications" [value]="qualification">
-              <span>{{ qualification.name }}</span>
+            <mat-option *ngFor="let qualificationn of filteredQualifications" [value]="qualificationn">
+              <span>{{ qualificationn.name }}</span>
             </mat-option>
           </ng-container>
         </mat-autocomplete>

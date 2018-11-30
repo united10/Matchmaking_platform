@@ -20,7 +20,12 @@
         </mat-autocomplete>
         {{dataJson?.of}}
         <mat-form-field>
-          <input matInput name="skillLevel" formControlName="skillLevel" required />
+          <input matInput name="skillLevel" formControlName="skillLevel" [matAutocomplete]="auto1" required />
+          <mat-autocomplete #auto1="matAutocomplete">
+            <mat-option *ngFor="let option of options" [value]="option">
+              {{option}}
+            </mat-option>
+          </mat-autocomplete>
         </mat-form-field>
         {{dataJson?.level}}
       </p>

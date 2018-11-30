@@ -16,5 +16,5 @@ public class Output {
     private List<RedisEducation> education;
     private List<RedisLocation> locations;
     private List<RedisSkill> skills;
-    private List<RedisExperience> experiences;
+    private List<RedisOrganization> Organisations;
 }

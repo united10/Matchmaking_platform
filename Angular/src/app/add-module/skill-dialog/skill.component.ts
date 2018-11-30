@@ -28,6 +28,7 @@ export class SkillComponent implements OnInit {
   dataJson: any;
   json_url = 'assets/skill.json';
   temp: FormArray;
+  options: string[] = ['Beginner', 'Intermediate', 'Advance'];
 
   constructor(@Inject(MAT_DIALOG_DATA) private data: any,
     private dialogRef: MatDialogRef<SkillComponent>, private readfromjsonService: ReadfromjsonService,
@@ -49,13 +50,12 @@ export class SkillComponent implements OnInit {
   }
 
   onKeyUp(index: number) {
-    console.log('qualif' + index);
     this.temp = this.skillForm.get('skills') as FormArray;
     this.temp.at(index).get('skillName').valueChanges.pipe(
       debounceTime(300),
       tap(() => this.isLoading = true),
       switchMap(value =>
-        this.skillService.search({name: value}, 1)
+        this.skillService.searchskills({name: value}, 1)
       .pipe(
         finalize(() => this.isLoading = false),
         )
@@ -96,7 +96,7 @@ displayFn(skill: Skillauto) {
     const chicklets = new Array<SkillChicklets>();
     for (let i = 0; i < arr.length; i++) {
       const row = arr.at(i);
-      const skill = new Skill('skillId', row.value.skillName, row.value.skillLevel);
+      const skill = new Skill('skillId', row.value.skillName.name, row.value.skillLevel);
       const chicklet = new SkillChicklets(skill);
       chicklets.push(chicklet);
     }

@@ -56,13 +56,12 @@ export class EducationdialogComponent implements OnInit {
     );
     }
   onKeyUp(index: number) {
-    console.log('qualif' + index);
     this.temp = this.educationForm.get('education') as FormArray;
     this.temp.at(index).get('qualification').valueChanges.pipe(
       debounceTime(300),
       tap(() => this.isLoading = true),
       switchMap(value =>
-        this.educationService.search({name: value}, 1)
+        this.educationService.searchqualification({name: value}, 1)
       .pipe(
         finalize(() => this.isLoading = false),
         )
@@ -75,13 +74,12 @@ displayFn(qualification: Qualificationn) {
     return qualification.name; }
 }
 onKeyUp1(index: number) {
-  console.log('Instit' + index);
   this.temp1 = this.educationForm.get('education') as FormArray;
   this.temp1.at(index).get('institute').valueChanges.pipe(
     debounceTime(300),
     tap(() => this.isLoading1 = true),
     switchMap(value =>
-      this.educationService.search1({name: value}, 1)
+      this.educationService.searchinstitution({name: value}, 1)
     .pipe(
       finalize(() => this.isLoading1 = false),
       )
@@ -124,9 +122,9 @@ if (institute) {
     const chicklets = new Array<EducationChicklets>();
     for (let i = 0; i < arr.length; i++) {
       const row = arr.at(i);
-      const qualification = new Qualification('qualificationId', row.value.qualification);
+      const qualification = new Qualification('qualificationId', row.value.qualification.name);
       const institution = new Institution('institutionId',
-        row.value.institute,
+        row.value.institute.name,
         row.value.startDate,
         row.value.endDate);
       const chicklet = new EducationChicklets(qualification, institution, this.summary);

@@ -8,6 +8,11 @@ import { Component, OnInit , Inject } from '@angular/core';
 import { FormGroup, FormArray, FormBuilder, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { TokenStorageService } from 'src/app/login/service/token-storage.service';
+import { Domain } from './domain/domain';
+import { Organisation } from './domain/organisation';
+import { Client } from './domain/client';
+import { Tech } from './domain/tech';
+import { debounceTime, tap, switchMap, finalize } from 'rxjs/operators';
 
 
 @Component({
@@ -19,6 +24,14 @@ import { TokenStorageService } from 'src/app/login/service/token-storage.service
 
 export class ProjectdialogComponent implements OnInit {
   projectForm: FormGroup;
+  filteredDomains: Domain[] = [];
+  filteredOrganisation: Organisation[] = [];
+  filteredClients: Client[] = [];
+  filteredTech: Tech[] = [];
+  isLoading = false;
+  isLoading1 = false;
+  isLoading2 = false;
+  isLoading3 = false;
   title: string;
   startDate: string;
   endDate: string;
@@ -34,6 +47,8 @@ export class ProjectdialogComponent implements OnInit {
   totalRow: number;
   dataJson: any;
   json_url = 'assets/project.json';
+  temp: FormArray;
+  options: string[] = ['Beginner', 'Intermediate', 'Advance'];
 
   constructor(@Inject(MAT_DIALOG_DATA) private data: any,
   private dialogRef: MatDialogRef<ProjectdialogComponent>,
@@ -62,6 +77,78 @@ export class ProjectdialogComponent implements OnInit {
       }
     );
   }
+  onKeyUp(index: number) {
+    this.projectForm.get('domain').valueChanges.pipe(
+      debounceTime(300),
+      tap(() => this.isLoading = true),
+      switchMap(value =>
+        this.projectService.searchdomain({name: value}, 1)
+      .pipe(
+        finalize(() => this.isLoading = false),
+        )
+      )
+    )
+    .subscribe(response => this.filteredDomains = response.domains);
+ }
+displayFn(domain: Domain) {
+  if (domain) {
+    return domain.name; }
+}
+
+onKeyUp1(index: number) {
+  this.projectForm.get('company').valueChanges.pipe(
+    debounceTime(300),
+    tap(() => this.isLoading1 = true),
+    switchMap(value =>
+      this.projectService.searchcompany({name: value}, 1)
+    .pipe(
+      finalize(() => this.isLoading1 = false),
+      )
+    )
+  )
+  .subscribe(response => this.filteredOrganisation = response.organizations);
+}
+displayFn1(organisation: Organisation) {
+if (organisation) {
+  return organisation.name; }
+}
+
+onKeyUp2(index: number) {
+  this.projectForm.get('client').valueChanges.pipe(
+    debounceTime(300),
+    tap(() => this.isLoading2 = true),
+    switchMap(value =>
+      this.projectService.searchclient({name: value}, 1)
+    .pipe(
+      finalize(() => this.isLoading2 = false),
+      )
+    )
+  )
+  .subscribe(response => this.filteredClients = response.organizations);
+}
+displayFn2(client: Client) {
+if (client) {
+  return client.name; }
+}
+
+  onKeyUp3(index: number) {
+    this.temp = this.projectForm.get('technologiesUsed') as FormArray;
+    this.temp.at(index).get('skill').valueChanges.pipe(
+      debounceTime(300),
+      tap(() => this.isLoading3 = true),
+      switchMap(value =>
+        this.projectService.searchtech({name: value}, 1)
+      .pipe(
+        finalize(() => this.isLoading3 = false),
+        )
+      )
+    )
+    .subscribe(techs => this.filteredTech = techs.skills);
+ }
+displayFn3(tech: Tech) {
+  if (tech) {
+    return tech.name; }
+}
 
   createTechnology(): FormGroup {
     return this.fb.group({
@@ -94,17 +181,17 @@ export class ProjectdialogComponent implements OnInit {
     this.startDate = this.projectForm.get('startDate').value as string;
     this.endDate = this.projectForm.get('endDate').value as string;
     this.url = this.projectForm.get('url').value as string;
-    this.domain = this.projectForm.get('domain').value as string;
+    this.domain = this.projectForm.get('domain').value.name as string;
     this.role = this.projectForm.get('role').value as string;
-    this.company = this.projectForm.get('company').value as string;
-    this.client = this.projectForm.get('client').value as string;
+    this.company = this.projectForm.get('company').value.name as string;
+    this.client = this.projectForm.get('client').value.name as string;
     this.description = this.projectForm.get('description').value as string;
 
     const technologies = new Array<Skill>();
       const arr = this.projectForm.get('technologiesUsed') as FormArray;
       const values = arr.value;
       for (const row of values) {
-        const technology = new Skill(row.skill , row.level);
+        const technology = new Skill(row.skill.name , row.level);
         technologies.push(technology);
       }
 
