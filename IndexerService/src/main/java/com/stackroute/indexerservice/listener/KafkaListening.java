@@ -30,7 +30,7 @@ public class KafkaListening {
         logger.info("kafka listend output: {}",commonOutput);
 
         CommonOutput indexerData=convertToLowercase(commonOutput);
-        if(commonOutput.getOperationType().equals("post"))
+        if(commonOutput.getOperationType().equals("add"))
         {
             ontologyService.createNode(indexerData);
         }
@@ -38,7 +38,7 @@ public class KafkaListening {
         {
             ontologyService.deleteNode(indexerData);
         }
-        else if(commonOutput.getOperationType().equals("put"))
+        else if(commonOutput.getOperationType().equals("update"))
         {
 
             ontologyService.updateNode(indexerData);
