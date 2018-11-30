@@ -19,7 +19,6 @@ import { LocationChicklets } from 'src/app/add-module/location-dialog/domain/chi
 import { CurrentLocation } from 'src/app/add-module/location-dialog/domain/currentlocation';
 import { LocationSection } from 'src/app/add-module/location-dialog/domain/section';
 import { PastLocation } from 'src/app/add-module/location-dialog/domain/pastlocation';
-
 @Component({
   selector: 'app-employee-dashboard-dummy',
   templateUrl: './employee-dashboard-dummy.component.html',
@@ -31,6 +30,8 @@ export class EmployeeDashboardDummyComponent implements OnInit {
   cards;
   keys;
   basicLength = 0;
+  temp1 =100/8;
+  temp=0;
   isLoggedIn = false;
   basicInfo;
   public isCollapsed = false;
@@ -208,6 +209,11 @@ export class EmployeeDashboardDummyComponent implements OnInit {
         i++;
         console.log(cards[i]);
         }
+        // if(this.temp==0)
+        // this.temp=this.temp1;
+        // else
+        this.temp=((i+1)*100/8);
+      
         if (matches) {
           for (const index in cards) {
             if (cards[index].title === 'Education') {
