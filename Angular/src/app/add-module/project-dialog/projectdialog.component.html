@@ -96,7 +96,12 @@
           </mat-autocomplete>
           {{dataJson?.technology?.text2}}
           <mat-form-field>
-            <input matInput placeholder="expertise" formControlName="level" required />
+            <input matInput placeholder="expertise" formControlName="level" [matAutocomplete]="auto4" required />
+            <mat-autocomplete #auto4="matAutocomplete">
+              <mat-option *ngFor="let option of options" [value]="option">
+                {{option}}
+              </mat-option>
+            </mat-autocomplete>
           </mat-form-field>
           {{dataJson?.technology?.text3}}
         </p>

@@ -44,7 +44,7 @@ export class LocationService {
     return throwError('Something bad happened; please try again later.');
   }
   searchcurrentcities(filter: {name: string} = {name: ''}, page = 1): Observable<CurrentCityResponse> {
-    return this.httpClient.get<CurrentCityResponse>('http://13.233.180.226:8008/api/v1/redisLocation/' + filter.name)
+    return this.httpClient.get<CurrentCityResponse>('https://matchmaker-zuul.stackroute.in/cache-service/api/v1/redisLocation/' + filter.name)
     .pipe(
       tap((response: CurrentCityResponse) => {
         response.locations = response.locations
@@ -55,7 +55,7 @@ export class LocationService {
       );
   }
   searchpastcities(filter: {name: string} = {name: ''}, page = 1): Observable<PastCityResponse> {
-    return this.httpClient.get<PastCityResponse>('http://13.233.180.226:8008/api/v1/redisLocation/' + filter.name)
+    return this.httpClient.get<PastCityResponse>('https://matchmaker-zuul.stackroute.in/cache-service/api/v1/redisLocation/' + filter.name)
     .pipe(
       tap((response: PastCityResponse) => {
         response.locations = response.locations

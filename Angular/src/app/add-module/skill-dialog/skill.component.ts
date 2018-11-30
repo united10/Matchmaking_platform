@@ -28,6 +28,7 @@ export class SkillComponent implements OnInit {
   dataJson: any;
   json_url = 'assets/skill.json';
   temp: FormArray;
+  options: string[] = ['Beginner', 'Intermediate', 'Advance'];
 
   constructor(@Inject(MAT_DIALOG_DATA) private data: any,
     private dialogRef: MatDialogRef<SkillComponent>, private readfromjsonService: ReadfromjsonService,
