@@ -45,6 +45,21 @@ public class ExperienceServiceImpl  implements  ExperienceService{
                 value = property[j].getPropertyValue();
                 prop.put(key, value);
             }
+
+            String fromDate=prop.get("from");
+            String[] splitFrom= fromDate.split("/");
+            int fromYear=Integer.parseInt(splitFrom[2]);
+
+            String toDate=prop.get("to");
+            String[] splitTo=toDate.split("/");
+            int toYear = Integer.parseInt(splitTo[2]);
+
+            int duration=toYear-fromYear;
+            String durationYear=Integer.toString(duration);
+
+            key="duration";
+            value=durationYear + " year";
+            prop.put(key,value);
             experienceRelationshipProperty.setProperties(prop);
             worksRepository.save(experienceRelationshipProperty);
         }
@@ -63,6 +78,20 @@ public class ExperienceServiceImpl  implements  ExperienceService{
                 value = property[j].getPropertyValue();
                 prop.put(key, value);
             }
+            String fromDate=prop.get("from");
+            String[] splitFrom= fromDate.split("/");
+            int fromYear=Integer.parseInt(splitFrom[2]);
+
+            String toDate=prop.get("to");
+            String[] splitTo=toDate.split("/");
+            int toYear = Integer.parseInt(splitTo[2]);
+
+            int duration=toYear-fromYear;
+            String durationYear=Integer.toString(duration);
+
+            key="duration";
+            value=durationYear + " year";
+            prop.put(key,value);
             experienceRelationshipProperty.setProperties(prop);
             worksRepository.deleteById(experienceRelationshipProperty.getRelationship());
         }
@@ -83,6 +112,20 @@ public class ExperienceServiceImpl  implements  ExperienceService{
                 value = property[j].getPropertyValue();
                 prop.put(key, value);
             }
+            String fromDate=prop.get("from");
+            String[] splitFrom= fromDate.split("/");
+            int fromYear=Integer.parseInt(splitFrom[2]);
+
+            String toDate=prop.get("to");
+            String[] splitTo=toDate.split("/");
+            int toYear = Integer.parseInt(splitTo[2]);
+
+            int duration=toYear-fromYear;
+            String durationYear=Integer.toString(duration);
+
+            key="duration";
+            value=durationYear + " year";
+            prop.put(key,value);
             experienceRelationshipProperty.setProperties(prop);
             worksRepository.save(experienceRelationshipProperty);
         }
