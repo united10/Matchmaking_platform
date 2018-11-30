@@ -4,6 +4,8 @@ import com.stackroute.indexerservice.domain.input.Property;
 import com.stackroute.indexerservice.domain.input.CommonOutput;
 import com.stackroute.indexerservice.domain.input.TargetProperty;
 import com.stackroute.indexerservice.service.OntologyService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.messaging.handler.annotation.Payload;
@@ -20,10 +22,13 @@ public class KafkaListening {
     @Autowired
     private CommonOutput commonOutputLower;
 
+    Logger logger = LoggerFactory.getLogger(KafkaListening.class);
     @KafkaListener(topics = "${kafka.listeningTopic}" , groupId = "${kafka.groupId}",
                 containerFactory="${kafka.containerFactory}")
 
     public void consumeJson(@Payload CommonOutput commonOutput) {
+        logger.info("kafka listend output: {}",commonOutput);
+
         CommonOutput indexerData=convertToLowercase(commonOutput);
         if(commonOutput.getOperationType().equals("post"))
         {
