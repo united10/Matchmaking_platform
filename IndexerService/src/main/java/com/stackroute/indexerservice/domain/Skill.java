@@ -7,6 +7,9 @@ import lombok.NoArgsConstructor;
 import org.neo4j.ogm.annotation.Id;
 import org.springframework.stereotype.Component;
 
+/*
+This model is responsible  mapping skill and user
+ */
 @Component
 @Data
 @Builder

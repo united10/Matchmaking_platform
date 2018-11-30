@@ -81,9 +81,9 @@ public class KafkaConsumer {
                 logger.info(educationList.get(0).toString());
                 employeeService.deleteEducationData(educationList.get(0),userId);
             }else if(operation.equals("update")){
-
+                    employeeService.updateEducationData(educationList.get(0),userId);
             }else{
-                logger.info("");
+                logger.info("Invalid operation type");
             }
 
             logger.info("${kafka.success}");
@@ -122,8 +122,10 @@ public class KafkaConsumer {
                 employeeService.addSkillsData(skillsList, skillsSection.getUserId());
             }else if(operation.equals("delete")){
                 employeeService.deleteSkillsData(skillsList.get(0),userId);
+            }else if(operation.equals("update")){
+                employeeService.updateSkillsData(skillsList.get(0),userId);
             }else{
-
+                logger.info("Invalid operation type");
             }
             logger.info("${kafka.success}");
 
@@ -160,16 +162,22 @@ public class KafkaConsumer {
             String userId=locationSection.getUserId();
             if(operation.equals("add")) {
             employeeService.addLocationData(location, userId);
-        }else if(operation.equals("delete")){
-                if(location.getCurrentLocation()==null) {
+            }else if(operation.equals("delete")){
+                if(location.getPastLocation()!=null) {
                     employeeService.deletePastLocation(location.getPastLocation().get(0), userId);
                 }else {
                     employeeService.deleteCurrentLocationData(location.getCurrentLocation(), userId);
                 }
-                }else{
-
-        }logger.info("${kafka.success}");
-
+            }else if(operation.equals("update")){
+                if(location.getCurrentLocation()!=null) {
+                    employeeService.updatePastLocation(location.getPastLocation().get(0), userId);
+                }else {
+                    employeeService.updateCurrentLocationData(location.getCurrentLocation(), userId);
+                }
+            }else{
+                logger.info("Invalid operation type");
+            }
+            logger.info("${kafka.success}");
         }catch(EmployeeNotFoundException employeeNotFound){
             logger.error(employeeNotFound.getMessage());
         }catch(Exception exp){
@@ -205,8 +213,10 @@ public class KafkaConsumer {
             }else if(operation.equals("delete")){
                 employeeService.deleteCertificateData(certificates.get(0),userId);
 
-            }else {
-
+            }else if(operation.equals("update")){
+                employeeService.updateCertificateData(certificates.get(0),userId);
+            }else{
+                logger.info("Invalid operation type");
             }
             logger.info("${kafka.success}");
 
@@ -243,8 +253,10 @@ public class KafkaConsumer {
                 employeeService.addProjectData(projects, section.getUserId());
             }else if(operation.equals("delete")){
                 employeeService.deleteProjectData(projects.get(0),userId);
+            }else if(operation.equals("update")){
+                employeeService.updateProjectData(projects.get(0),userId);
             }else{
-
+                logger.info("Invalid operation type");
             }
             logger.info("${kafka.success}");
 
@@ -283,8 +295,10 @@ public class KafkaConsumer {
                 employeeService.addExperienceData(experiences, userId);
             }else if(operation.equals("delete")){
                 employeeService.deleteExperienceData(experiences.get(0),userId);
+            }else if(operation.equals("update")){
+                employeeService.updateExperienceData(experiences.get(0),userId);
             }else{
-
+                logger.info("Invalid operation type");
             }logger.info("${kafka.success}");
 
         }catch(EmployeeNotFoundException employeeNotFound){

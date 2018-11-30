@@ -1,6 +1,5 @@
 package com.stackroute.cacheservice.domain;
 
-
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -14,10 +13,8 @@ import org.neo4j.ogm.annotation.Property;
 @NoArgsConstructor
 @AllArgsConstructor
 @NodeEntity
-//@RedisHash("RedisEducation")
-public class education {
+public class Organization {
     @GraphId
     private Long id;
-    @Property
     private String Name;
 }

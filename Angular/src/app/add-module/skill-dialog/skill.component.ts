@@ -8,6 +8,8 @@ import { SkillSection } from '../skill-dialog/domain/skillsection';
 import { Output } from '../outputclass/output';
 import { ReadfromjsonService } from './../service/readfromjson.service';
 import { TokenStorageService } from 'src/app/login/service/token-storage.service';
+import { Skillauto } from './domain/skillauto';
+import { debounceTime, tap, switchMap, finalize } from 'rxjs/operators';
 
 @Component({
   selector: 'app-skill',
@@ -15,7 +17,8 @@ import { TokenStorageService } from 'src/app/login/service/token-storage.service
   styleUrls: ['./skill.component.css']
 })
 export class SkillComponent implements OnInit {
-
+  filteredSkills: Skillauto[] = [];
+  isLoading = false;
   skillForm: FormGroup;
   skillName: string;
   skillLevel: string;
@@ -24,6 +27,8 @@ export class SkillComponent implements OnInit {
   totalRow: number;
   dataJson: any;
   json_url = 'assets/skill.json';
+  temp: FormArray;
+  options: string[] = ['Beginner', 'Intermediate', 'Advance'];
 
   constructor(@Inject(MAT_DIALOG_DATA) private data: any,
     private dialogRef: MatDialogRef<SkillComponent>, private readfromjsonService: ReadfromjsonService,
@@ -44,6 +49,24 @@ export class SkillComponent implements OnInit {
     );
   }
 
+  onKeyUp(index: number) {
+    this.temp = this.skillForm.get('skills') as FormArray;
+    this.temp.at(index).get('skillName').valueChanges.pipe(
+      debounceTime(300),
+      tap(() => this.isLoading = true),
+      switchMap(value =>
+        this.skillService.searchskills({name: value}, 1)
+      .pipe(
+        finalize(() => this.isLoading = false),
+        )
+      )
+    )
+    .subscribe(Iskills => this.filteredSkills = Iskills.skills);
+ }
+displayFn(skill: Skillauto) {
+  if (skill) {
+    return skill.name; }
+}
   initItemRow() {
     return this.fb.group({
       skillName: new FormControl('', Validators.required),
@@ -73,7 +96,7 @@ export class SkillComponent implements OnInit {
     const chicklets = new Array<SkillChicklets>();
     for (let i = 0; i < arr.length; i++) {
       const row = arr.at(i);
-      const skill = new Skill('skillId', row.value.skillName, row.value.skillLevel);
+      const skill = new Skill('skillId', row.value.skillName.name, row.value.skillLevel);
       const chicklet = new SkillChicklets(skill);
       chicklets.push(chicklet);
     }

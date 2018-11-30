@@ -6,6 +6,8 @@ import com.stackroute.indexerservice.domain.input.CommonOutput;
 import com.stackroute.indexerservice.domain.input.Property;
 import com.stackroute.indexerservice.domain.relationships.EducationRelationshipProperty;
 import com.stackroute.indexerservice.repository.EducatedRepository;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -25,13 +27,14 @@ public class EducationServiceImpl implements EducationService {
     private String key;
     private String value;
     private Property[] property;
-
+    Logger logger = LoggerFactory.getLogger(EducationServiceImpl.class);
     public EducationServiceImpl() {
         prop = new HashMap<>();
     }
 
     public void createNode(CommonOutput commonOutput) {
         user.setUserId(commonOutput.getSourceNode());
+        logger.info("-------------In Education Service Node Creation--------------------");
         for (int i = 0; i < commonOutput.getTargetNodeProperty().length; i++) {
             education.setName(commonOutput.getTargetNodeProperty()[i].getName());
             EducationRelationshipProperty educationRelationshipProperty = new EducationRelationshipProperty();
@@ -47,6 +50,7 @@ public class EducationServiceImpl implements EducationService {
             educationRelationshipProperty.setProperties(prop);
             educatedRepository.save(educationRelationshipProperty);
         }
+        logger.info("-------------In Education Service Node Created-------------------");
     }
 
     public void deleteNode(CommonOutput commonOutput) {

@@ -34,6 +34,7 @@ export class EmployeeDashboardDummyComponent implements OnInit {
   temp=0;
   isLoggedIn = false;
   basicInfo;
+  educationLength: number;
   public isCollapsed = false;
   constructor(private breakpointObserver: BreakpointObserver,
     private tokenstorageservice: TokenStorageService , private downstreamBackendService: DownstreamBackendService) {}
@@ -218,10 +219,12 @@ export class EmployeeDashboardDummyComponent implements OnInit {
           for (const index in cards) {
             if (cards[index].title === 'Education') {
               console.log("education length " + cards[index].contents.length);
-              if (cards[index].contents.length <= 2) {
-                cards[index].rows = cards[index].contents.length * 3.8 ;
+              if (cards[index].contents.length === 1) {
+                this.educationLength = cards[index].contents.length * 4.5;
+                cards[index].rows =  this.educationLength;
               } else {
-                cards[index].rows = cards[index].contents.length * 3.2;
+                this.educationLength = 4.5;
+                cards[index].rows = this.educationLength + cards[index].contents.length ;
               }
               cards[index].cols = 2;
             }else if (cards[index].title  === 'Skills') {
@@ -246,26 +249,33 @@ export class EmployeeDashboardDummyComponent implements OnInit {
 
         for (const index in cards) {
           if (cards[index].title === 'Education') {
-            console.log("education length " + cards[index].contents.length);
-            if (cards[index].contents.length <= 2) {
-              cards[index].rows = cards[index].contents.length * 3.8 ;
+            console.log("education length "+cards[index].length);
+            if (cards[index].contents.length === 1) {
+              cards[index].rows =  3 + (cards[index].contents.length * 3);
             } else {
-              cards[index].rows = cards[index].contents.length * 3.2;
+              cards[index].rows = 4.5 + cards[index].contents.length ;
             }
             cards[index].cols = 1;
-          }else if (cards[index].title  === 'Skills') {
-            console.log("skill length " + cards[index].contents.length);
-              cards[index].rows = cards[index].contents.length * 2.5;
+          } else if (cards[index].title  === 'Skills') {
+              if (cards[index].contents.length === 1) {
+                cards[index].rows =  3.5;
+              } else {
+                cards[index].rows = 3.5 + cards[index].contents.length ;
+              }
               cards[index].cols = 1;
             } else if (cards[index].title  === 'Project') {
-              cards[index].rows = cards[index].contents.length * 6.5;
+              if (cards[index].contents.length === 1) {
+                cards[index].rows =  6.5;
+              } else {
+                cards[index].rows = 8.5 + cards[index].contents.length ;
+              }
               cards[index].cols = 1;
             } else if (cards[index].title  === 'Certificate') {
-              console.log("certificate length " + cards[index].contents.length);
-              if (cards[index].contents.length === 1){
-                cards[index].rows = cards[index].contents.length * 5.5 ;
+              if (cards[index].contents.length === 1) {
+                cards[index].rows =  5.5;
+              } else {
+                cards[index].rows = 5.5 + cards[index].contents.length ;
               }
-              cards[index].rows = cards[index].contents.length * 4.8 ;
               cards[index].cols = 1;
             } else if (cards[index].title  === 'Location') {
               console.log(cards[index].contents.length);
@@ -377,7 +387,9 @@ export class EmployeeDashboardDummyComponent implements OnInit {
 
   onDeletePastLocation(pastLocation) {
    const deleteLocation = Array<PastLocation>();
-   deleteLocation.push(pastLocation);
+   const locationData=new PastLocation(pastLocation.pastLocationId,pastLocation.cityName,
+    pastLocation.stateName,pastLocation.pinCode);
+   deleteLocation.push(locationData);
     const locationChicklet = new LocationChicklets(null, deleteLocation);
     const chicklets = Array<LocationChicklets>();
     chicklets.push(locationChicklet);
@@ -392,4 +404,109 @@ export class EmployeeDashboardDummyComponent implements OnInit {
     );
 
   }
+
+
+  onUpdate(content, title) {
+    if (title === 'Education') {
+      const qualification = new Qualification(content.id, content.qualification);
+      const institution = new Institution(content.institutionId, content.institution,
+        content.startDate, content.endDate) ;
+      const  educationChicklets = new EducationChicklets(qualification, institution, content.summary);
+      const chicklets = new Array<EducationChicklets>();
+      chicklets.push(educationChicklets);
+      const educationSection = new EducationSection('Education', this.tokenstorageservice.getEmail(), 'update', chicklets);
+      console.log(educationSection);
+      this.downstreamBackendService.updateEducationDetails(educationSection)
+      .subscribe(
+        (data) => {
+          console.log(data);
+          location.reload();
+        }
+      );
+    } else if (title === 'Skills') {
+      const skillChicklet = new SkillChicklets(content.skill);
+      const chicklets = [skillChicklet];
+      const skillSection = new SkillSection('Skills', this.tokenstorageservice.getEmail(), 'update', chicklets);
+      this.downstreamBackendService.updateSkillsDetails(skillSection)
+      .subscribe(
+        (data) => {
+          console.log(data);
+          location.reload();
+        }
+      );
+    }    else if (title === 'Project') {
+      const projectChicklet = new ProjectChicklets(content.project);
+      const chicklets = [projectChicklet];
+      const projectSection = new ProjectSection('Project', this.tokenstorageservice.getEmail(), 'update', chicklets);
+      this.downstreamBackendService.updateProjectDetails(projectSection)
+      .subscribe(
+        (data) => {
+          console.log(data);
+          location.reload();
+        }
+      );
+    }    else if (title === 'Certificate') {
+      const certificateChicklet = new CertificateChicklets(content.certificate);
+      const chicklets = [certificateChicklet];
+      const certificateSection = new CertificateSection('Certificate', this.tokenstorageservice.getEmail(), 'update', chicklets);
+      this.downstreamBackendService.updateCerificateDetails(certificateSection)
+      .subscribe(
+        (data) => {
+          console.log(data);
+          location.reload();
+        }
+      );
+    }    else if (title === 'Experience') {
+      const experienceChicklet = new Chicklets(content.experience);
+      const chicklets = Array<Chicklets>();
+      chicklets.push(experienceChicklet);
+
+      const experienceSection = new ExperienceSection('Experience', this.tokenstorageservice.getEmail(), 'update', chicklets);
+      this.downstreamBackendService.updateExperienceDetails(experienceSection)
+      .subscribe(
+        (data) => {
+          console.log(data);
+          location.reload();
+        }
+      );
+    }
+  }
+
+  onUpdateCurrentLocation(content) {
+    const currentLocation = new CurrentLocation(content.currentLocationId,
+      content.currentcontent.currentCityName, content.currentStateName, content.currentPinCode);
+    const locationChicklet = new LocationChicklets(currentLocation, null);
+    const chicklets = Array<LocationChicklets>();
+    chicklets.push(locationChicklet);
+
+    const locationSection = new LocationSection('Location', this.tokenstorageservice.getEmail(), 'update', chicklets);
+    this.downstreamBackendService.updateLocationDetails(locationSection)
+    .subscribe(
+      (data) => {
+        console.log(data);
+        location.reload();
+      }
+    );
+
+  }
+
+  onUpdatePastLocation(pastLocation) {
+    const deleteLocation = Array<PastLocation>();
+    const locationData=new PastLocation(pastLocation.pastLocationId,pastLocation.cityName,
+     pastLocation.stateName,pastLocation.pinCode);
+    deleteLocation.push(locationData);
+     const locationChicklet = new LocationChicklets(null, deleteLocation);
+     const chicklets = Array<LocationChicklets>();
+     chicklets.push(locationChicklet);
+ 
+     const locationSection = new LocationSection('Location', this.tokenstorageservice.getEmail(), 'update', chicklets);
+     this.downstreamBackendService.updateLocationDetails(locationSection)
+     .subscribe(
+       (data) => {
+         console.log(data);
+         location.reload();
+       }
+     );
+ 
+   }
 }

@@ -14,10 +14,6 @@ eureka:         #tells about the Eureka server details and its refresh time
     lease:
       duration: 5
 
-spring:
-  application.name: LocationService
-  cloud.config.uri: http://localhost:8888
-
 kafka:
   ipAddress: localhost:9092
   groupId: group_id11

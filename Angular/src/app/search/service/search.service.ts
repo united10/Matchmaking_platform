@@ -15,7 +15,7 @@ const httpOptions = {
 })
 export class SearchService {
 
-  url = 'http://localhost:8097/query-service/matchmaker/v1/search';
+  url = 'https://matchmaker-zuul.stackroute.in/query-service/matchmaker/v1/search';
 
   constructor(private httpClient: HttpClient) { }
 

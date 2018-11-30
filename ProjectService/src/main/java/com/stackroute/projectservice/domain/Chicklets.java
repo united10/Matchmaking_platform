@@ -13,5 +13,4 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class Chicklets {
     private ProjectDetails projectDetails;
-
 }

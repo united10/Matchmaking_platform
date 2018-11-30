@@ -6,7 +6,8 @@ import java.util.List;
 
 public interface EducService {
 
-    public RedisEducation saveEducation(RedisEducation education);
+    public RedisEducation saveEducation(RedisEducation Education);
     public List<RedisEducation> getALlRedisEducation();
     public List<RedisEducation> searchCollege(String term);
+
 }

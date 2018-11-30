@@ -1,11 +1,6 @@
 server:
-  port: 8095
+  port: 8099
 
-spring:
-  application.name: InterestsService
-  cloud.config.uri: http://localhost:8888
-#  datasource.url: …
-#  datasource.driver-class-name: …
 
 kafka:
   ipAddress: localhost:9092

@@ -2,8 +2,12 @@ import { Injectable } from '@angular/core';
 import { LocationSection } from '../location-dialog/domain/section';
 import { Observable, throwError } from 'rxjs';
 import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
-import { catchError } from 'rxjs/operators';
+import { catchError, tap } from 'rxjs/operators';
 import { Output } from '../outputclass/output';
+import { CurrentCityResponse, Currentcities } from '../location-dialog/domain/currentcities';
+import { PastCityResponse, Pastcities } from '../location-dialog/domain/pastcities';
+import { StateResponse, State } from '../location-dialog/domain/state';
+import { PaststateResponse, Paststate } from '../location-dialog/domain/paststates';
 
 
 const httpOptions = {
@@ -16,7 +20,7 @@ const httpOptions = {
 })
 export class LocationService {
 
-  url = 'http://13.233.180.226:8097/upstream-service/api/v1/location';
+  url = 'https://matchmaker-zuul.stackroute.in/upstream-service/api/v1/location';
 
   constructor(private httpClient: HttpClient) { }
 
@@ -38,5 +42,49 @@ export class LocationService {
     }
     // return an observable with a user-facing error message
     return throwError('Something bad happened; please try again later.');
+  }
+  searchcurrentcities(filter: {name: string} = {name: ''}, page = 1): Observable<CurrentCityResponse> {
+    return this.httpClient.get<CurrentCityResponse>('https://matchmaker-zuul.stackroute.in/cache-service/api/v1/redisLocation/' + filter.name)
+    .pipe(
+      tap((response: CurrentCityResponse) => {
+        response.locations = response.locations
+          .map(currentcities => new Currentcities(currentcities.name, currentcities.id))
+          .filter(currentcities => currentcities.name.includes(filter.name));
+        return response;
+      })
+      );
+  }
+  searchpastcities(filter: {name: string} = {name: ''}, page = 1): Observable<PastCityResponse> {
+    return this.httpClient.get<PastCityResponse>('https://matchmaker-zuul.stackroute.in/cache-service/api/v1/redisLocation/' + filter.name)
+    .pipe(
+      tap((response: PastCityResponse) => {
+        response.locations = response.locations
+          .map(pastcities => new Pastcities(pastcities.name, pastcities.id))
+          .filter(pastcities => pastcities.name.includes(filter.name));
+        return response;
+      })
+      );
+  }
+  searchcurrentstates(filter: {name: string} = {name: ''}, page = 1): Observable<StateResponse> {
+    return this.httpClient.get<StateResponse>('/api/states')
+    .pipe(
+      tap((response: StateResponse) => {
+        response.results = response.results
+          .map(state => new State(state.name, state.id))
+          .filter(state => state.name.includes(filter.name));
+        return response;
+      })
+      );
+  }
+  searchpaststates(filter: {name: string} = {name: ''}, page = 1): Observable<PaststateResponse> {
+    return this.httpClient.get<PaststateResponse>('/api/states')
+    .pipe(
+      tap((response: PaststateResponse) => {
+        response.results = response.results
+          .map(state => new Paststate(state.name, state.id))
+          .filter(state => state.name.includes(filter.name));
+        return response;
+      })
+      );
   }
 }

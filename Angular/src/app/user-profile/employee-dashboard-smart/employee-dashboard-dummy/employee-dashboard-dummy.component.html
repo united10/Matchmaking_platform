@@ -126,9 +126,7 @@
                                     <h6>Duration: {{content.fromDate}} - {{content.toDate}}</h6>
                                     <p>{{content.description}}</p>
                                     <div *ngFor= "let skills of content.technologiesUsed">
-                                        <div>
-                                          {{skills.skill}}
-                                        </div>
+                                          {{skills.skill}}                                        
                                     </div>
                                   </div>
                                   <div *ngIf="!isLast">
@@ -177,7 +175,7 @@
                                     <div class="card-content">
                                       <h5>Certified by: {{content.certificateAuthority}}</h5>
                                       <h5>License Number: {{content.licenseNumber}}</h5>
-                                      <h5>Duration: {{content.fromDate}} - {{content.toDate}}</h5>
+                                      <h6>Duration: {{content.fromDate}} - {{content.toDate}}</h6>
                                     </div>
                                     <div *ngIf="!isLast">
                                       <hr class="card-rule"/>

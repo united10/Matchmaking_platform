@@ -1,24 +1,19 @@
 server:
   port: 8082
 
-spring:
-  application:
-      name: EducationService
-  cloud:
-       config:
-           uri: http://localhost:8888
 
-management:
-  security:
-    enabled: false
-eureka:         #tells about the Eureka server details and its refresh time
-  client:
-    serviceUrl:
-      defaultZone: http://localhost:8091/eureka/
-    healthcheck:
-      enabled: true
-    lease:
-      duration: 5
+
+#management:
+#  security:
+#    enabled: false
+#eureka:         #tells about the Eureka server details and its refresh time
+#  client:
+#    serviceUrl:
+#      defaultZone: http://localhost:8091/eureka/
+#    healthcheck:
+#      enabled: true
+#    lease:
+#      duration: 5
 
 
 kafka:

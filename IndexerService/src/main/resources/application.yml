@@ -1,12 +1,14 @@
 kafka:
   ipAddress: localhost:9092
-  groupId: group_id50
+  groupId: akash
   listeningTopic: indexer
   containerFactory: userKafkaListenerFactory
 
 server:
   port: 8001
+spring:
   data:
     neo4j:
-      uri: bolt://localhost
-
+      uri: bolt://0.0.0.0
+      username: neo4j
+      password: 123456
