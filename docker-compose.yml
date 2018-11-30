@@ -40,24 +40,20 @@ services:
       - zookeeper
     restart: always
 
-  nplpipeline-service:
+  nlppipeline-service:
     image: nlppipeline-service:v1
     build: NlpPipeline/
     restart: always
     container_name: nlp-pipeline
     network_mode: host
     depends_on:
+      - config-server
       - kafka
-<<<<<<< HEAD
-      - eureka
-=======
       - redis
->>>>>>> 7a979b91a9ecccf9acd5ec2241511704b300308b
     ports:
       - "8093:8093"
     expose:
       - "8093"
-<<<<<<< HEAD
 
   cache-service:
     image: cache-service:v1
@@ -66,8 +62,9 @@ services:
     container_name: cache-container
     network_mode: host
     depends_on:
-      - kafka
-      - eureka
+      - neo4jdb
+      - redis
+      - config-server
     ports:
       - "8008:8008"
     expose:
@@ -81,7 +78,7 @@ services:
     network_mode: host
     depends_on:
       - kafka
-      - eureka
+      - config-server
     ports:
       - "8001:8001"
     expose:
@@ -95,66 +92,25 @@ services:
     network_mode: host
     depends_on:
       - kafka
-      - eureka
-    ports:
-      - "8095:8095"
-    expose:
-      - "8095"
-=======
-
-  cache-service:
-    image: cache-service:v1
-    build: CacheService/
-    restart: always
-    container_name: cache-container
-    network_mode: host
-    depends_on:
-      - kafka
-    ports:
-      - "8008:8008"
-    expose:
-      - "8008"
-
-  indexer-service:
-    image: indexer-service:v1
-    build: IndexerService/
-    restart: always
-    container_name: indexer-container
-    network_mode: host
-    depends_on:
-      - kafka
-    ports:
-      - "8001:8001"
-    expose:
-      - "8001"
->>>>>>> 7a979b91a9ecccf9acd5ec2241511704b300308b
-
-  query-service:
-    image: query-service:v1
-    build: QueryService/
-    restart: always
-    container_name: query-container
-    network_mode: host
-    depends_on:
-      - kafka
-      - eureka
+      - config-server
     ports:
       - "8095:8095"
     expose:
       - "8095"
 
-#  education-service:
-#    image: education-service:v1
-#    build: EducationService/
-#    restart: always
-#    container_name: education-container
-#    network_mode: host
-#    depends_on:
-#      - kafka
-#    ports:
-#      - "8082:8082"
-#    expose:
-#      - "8082"
+  education-service:
+    image: education-service:v1
+    build: EducationService/
+    restart: always
+    container_name: education-container
+    network_mode: host
+    depends_on:
+      - kafka
+      - config-server
+    ports:
+      - "8082:8082"
+    expose:
+      - "8082"
   authentication-service:
     image: authentication-service:v1
     build: UserAuthentication/
@@ -164,7 +120,7 @@ services:
     depends_on:
       - mysql
       - kafka
-      - eureka
+      - config-server
     ports:
       - "8088:8088"
     expose:
@@ -177,7 +133,7 @@ services:
     network_mode: host
     depends_on:
       - kafka
-      - eureka
+      - config-server
     ports:
       - "8086:8086"
     expose:
@@ -192,7 +148,7 @@ services:
     network_mode: host
     depends_on:
       - kafka
-      - eureka
+      - config-server
     ports:
       - "8085:8085"
     expose:
@@ -205,7 +161,7 @@ services:
     network_mode: host
     depends_on:
       - kafka
-      - eureka
+      - config-server
     ports:
       - "8087:8087"
     expose:
@@ -218,7 +174,7 @@ services:
     network_mode: host
     depends_on:
       - kafka
-      - eureka
+      - config-server
     ports:
       - "8084:8084"
     expose:
@@ -231,7 +187,7 @@ services:
     network_mode: host
     depends_on:
       - kafka
-      - eureka
+      - config-server
     ports:
       - "8083:8083"
     expose:
@@ -244,7 +200,7 @@ services:
     network_mode: host
     depends_on:
       - kafka
-      - eureka
+      - config-server
     ports:
       - "8081:8081"
     expose:
@@ -257,7 +213,7 @@ services:
     network_mode: host
     depends_on:
       - kafka
-      - eureka
+      - config-server
     ports:
       - "9191:9191"
     expose:
@@ -271,7 +227,7 @@ services:
     depends_on:
       - kafka
       - mongodb
-      - eureka
+      - config-server
     ports:
       - "8090:8090"
     expose:
@@ -322,7 +278,7 @@ services:
     network_mode: host
     depends_on:
       - mongodb
-      - eureka
+      - config-server
     ports:
       - "8097:8097"
     expose:
@@ -337,6 +293,19 @@ services:
       - "8091:8091"
     expose:
       - 8091
+
+  neo4jdb:
+    image: neo4j:3.0
+    ports:
+      - "7474:7474"
+    expose:
+      - 7474
+    volumes:
+      - ../neo4jData/data:/data
+      - ../neo4jData/import:/var/lib/neo4j/import
+    container_name: neo4j-db
+    network_mode: host
+
   interest-service:
     image: interest-service:v1
     build: InterestService/
@@ -345,14 +314,8 @@ services:
     network_mode: host
     depends_on:
       - kafka
-      - eureka
+      - config-server
     ports:
       - "8099:8099"
     expose:
       - "8099"
-#  neo4jdb:
-#    image: madhuri23/neo4j:3.0
-#    ports:
-#      - "7474:7474"
-#    container_name: neo4j-db
-#    network_mode: host

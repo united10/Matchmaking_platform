@@ -49,13 +49,12 @@ export class SkillComponent implements OnInit {
   }
 
   onKeyUp(index: number) {
-    console.log('qualif' + index);
     this.temp = this.skillForm.get('skills') as FormArray;
     this.temp.at(index).get('skillName').valueChanges.pipe(
       debounceTime(300),
       tap(() => this.isLoading = true),
       switchMap(value =>
-        this.skillService.search({name: value}, 1)
+        this.skillService.searchskills({name: value}, 1)
       .pipe(
         finalize(() => this.isLoading = false),
         )

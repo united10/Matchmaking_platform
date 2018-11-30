@@ -28,10 +28,10 @@ public class KafkaConsumer {
     public void consumeJson(@Payload Search search) {
 
         String searchString=search.getQuery();
-        logger.info(searchString);
+        logger.info("Search Query Kafka Listen: {}",searchString);
         ProcessQuery query=new ProcessQuery();
         Output output=query.tokenizeQuery(searchString);
-        logger.info("Output :"+output);             // Hardcoded for logging
+        logger.info("Kafka Send Output: {}"+output);
         dataSender.postData(output);
     }
 

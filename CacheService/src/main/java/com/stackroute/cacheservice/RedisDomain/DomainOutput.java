@@ -11,6 +11,6 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class SkillOutput {
-    List<RedisSkill> Skills;
+public class DomainOutput {
+    List<RedisDomain> domains;
 }

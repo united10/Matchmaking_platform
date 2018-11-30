@@ -38,7 +38,6 @@ export class CertificateService {
     return throwError('Something bad happened; please try again later.');
   }
   search(filter: {name: string} = {name: ''}, page = 1): Observable<CertificateResponse> {
-    console.log('inside service ' + filter.name);
     return this.httpClient.get<CertificateResponse>('http://172.23.239.135:8081/api/v1/redisEducation/' + filter.name)
     .pipe(
       tap((response: CertificateResponse) => {
@@ -48,13 +47,13 @@ export class CertificateService {
       })
       );
   }
-  search1(filter: {name: string} = {name: ''}, page = 1): Observable<AuthorityResponse> {
-    console.log('inside service ' + filter.name);
-    return this.httpClient.get<AuthorityResponse>('http://172.23.239.135:8081/api/v1/redisEducation/' + filter.name)
+  searchauthrity(filter: {name: string} = {name: ''}, page = 1): Observable<AuthorityResponse> {
+    return this.httpClient.get<AuthorityResponse>('http://13.233.180.226:8008/api/v1/redisOrganization/' + filter.name)
     .pipe(
       tap((response: AuthorityResponse) => {
-        response.authorities = response.authorities
-          .map(authority => new Authority(authority.name, authority.id));
+        response.organizations = response.organizations
+          .map(authority => new Authority(authority.name, authority.id))
+          .filter(authority => authority.name.includes(filter.name));
         return response;
       })
       );
