@@ -40,7 +40,7 @@ services:
       - zookeeper
     restart: always
 
-  nplpipeline-service:
+  nlppipeline-service:
     image: nlppipeline-service:v1
     build: NlpPipeline/
     restart: always
@@ -49,7 +49,6 @@ services:
     depends_on:
       - config-server
       - kafka
-      - eureka
       - redis
     ports:
       - "8093:8093"
@@ -65,7 +64,6 @@ services:
     depends_on:
       - neo4jdb
       - redis
-      - eureka
       - config-server
     ports:
       - "8008:8008"
@@ -80,7 +78,6 @@ services:
     network_mode: host
     depends_on:
       - kafka
-      - eureka
       - config-server
     ports:
       - "8001:8001"
@@ -95,7 +92,6 @@ services:
     network_mode: host
     depends_on:
       - kafka
-      - eureka
       - config-server
     ports:
       - "8095:8095"
@@ -110,7 +106,6 @@ services:
     network_mode: host
     depends_on:
       - kafka
-      - eureka
       - config-server
     ports:
       - "8082:8082"
@@ -125,7 +120,6 @@ services:
     depends_on:
       - mysql
       - kafka
-      - eureka
       - config-server
     ports:
       - "8088:8088"
@@ -139,7 +133,6 @@ services:
     network_mode: host
     depends_on:
       - kafka
-      - eureka
       - config-server
     ports:
       - "8086:8086"
@@ -155,7 +148,6 @@ services:
     network_mode: host
     depends_on:
       - kafka
-      - eureka
       - config-server
     ports:
       - "8085:8085"
@@ -169,7 +161,6 @@ services:
     network_mode: host
     depends_on:
       - kafka
-      - eureka
       - config-server
     ports:
       - "8087:8087"
@@ -183,7 +174,6 @@ services:
     network_mode: host
     depends_on:
       - kafka
-      - eureka
       - config-server
     ports:
       - "8084:8084"
@@ -197,7 +187,6 @@ services:
     network_mode: host
     depends_on:
       - kafka
-      - eureka
       - config-server
     ports:
       - "8083:8083"
@@ -211,7 +200,6 @@ services:
     network_mode: host
     depends_on:
       - kafka
-      - eureka
       - config-server
     ports:
       - "8081:8081"
@@ -225,7 +213,6 @@ services:
     network_mode: host
     depends_on:
       - kafka
-      - eureka
       - config-server
     ports:
       - "9191:9191"
@@ -240,7 +227,6 @@ services:
     depends_on:
       - kafka
       - mongodb
-      - eureka
       - config-server
     ports:
       - "8090:8090"
@@ -292,7 +278,6 @@ services:
     network_mode: host
     depends_on:
       - mongodb
-      - eureka
       - config-server
     ports:
       - "8097:8097"
@@ -329,7 +314,6 @@ services:
     network_mode: host
     depends_on:
       - kafka
-      - eureka
       - config-server
     ports:
       - "8099:8099"

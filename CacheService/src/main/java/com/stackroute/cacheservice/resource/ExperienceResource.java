@@ -344,7 +344,7 @@ public class ExperienceResource {
    }
 
    @GetMapping("/output")
-    public Output getAll(){
+    public String getAll(){
         List<Education> educationsCollection = educationService.getAlleducation();
         List<RedisEducation> redisEducationList = educService.getALlRedisEducation();
         List<RedisQualification> redisQualificationList = qualificationService.getAllRedisQualification();
@@ -367,6 +367,6 @@ public class ExperienceResource {
                                         .Organisations(redisOrganizationList)
                                         .build();
        System.out.println(output);
-       return output;
+       return output.toString();
    }
 }
