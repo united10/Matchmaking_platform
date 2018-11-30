@@ -39,7 +39,7 @@ export class SkillService {
     return throwError('Something bad happened; please try again later.');
   }
   searchskills(filter: {name: string} = {name: ''}, page = 1): Observable<SkillResponse> {
-    return this.httpClient.get<SkillResponse>('http://13.233.180.226:8008/api/v1/redisSkill/' + filter.name)
+    return this.httpClient.get<SkillResponse>('https://matchmaker-zuul.stackroute.in/cache-service/api/v1/redisSkill/' + filter.name)
     .pipe(
       tap((response: SkillResponse) => {
         response.skills = response.skills

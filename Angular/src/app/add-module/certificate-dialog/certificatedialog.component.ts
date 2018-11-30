@@ -57,7 +57,7 @@ export class CertificatedialogComponent implements OnInit {
       debounceTime(300),
       tap(() => this.isLoading = true),
       switchMap(value =>
-        this.certificateService.search({name: value}, 1)
+        this.certificateService.searchcertificate({name: value}, 1)
       .pipe(
         finalize(() => this.isLoading = false),
         )

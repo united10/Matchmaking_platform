@@ -41,7 +41,7 @@ export class ProjectService {
     return throwError('Something bad happened; please try again later.');
   }
   searchdomain(filter: {name: string} = {name: ''}, page = 1): Observable<DomainResponse> {
-    return this.httpClient.get<DomainResponse>('http://13.233.180.226:8008/api/v1/redisDomain/' + filter.name)
+    return this.httpClient.get<DomainResponse>('https://matchmaker-zuul.stackroute.in/cache-service/api/v1/redisDomain/' + filter.name)
     .pipe(
       tap((response: DomainResponse) => {
         response.domains = response.domains
@@ -51,7 +51,7 @@ export class ProjectService {
       );
   }
   searchcompany(filter: {name: string} = {name: ''}, page = 1): Observable<OrganisationResponse> {
-    return this.httpClient.get<OrganisationResponse>('http://13.233.180.226:8008/api/v1/redisOrganization/' + filter.name)
+    return this.httpClient.get<OrganisationResponse>('https://matchmaker-zuul.stackroute.in/cache-service/api/v1/redisOrganization/' + filter.name)
     .pipe(
       tap((response: OrganisationResponse) => {
         response.organizations = response.organizations
@@ -62,7 +62,7 @@ export class ProjectService {
       );
   }
   searchclient(filter: {name: string} = {name: ''}, page = 1): Observable<ClientResponse> {
-    return this.httpClient.get<ClientResponse>('http://13.233.180.226:8008/api/v1/redisOrganization/' + filter.name)
+    return this.httpClient.get<ClientResponse>('https://matchmaker-zuul.stackroute.in/cache-service/api/v1/redisOrganization/' + filter.name)
     .pipe(
       tap((response: ClientResponse) => {
         response.organizations = response.organizations
@@ -73,7 +73,7 @@ export class ProjectService {
       );
   }
   searchtech(filter: {name: string} = {name: ''}, page = 1): Observable<TechResponse> {
-    return this.httpClient.get<TechResponse>('http://13.233.180.226:8008/api/v1/redisSkill/' + filter.name)
+    return this.httpClient.get<TechResponse>('https://matchmaker-zuul.stackroute.in/cache-service/api/v1/redisSkill/' + filter.name)
     .pipe(
       tap((response: TechResponse) => {
         response.skills = response.skills

@@ -41,7 +41,7 @@ export class EducationService {
     return throwError('Something bad happened; please try again later.');
   }
   searchqualification(filter: {name: string} = {name: ''}, page = 1): Observable<IQualificationResponse> {
-    return this.httpClient.get<IQualificationResponse>('http://13.233.180.226:8008/api/v1/redisEducation/qualification/' + filter.name)
+    return this.httpClient.get<IQualificationResponse>('https://matchmaker-zuul.stackroute.in/cache-service/api/v1/redisEducation/qualification/' + filter.name)
     .pipe(
       tap((response: IQualificationResponse) => {
         response.qualifications = response.qualifications
@@ -52,7 +52,7 @@ export class EducationService {
       );
   }
   searchinstitution(filter: {name: string} = {name: ''}, page = 1): Observable<InstituteResponse> {
-    return this.httpClient.get<InstituteResponse>('http://13.233.180.226:8008/api/v1/redisEducation/education/' + filter.name)
+    return this.httpClient.get<InstituteResponse>('https://matchmaker-zuul.stackroute.in/cache-service/api/v1/redisEducation/education/' + filter.name)
     .pipe(
       tap((response: InstituteResponse) => {
         response.educations = response.educations

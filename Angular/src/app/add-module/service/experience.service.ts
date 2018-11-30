@@ -40,7 +40,7 @@ export class ExperienceService {
     return throwError('Something bad happened; please try again later.');
   }
   search(filter: {name: string} = {name: ''}, page = 1): Observable<OrganisationResponse> {
-    return this.httpClient.get<OrganisationResponse>('http://13.233.180.226:8008/api/v1/redisOrganization/' + filter.name)
+    return this.httpClient.get<OrganisationResponse>('https://matchmaker-zuul.stackroute.in/cache-service/api/v1/redisOrganization/' + filter.name)
     .pipe(
       tap((response: OrganisationResponse) => {
         response.organizations = response.organizations

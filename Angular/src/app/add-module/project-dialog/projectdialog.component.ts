@@ -48,6 +48,7 @@ export class ProjectdialogComponent implements OnInit {
   dataJson: any;
   json_url = 'assets/project.json';
   temp: FormArray;
+  options: string[] = ['Beginner', 'Intermediate', 'Advance'];
 
   constructor(@Inject(MAT_DIALOG_DATA) private data: any,
   private dialogRef: MatDialogRef<ProjectdialogComponent>,
