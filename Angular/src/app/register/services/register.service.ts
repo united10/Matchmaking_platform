@@ -18,7 +18,7 @@ const headers = new HttpHeaders().set('Content-Type', 'text/plain; charset=utf-8
   providedIn: 'root'
 })
 export class RegisterService {
-  private _url = 'http://13.233.180.226:8097/registration-service/api/v1/registration/user';
+  private _url = 'https://matchmaker-zuul.stackroute.in/registration-service/api/v1/registration/user';
   constructor(private _http: HttpClient) {}
 
   submit(user: RegisterModel) {
