@@ -158,7 +158,7 @@ if (paststate) {
     }
   onSave() {
     this.currentId = this.locationForm.get('currentId').value as string;
-    this.currentCityName = this.locationForm.get('currentCityName').value as string;
+    this.currentCityName = this.locationForm.get('currentCityName').value.name as string;
     this.currentStateName = this.locationForm.get('currentStateName').value as string;
     this.currentPincode = this.locationForm.get('currentPincode').value as string;
 
@@ -169,7 +169,7 @@ if (paststate) {
       const pastLocations = new Array<PastLocation>();
       for (const row of values) {
         const pastlocation = new PastLocation(
-          row.pastId , row.pastCityName, row.pastStateName , row.pastPincode);
+          row.pastId , row.pastCityName.name, row.pastStateName , row.pastPincode);
           console.log(pastlocation);
         pastLocations.push(pastlocation);
         console.log(chicklets);

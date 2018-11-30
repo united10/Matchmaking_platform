@@ -96,7 +96,7 @@ displayFn(skill: Skillauto) {
     const chicklets = new Array<SkillChicklets>();
     for (let i = 0; i < arr.length; i++) {
       const row = arr.at(i);
-      const skill = new Skill('skillId', row.value.skillName, row.value.skillLevel);
+      const skill = new Skill('skillId', row.value.skillName.name, row.value.skillLevel);
       const chicklet = new SkillChicklets(skill);
       chicklets.push(chicklet);
     }

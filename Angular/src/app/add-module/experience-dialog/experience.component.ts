@@ -119,7 +119,7 @@ displayFn(organisation: Organisation) {
       this.toYear = date1[3];
       this.toMonth = date1[1];
 
-      const experienceDetails = new ExperienceDetails(row.value.organisation,
+      const experienceDetails = new ExperienceDetails(row.value.organisation.name,
                                   row.value.role,
                                   this.fromDay,
                                   this.fromMonth,
