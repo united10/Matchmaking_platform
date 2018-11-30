@@ -6,6 +6,8 @@ import com.stackroute.indexerservice.domain.input.CommonOutput;
 import com.stackroute.indexerservice.domain.input.Property;
 import com.stackroute.indexerservice.domain.relationships.SkillRelationshipProperty;
 import com.stackroute.indexerservice.repository.SkillRepository;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -28,8 +30,9 @@ public class SkillServiceImpl implements SkillService {
     public SkillServiceImpl(){
         prop = new HashMap<>();
     }
+    Logger logger = LoggerFactory.getLogger(SkillServiceImpl.class);
     public void createNode(CommonOutput commonOutput) {
-
+        logger.info("-------------In Skill Service Node Creating--------------------");
         user.setUserId(commonOutput.getSourceNode());
         for (int i = 0; i < commonOutput.getTargetNodeProperty().length; i++) {
             skill.setName(commonOutput.getTargetNodeProperty()[i].getName());
@@ -46,9 +49,11 @@ public class SkillServiceImpl implements SkillService {
             skillRelationshipProperty.setProperties(prop);
             skillRepository.save(skillRelationshipProperty);
         }
+        logger.info("-------------In Skill Service Node Created--------------------");
     }
 
     public void deleteNode(CommonOutput commonOutput) {
+        logger.info("-------------In Skill Service Node Deleting--------------------");
         user.setUserId(commonOutput.getSourceNode());
         for (int i = 0; i < commonOutput.getTargetNodeProperty().length; i++) {
             skill.setName(commonOutput.getTargetNodeProperty()[i].getName());
@@ -66,10 +71,12 @@ public class SkillServiceImpl implements SkillService {
             skillRelationshipProperty.setProperties(prop);
             skillRepository.deleteById(skillRelationshipProperty.getRelationship());
         }
+        logger.info("-------------In Skill Service Node Deleted--------------------");
     }
 
     public void updateNode(CommonOutput commonOutput)
     {
+        logger.info("-------------In Skill Service Node Updating--------------------");
         user.setUserId(commonOutput.getSourceNode());
         for (int i = 0; i < commonOutput.getTargetNodeProperty().length; i++) {
             skill.setName(commonOutput.getTargetNodeProperty()[i].getName());
@@ -86,5 +93,6 @@ public class SkillServiceImpl implements SkillService {
             skillRelationshipProperty.setProperties(prop);
             skillRepository.save(skillRelationshipProperty);
         }
+        logger.info("-------------In Skill Service Node Updated--------------------");
     }
 }
