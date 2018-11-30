@@ -6,7 +6,7 @@ import { Observable, throwError } from 'rxjs';
 import { DomainResponse, Domain } from '../project-dialog/domain/domain';
 import { OrganisationResponse, Organisation } from '../project-dialog/domain/organisation';
 import { ClientResponse, Client } from '../project-dialog/domain/client';
-import { TechResponse, Tech } from '../project-dialog/domain/Tech';
+import { TechResponse, Tech } from '../project-dialog/domain/tech';
 
 
 const httpOptions = {

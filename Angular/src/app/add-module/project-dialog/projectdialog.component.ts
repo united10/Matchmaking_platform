@@ -11,7 +11,7 @@ import { TokenStorageService } from 'src/app/login/service/token-storage.service
 import { Domain } from './domain/domain';
 import { Organisation } from './domain/organisation';
 import { Client } from './domain/client';
-import { Tech } from './domain/Tech';
+import { Tech } from './domain/tech';
 import { debounceTime, tap, switchMap, finalize } from 'rxjs/operators';
 
 
