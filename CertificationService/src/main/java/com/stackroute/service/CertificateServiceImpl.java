@@ -32,7 +32,7 @@ public class CertificateServiceImpl implements CertificateService{
         commonOutput.setSourceNode(section.getUserId());
         commonOutput.setSourceNodeProperty(null);
         commonOutput.setRelationships("certified_in");
-        commonOutput.setTargetNode("organization");
+        commonOutput.setTargetNode("certificate");
         for(int i=0;i<section.getChicklets().length;i++)
         {
             targetProperties[0].setName(section.getChicklets()[i].getCertificateDetails().getCertificateName());
