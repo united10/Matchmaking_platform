@@ -32,6 +32,7 @@ public class OntologyServiceImpl implements OntologyService {
 
     Logger logger = LoggerFactory.getLogger(OntologyService.class);
     public void createNode(CommonOutput commonOutput){
+
         if(commonOutput.getTargetNode().equals("skill")) {
 
             skillService.createNode(commonOutput);
@@ -62,6 +63,7 @@ public class OntologyServiceImpl implements OntologyService {
     }
 
     public void deleteNode(CommonOutput commonOutput) {
+
         if (commonOutput.getTargetNode().equals("skill")) {
 
             skillService.deleteNode(commonOutput);

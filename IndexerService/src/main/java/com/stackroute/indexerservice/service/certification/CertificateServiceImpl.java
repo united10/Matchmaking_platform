@@ -31,12 +31,13 @@ public class CertificateServiceImpl implements CertificateService{
         prop = new HashMap<>();
     }
     Logger logger = LoggerFactory.getLogger(CertificateServiceImpl.class);
+
+
     public void createNode(CommonOutput commonOutput) {
         user.setUserId(commonOutput.getSourceNode());
         logger.info("-------------In Certification Service Node Creation--------------------");
-        for (int i = 0; i < commonOutput.getTargetNodeProperty().length; i++)
-        {
-            organization.setName(commonOutput.getTargetNodeProperty()[i].getName());
+
+            organization.setName(commonOutput.getTargetNodeProperty()[0].getName());
             CertificateRelationshipProperty certificateRelationshipProperty= new CertificateRelationshipProperty();
             certificateRelationshipProperty.setRelationship(commonOutput.getRelationships());
             certificateRelationshipProperty.setUser(user);
@@ -50,28 +51,14 @@ public class CertificateServiceImpl implements CertificateService{
             certificateRelationshipProperty.setProperties(prop);
             certifiedRepository.save(certificateRelationshipProperty);
             logger.info("-------------In Certification Service Node Created--------------------");
-        }
+
     }
 
     public void deleteNode(CommonOutput commonOutput){
         logger.info("-------------In Certification Service Node Deleted--------------------");
         user.setUserId(commonOutput.getSourceNode());
-        for (int i = 0; i < commonOutput.getTargetNodeProperty().length; i++)
-        {
-            organization.setName(commonOutput.getTargetNodeProperty()[i].getName());
-            CertificateRelationshipProperty certificateRelationshipProperty= new CertificateRelationshipProperty();
-            certificateRelationshipProperty.setRelationship(commonOutput.getRelationships());
-            certificateRelationshipProperty.setUser(user);
-            certificateRelationshipProperty.setOrganization(organization);
-            property = commonOutput.getProperties();
-            for (int j = 0; j < property.length; j++) {
-                key = property[j].getPropertyName();
-                value = property[j].getPropertyValue();
-                prop.put(key, value);
-            }
-            certificateRelationshipProperty.setProperties(prop);
-            certifiedRepository.deleteById(certificateRelationshipProperty.getRelationship());
-        }
+        organization.setName(commonOutput.getTargetNodeProperty()[0].getName());
+        certifiedRepository.deleteNode(user.getUserId(),organization.getName());
         logger.info("-------------In Certification Service Node Deleted--------------------");
     }
 

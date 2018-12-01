@@ -109,21 +109,9 @@ public class ProjectServiceImpl implements ProjectService {
 
     public void deleteNode(CommonOutput commonOutput){
         logger.info("-------------In Project Service Node Deleting--------------------");
-        ProjectRelationshipProperty projectRelationshipProperty = new ProjectRelationshipProperty();
         user.setUserId(commonOutput.getSourceNode());
         project.setName(commonOutput.getTargetNodeProperty()[0].getName());
-        property=commonOutput.getProperties();
-        for(int i=0;i<property.length;i++)
-        {
-            key = property[i].getPropertyName();
-            value = property[i].getPropertyValue();
-            prop.put(key, value);
-        }
-        projectRelationshipProperty.setRelationship(commonOutput.getRelationships());
-        projectRelationshipProperty.setProject(project);
-        projectRelationshipProperty.setUser(user);
-        projectRelationshipProperty.setProperties(prop);
-        projectRepository.deleteNode(user.getUserId());
+        projectRepository.deleteNode(user.getUserId(),project.getName());
         logger.info("-------------In Project Service Node Deleted--------------------");
     }
 
