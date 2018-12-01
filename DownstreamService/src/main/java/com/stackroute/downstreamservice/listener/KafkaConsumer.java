@@ -163,13 +163,13 @@ public class KafkaConsumer {
             if(operation.equals("add")) {
             employeeService.addLocationData(location, userId);
             }else if(operation.equals("delete")){
-                if(location.getPastLocation()!=null) {
+                if(location.getCurrentLocation()==null) {
                     employeeService.deletePastLocation(location.getPastLocation().get(0), userId);
                 }else {
                     employeeService.deleteCurrentLocationData(location.getCurrentLocation(), userId);
                 }
             }else if(operation.equals("update")){
-                if(location.getCurrentLocation()!=null) {
+                if(location.getCurrentLocation()==null) {
                     employeeService.updatePastLocation(location.getPastLocation().get(0), userId);
                 }else {
                     employeeService.updateCurrentLocationData(location.getCurrentLocation(), userId);

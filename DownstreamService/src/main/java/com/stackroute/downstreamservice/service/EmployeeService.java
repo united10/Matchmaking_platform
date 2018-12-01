@@ -67,7 +67,11 @@ public class EmployeeService {
                 fetchEducations = new ArrayList<>();
             }
             for (Education education : educations) {
-                fetchEducations.add(education);
+                if(fetchEducations.contains(education)){
+                    continue;
+                }else {
+                    fetchEducations.add(education);
+                }
             }
             employee.setEducations(fetchEducations);
             employeeRepository.save(employee);
@@ -87,8 +91,12 @@ public class EmployeeService {
                 fetchSkills = new ArrayList<>();
             }
             for (Skills skills1 : skills) {
-                fetchSkills.add(skills1);
-            }
+                if(fetchSkills.contains(skills1)){
+                    continue;
+                }else {
+                    fetchSkills.add(skills1);
+                }
+                }
             employee.setSkills(fetchSkills);
             employeeRepository.save(employee);
 
@@ -111,12 +119,16 @@ public class EmployeeService {
                 pastLocations = new ArrayList<>();
             }
 
-            if (locations.getCurrentLocation() != fetchLocation.getCurrentLocation()) {
+            if (locations.getCurrentLocation() != fetchLocation.getCurrentLocation()&&locations.getCurrentLocation()!=null) {
                 fetchLocation.setCurrentLocation(locations.getCurrentLocation());
             }
 
             for (PastLocation pastLocation : locations.getPastLocation()) {
-                pastLocations.add(pastLocation);
+                if(pastLocations.contains(pastLocation)){
+                    continue;
+                }else {
+                    pastLocations.add(pastLocation);
+                }
             }
             fetchLocation.setPastLocation(pastLocations);
             employee.setLocation(fetchLocation);
@@ -137,8 +149,12 @@ public class EmployeeService {
                 fetchExperiences = new ArrayList<>();
             }
             for (Experience experience : experiences) {
-                fetchExperiences.add(experience);
-            }
+               if(fetchExperiences.contains(experience)){
+                   continue;
+               }else {
+                   fetchExperiences.add(experience);
+               }
+               }
             employee.setExperiences(fetchExperiences);
             employeeRepository.save(employee);
 
@@ -157,7 +173,12 @@ public class EmployeeService {
                 fetchProjects = new ArrayList<>();
             }
             for (ProjectDetails project : projects) {
-                fetchProjects.add(project);
+                if(fetchProjects.contains(project)) {
+                    continue;
+
+                }else{
+                    fetchProjects.add(project);
+                }
             }
             employee.setProjects(fetchProjects);
             employeeRepository.save(employee);
@@ -178,8 +199,12 @@ public class EmployeeService {
                 fetchCertificates = new ArrayList<>();
             }
             for (Certificate certificate : certificates) {
-                fetchCertificates.add(certificate);
-            }
+                if(fetchCertificates.contains(certificate)){
+                    continue;
+                }else {
+                    fetchCertificates.add(certificate);
+                }
+                }
             employee.setCertificates(fetchCertificates);
             employeeRepository.save(employee);
 
@@ -197,7 +222,7 @@ public class EmployeeService {
             Employee employee = employeeRepository.findById(userId).get();
             List<Education> fetchEducation = employee.getEducations();
             for (Education tempEducation : fetchEducation) {
-                if (tempEducation.getQualification().getQualificationId().toString().equals(education.getQualification().getQualificationId().toString())) {
+                if (tempEducation.toString().equals(education.toString())) {
                     fetchEducation.remove(tempEducation);
                     break;
                 }
@@ -219,7 +244,7 @@ public class EmployeeService {
             Employee employee = employeeRepository.findById(userId).get();
             List<ProjectDetails> fetchProject = employee.getProjects();
             for (ProjectDetails tempProjects : fetchProject) {
-                if (tempProjects.getTitle().equals(project.getTitle())) {
+                if (tempProjects.toString().equals(project.toString())) {
                     fetchProject.remove(tempProjects);
                     break;
                 }
