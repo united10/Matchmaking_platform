@@ -44,11 +44,7 @@ public class InterestServiceImpl implements InterestService {
         user.setUserId(commonOutput.getSourceNode());
         for(int i=0;i<commonOutput.getTargetNodeProperty().length;i++){
             interest.setName(commonOutput.getTargetNodeProperty()[i].getName());
-            InterestRelationshipProperty interestRelationshipProperty = new InterestRelationshipProperty();
-            interestRelationshipProperty.setRelationship(commonOutput.getRelationships());
-            interestRelationshipProperty.setUser(user);
-            interestRelationshipProperty.setInterest(interest);
-            interestRepository.delete(interestRelationshipProperty);
+            interestRepository.deleteNode(user.getUserId(),interest.getName());
         }
         logger.info("-------------In Interest Service Node Deleted--------------------");
     }
