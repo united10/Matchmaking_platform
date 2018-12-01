@@ -57,19 +57,7 @@ public class SkillServiceImpl implements SkillService {
         user.setUserId(commonOutput.getSourceNode());
         for (int i = 0; i < commonOutput.getTargetNodeProperty().length; i++) {
             skill.setName(commonOutput.getTargetNodeProperty()[i].getName());
-            SkillRelationshipProperty skillRelationshipProperty = new SkillRelationshipProperty();
-            skillRelationshipProperty.setRelationship(commonOutput.getRelationships());
-            skillRelationshipProperty.setUser(user);
-            skillRelationshipProperty.setSkill(skill);
-            property = commonOutput.getProperties();
-            for (int j = 0; j < property.length; j++) {
-                key = property[j].getPropertyName();
-                value = property[j].getPropertyValue();
-                prop.put(key, value);
-            }
-
-            skillRelationshipProperty.setProperties(prop);
-            skillRepository.deleteById(skillRelationshipProperty.getRelationship());
+            skillRepository.deleteNode(user.getUserId(),skill.getName());
         }
         logger.info("-------------In Skill Service Node Deleted--------------------");
     }

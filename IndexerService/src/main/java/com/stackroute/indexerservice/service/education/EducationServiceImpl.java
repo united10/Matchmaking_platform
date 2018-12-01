@@ -57,18 +57,7 @@ public class EducationServiceImpl implements EducationService {
         user.setUserId(commonOutput.getSourceNode());
         for (int i = 0; i < commonOutput.getTargetNodeProperty().length; i++) {
             education.setName(commonOutput.getTargetNodeProperty()[i].getName());
-            EducationRelationshipProperty educationRelationshipProperty = new EducationRelationshipProperty();
-            educationRelationshipProperty.setRelationship(commonOutput.getRelationships());
-            educationRelationshipProperty.setUser(user);
-            educationRelationshipProperty.setEducation(education);
-            property = commonOutput.getProperties();
-            for (int j = 0; j < property.length; j++) {
-                key = property[j].getPropertyName();
-                value = property[j].getPropertyValue();
-                prop.put(key, value);
-            }
-            educationRelationshipProperty.setProperties(prop);
-            educatedRepository.deleteById(educationRelationshipProperty.getRelationship());
+            educatedRepository.deleteNode(user.getUserId(),education.getName());
         }
     }
 
