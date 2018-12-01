@@ -34,11 +34,16 @@
                   <img src="/src/assets/images/user-pic-unavailable.png" class="rounded-circle" alt="profilePic">
                 </div>
                 <div  class="user-detail">
-                  <h6>Basic Details</h6>
+                  <h6>Basic Details</h6>                 
+
                   <hr/>
                   <h6 *ngIf="basicLength!==0">{{basicInfo.contents.employeeName}}</h6>
                   <h6 *ngIf="basicLength!==0">Email Id: {{basicInfo.contents.email}}</h6>
                 </div>
+
+           
+                <mat-progress-bar class="progress" mode="determinate" value={{this.temp}}></mat-progress-bar>
+                
               </div>
               <mat-grid-list cols="2" rowHeight="3rem">
                 <mat-grid-tile  *ngFor="let card of cards | async" [colspan]="card.cols" [rowspan]="card.rows">
@@ -46,6 +51,7 @@
                     
                       <mat-card-title class="mb-5">
                         <h2 class="mat-h1">{{card.title}}</h2>
+                      
                       </mat-card-title>
                     
                     <mat-card-content class="dashboard-card-content" *ngIf="isTitle(card.title,'Education')" >

@@ -6,6 +6,8 @@ import com.stackroute.indexerservice.domain.input.CommonOutput;
 import com.stackroute.indexerservice.domain.input.Property;
 import com.stackroute.indexerservice.domain.relationships.ExperienceRelationshipProperty;
 import com.stackroute.indexerservice.repository.WorksRepository;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -29,8 +31,9 @@ public class ExperienceServiceImpl  implements  ExperienceService{
         prop = new HashMap<>();
 
     }
-
+    Logger logger = LoggerFactory.getLogger(ExperienceServiceImpl.class);
     public void createNode(CommonOutput commonOutput) {
+        logger.info("-------------In Experience Service Node Creation--------------------");
         user.setUserId(commonOutput.getSourceNode());
         for (int i = 0; i < commonOutput.getTargetNodeProperty().length; i++)
         {
@@ -63,8 +66,10 @@ public class ExperienceServiceImpl  implements  ExperienceService{
             experienceRelationshipProperty.setProperties(prop);
             worksRepository.save(experienceRelationshipProperty);
         }
+        logger.info("-------------In Experience Service Node Created--------------------");
     }
     public void deleteNode(CommonOutput commonOutput){
+        logger.info("-------------In Experience Service Node Deleting--------------------");
         user.setUserId(commonOutput.getSourceNode());
         for (int i = 0; i < commonOutput.getTargetNodeProperty().length; i++) {
             organization.setName(commonOutput.getTargetNodeProperty()[i].getName());
@@ -95,9 +100,11 @@ public class ExperienceServiceImpl  implements  ExperienceService{
             experienceRelationshipProperty.setProperties(prop);
             worksRepository.deleteById(experienceRelationshipProperty.getRelationship());
         }
+        logger.info("-------------In Experience Service Node Deleted--------------------");
     }
 
     public  void updateNode(CommonOutput commonOutput){
+        logger.info("-------------In Experience Service Node Updating--------------------");
         user.setUserId(commonOutput.getSourceNode());
         for (int i = 0; i < commonOutput.getTargetNodeProperty().length; i++)
         {
@@ -129,5 +136,6 @@ public class ExperienceServiceImpl  implements  ExperienceService{
             experienceRelationshipProperty.setProperties(prop);
             worksRepository.save(experienceRelationshipProperty);
         }
+        logger.info("-------------In Experience Service Node Updated--------------------");
     }
 }

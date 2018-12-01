@@ -6,6 +6,8 @@ import com.stackroute.indexerservice.domain.input.CommonOutput;
 import com.stackroute.indexerservice.domain.input.Property;
 import com.stackroute.indexerservice.domain.relationships.*;
 import com.stackroute.indexerservice.repository.*;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -49,8 +51,9 @@ public class ProjectServiceImpl implements ProjectService {
     public ProjectServiceImpl(){
         prop = new HashMap<>();
     }
-
+    Logger logger = LoggerFactory.getLogger(ProjectServiceImpl.class);
     public void createNode(CommonOutput commonOutput) {
+        logger.info("-------------In Project Service Node Creating--------------------");
         company = new Organization();
         client = new Organization();
         ProjectRelationshipProperty projectRelationshipProperty = new ProjectRelationshipProperty();
@@ -101,9 +104,11 @@ public class ProjectServiceImpl implements ProjectService {
             technologyUsedRelationshipProperty.setRelationship("technology_used");
             projectTechnologyRepository.save(technologyUsedRelationshipProperty);
         }
+        logger.info("-------------In Project Service Node Created--------------------");
     }
 
     public void deleteNode(CommonOutput commonOutput){
+        logger.info("-------------In Project Service Node Deleting--------------------");
         ProjectRelationshipProperty projectRelationshipProperty = new ProjectRelationshipProperty();
         user.setUserId(commonOutput.getSourceNode());
         project.setName(commonOutput.getTargetNodeProperty()[0].getName());
@@ -119,9 +124,11 @@ public class ProjectServiceImpl implements ProjectService {
         projectRelationshipProperty.setUser(user);
         projectRelationshipProperty.setProperties(prop);
         projectRepository.deleteNode(user.getUserId());
+        logger.info("-------------In Project Service Node Deleted--------------------");
     }
 
     public void updateNode(CommonOutput commonOutput){
+        logger.info("-------------In Project Service Node Updating--------------------");
         company = new Organization();
         client = new Organization();
         ProjectRelationshipProperty projectRelationshipProperty = new ProjectRelationshipProperty();
@@ -170,5 +177,6 @@ public class ProjectServiceImpl implements ProjectService {
             technologyUsedRelationshipProperty.setRelationship("technology_used");
             projectTechnologyRepository.save(technologyUsedRelationshipProperty);
         }
+        logger.info("-------------In Project Service Node Updated--------------------");
     }
 }
