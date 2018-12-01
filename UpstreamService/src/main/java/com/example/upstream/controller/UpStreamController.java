@@ -261,7 +261,7 @@ private static final String TOPIC7 = "user";
         return responseEntity;
 
     }
-    @PutMapping("${controller.interest}")
+    @PutMapping("${controller.basicdetails}")
     public ResponseEntity<?> updatebasicDetails(@RequestBody BasicDetails basicDetails)
     {
 //        section.setOperationType("update");
@@ -270,7 +270,7 @@ private static final String TOPIC7 = "user";
         return responseEntity;
 
     }
-    @DeleteMapping("${controller.interest}")
+    @DeleteMapping("${controller.basicdetails}")
     public ResponseEntity<?> deletebasicDetails(@RequestBody BasicDetails basicDetails)
     {
 //        section.setOperationType("delete");
