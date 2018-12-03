@@ -1,4 +1,4 @@
-import { Component, OnInit, Inject } from '@angular/core';
+import { Component, OnInit, Inject, Output, EventEmitter } from '@angular/core';
 import { FormGroup, FormArray, FormControl, FormBuilder, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Certificate } from '../certificate-dialog/domain/certificate';
@@ -12,6 +12,7 @@ import { debounceTime, tap, switchMap, finalize } from 'rxjs/operators';
 import { Authority } from './domain/Authority';
 import { DateAdapter, MAT_DATE_FORMATS } from '@angular/material';
 import { AppDateAdapter, APP_DATE_FORMATS } from '../class/date-adapter';
+import { RefreshService } from '../service/refresh.service';
 
 @Component({
   selector: 'app-certificatedialog',
@@ -36,12 +37,12 @@ export class CertificatedialogComponent implements OnInit {
   temp: FormArray;
   temp1: FormArray;
   json_url = 'assets/certificate.json';
-
   constructor(@Inject(MAT_DIALOG_DATA) private data: any,
   private certificateService: CertificateService, private readfromjsonService: ReadfromjsonService,
   private dialogRef: MatDialogRef<CertificatedialogComponent>,
   private fb: FormBuilder,
-  private token: TokenStorageService) {
+  private token: TokenStorageService,
+  private refreshService: RefreshService) {
 
 }
   ngOnInit() {
@@ -54,6 +55,9 @@ export class CertificatedialogComponent implements OnInit {
         this.dataJson = data;
       }
     );
+    this.dialogRef.afterClosed().subscribe(result => {
+      this.refreshService.refreshProfile();
+    });
   }
   onKeyUp(index: number) {
     this.temp = this.certificateForm.get('certificate') as FormArray;

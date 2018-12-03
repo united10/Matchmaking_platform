@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Inject } from '@angular/core';
 import { map } from 'rxjs/operators';
 import { Breakpoints, BreakpointObserver } from '@angular/cdk/layout';
 import { TokenStorageService } from 'src/app/login/service/token-storage.service';
@@ -19,10 +19,14 @@ import { LocationChicklets } from 'src/app/add-module/location-dialog/domain/chi
 import { CurrentLocation } from 'src/app/add-module/location-dialog/domain/currentlocation';
 import { LocationSection } from 'src/app/add-module/location-dialog/domain/section';
 import { PastLocation } from 'src/app/add-module/location-dialog/domain/pastlocation';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { CertificatedialogComponent } from 'src/app/add-module/certificate-dialog/certificatedialog.component';
+import { RefreshService } from 'src/app/add-module/service/refresh.service';
+
 @Component({
   selector: 'app-employee-dashboard-dummy',
   templateUrl: './employee-dashboard-dummy.component.html',
-  styleUrls: ['./employee-dashboard-dummy.component.css'],
+  styleUrls: ['./employee-dashboard-dummy.component.css']
 })
 export class EmployeeDashboardDummyComponent implements OnInit {
   /** Based on the screen size, switch from standard to one column per row */
@@ -37,15 +41,27 @@ export class EmployeeDashboardDummyComponent implements OnInit {
   educationLength: number;
   public isCollapsed = false;
   constructor(private breakpointObserver: BreakpointObserver,
-    private tokenstorageservice: TokenStorageService , private downstreamBackendService: DownstreamBackendService) {}
+              private tokenstorageservice: TokenStorageService,
+              private downstreamBackendService: DownstreamBackendService,
+              private refreshService: RefreshService) {}
 
 
   ngOnInit() {
     if (this.tokenstorageservice.getToken()) {
       this.isLoggedIn = true;
     }
+    this.refreshService.refresh.subscribe(result => {
+      if (result) {
+        this.refresh();
+      }
+    });
   }
 
+  refresh() {
+    this.downstreamBackendService.getEmployee(this.tokenstorageservice.getEmail()).subscribe((data) => {
+      this.setEmployees(data);
+    });
+  }
   setEmployees(employees: any) {
 
     this.cards = this.breakpointObserver.observe(Breakpoints.Handset).pipe(
@@ -262,7 +278,7 @@ export class EmployeeDashboardDummyComponent implements OnInit {
                     count++;
                   }
                   if (projectArr[x].description != null) {
-                    count = count + 2;
+                    count = count + 3;
                   }
                   if (projectArr[x].fromDate != null || projectArr[x].toDate != null) {
                     count++;
@@ -472,7 +488,7 @@ export class EmployeeDashboardDummyComponent implements OnInit {
       .subscribe(
         (data) => {
           console.log(data);
-          location.reload();
+          this.refresh();
         }
       );
     } else if (title === 'Skills') {
@@ -483,7 +499,7 @@ export class EmployeeDashboardDummyComponent implements OnInit {
       .subscribe(
         (data) => {
           console.log(data);
-          location.reload();
+          this.refresh();
         }
       );
     }    else if (title === 'Project') {
@@ -494,7 +510,7 @@ export class EmployeeDashboardDummyComponent implements OnInit {
       .subscribe(
         (data) => {
           console.log(data);
-          location.reload();
+          this.refresh();
         }
       );
     }    else if (title === 'Certificate') {
@@ -505,7 +521,7 @@ export class EmployeeDashboardDummyComponent implements OnInit {
       .subscribe(
         (data) => {
           console.log(data);
-          location.reload();
+          this.refresh();
         }
       );
     }    else if (title === 'Experience') {
@@ -518,7 +534,7 @@ export class EmployeeDashboardDummyComponent implements OnInit {
       .subscribe(
         (data) => {
           console.log(data);
-          location.reload();
+          this.refresh();
         }
       );
     }
@@ -536,7 +552,7 @@ export class EmployeeDashboardDummyComponent implements OnInit {
     .subscribe(
       (data) => {
         console.log(data);
-        location.reload();
+        this.refresh();
       }
     );
 
@@ -556,7 +572,7 @@ export class EmployeeDashboardDummyComponent implements OnInit {
     .subscribe(
       (data) => {
         console.log(data);
-        location.reload();
+        this.refresh();
       }
     );
 
@@ -646,7 +662,6 @@ export class EmployeeDashboardDummyComponent implements OnInit {
     );
 
   }
-
   onUpdatePastLocation(pastLocation) {
     const deleteLocation = Array<PastLocation>();
     const locationData = new PastLocation(pastLocation.pastLocationId, pastLocation.cityName,

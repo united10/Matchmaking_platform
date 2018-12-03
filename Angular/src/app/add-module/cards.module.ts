@@ -59,6 +59,6 @@ import { EducationService } from './service/education.service';
                     ProjectdialogComponent,
                     InterestDialogComponent],
   providers: [EducationService],
-  exports: [CardComponent]
+  exports: [CardComponent, CertificatedialogComponent]
 })
 export class CardsModule { }
