@@ -6,8 +6,7 @@ import { catchError, tap } from 'rxjs/operators';
 import { Output } from '../outputclass/output';
 import { CurrentCityResponse, Currentcities } from '../location-dialog/domain/currentcities';
 import { PastCityResponse, Pastcities } from '../location-dialog/domain/pastcities';
-import { StateResponse, State } from '../location-dialog/domain/state';
-import { PaststateResponse, Paststate } from '../location-dialog/domain/paststates';
+
 
 
 const httpOptions = {
@@ -61,28 +60,6 @@ export class LocationService {
         response.locations = response.locations
           .map(pastcities => new Pastcities(pastcities.name, pastcities.id))
           .filter(pastcities => pastcities.name.includes(filter.name));
-        return response;
-      })
-      );
-  }
-  searchcurrentstates(filter: {name: string} = {name: ''}, page = 1): Observable<StateResponse> {
-    return this.httpClient.get<StateResponse>('/api/states')
-    .pipe(
-      tap((response: StateResponse) => {
-        response.results = response.results
-          .map(state => new State(state.name, state.id))
-          .filter(state => state.name.includes(filter.name));
-        return response;
-      })
-      );
-  }
-  searchpaststates(filter: {name: string} = {name: ''}, page = 1): Observable<PaststateResponse> {
-    return this.httpClient.get<PaststateResponse>('/api/states')
-    .pipe(
-      tap((response: PaststateResponse) => {
-        response.results = response.results
-          .map(state => new Paststate(state.name, state.id))
-          .filter(state => state.name.includes(filter.name));
         return response;
       })
       );
