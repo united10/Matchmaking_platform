@@ -12,6 +12,7 @@ import { Organisation } from './domain/organisation';
 import { debounceTime, tap, switchMap, finalize } from 'rxjs/operators';
 import { DateAdapter, MAT_DATE_FORMATS } from '@angular/material';
 import { AppDateAdapter, APP_DATE_FORMATS } from '../class/date-adapter';
+import { RefreshService } from '../service/refresh.service';
 
 @Component({
   selector: 'app-experience',
@@ -44,13 +45,17 @@ export class ExperienceComponent implements OnInit {
   constructor(@Inject(MAT_DIALOG_DATA) private data: any,
     private dialogRef: MatDialogRef<ExperienceComponent>,
     private experienceService: ExperienceService, private fb: FormBuilder,
-    private token: TokenStorageService) {
+    private token: TokenStorageService,
+    private refreshService: RefreshService) {
 
   }
 
   ngOnInit() {
     this.experienceForm = this.fb.group({
       experience: this.fb.array([this.initItemRow()])
+    });
+    this.dialogRef.afterClosed().subscribe(result => {
+      this.refreshService.refreshProfile();
     });
   }
   onKeyUp(index: number) {

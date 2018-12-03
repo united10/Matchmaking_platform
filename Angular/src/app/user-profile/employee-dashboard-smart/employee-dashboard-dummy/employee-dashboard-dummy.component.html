@@ -22,9 +22,7 @@
             </ul>
           </div>
       </nav>
-      <app-employee-dashboard-smart
-      (employeeEmit)=setEmployees($event)
-      >
+      <app-employee-dashboard-smart (employeeEmit)=setEmployees($event)>
       </app-employee-dashboard-smart>
       <div class="content">
           <div class="dummy"></div>
@@ -37,7 +35,7 @@
                   <h6>Basic Details</h6>                 
                   <hr/>
                   <h6 *ngIf="basicLength!==0">{{basicInfo.contents.employeeName}}</h6>
-                  <h6 *ngIf="basicLength!==0">Email Id: {{basicInfo.contents.email}}</h6>
+                  <h6 *ngIf="basicLength!==0">{{basicInfo.contents.email}}</h6>
                 </div>
               </div>
               <mat-progress-bar class="progress" mode="determinate" value={{this.temp}}></mat-progress-bar>
@@ -105,11 +103,11 @@
                                       <mat-icon (click)=onDelete(content,card.title)>delete</mat-icon>
                                     </div>
                                   </div>
-                                  <div class="card-content">
+                                  <div>
                                     <h6>Role: {{content.role}}</h6>
                                     <h6>Project Url: <a href="{{content.projectUrl}}">{{content.projectUrl}}</a></h6>
                                     <h6>Duration: {{content.fromDate}} - {{content.toDate}}</h6>
-                                    <p>{{content.description}}</p>
+                                    <p style="word-wrap: break-word">{{content.description}}</p>
                                     <div *ngFor= "let skills of content.technologiesUsed">
                                           {{skills.skill}}                                        
                                     </div>
