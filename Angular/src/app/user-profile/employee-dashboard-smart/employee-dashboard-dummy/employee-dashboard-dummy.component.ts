@@ -30,8 +30,8 @@ export class EmployeeDashboardDummyComponent implements OnInit {
   cards;
   keys;
   basicLength = 0;
-  temp1 =100/8;
-  temp=0;
+  temp1 = 100 / 8;
+  temp = 0;
   isLoggedIn = false;
   basicInfo;
   educationLength: number;
@@ -213,34 +213,116 @@ export class EmployeeDashboardDummyComponent implements OnInit {
         // if(this.temp==0)
         // this.temp=this.temp1;
         // else
-        this.temp=((i+1)*100/8);
-      
+        this.temp = ((i + 1) * 100 / 8);
+
         if (matches) {
           for (const index in cards) {
             if (cards[index].title === 'Education') {
-              console.log("education length " + cards[index].contents.length);
-              if (cards[index].contents.length === 1) {
-                this.educationLength = cards[index].contents.length * 4.5;
-                cards[index].rows =  this.educationLength;
-              } else {
-                this.educationLength = 4.5;
-                cards[index].rows = this.educationLength + cards[index].contents.length ;
+              const educ = cards[index].contents;
+              let count = 0;
+              // tslint:disable-next-line:forin
+              for (const x in educ) {
+                if (educ[x].qualification != null) {
+                  count++;
+                }
+                if (educ[x].institution != null) {
+                  count++;
+                } if (educ[x].startDate != null &&  educ[x].endDate != null) {
+                  count++;
+                }
               }
+              cards[index].rows =  4 + count;
               cards[index].cols = 2;
-            }else if (cards[index].title  === 'Skills') {
-              console.log("skill length " + cards[index].contents.length);
-                cards[index].rows = cards[index].contents.length * 2.5;
-                cards[index].cols = 2;
+            } else if (cards[index].title  === 'Skills') {
+              const skillArr = cards[index].contents;
+              let count = 0;
+              // tslint:disable-next-line:forin
+              for (const x in skillArr) {
+                if (skillArr[x].skillName != null) {
+                  count++;
+                }
+                if (skillArr[x].skillLevel != null) {
+                  count++;
+                }
+              }
+              cards[index].rows =  4 + count;
+              cards[index].cols = 2;
               } else if (cards[index].title  === 'Project') {
-                cards[index].rows = cards[index].contents.length * 6.5;
+                const projectArr = cards[index].contents;
+                let count = 0;
+                // tslint:disable-next-line:forin
+                for (const x in projectArr) {
+                  if (projectArr[x].title != null) {
+                    count++;
+                  }
+                  if (projectArr[x].role != null) {
+                    count++;
+                  }
+                  if (projectArr[x].projectUrl != null) {
+                    count++;
+                  }
+                  if (projectArr[x].description != null) {
+                    count = count + 2;
+                  }
+                  if (projectArr[x].fromDate != null || projectArr[x].toDate != null) {
+                    count++;
+                  }
+                }
+                cards[index].rows = 4 + count;
                 cards[index].cols = 2;
               } else if (cards[index].title  === 'Certificate') {
-                console.log("certificate length " + cards[index].contents.length);
-                cards[index].rows = cards[index].contents.length * 5.5 ;
+                const certificateArr = cards[index].contents;
+                let count = 0;
+                // tslint:disable-next-line:forin
+                for (const x in certificateArr) {
+                  if (certificateArr[x].certificateName != null) {
+                    count++;
+                  }
+                  if (certificateArr[x].certificateAuthority != null) {
+                    count++;
+                  }
+                  if (certificateArr[x].licenseNumber != null) {
+                    count++;
+                  }
+                  if (certificateArr[x].fromDate != null) {
+                    count++;
+                  }
+                }
+                cards[index].rows = 3 + count;
                 cards[index].cols = 2;
               } else if (cards[index].title  === 'Location') {
-                console.log(cards[index].contents.length);
-                cards[index].rows = cards[index].contents.length * 5.5 ;
+                const locationArr = cards[index].contents;
+                let count = 0;
+                // tslint:disable-next-line:forin
+                for (const x in locationArr) {
+                  if (locationArr[x].currentCityName != null) {
+                    count++;
+                  }
+                  if (locationArr[x].currentStateName != null) {
+                    count++;
+                  }
+                  if (locationArr[x].pastLocation != null) {
+                    count = count + locationArr[x].pastLocation.length;
+                  }
+                }
+                cards[index].rows = 4 + count;
+                cards[index].cols = 2;
+              } else if (cards[index].title  === 'Experience') {
+                const experienceArr = cards[index].contents;
+                let count = 0;
+                // tslint:disable-next-line:forin
+                for (const x in experienceArr) {
+                  if (experienceArr[x].organisation != null) {
+                    count++;
+                  }
+                  if (experienceArr[x].role != null) {
+                    count++;
+                  }
+                  if (experienceArr[x].fromDate != null) {
+                    count++;
+                  }
+                }
+                cards[index].rows = 4 + count;
                 cards[index].cols = 2;
               }
           }
@@ -249,37 +331,111 @@ export class EmployeeDashboardDummyComponent implements OnInit {
 
         for (const index in cards) {
           if (cards[index].title === 'Education') {
-            console.log("education length "+cards[index].length);
-            if (cards[index].contents.length === 1) {
-              cards[index].rows =  3 + (cards[index].contents.length * 3);
-            } else {
-              cards[index].rows = 4.5 + cards[index].contents.length ;
+            const educ = cards[index].contents;
+            let count = 0;
+            // tslint:disable-next-line:forin
+            for (const x in educ) {
+              if (educ[x].qualification != null) {
+                count++;
+              }
+              if (educ[x].institution != null) {
+                count++;
+              } if (educ[x].startDate != null &&  educ[x].endDate != null) {
+                count++;
+              }
             }
+            cards[index].rows =  4 + count;
             cards[index].cols = 1;
           } else if (cards[index].title  === 'Skills') {
-              if (cards[index].contents.length === 1) {
-                cards[index].rows =  3.5;
-              } else {
-                cards[index].rows = 3.5 + cards[index].contents.length ;
+            const skillArr = cards[index].contents;
+            let count = 0;
+            // tslint:disable-next-line:forin
+            for (const x in skillArr) {
+              if (skillArr[x].skillName != null) {
+                count++;
               }
-              cards[index].cols = 1;
+              if (skillArr[x].skillLevel != null) {
+                count++;
+              }
+            }
+            cards[index].rows =  4 + count;
+            cards[index].cols = 1;
             } else if (cards[index].title  === 'Project') {
-              if (cards[index].contents.length === 1) {
-                cards[index].rows =  6.5;
-              } else {
-                cards[index].rows = 8.5 + cards[index].contents.length ;
+              const projectArr = cards[index].contents;
+              let count = 0;
+              // tslint:disable-next-line:forin
+              for (const x in projectArr) {
+                if (projectArr[x].title != null) {
+                  count++;
+                }
+                if (projectArr[x].role != null) {
+                  count++;
+                }
+                if (projectArr[x].projectUrl != null) {
+                  count++;
+                }
+                if (projectArr[x].description != null) {
+                  count = count + 2;
+                }
+                if (projectArr[x].fromDate != null || projectArr[x].toDate != null) {
+                  count++;
+                }
               }
+              cards[index].rows = 4 + count;
               cards[index].cols = 1;
             } else if (cards[index].title  === 'Certificate') {
-              if (cards[index].contents.length === 1) {
-                cards[index].rows =  5.5;
-              } else {
-                cards[index].rows = 5.5 + cards[index].contents.length ;
+              const certificateArr = cards[index].contents;
+              let count = 0;
+              // tslint:disable-next-line:forin
+              for (const x in certificateArr) {
+                if (certificateArr[x].certificateName != null) {
+                  count++;
+                }
+                if (certificateArr[x].certificateAuthority != null) {
+                  count++;
+                }
+                if (certificateArr[x].licenseNumber != null) {
+                  count++;
+                }
+                if (certificateArr[x].fromDate != null) {
+                  count++;
+                }
               }
+              cards[index].rows = 3 + count;
               cards[index].cols = 1;
             } else if (cards[index].title  === 'Location') {
-              console.log(cards[index].contents.length);
-              cards[index].rows = cards[index].contents.length * 5.5 ;
+              const locationArr = cards[index].contents;
+              let count = 0;
+              // tslint:disable-next-line:forin
+              for (const x in locationArr) {
+                if (locationArr[x].currentCityName != null) {
+                  count++;
+                }
+                if (locationArr[x].currentStateName != null) {
+                  count++;
+                }
+                if (locationArr[x].pastLocation != null) {
+                  count = count + locationArr[x].pastLocation.length;
+                }
+              }
+              cards[index].rows = 4 + count;
+              cards[index].cols = 1;
+            } else if (cards[index].title  === 'Experience') {
+              const experienceArr = cards[index].contents;
+              let count = 0;
+              // tslint:disable-next-line:forin
+              for (const x in experienceArr) {
+                if (experienceArr[x].organisation != null) {
+                  count++;
+                }
+                if (experienceArr[x].role != null) {
+                  count++;
+                }
+                if (experienceArr[x].fromDate != null) {
+                  count++;
+                }
+              }
+              cards[index].rows = 4 + count;
               cards[index].cols = 1;
             }
         }
@@ -316,6 +472,7 @@ export class EmployeeDashboardDummyComponent implements OnInit {
       .subscribe(
         (data) => {
           console.log(data);
+          location.reload();
         }
       );
     } else if (title === 'Skills') {
@@ -387,8 +544,8 @@ export class EmployeeDashboardDummyComponent implements OnInit {
 
   onDeletePastLocation(pastLocation) {
    const deleteLocation = Array<PastLocation>();
-   const locationData=new PastLocation(pastLocation.pastLocationId,pastLocation.cityName,
-    pastLocation.stateName,pastLocation.pinCode);
+   const locationData = new PastLocation(pastLocation.pastLocationId, pastLocation.cityName,
+    pastLocation.stateName, pastLocation.pinCode);
    deleteLocation.push(locationData);
     const locationChicklet = new LocationChicklets(null, deleteLocation);
     const chicklets = Array<LocationChicklets>();
@@ -492,13 +649,13 @@ export class EmployeeDashboardDummyComponent implements OnInit {
 
   onUpdatePastLocation(pastLocation) {
     const deleteLocation = Array<PastLocation>();
-    const locationData=new PastLocation(pastLocation.pastLocationId,pastLocation.cityName,
-     pastLocation.stateName,pastLocation.pinCode);
+    const locationData = new PastLocation(pastLocation.pastLocationId, pastLocation.cityName,
+     pastLocation.stateName, pastLocation.pinCode);
     deleteLocation.push(locationData);
      const locationChicklet = new LocationChicklets(null, deleteLocation);
      const chicklets = Array<LocationChicklets>();
      chicklets.push(locationChicklet);
- 
+
      const locationSection = new LocationSection('Location', this.tokenstorageservice.getEmail(), 'update', chicklets);
      this.downstreamBackendService.updateLocationDetails(locationSection)
      .subscribe(
@@ -507,6 +664,6 @@ export class EmployeeDashboardDummyComponent implements OnInit {
          location.reload();
        }
      );
- 
+
    }
 }

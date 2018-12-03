@@ -10,11 +10,15 @@ import { TokenStorageService } from 'src/app/login/service/token-storage.service
 import { Certi } from './domain/Certi';
 import { debounceTime, tap, switchMap, finalize } from 'rxjs/operators';
 import { Authority } from './domain/Authority';
+import { DateAdapter, MAT_DATE_FORMATS } from '@angular/material';
+import { AppDateAdapter, APP_DATE_FORMATS } from '../class/date-adapter';
 
 @Component({
   selector: 'app-certificatedialog',
   templateUrl: './certificatedialog.component.html',
-  styleUrls: ['./certificatedialog.component.css']
+  styleUrls: ['./certificatedialog.component.css'],
+  providers: [{provide: DateAdapter, useClass: AppDateAdapter},
+    {provide: MAT_DATE_FORMATS, useValue: APP_DATE_FORMATS}]
 })
 export class CertificatedialogComponent implements OnInit {
   filteredCertificates: Certi[] = [];
@@ -24,8 +28,8 @@ export class CertificatedialogComponent implements OnInit {
   certificateName: string;
   certificateAuthority: string;
   licenseNumber: string;
-  fromDate: string;
-  toDate: string;
+  fromDate: Date;
+  toDate: Date;
   errorMessage: string;
   totalRow: number;
   dataJson: any;
@@ -119,8 +123,11 @@ if (authority) {
     const chicklets = new Array<CertificateChicklets>();
     for (let i = 0; i < arr.length; i++) {
       const row = arr.at(i);
-      const certificateDetails = new Certificate(row.value.certificateName.name, row.value.certificateAuthority.name,
-        row.value.licenseNumber, row.value.fromDate, row.value.toDate);
+      const certificateDetails = new Certificate(row.value.certificateName,
+        row.value.certificateAuthority.name,
+        row.value.licenseNumber,
+        `${row.value.fromDate.getDate()}-${row.value.fromDate.getMonth() + 1}-${row.value.fromDate.getFullYear()}`,
+        `${row.value.toDate.getDate()}-${row.value.toDate.getMonth() + 1}-${row.value.toDate.getFullYear()}`);
       const chicklet = new CertificateChicklets(certificateDetails);
       chicklets.push(chicklet);
     }

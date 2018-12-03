@@ -12,11 +12,15 @@ import { TokenStorageService } from 'src/app/login/service/token-storage.service
 import { debounceTime, tap, switchMap, finalize } from 'rxjs/operators';
 import { IQualificationResponse, Qualificationn } from './domain/qualificationn';
 import { Institute } from './domain/institute';
+import { DateAdapter, MAT_DATE_FORMATS } from '@angular/material';
+import { AppDateAdapter, APP_DATE_FORMATS } from '../class/date-adapter';
 
 @Component({
   selector: 'app-educationdialog',
   templateUrl: './educationdialog.component.html',
-  styleUrls: ['./educationdialog.component.css']
+  styleUrls: ['./educationdialog.component.css'],
+  providers: [{provide: DateAdapter, useClass: AppDateAdapter},
+    {provide: MAT_DATE_FORMATS, useValue: APP_DATE_FORMATS}]
 })
 export class EducationdialogComponent implements OnInit {
   filteredQualifications: Qualificationn[] = [];
@@ -26,13 +30,14 @@ export class EducationdialogComponent implements OnInit {
   educationForm: FormGroup;
   qualification: string;
   institute: string;
-  startDate: string;
-  endDate: string;
+  startDate: Date;
+  endDate: Date;
   summary: string;
   output: Output;
   errorMessage: string;
   totalRow: number;
   dataJson: any;
+  startDatePicker: string;
   json_url = 'assets/education.json';
   temp: FormArray;
   temp1: FormArray;
@@ -122,11 +127,12 @@ if (institute) {
     const chicklets = new Array<EducationChicklets>();
     for (let i = 0; i < arr.length; i++) {
       const row = arr.at(i);
+      const temp = row.value.startDate;
       const qualification = new Qualification('qualificationId', row.value.qualification.name);
       const institution = new Institution('institutionId',
         row.value.institute.name,
-        row.value.startDate,
-        row.value.endDate);
+        row.value.startDate.getDate() + '-' + (row.value.startDate.getMonth() + 1) + '-' + row.value.startDate.getFullYear(),
+        row.value.endDate.getDate() + '-' + (row.value.endDate.getMonth() + 1) + '-' + row.value.endDate.getFullYear());
       const chicklet = new EducationChicklets(qualification, institution, this.summary);
       chicklets.push(chicklet);
     }

@@ -64,7 +64,7 @@ public class ExperienceServiceImpl  implements  ExperienceService{
             key="duration";
             value=durationYear + " year";
             prop.put(key,value);
-            experienceRelationshipProperty.setProperties(prop);
+            experienceRelationshipProperty.setDuration(value);
             worksRepository.save(experienceRelationshipProperty);
         logger.info("-------------In Experience Service Node Created--------------------");
     }
@@ -106,7 +106,7 @@ public class ExperienceServiceImpl  implements  ExperienceService{
             key="duration";
             value=durationYear + " year";
             prop.put(key,value);
-            experienceRelationshipProperty.setProperties(prop);
+            experienceRelationshipProperty.setDuration(value);
             worksRepository.save(experienceRelationshipProperty);
         logger.info("-------------In Experience Service Node Updated--------------------");
     }

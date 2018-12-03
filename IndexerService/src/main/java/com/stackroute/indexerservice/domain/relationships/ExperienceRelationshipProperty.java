@@ -18,8 +18,8 @@ import java.util.Map;
 public class ExperienceRelationshipProperty  {
     @Id
     private String relationship;
-    @Properties
-    private Map<String,String> properties;
+    @Property
+    private String duration;
 
     @StartNode
     private User user;

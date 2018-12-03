@@ -13,12 +13,15 @@ import { Organisation } from './domain/organisation';
 import { Client } from './domain/client';
 import { Tech } from './domain/tech';
 import { debounceTime, tap, switchMap, finalize } from 'rxjs/operators';
-
+import { DateAdapter, MAT_DATE_FORMATS } from '@angular/material';
+import { AppDateAdapter, APP_DATE_FORMATS } from '../class/date-adapter';
 
 @Component({
   selector: 'app-projectdialog',
   templateUrl: './projectdialog.component.html',
-  styleUrls: ['./projectdialog.component.css']
+  styleUrls: ['./projectdialog.component.css'],
+  providers: [{provide: DateAdapter, useClass: AppDateAdapter},
+    {provide: MAT_DATE_FORMATS, useValue: APP_DATE_FORMATS}]
 })
 
 
@@ -33,8 +36,8 @@ export class ProjectdialogComponent implements OnInit {
   isLoading2 = false;
   isLoading3 = false;
   title: string;
-  startDate: string;
-  endDate: string;
+  startDate: Date;
+  endDate: Date;
   url: string;
   domain: string;
   role: string;
@@ -178,8 +181,8 @@ displayFn3(tech: Tech) {
 
   onSave() {
     this.title = this.projectForm.get('title').value as string;
-    this.startDate = this.projectForm.get('startDate').value as string;
-    this.endDate = this.projectForm.get('endDate').value as string;
+    this.startDate = this.projectForm.get('startDate').value as Date;
+    this.endDate = this.projectForm.get('endDate').value as Date;
     this.url = this.projectForm.get('url').value as string;
     this.domain = this.projectForm.get('domain').value.name as string;
     this.role = this.projectForm.get('role').value as string;
@@ -195,9 +198,16 @@ displayFn3(tech: Tech) {
         technologies.push(technology);
       }
 
-    const project = new Project(this.title, this.startDate, this.endDate,
-       this.url, this.domain, this.role , this.company, this.client ,
-        technologies , this.description );
+    const project = new Project(this.title,
+      `${this.startDate.getDate()}-${this.startDate.getMonth() + 1}-${this.startDate.getFullYear()}`,
+      `${this.endDate.getDate()}-${this.endDate.getMonth() + 1}-${this.endDate.getFullYear()}`,
+       this.url,
+       this.domain,
+       this.role,
+       this.company,
+       this.client,
+       technologies,
+       this.description );
     const chicklets = new Array<ProjectChicklets>();
     const chicklet = new ProjectChicklets(project);
     chicklets.push(chicklet);

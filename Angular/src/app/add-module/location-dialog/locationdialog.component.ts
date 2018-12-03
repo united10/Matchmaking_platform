@@ -11,9 +11,11 @@ import { Output } from '../outputclass/output';
 import { TokenStorageService } from 'src/app/login/service/token-storage.service';
 import { Currentcities } from './domain/currentcities';
 import { Pastcities } from './domain/pastcities';
-import { debounceTime, tap, switchMap, finalize } from 'rxjs/operators';
-import { State } from './domain/state';
-import { Paststate } from './domain/paststates';
+import { debounceTime, tap, switchMap, finalize, startWith, map } from 'rxjs/operators';
+import { state } from '@angular/animations';
+import { Observable } from 'rxjs';
+import { States } from './domain/states';
+import { Paststates } from './domain/paststates';
 
 @Component({
   selector: 'app-locationdialog',
@@ -24,12 +26,8 @@ export class LocationdialogComponent implements OnInit {
     locationForm: FormGroup;
     filteredCurrentCityName: Currentcities[] = [];
     filteredPastCityName: Pastcities[] = [];
-    filteredStates: State[] = [];
-    filteredPastStates: Paststate[] = [];
     isLoading = false;
     isLoading1 = false;
-    isLoading2 = false;
-    isLoading3 = false;
     output: Output;
     currentId: string;
     currentCityName: string;
@@ -44,8 +42,71 @@ export class LocationdialogComponent implements OnInit {
     errorMessage: string;
     totalRow: number;
     temp: FormArray;
-    temp1: FormArray;
-
+    temp2: FormArray;
+    options: States[] = [
+      {name: 'andhra pradesh' },
+      {name: 'arunachal pradesh' },
+      {name: 'assam' },
+      {name: 'bihar' },
+      {name: 'chhattisgarh' },
+      {name: 'goa' },
+      {name: 'gujarat' },
+      {name: 'haryana' },
+      {name: 'himachal pradesh' },
+      {name: 'jammu and kashmir' },
+      {name: 'jharkhand' },
+      {name: 'karnataka' },
+      {name: 'kerala' },
+      {name: 'madhya pradesh' },
+      {name: 'maharashtra' },
+      {name: 'manipur' },
+      {name: 'meghalaya' },
+      {name: 'mizoram' },
+      {name: 'nagaland' },
+      {name: 'odisha' },
+      {name: 'punjab' },
+      {name: 'rajasthan' },
+      {name: 'sikkim' },
+      {name: 'tamil nadu' },
+      {name: 'telangana' },
+      {name: 'tripura' },
+      {name: 'uttar pradesh' },
+      {name: 'uttarakhand' },
+      {name: 'west bengal' }
+    ];
+    pastoptions: Paststates[] = [
+      {name: 'andhra pradesh' },
+      {name: 'arunachal pradesh' },
+      {name: 'assam' },
+      {name: 'bihar' },
+      {name: 'chhattisgarh' },
+      {name: 'goa' },
+      {name: 'gujarat' },
+      {name: 'haryana' },
+      {name: 'himachal pradesh' },
+      {name: 'jammu and kashmir' },
+      {name: 'jharkhand' },
+      {name: 'karnataka' },
+      {name: 'kerala' },
+      {name: 'madhya pradesh' },
+      {name: 'maharashtra' },
+      {name: 'manipur' },
+      {name: 'meghalaya' },
+      {name: 'mizoram' },
+      {name: 'nagaland' },
+      {name: 'odisha' },
+      {name: 'punjab' },
+      {name: 'rajasthan' },
+      {name: 'sikkim' },
+      {name: 'tamil nadu' },
+      {name: 'telangana' },
+      {name: 'tripura' },
+      {name: 'uttar pradesh' },
+      {name: 'uttarakhand' },
+      {name: 'west bengal' }
+    ];
+    filteredPastOptions: Observable<Paststates[]>;
+    filteredOptions: Observable<States[]>;
     constructor(@Inject(MAT_DIALOG_DATA) private data: any,
       private dialogRef: MatDialogRef<LocationdialogComponent>,
       private locationService: LocationService, private fb: FormBuilder,
@@ -60,8 +121,7 @@ export class LocationdialogComponent implements OnInit {
         currentPincode: new FormControl(''),
         pastLocation: this.fb.array([this.initItemRow()])
       });
-    }
-    onKeyUp(index: number) {
+
       this.locationForm.get('currentCityName').valueChanges.pipe(
         debounceTime(300),
         tap(() => this.isLoading = true),
@@ -73,14 +133,9 @@ export class LocationdialogComponent implements OnInit {
         )
       )
       .subscribe(response => this.filteredCurrentCityName = response.locations);
-   }
-  displayFn(currentcity: Currentcities) {
-    if (currentcity) {
-      return currentcity.name; }
-  }
-  onKeyUp1(index: number) {
+
     this.temp = this.locationForm.get('pastLocation') as FormArray;
-    this.temp.at(index).get('pastCityName').valueChanges.pipe(
+    this.temp.at(0).get('pastCityName').valueChanges.pipe(
       debounceTime(300),
       tap(() => this.isLoading1 = true),
       switchMap(value =>
@@ -91,47 +146,80 @@ export class LocationdialogComponent implements OnInit {
       )
     )
     .subscribe(response => this.filteredPastCityName = response.locations);
- }
+
+      this.filteredOptions = this.locationForm.get('currentStateName').valueChanges
+      .pipe(
+        startWith<string | States>(''),
+        map(value => typeof value === 'string' ? value : value.name),
+        map(name => name ? this._filter(name) : this.options.slice())
+      );
+
+     this.temp2 = this.locationForm.get('pastLocation') as FormArray;
+      this.filteredPastOptions = this.temp2.at(0).get('pastStateName').valueChanges
+      .pipe(
+        startWith<string | States>(''),
+        map(value => typeof value === 'string' ? value : value.name),
+        map(name => name ? this._filter1(name) : this.options.slice())
+      );
+    }
+
+    displayFn2(state?: States): string | undefined {
+      return state ? state.name : undefined;
+    }
+
+    private _filter(name: string): States[] {
+      const filterValue = name.toLowerCase();
+
+      return this.options.filter(option => option.name.toLowerCase().indexOf(filterValue) === 0);
+    }
+
+    displayFn3(state?: Paststates): string | undefined {
+      return state ? state.name : undefined;
+    }
+
+    private _filter1(name: string): States[] {
+      const filterValue = name.toLowerCase();
+
+      return this.pastoptions.filter(option => option.name.toLowerCase().indexOf(filterValue) === 0);
+    }
+
+  //   onKeyUp(index: number) {
+  //     this.locationForm.get('currentCityName').valueChanges.pipe(
+  //       debounceTime(300),
+  //       tap(() => this.isLoading = true),
+  //       switchMap(value =>
+  //         this.locationService.searchcurrentcities({name: value}, 1)
+  //       .pipe(
+  //         finalize(() => this.isLoading = false),
+  //         )
+  //       )
+  //     )
+  //     .subscribe(response => this.filteredCurrentCityName = response.locations);
+  //  }
+
+  displayFn(currentcity: Currentcities) {
+    if (currentcity) {
+      return currentcity.name; }
+  }
+
+//   onKeyUp1(index: number) {
+//     this.temp = this.locationForm.get('pastLocation') as FormArray;
+//     this.temp.at(index).get('pastCityName').valueChanges.pipe(
+//       debounceTime(300),
+//       tap(() => this.isLoading1 = true),
+//       switchMap(value =>
+//         this.locationService.searchpastcities({name: value}, 1)
+//       .pipe(
+//         finalize(() => this.isLoading1 = false),
+//         )
+//       )
+//     )
+//     .subscribe(response => this.filteredPastCityName = response.locations);
+//  }
 displayFn1(pastcity: Pastcities) {
   if (pastcity) {
     return pastcity.name; }
 }
-onKeyUp2(index: number) {
-  this.locationForm.get('currentStateName').valueChanges.pipe(
-    debounceTime(300),
-    tap(() => this.isLoading2 = true),
-    switchMap(value =>
-      this.locationService.searchcurrentstates({name: value}, 1)
-    .pipe(
-      finalize(() => this.isLoading2 = false),
-      )
-    )
-  )
-  .subscribe(response => this.filteredStates = response.results);
-}
-displayFn2(currentstate: State) {
-if (currentstate) {
-  return currentstate.name; }
-}
-onKeyUp3(index: number) {
-  this.temp1 = this.locationForm.get('pastLocation') as FormArray;
-  this.temp1.at(index).get('pastStateName').valueChanges.pipe(
-    debounceTime(300),
-    tap(() => this.isLoading3 = true),
-    switchMap(value =>
-      this.locationService.searchpaststates({name: value}, 1)
-    .pipe(
-      finalize(() => this.isLoading3 = false),
-      )
-    )
-  )
-  .subscribe(response => this.filteredPastStates = response.results);
-}
-displayFn3(paststate: Paststate) {
-if (paststate) {
-  return paststate.name; }
-}
-
     initItemRow() {
       return this.fb.group({
         pastId: new FormControl(''),
@@ -159,17 +247,17 @@ if (paststate) {
   onSave() {
     this.currentId = this.locationForm.get('currentId').value as string;
     this.currentCityName = this.locationForm.get('currentCityName').value.name as string;
-    this.currentStateName = this.locationForm.get('currentStateName').value as string;
+    this.currentStateName = this.locationForm.get('currentStateName').value.name as string;
     this.currentPincode = this.locationForm.get('currentPincode').value as string;
 
       const arr = this.locationForm.get('pastLocation') as FormArray;
       const values = arr.value;
-      const currentlocation = new CurrentLocation(this.currentId, this.currentCityName, this.currentPincode, this.currentStateName);
+      const currentlocation = new CurrentLocation(this.currentId, this.currentCityName, this.currentStateName, this.currentPincode);
       const chicklets = new Array<LocationChicklets>();
       const pastLocations = new Array<PastLocation>();
       for (const row of values) {
         const pastlocation = new PastLocation(
-          row.pastId , row.pastCityName.name, row.pastStateName , row.pastPincode);
+          row.pastId , row.pastCityName.name, row.pastStateName.name , row.pastPincode);
           console.log(pastlocation);
         pastLocations.push(pastlocation);
         console.log(chicklets);
