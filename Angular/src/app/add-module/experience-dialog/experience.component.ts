@@ -10,12 +10,15 @@ import { ExperienceDetails } from '../experience-dialog/domain/experience-detail
 import { TokenStorageService } from 'src/app/login/service/token-storage.service';
 import { Organisation } from './domain/organisation';
 import { debounceTime, tap, switchMap, finalize } from 'rxjs/operators';
-
+import { DateAdapter, MAT_DATE_FORMATS } from '@angular/material';
+import { AppDateAdapter, APP_DATE_FORMATS } from '../class/date-adapter';
 
 @Component({
   selector: 'app-experience',
   templateUrl: './experience.component.html',
-  styleUrls: ['./experience.component.css']
+  styleUrls: ['./experience.component.css'],
+  providers: [{provide: DateAdapter, useClass: AppDateAdapter},
+    {provide: MAT_DATE_FORMATS, useValue: APP_DATE_FORMATS}]
 })
 export class ExperienceComponent implements OnInit {
 
@@ -26,8 +29,8 @@ export class ExperienceComponent implements OnInit {
   isLoading = false;
   organisation: string;
   role: string;
-  startDate: string;
-  endDate: string;
+  startDate: Date;
+  endDate: Date;
   output: Output;
   errorMessage: string;
   totalRow: number;
@@ -102,22 +105,18 @@ displayFn(organisation: Organisation) {
     for (let i = 0; i < arr.length; i++) {
       const row = arr.at(i);
       let fromDate;
-      fromDate = row.value.startDate + '';
+      fromDate = row.value.startDate;
       console.log(fromDate);
-      let date;
-      date = fromDate.split(' ', 4);
-      this.fromDay = date[2];
-      this.fromYear = date[3];
-      this.fromMonth = date[1];
+      this.fromDay = fromDate.getDate();
+      this.fromYear = fromDate.getFullYear();
+      this.fromMonth = fromDate.getMonth() + 1;
 
       let toDate;
-      toDate = row.value.endDate + '';
+      toDate = row.value.endDate;
       console.log(fromDate);
-      let date1;
-      date1 = toDate.split(' ', 4);
-      this.toDay = date1[2];
-      this.toYear = date1[3];
-      this.toMonth = date1[1];
+      this.toDay = toDate.getDate();
+      this.toYear = toDate.getFullYear();
+      this.toMonth = toDate.getMonth() + 1;
 
       const experienceDetails = new ExperienceDetails(row.value.organisation.name,
                                   row.value.role,
