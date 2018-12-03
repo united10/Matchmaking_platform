@@ -8,12 +8,28 @@
     <div class="row-items" *ngFor="let educationControl of educationForm.controls.education.controls; let i = index" [formGroupName]="i">
       <p>{{dataJson?.qualification}}
         <mat-form-field>
-          <input matInput name="qualification" formControlName="qualification" required />
+          <input matInput name="qualification" [matAutocomplete]="auto" (keyup)="onKeyUp(i)" formControlName="qualification" required />
         </mat-form-field>
+        <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
+          <mat-option *ngIf="isLoading" class="is-loading"><mat-spinner diameter="50"></mat-spinner></mat-option>
+          <ng-container *ngIf="!isLoading">
+            <mat-option *ngFor="let qualificationn of filteredQualifications" [value]="qualificationn">
+              <span>{{ qualificationn.name }}</span>
+            </mat-option>
+          </ng-container>
+        </mat-autocomplete>
         {{dataJson?.institute}}
         <mat-form-field>
-          <input matInput name="institute" formControlName="institute" required />
+          <input matInput name="institute" [matAutocomplete]="auto1" (keyup)="onKeyUp1(i)" formControlName="institute" required />
         </mat-form-field>
+        <mat-autocomplete #auto1="matAutocomplete" [displayWith]="displayFn1">
+          <mat-option *ngIf="isLoading1" class="is-loading"><mat-spinner diameter="50"></mat-spinner></mat-option>
+          <ng-container *ngIf="!isLoading1">
+            <mat-option *ngFor="let institute of filteredInstitutions" [value]="institute">
+              <span>{{ institute.name }}</span>
+            </mat-option>
+          </ng-container>
+        </mat-autocomplete>
         {{dataJson?.from}}
         <mat-form-field class="date">
             <input matInput [matDatepicker]="startDatePicker" placeholder="Choose a date" formControlName="startDate">

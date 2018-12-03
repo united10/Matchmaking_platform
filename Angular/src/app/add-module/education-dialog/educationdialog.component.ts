@@ -9,6 +9,9 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { FormGroup, FormArray, FormControl, FormBuilder, Validators } from '@angular/forms';
 import { EducationSection } from '../education-dialog/domain/educationsection';
 import { TokenStorageService } from 'src/app/login/service/token-storage.service';
+import { debounceTime, tap, switchMap, finalize } from 'rxjs/operators';
+import { IQualificationResponse, Qualificationn } from './domain/qualificationn';
+import { Institute } from './domain/institute';
 
 @Component({
   selector: 'app-educationdialog',
@@ -16,7 +19,10 @@ import { TokenStorageService } from 'src/app/login/service/token-storage.service
   styleUrls: ['./educationdialog.component.css']
 })
 export class EducationdialogComponent implements OnInit {
-
+  filteredQualifications: Qualificationn[] = [];
+  filteredInstitutions: Institute[] = [];
+  isLoading = false;
+  isLoading1 = false;
   educationForm: FormGroup;
   qualification: string;
   institute: string;
@@ -28,6 +34,8 @@ export class EducationdialogComponent implements OnInit {
   totalRow: number;
   dataJson: any;
   json_url = 'assets/education.json';
+  temp: FormArray;
+  temp1: FormArray;
   constructor(@Inject(MAT_DIALOG_DATA) private data: any,
     private dialogRef: MatDialogRef<EducationdialogComponent>,
     private educationService: EducationService, private fb: FormBuilder,
@@ -46,6 +54,42 @@ export class EducationdialogComponent implements OnInit {
         this.dataJson = data;
       }
     );
+    }
+  onKeyUp(index: number) {
+    this.temp = this.educationForm.get('education') as FormArray;
+    this.temp.at(index).get('qualification').valueChanges.pipe(
+      debounceTime(300),
+      tap(() => this.isLoading = true),
+      switchMap(value =>
+        this.educationService.searchqualification({name: value}, 1)
+      .pipe(
+        finalize(() => this.isLoading = false),
+        )
+      )
+    )
+    .subscribe(qualificationn => this.filteredQualifications = qualificationn.qualifications);
+ }
+displayFn(qualification: Qualificationn) {
+  if (qualification) {
+    return qualification.name; }
+}
+onKeyUp1(index: number) {
+  this.temp1 = this.educationForm.get('education') as FormArray;
+  this.temp1.at(index).get('institute').valueChanges.pipe(
+    debounceTime(300),
+    tap(() => this.isLoading1 = true),
+    switchMap(value =>
+      this.educationService.searchinstitution({name: value}, 1)
+    .pipe(
+      finalize(() => this.isLoading1 = false),
+      )
+    )
+  )
+  .subscribe(institutions => this.filteredInstitutions = institutions.educations);
+}
+displayFn1(institute: Institute) {
+if (institute) {
+  return institute.name; }
 }
 
   initItemRow() {
@@ -73,15 +117,14 @@ export class EducationdialogComponent implements OnInit {
       return false;
     }
   }
-
   onSave() {
     const arr = this.educationForm.get('education') as FormArray;
     const chicklets = new Array<EducationChicklets>();
     for (let i = 0; i < arr.length; i++) {
       const row = arr.at(i);
-      const qualification = new Qualification('qualificationId', row.value.qualification);
+      const qualification = new Qualification('qualificationId', row.value.qualification.name);
       const institution = new Institution('institutionId',
-        row.value.institute,
+        row.value.institute.name,
         row.value.startDate,
         row.value.endDate);
       const chicklet = new EducationChicklets(qualification, institution, this.summary);

@@ -2,9 +2,10 @@ package com.stackroute.locationservice.service;
 
 
 import com.stackroute.locationservice.domain.CommonOutput;
-import com.stackroute.locationservice.domain.PastLocation;
-import com.stackroute.locationservice.domain.Relationship;
 import com.stackroute.locationservice.domain.Section;
+import com.stackroute.locationservice.domain.TargetProperty;
+import com.stackroute.locationservice.resource.IndexResource;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 
@@ -14,28 +15,26 @@ the data from front end and create an
 object for indexing data to the graphdb (neo4j)*/
 @Service
 public class LocationServiceImpl implements LocationService{
+    @Autowired
+    private CommonOutput commonOutput;
+    @Autowired
+    private IndexResource indexResource;
+    @Autowired
+    private TargetProperty[] targetProperties;
 
     @Override
-    public CommonOutput processLocationDetails(Section section){
-
-        PastLocation[] pastLocation = section.getChicklets()[0].getPastLocation();
-        Relationship[] relationship = new Relationship[pastLocation.length];
-        for(int i = 0 ; i<pastLocation.length ;i++){
-            relationship[i] = Relationship.builder()
-                    .relationshipProperty(pastLocation[i].getCityName()).relationshipType("lives in").build();
+    public void processLocationDetails(Section section){
+        commonOutput.setOperationType(section.getOperationType().toLowerCase());
+        commonOutput.setSourceNode(section.getUserId().toLowerCase());
+        commonOutput.setSourceNodeProperty(null);
+        commonOutput.setTargetNode("location");
+        commonOutput.setRelationships("lives_in");
+        for(int i=0;i<section.getChicklets().length;i++)
+        {
+            targetProperties[0].setName(section.getChicklets()[i].getCurrentLocation().getCityName().toLowerCase());
+            commonOutput.setTargetNodeProperty(targetProperties);
+            indexResource.postData(commonOutput);
         }
-
-
-        CommonOutput commonOutput = CommonOutput.builder()
-                .operationType(section.getOperationType())
-                .sourceNode(section.getUserId())
-                .sourceNodeProperty("property1")
-                .targetNode("location")
-                .targetNodeProperty("target property")
-                .relationship(relationship)
-                .build();
-        System.out.println(commonOutput.toString());
-        return commonOutput;
     }
 
 }

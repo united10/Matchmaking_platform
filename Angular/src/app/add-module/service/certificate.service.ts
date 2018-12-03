@@ -1,8 +1,10 @@
 import { Injectable } from '@angular/core';
-import { catchError } from 'rxjs/operators';
+import { catchError, tap } from 'rxjs/operators';
 import { HttpHeaders, HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { CertificateSection } from '../certificate-dialog/domain/certificatesection';
 import { Observable, throwError } from 'rxjs';
+import { CertificateResponse, Certi } from '../certificate-dialog/domain/Certi';
+import { AuthorityResponse, Authority } from '../certificate-dialog/domain/Authority';
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -15,7 +17,7 @@ const httpOptions = {
 })
 export class CertificateService {
 
-  url = 'http://13.233.180.226:8097/upstream-service/api/v1/certificate';
+  url = 'https://matchmaker-zuul.stackroute.in/upstream-service/api/v1/certificate';
 
   constructor(private httpClient: HttpClient) { }
 
@@ -34,5 +36,26 @@ export class CertificateService {
     }
     // return an observable with a user-facing error message
     return throwError('Something bad happened; please try again later.');
+  }
+  searchcertificate(filter: {name: string} = {name: ''}, page = 1): Observable<CertificateResponse> {
+    return this.httpClient.get<CertificateResponse>('https://matchmaker-zuul.stackroute.in/cache-service/api/v1/redisCertification/' + filter.name)
+    .pipe(
+      tap((response: CertificateResponse) => {
+        response.certifications = response.certifications
+          .map(certi => new Certi(certi.name, certi.id));
+        return response;
+      })
+      );
+  }
+  searchauthrity(filter: {name: string} = {name: ''}, page = 1): Observable<AuthorityResponse> {
+    return this.httpClient.get<AuthorityResponse>('https://matchmaker-zuul.stackroute.in/cache-service/api/v1/redisOrganization/' + filter.name)
+    .pipe(
+      tap((response: AuthorityResponse) => {
+        response.organizations = response.organizations
+          .map(authority => new Authority(authority.name, authority.id))
+          .filter(authority => authority.name.includes(filter.name));
+        return response;
+      })
+      );
   }
 }

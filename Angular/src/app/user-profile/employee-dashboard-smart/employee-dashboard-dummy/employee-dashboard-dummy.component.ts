@@ -2,20 +2,42 @@ import { Component, Input, OnInit } from '@angular/core';
 import { map } from 'rxjs/operators';
 import { Breakpoints, BreakpointObserver } from '@angular/cdk/layout';
 import { TokenStorageService } from 'src/app/login/service/token-storage.service';
-
+import { EducationChicklets } from 'src/app/add-module/education-dialog/domain/educationchicklets';
+import { EducationSection } from 'src/app/add-module/education-dialog/domain/educationsection';
+import { DownstreamBackendService } from '../../downstream-backend.service';
+import { SkillChicklets } from 'src/app/add-module/skill-dialog/domain/skillchicklets';
+import { SkillSection } from 'src/app/add-module/skill-dialog/domain/skillsection';
+import { ProjectChicklets } from 'src/app/add-module/project-dialog/domain/projectchicklets';
+import { ProjectSection } from 'src/app/add-module/project-dialog/domain/projectsection';
+import { CertificateChicklets } from 'src/app/add-module/certificate-dialog/domain/certificatechicklets';
+import { CertificateSection } from 'src/app/add-module/certificate-dialog/domain/certificatesection';
+import { ExperienceSection } from 'src/app/add-module/experience-dialog/domain/section';
+import { Qualification } from 'src/app/add-module/education-dialog/domain/qualification';
+import { Institution } from 'src/app/add-module/education-dialog/domain/institution';
+import { Chicklets } from 'src/app/add-module/experience-dialog/domain/chicklets';
+import { LocationChicklets } from 'src/app/add-module/location-dialog/domain/chicklets';
+import { CurrentLocation } from 'src/app/add-module/location-dialog/domain/currentlocation';
+import { LocationSection } from 'src/app/add-module/location-dialog/domain/section';
+import { PastLocation } from 'src/app/add-module/location-dialog/domain/pastlocation';
 @Component({
   selector: 'app-employee-dashboard-dummy',
   templateUrl: './employee-dashboard-dummy.component.html',
   styleUrls: ['./employee-dashboard-dummy.component.css'],
 })
-export class EmployeeDashboardDummyComponent implements OnInit{
+export class EmployeeDashboardDummyComponent implements OnInit {
   /** Based on the screen size, switch from standard to one column per row */
 
   cards;
   keys;
+  basicLength = 0;
+  temp1 =100/8;
+  temp=0;
   isLoggedIn = false;
+  basicInfo;
+  educationLength: number;
+  public isCollapsed = false;
   constructor(private breakpointObserver: BreakpointObserver,
-    private tokenstorageservice: TokenStorageService ) {}
+    private tokenstorageservice: TokenStorageService , private downstreamBackendService: DownstreamBackendService) {}
 
 
   ngOnInit() {
@@ -25,11 +47,11 @@ export class EmployeeDashboardDummyComponent implements OnInit{
   }
 
   setEmployees(employees: any) {
+
     this.cards = this.breakpointObserver.observe(Breakpoints.Handset).pipe(
 
       map(({ matches }) => {
         const cards = [];
-        let basicInfo;
         let educationInfo;
         let skillsInfo;
         let projectInfo;
@@ -39,13 +61,14 @@ export class EmployeeDashboardDummyComponent implements OnInit{
         let i = 0;
         console.log(employees);
 
-        basicInfo = {'title': 'Basic Information', 'contents': {
+
+        this.basicInfo = {'title': 'Basic Information', 'contents': {
           'employeeName': employees.name,
           'email': employees.email
         }};
-        cards[i] = basicInfo;
+        this.basicLength = 1;
 
-        if (employees.educations != null) {
+        if (employees.educations != null && employees.educations.length !== 0) {
           let j = 0;
           educationInfo = {
             'title': 'Education',
@@ -58,18 +81,20 @@ export class EmployeeDashboardDummyComponent implements OnInit{
               'qualification': education.qualification.title,
               'summary': education.summary,
               'institution': education.institution.institutionName,
+              'institutionId': education.institution.institutionId,
               'startDate': education.institution.startDate,
-              'endDate': education.institution.endDate
+              'endDate': education.institution.endDate,
+              'id': education.qualification.qualificationId
             };
 
             j++;
           }
         educationInfo.contents = contents;
-        i++;
         cards[i] = educationInfo;
+        i++;
         }
 
-        if (employees.skills != null) {
+        if (employees.skills != null && employees.skills.length !== 0) {
           let j = 0;
           skillsInfo = {
             'title': 'Skills',
@@ -80,17 +105,18 @@ export class EmployeeDashboardDummyComponent implements OnInit{
 
             contents[j] = {
               'skillName': skill.skillName,
-              'skillLevel': skill.skillLevel
+              'skillLevel': skill.skillLevel,
+              'skill': skill
 
             };
 
             j++;
           }
         skillsInfo.contents = contents;
-        i++;
         cards[i] = skillsInfo;
+        i++;
         }
-        if (employees.projects != null) {
+        if (employees.projects != null && employees.projects.length !== 0) {
           let j = 0;
           projectInfo = {
             'title': 'Project',
@@ -106,36 +132,32 @@ export class EmployeeDashboardDummyComponent implements OnInit{
               'projectUrl' : projects.projectUrl,
               'role' : projects.role,
               'technologiesUsed' : projects.technologiesUsed,
-              'description' : projects.description
+              'description' : projects.description,
+              'project': projects
             };
 
             j++;
           }
         projectInfo.contents = contents;
-        i++;
         cards[i] = projectInfo;
+        i++;
         }
-        if (employees.location != null) {
-          let j = 0;
+        if (employees.location != null  && employees.location.length !== 0) {
+          const j = 0;
           locationInfo = {
             'title': 'Location',
-            'contents': []
+            'contents': [ {
+              'currentLocationId': employees.location.currentLocation.currentLocationId,
+              'currentCityName' : employees.location.currentLocation.cityName,
+              'currentStateName' : employees.location.currentLocation.stateName,
+              'currentPinCode' :  employees.location.currentLocation.pinCode,
+              'pastLocation' : employees.location.pastLocation
+            }]
             };
-            const contents = [];
-          for (const location of employees.location) {
-
-            contents[j] = {
-              'currentLocation' : location.currentLocation,
-              'pastLocation' : location.pastLocation
-            };
-
-            j++;
-          }
-        locationInfo.contents = contents;
-        i++;
         cards[i] = locationInfo;
+        i++;
         }
-        if (employees.certificates != null) {
+        if (employees.certificates != null  && employees.certificates.length !== 0) {
           let j = 0;
           certificateInfo = {
             'title': 'Certificate',
@@ -149,16 +171,18 @@ export class EmployeeDashboardDummyComponent implements OnInit{
               'certificateAuthority' : certificates.certificateAuthority,
               'licenseNumber' : certificates.licenseNumber,
               'fromDate' : certificates.fromDate,
-              'toDate' : certificates.toDate
+              'toDate' : certificates.toDate,
+              'certificate': certificates
             };
 
             j++;
           }
         certificateInfo.contents = contents;
-        i++;
         cards[i] = certificateInfo;
+        i++;
+        console.log(cards[i]);
         }
-        if (employees.experience != null) {
+        if (employees.experiences != null  && employees.experiences.length !== 0) {
           let j = 0;
           experienceInfo = {
             'title': 'Experience',
@@ -175,40 +199,90 @@ export class EmployeeDashboardDummyComponent implements OnInit{
               'fromMonth' : experiences.fromMonth,
               'toMonth' : experiences.toMonth,
               'fromYear' : experiences.fromYear,
-              'toYear' : experiences.toYear
+              'toYear' : experiences.toYear ,
+              'experience': experiences
             };
 
             j++;
           }
         experienceInfo.contents = contents;
-        i++;
         cards[i] = experienceInfo;
+        i++;
+        console.log(cards[i]);
         }
+        // if(this.temp==0)
+        // this.temp=this.temp1;
+        // else
+        this.temp=((i+1)*100/8);
+      
         if (matches) {
           for (const index in cards) {
-            cards[index].cols = 2;
-            if (index !== '0') {
-            cards[index].rows = cards[index].contents.length;
-          } else {
-            cards[index].rows = 1;
+            if (cards[index].title === 'Education') {
+              console.log("education length " + cards[index].contents.length);
+              if (cards[index].contents.length === 1) {
+                this.educationLength = cards[index].contents.length * 4.5;
+                cards[index].rows =  this.educationLength;
+              } else {
+                this.educationLength = 4.5;
+                cards[index].rows = this.educationLength + cards[index].contents.length ;
+              }
+              cards[index].cols = 2;
+            }else if (cards[index].title  === 'Skills') {
+              console.log("skill length " + cards[index].contents.length);
+                cards[index].rows = cards[index].contents.length * 2.5;
+                cards[index].cols = 2;
+              } else if (cards[index].title  === 'Project') {
+                cards[index].rows = cards[index].contents.length * 6.5;
+                cards[index].cols = 2;
+              } else if (cards[index].title  === 'Certificate') {
+                console.log("certificate length " + cards[index].contents.length);
+                cards[index].rows = cards[index].contents.length * 5.5 ;
+                cards[index].cols = 2;
+              } else if (cards[index].title  === 'Location') {
+                console.log(cards[index].contents.length);
+                cards[index].rows = cards[index].contents.length * 5.5 ;
+                cards[index].cols = 2;
+              }
           }
-        }
           return cards;
         }
 
         for (const index in cards) {
-          if (index === '0') {cards[index].cols = 2;
-            cards[index].rows = 1;
-          } else {
-            console.log(cards[index].contents.length);
-            cards[index].rows = cards[index].contents.length / 2;
+          if (cards[index].title === 'Education') {
+            console.log("education length "+cards[index].length);
+            if (cards[index].contents.length === 1) {
+              cards[index].rows =  3 + (cards[index].contents.length * 3);
+            } else {
+              cards[index].rows = 4.5 + cards[index].contents.length ;
+            }
             cards[index].cols = 1;
-          }
-
+          } else if (cards[index].title  === 'Skills') {
+              if (cards[index].contents.length === 1) {
+                cards[index].rows =  3.5;
+              } else {
+                cards[index].rows = 3.5 + cards[index].contents.length ;
+              }
+              cards[index].cols = 1;
+            } else if (cards[index].title  === 'Project') {
+              if (cards[index].contents.length === 1) {
+                cards[index].rows =  6.5;
+              } else {
+                cards[index].rows = 8.5 + cards[index].contents.length ;
+              }
+              cards[index].cols = 1;
+            } else if (cards[index].title  === 'Certificate') {
+              if (cards[index].contents.length === 1) {
+                cards[index].rows =  5.5;
+              } else {
+                cards[index].rows = 5.5 + cards[index].contents.length ;
+              }
+              cards[index].cols = 1;
+            } else if (cards[index].title  === 'Location') {
+              console.log(cards[index].contents.length);
+              cards[index].rows = cards[index].contents.length * 5.5 ;
+              cards[index].cols = 1;
+            }
         }
-
-
-
         return cards;
       })
     );
@@ -227,4 +301,212 @@ export class EmployeeDashboardDummyComponent implements OnInit{
     this.tokenstorageservice.signOut();
     window.location.reload();
   }
+
+  onDelete(content, title) {
+    if (title === 'Education') {
+      const qualification = new Qualification(content.id, content.qualification);
+      const institution = new Institution(content.institutionId, content.institution,
+        content.startDate, content.endDate) ;
+      const  educationChicklets = new EducationChicklets(qualification, institution, content.summary);
+      const chicklets = new Array<EducationChicklets>();
+      chicklets.push(educationChicklets);
+      const educationSection = new EducationSection('Education', this.tokenstorageservice.getEmail(), 'delete', chicklets);
+      console.log(educationSection);
+      this.downstreamBackendService.deleteEducationDetails(educationSection)
+      .subscribe(
+        (data) => {
+          console.log(data);
+        }
+      );
+    } else if (title === 'Skills') {
+      const skillChicklet = new SkillChicklets(content.skill);
+      const chicklets = [skillChicklet];
+      const skillSection = new SkillSection('Skills', this.tokenstorageservice.getEmail(), 'delete', chicklets);
+      this.downstreamBackendService.deleteSkillsDetails(skillSection)
+      .subscribe(
+        (data) => {
+          console.log(data);
+          location.reload();
+        }
+      );
+    }    else if (title === 'Project') {
+      const projectChicklet = new ProjectChicklets(content.project);
+      const chicklets = [projectChicklet];
+      const projectSection = new ProjectSection('Project', this.tokenstorageservice.getEmail(), 'delete', chicklets);
+      this.downstreamBackendService.deleteProjectDetails(projectSection)
+      .subscribe(
+        (data) => {
+          console.log(data);
+          location.reload();
+        }
+      );
+    }    else if (title === 'Certificate') {
+      const certificateChicklet = new CertificateChicklets(content.certificate);
+      const chicklets = [certificateChicklet];
+      const certificateSection = new CertificateSection('Certificate', this.tokenstorageservice.getEmail(), 'delete', chicklets);
+      this.downstreamBackendService.deleteCerificateDetails(certificateSection)
+      .subscribe(
+        (data) => {
+          console.log(data);
+          location.reload();
+        }
+      );
+    }    else if (title === 'Experience') {
+      const experienceChicklet = new Chicklets(content.experience);
+      const chicklets = Array<Chicklets>();
+      chicklets.push(experienceChicklet);
+
+      const experienceSection = new ExperienceSection('Experience', this.tokenstorageservice.getEmail(), 'delete', chicklets);
+      this.downstreamBackendService.deleteExperienceDetails(experienceSection)
+      .subscribe(
+        (data) => {
+          console.log(data);
+          location.reload();
+        }
+      );
+    }
+  }
+
+  onDeleteCurrentLocation(content) {
+    const currentLocation = new CurrentLocation(content.currentLocationId,
+      content.currentcontent.currentCityName, content.currentStateName, content.currentPinCode);
+    const locationChicklet = new LocationChicklets(currentLocation, null);
+    const chicklets = Array<LocationChicklets>();
+    chicklets.push(locationChicklet);
+
+    const locationSection = new LocationSection('Location', this.tokenstorageservice.getEmail(), 'delete', chicklets);
+    this.downstreamBackendService.deleteLocationDetails(locationSection)
+    .subscribe(
+      (data) => {
+        console.log(data);
+        location.reload();
+      }
+    );
+
+  }
+
+  onDeletePastLocation(pastLocation) {
+   const deleteLocation = Array<PastLocation>();
+   const locationData=new PastLocation(pastLocation.pastLocationId,pastLocation.cityName,
+    pastLocation.stateName,pastLocation.pinCode);
+   deleteLocation.push(locationData);
+    const locationChicklet = new LocationChicklets(null, deleteLocation);
+    const chicklets = Array<LocationChicklets>();
+    chicklets.push(locationChicklet);
+
+    const locationSection = new LocationSection('Location', this.tokenstorageservice.getEmail(), 'delete', chicklets);
+    this.downstreamBackendService.deleteLocationDetails(locationSection)
+    .subscribe(
+      (data) => {
+        console.log(data);
+        location.reload();
+      }
+    );
+
+  }
+
+
+  onUpdate(content, title) {
+    if (title === 'Education') {
+      const qualification = new Qualification(content.id, content.qualification);
+      const institution = new Institution(content.institutionId, content.institution,
+        content.startDate, content.endDate) ;
+      const  educationChicklets = new EducationChicklets(qualification, institution, content.summary);
+      const chicklets = new Array<EducationChicklets>();
+      chicklets.push(educationChicklets);
+      const educationSection = new EducationSection('Education', this.tokenstorageservice.getEmail(), 'update', chicklets);
+      console.log(educationSection);
+      this.downstreamBackendService.updateEducationDetails(educationSection)
+      .subscribe(
+        (data) => {
+          console.log(data);
+          location.reload();
+        }
+      );
+    } else if (title === 'Skills') {
+      const skillChicklet = new SkillChicklets(content.skill);
+      const chicklets = [skillChicklet];
+      const skillSection = new SkillSection('Skills', this.tokenstorageservice.getEmail(), 'update', chicklets);
+      this.downstreamBackendService.updateSkillsDetails(skillSection)
+      .subscribe(
+        (data) => {
+          console.log(data);
+          location.reload();
+        }
+      );
+    }    else if (title === 'Project') {
+      const projectChicklet = new ProjectChicklets(content.project);
+      const chicklets = [projectChicklet];
+      const projectSection = new ProjectSection('Project', this.tokenstorageservice.getEmail(), 'update', chicklets);
+      this.downstreamBackendService.updateProjectDetails(projectSection)
+      .subscribe(
+        (data) => {
+          console.log(data);
+          location.reload();
+        }
+      );
+    }    else if (title === 'Certificate') {
+      const certificateChicklet = new CertificateChicklets(content.certificate);
+      const chicklets = [certificateChicklet];
+      const certificateSection = new CertificateSection('Certificate', this.tokenstorageservice.getEmail(), 'update', chicklets);
+      this.downstreamBackendService.updateCerificateDetails(certificateSection)
+      .subscribe(
+        (data) => {
+          console.log(data);
+          location.reload();
+        }
+      );
+    }    else if (title === 'Experience') {
+      const experienceChicklet = new Chicklets(content.experience);
+      const chicklets = Array<Chicklets>();
+      chicklets.push(experienceChicklet);
+
+      const experienceSection = new ExperienceSection('Experience', this.tokenstorageservice.getEmail(), 'update', chicklets);
+      this.downstreamBackendService.updateExperienceDetails(experienceSection)
+      .subscribe(
+        (data) => {
+          console.log(data);
+          location.reload();
+        }
+      );
+    }
+  }
+
+  onUpdateCurrentLocation(content) {
+    const currentLocation = new CurrentLocation(content.currentLocationId,
+      content.currentcontent.currentCityName, content.currentStateName, content.currentPinCode);
+    const locationChicklet = new LocationChicklets(currentLocation, null);
+    const chicklets = Array<LocationChicklets>();
+    chicklets.push(locationChicklet);
+
+    const locationSection = new LocationSection('Location', this.tokenstorageservice.getEmail(), 'update', chicklets);
+    this.downstreamBackendService.updateLocationDetails(locationSection)
+    .subscribe(
+      (data) => {
+        console.log(data);
+        location.reload();
+      }
+    );
+
+  }
+
+  onUpdatePastLocation(pastLocation) {
+    const deleteLocation = Array<PastLocation>();
+    const locationData=new PastLocation(pastLocation.pastLocationId,pastLocation.cityName,
+     pastLocation.stateName,pastLocation.pinCode);
+    deleteLocation.push(locationData);
+     const locationChicklet = new LocationChicklets(null, deleteLocation);
+     const chicklets = Array<LocationChicklets>();
+     chicklets.push(locationChicklet);
+ 
+     const locationSection = new LocationSection('Location', this.tokenstorageservice.getEmail(), 'update', chicklets);
+     this.downstreamBackendService.updateLocationDetails(locationSection)
+     .subscribe(
+       (data) => {
+         console.log(data);
+         location.reload();
+       }
+     );
+ 
+   }
 }

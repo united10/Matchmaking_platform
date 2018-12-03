@@ -3,7 +3,8 @@ import { Observable, throwError } from 'rxjs';
 import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
 import { ExperienceSection } from '../experience-dialog/domain/section';
 import { Output } from '../experience-dialog/domain/output';
-import { catchError } from 'rxjs/operators';
+import { catchError, tap } from 'rxjs/operators';
+import { OrganisationResponse, Organisation } from '../experience-dialog/domain/organisation';
 
 
 const httpOptions = {
@@ -17,7 +18,7 @@ const httpOptions = {
 })
 export class ExperienceService {
 
-  url1 = 'http://13.233.180.226:8097/upstream-service/api/v1/experience/';
+  url1 = 'https://matchmaker-zuul.stackroute.in/upstream-service/api/v1/experience/';
   constructor(private httpClient: HttpClient) { }
 
   addExperienceDetails(section: ExperienceSection): Observable<Output> {
@@ -37,5 +38,15 @@ export class ExperienceService {
     }
     // return an observable with a user-facing error message
     return throwError('Something bad happened; please try again later.');
+  }
+  search(filter: {name: string} = {name: ''}, page = 1): Observable<OrganisationResponse> {
+    return this.httpClient.get<OrganisationResponse>('https://matchmaker-zuul.stackroute.in/cache-service/api/v1/redisOrganization/' + filter.name)
+    .pipe(
+      tap((response: OrganisationResponse) => {
+        response.organizations = response.organizations
+          .map(organisation => new Organisation(organisation.name, organisation.id));
+        return response;
+      })
+      );
   }
 }

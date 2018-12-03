@@ -1,0 +1,12 @@
+server:
+  port: 8095
+
+controller:
+  base: /matchmaker/v1
+  search: /search
+
+
+kafka:
+  ipAddress: localhost:9092
+  groupId: group_id69
+  outputTopic: query

@@ -1,9 +1,11 @@
-import { catchError } from 'rxjs/operators';
+import { catchError, tap } from 'rxjs/operators';
 import { Output } from './../outputclass/output';
 import { HttpHeaders, HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable} from '@angular/core';
 import { SkillSection } from '../skill-dialog/domain/skillsection';
 import { Observable, throwError } from 'rxjs';
+import { SkillResponse, Skillauto } from '../skill-dialog/domain/skillauto';
+
 
 
 const httpOptions = {
@@ -16,7 +18,7 @@ const httpOptions = {
 })
 export class SkillService {
 
-  url = 'http://13.233.180.226:8097/upstream-service/api/v1/skills';
+  url = 'https://matchmaker-zuul.stackroute.in/upstream-service/api/v1/skills';
 
   constructor(private httpClient: HttpClient) { }
 
@@ -35,6 +37,17 @@ export class SkillService {
     }
     // return an observable with a user-facing error message
     return throwError('Something bad happened; please try again later.');
+  }
+  searchskills(filter: {name: string} = {name: ''}, page = 1): Observable<SkillResponse> {
+    return this.httpClient.get<SkillResponse>('https://matchmaker-zuul.stackroute.in/cache-service/api/v1/redisSkill/' + filter.name)
+    .pipe(
+      tap((response: SkillResponse) => {
+        response.skills = response.skills
+          .map(skill => new Skillauto(skill.name, skill.id))
+          .filter(skill => skill.name.includes(filter.name));
+        return response;
+      })
+      );
   }
 }
 

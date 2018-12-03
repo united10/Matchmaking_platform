@@ -5,5 +5,5 @@ import com.stackroute.locationservice.domain.Section;
 
 /*It is an interface for the location service*/
 public interface LocationService {
-    CommonOutput processLocationDetails(Section section);
+    public void processLocationDetails(Section section);
 }

@@ -3,6 +3,7 @@ package com.stackroute.downstreamservice.controller;
 
 import com.stackroute.downstreamservice.domain.Employee;
 
+import com.stackroute.downstreamservice.exceptions.EmployeeAlreadyExistsException;
 import com.stackroute.downstreamservice.exceptions.EmployeeNotFoundException;
 import com.stackroute.downstreamservice.service.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,7 +16,7 @@ import java.util.List;
 /*This is the rest controller class to handle rest api calls from the frontend
 and other dependent services if any
  */
-
+@CrossOrigin("*")
 @RestController
 @RequestMapping("${controller.base}")
 public class EmployeeController {
@@ -48,6 +49,21 @@ public class EmployeeController {
             responseEntity=new ResponseEntity<List<Employee>>(employeeService.getAllEmployee(), HttpStatus.OK);
         }catch(EmployeeNotFoundException exception){
              responseEntity=new ResponseEntity<String>(exception.getMessage(),HttpStatus.NOT_FOUND);
+        }
+        return responseEntity;
+    }
+
+    //Handles post request to /matchmaker/v1/employees to register  an employee
+    @PostMapping("${controller.employees}")
+    public ResponseEntity<?> addEmployee(@RequestBody Employee employee){
+        ResponseEntity responseEntity;
+        try{
+            employeeService.saveEmployee(employee);
+            responseEntity=new ResponseEntity<String>("Successfully created", HttpStatus.OK);
+        }catch(EmployeeAlreadyExistsException exception){
+            responseEntity=new ResponseEntity<String>(exception.getMessage(),HttpStatus.CONFLICT);
+        }catch(Exception exception){
+            responseEntity=new ResponseEntity<String>(exception.getMessage(),HttpStatus.BAD_REQUEST);
         }
         return responseEntity;
     }
