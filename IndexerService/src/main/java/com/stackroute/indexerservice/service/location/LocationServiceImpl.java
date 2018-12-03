@@ -43,13 +43,8 @@ public class LocationServiceImpl implements LocationService {
     public void deleteNode(CommonOutput commonOutput) {
         logger.info("-------------In Location Service Node Deleting--------------------");
         user.setUserId(commonOutput.getSourceNode());
-
-            location.setName(commonOutput.getTargetNodeProperty()[0].getName());
-            LocationRelationshipProperty locationRelationshipProperty = new LocationRelationshipProperty();
-            locationRelationshipProperty.setRelationship(commonOutput.getRelationships());
-            locationRelationshipProperty.setUser(user);
-            locationRelationshipProperty.setLocation(location);
-            livesRepository.deleteById(locationRelationshipProperty.getRelationship());
+        location.setName(commonOutput.getTargetNodeProperty()[0].getName());
+        livesRepository.deleteNode(user.getUserId(),location.getName());
         logger.info("-------------In Location Service Node Deleted--------------------");
 
     }

@@ -1,5 +1,6 @@
 package com.example.upstream.controller;
 
+import com.example.upstream.domain.basicdetails.BasicDetails;
 import com.example.upstream.domain.certificate.Certificate;
 import com.example.upstream.domain.education.Education;
 import com.example.upstream.domain.experience.Experience;
@@ -28,8 +29,10 @@ private KafkaTemplate<String, Section>kafkaTemplateProject;
 private KafkaTemplate<String, Experience>kafkaTemplateExperience;
 private KafkaTemplate<String,Certificate>kafkaTemplateCertificate;
 private KafkaTemplate<String, com.example.upstream.domain.interest.Section>kafkaTemplateInterest;
+private KafkaTemplate<String, BasicDetails>kafkaTemplateBasicDetails;
 
-    public UpStreamController(KafkaTemplate<String, Education> kafkaTemplateEducation, KafkaTemplate<String, com.example.upstream.domain.skills.Section> kafkaTemplateSkills, KafkaTemplate<String, Location> kafkaTemplateLocation, KafkaTemplate<String, Section> kafkaTemplateProject, KafkaTemplate<String, Experience> kafkaTemplateExperience, KafkaTemplate<String, Certificate> kafkaTemplateCertificate, KafkaTemplate<String, com.example.upstream.domain.interest.Section> kafkaTemplateInterest) {
+    @Autowired
+    public UpStreamController(KafkaTemplate<String, Education> kafkaTemplateEducation,KafkaTemplate<String, BasicDetails> kafkaTemplateBasicDetails ,KafkaTemplate<String, com.example.upstream.domain.skills.Section> kafkaTemplateSkills, KafkaTemplate<String, Location> kafkaTemplateLocation, KafkaTemplate<String, Section> kafkaTemplateProject, KafkaTemplate<String, Experience> kafkaTemplateExperience, KafkaTemplate<String, Certificate> kafkaTemplateCertificate, KafkaTemplate<String, com.example.upstream.domain.interest.Section> kafkaTemplateInterest) {
         this.kafkaTemplateEducation = kafkaTemplateEducation;
         this.kafkaTemplateSkills = kafkaTemplateSkills;
         this.kafkaTemplateLocation = kafkaTemplateLocation;
@@ -37,6 +40,7 @@ private KafkaTemplate<String, com.example.upstream.domain.interest.Section>kafka
         this.kafkaTemplateExperience = kafkaTemplateExperience;
         this.kafkaTemplateCertificate = kafkaTemplateCertificate;
         this.kafkaTemplateInterest = kafkaTemplateInterest;
+        this.kafkaTemplateBasicDetails = kafkaTemplateBasicDetails;
     }
 
     //Creating topics
@@ -47,6 +51,8 @@ private static final String TOPIC3 = "project";
 private static final String TOPIC4 = "experience";
 private static final String TOPIC5 = "certificate";
 private static final String TOPIC6 = "interest";
+private static final String TOPIC7 = "user";
+
     //Handling post mapping for education
     @PostMapping("${controller.education}")
     public ResponseEntity<?> newEducation(@RequestBody Education education){
@@ -244,6 +250,32 @@ private static final String TOPIC6 = "interest";
 //        section.setOperationType("delete");
         ResponseEntity responseEntity = new ResponseEntity(section,HttpStatus.OK);
         kafkaTemplateInterest.send(TOPIC6,section);
+        return responseEntity;
+    }
+    @PostMapping("${controller.basicdetails}")
+    public ResponseEntity<?> newbasicdetails(@RequestBody BasicDetails basicDetails)
+    {
+//        section.setOperationType("add");
+        ResponseEntity responseEntity = new ResponseEntity(basicDetails,HttpStatus.OK);
+        kafkaTemplateBasicDetails.send(TOPIC7,basicDetails);
+        return responseEntity;
+
+    }
+    @PutMapping("${controller.basicdetails}")
+    public ResponseEntity<?> updatebasicDetails(@RequestBody BasicDetails basicDetails)
+    {
+//        section.setOperationType("update");
+        ResponseEntity responseEntity = new ResponseEntity(basicDetails,HttpStatus.OK);
+        kafkaTemplateBasicDetails.send(TOPIC7,basicDetails);
+        return responseEntity;
+
+    }
+    @DeleteMapping("${controller.basicdetails}")
+    public ResponseEntity<?> deletebasicDetails(@RequestBody BasicDetails basicDetails)
+    {
+//        section.setOperationType("delete");
+        ResponseEntity responseEntity = new ResponseEntity(basicDetails,HttpStatus.OK);
+        kafkaTemplateBasicDetails.send(TOPIC7,basicDetails);
         return responseEntity;
 
     }

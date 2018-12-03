@@ -12,7 +12,7 @@ public interface ProjectRepository extends Neo4jRepository<ProjectRelationshipPr
             "MERGE(a)-[:has_a]->(m)")
     public void saveNode(@Param("name") String name);
 
-    @Query("MATCH (n{userId:{name}})-[r:project_in]->()\n" +
+    @Query("MATCH (n{userId:{name}})-[r:project_in]->(o:Project{name:{project}})\n" +
             "DELETE r")
-    public void deleteNode(@Param("name") String name);
+    public void deleteNode(@Param("name") String name,@Param("project") String project);
 }

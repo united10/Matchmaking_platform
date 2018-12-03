@@ -32,12 +32,12 @@ public class ExperienceServiceImpl  implements  ExperienceService{
 
     }
     Logger logger = LoggerFactory.getLogger(ExperienceServiceImpl.class);
+
     public void createNode(CommonOutput commonOutput) {
         logger.info("-------------In Experience Service Node Creation--------------------");
         user.setUserId(commonOutput.getSourceNode());
-        for (int i = 0; i < commonOutput.getTargetNodeProperty().length; i++)
-        {
-            organization.setName(commonOutput.getTargetNodeProperty()[i].getName());
+
+            organization.setName(commonOutput.getTargetNodeProperty()[0].getName());
             ExperienceRelationshipProperty experienceRelationshipProperty = new ExperienceRelationshipProperty();
             experienceRelationshipProperty.setRelationship(commonOutput.getRelationships());
             experienceRelationshipProperty.setUser(user);
@@ -50,11 +50,12 @@ public class ExperienceServiceImpl  implements  ExperienceService{
             }
 
             String fromDate=prop.get("from");
-            String[] splitFrom= fromDate.split("/");
+            String[] splitFrom= fromDate.split(" ");
             int fromYear=Integer.parseInt(splitFrom[2]);
 
+
             String toDate=prop.get("to");
-            String[] splitTo=toDate.split("/");
+            String[] splitTo=toDate.split(" ");
             int toYear = Integer.parseInt(splitTo[2]);
 
             int duration=toYear-fromYear;
@@ -63,9 +64,8 @@ public class ExperienceServiceImpl  implements  ExperienceService{
             key="duration";
             value=durationYear + " year";
             prop.put(key,value);
-            experienceRelationshipProperty.setProperties(prop);
+            experienceRelationshipProperty.setDuration(value);
             worksRepository.save(experienceRelationshipProperty);
-        }
         logger.info("-------------In Experience Service Node Created--------------------");
     }
     public void deleteNode(CommonOutput commonOutput){
@@ -73,32 +73,7 @@ public class ExperienceServiceImpl  implements  ExperienceService{
         user.setUserId(commonOutput.getSourceNode());
         for (int i = 0; i < commonOutput.getTargetNodeProperty().length; i++) {
             organization.setName(commonOutput.getTargetNodeProperty()[i].getName());
-            ExperienceRelationshipProperty experienceRelationshipProperty = new ExperienceRelationshipProperty();
-            experienceRelationshipProperty.setRelationship(commonOutput.getRelationships());
-            experienceRelationshipProperty.setUser(user);
-            experienceRelationshipProperty.setOrganization(organization);
-            property = commonOutput.getProperties();
-            for (int j = 0; j < property.length; j++) {
-                key = property[j].getPropertyName();
-                value = property[j].getPropertyValue();
-                prop.put(key, value);
-            }
-            String fromDate=prop.get("from");
-            String[] splitFrom= fromDate.split("/");
-            int fromYear=Integer.parseInt(splitFrom[2]);
-
-            String toDate=prop.get("to");
-            String[] splitTo=toDate.split("/");
-            int toYear = Integer.parseInt(splitTo[2]);
-
-            int duration=toYear-fromYear;
-            String durationYear=Integer.toString(duration);
-
-            key="duration";
-            value=durationYear + " year";
-            prop.put(key,value);
-            experienceRelationshipProperty.setProperties(prop);
-            worksRepository.deleteById(experienceRelationshipProperty.getRelationship());
+            worksRepository.deleteNode(user.getUserId(),organization.getName());
         }
         logger.info("-------------In Experience Service Node Deleted--------------------");
     }
@@ -106,9 +81,7 @@ public class ExperienceServiceImpl  implements  ExperienceService{
     public  void updateNode(CommonOutput commonOutput){
         logger.info("-------------In Experience Service Node Updating--------------------");
         user.setUserId(commonOutput.getSourceNode());
-        for (int i = 0; i < commonOutput.getTargetNodeProperty().length; i++)
-        {
-            organization.setName(commonOutput.getTargetNodeProperty()[i].getName());
+            organization.setName(commonOutput.getTargetNodeProperty()[0].getName());
             ExperienceRelationshipProperty experienceRelationshipProperty = new ExperienceRelationshipProperty();
             experienceRelationshipProperty.setRelationship(commonOutput.getRelationships());
             experienceRelationshipProperty.setUser(user);
@@ -120,11 +93,11 @@ public class ExperienceServiceImpl  implements  ExperienceService{
                 prop.put(key, value);
             }
             String fromDate=prop.get("from");
-            String[] splitFrom= fromDate.split("/");
+            String[] splitFrom= fromDate.split(" ");
             int fromYear=Integer.parseInt(splitFrom[2]);
 
             String toDate=prop.get("to");
-            String[] splitTo=toDate.split("/");
+            String[] splitTo=toDate.split(" ");
             int toYear = Integer.parseInt(splitTo[2]);
 
             int duration=toYear-fromYear;
@@ -133,9 +106,8 @@ public class ExperienceServiceImpl  implements  ExperienceService{
             key="duration";
             value=durationYear + " year";
             prop.put(key,value);
-            experienceRelationshipProperty.setProperties(prop);
+            experienceRelationshipProperty.setDuration(value);
             worksRepository.save(experienceRelationshipProperty);
-        }
         logger.info("-------------In Experience Service Node Updated--------------------");
     }
 }

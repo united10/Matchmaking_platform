@@ -1,6 +1,7 @@
 package com.example.upstream.configuration;
 
 import com.example.upstream.domain.KafkaProperties;
+import com.example.upstream.domain.basicdetails.BasicDetails;
 import com.example.upstream.domain.certificate.Certificate;
 import com.example.upstream.domain.education.Education;
 import com.example.upstream.domain.experience.Experience;
@@ -121,6 +122,18 @@ public class KafkaConfig {
         return new DefaultKafkaProducerFactory(config);
 
     }
+    @Bean
+    public ProducerFactory<String, BasicDetails> producerFactoryBasicDetails() {
+
+        Map<String, Object> config = new HashMap<>();
+
+        config.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG,kafkaProperties.getIpAddress());
+        config.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, StringSerializer.class);
+        config.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, JsonSerializer.class);
+        config.put(JsonSerializer.ADD_TYPE_INFO_HEADERS, false);
+
+        return new DefaultKafkaProducerFactory(config);
+    }
         //Creating templates for each objects
     @Bean
     public KafkaTemplate<String, Education> kafkaTemplateEducation()
@@ -156,5 +169,10 @@ public class KafkaConfig {
     public KafkaTemplate<String, com.example.upstream.domain.interest.Section> kafkaTemplateInterest()
     {
         return new KafkaTemplate<>(producerFactoryInterest());
+    }
+    @Bean
+    public KafkaTemplate<String, BasicDetails> kafkaTemplateBasicDetails()
+    {
+        return new KafkaTemplate<>(producerFactoryBasicDetails());
     }
 }
