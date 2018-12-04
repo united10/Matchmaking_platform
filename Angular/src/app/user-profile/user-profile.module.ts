@@ -1,3 +1,4 @@
+import { BasicInfoComponent } from './../info/basic-info/basic-info.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { EmployeeDashboardDummyComponent } from './employee-dashboard-smart/employee-dashboard-dummy/employee-dashboard-dummy.component';
@@ -12,6 +13,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CardsModule } from '../add-module/cards.module';
 import { MaterialModule } from '../login/login-module/material.module';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { InfoModule } from './../info/info.module';
 
 @NgModule({
   imports: [
@@ -26,12 +28,14 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     CardsModule,
     MaterialModule,
     NgbModule,
-    MatProgressBarModule
+    MatProgressBarModule,
+    InfoModule
   ],
   declarations: [
     EmployeeDashboardDummyComponent,
     EmployeeDashboardSmartComponent,
   ],
+  entryComponents: [BasicInfoComponent],
   providers: []
 })
 export class UserProfileModule { }
