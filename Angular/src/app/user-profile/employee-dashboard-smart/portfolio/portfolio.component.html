@@ -1,0 +1,24 @@
+<div ng-app="mainApp">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4" ng-controller="businessCard">
+          <div class="panel panel-info" ng-model="card">
+            <div class="panel-heading">
+              <h6>VisitingCard</h6>
+              <div class = 'container1'>
+                  <app-employee-dashboard-smart (employeeEmit) = "onReciving($event)"></app-employee-dashboard-smart>
+                 <div class = "userpic">
+                    <img src="/src/assets/images/user-pic-unavailable.png" class="rounded-circle" alt="profilePic">
+                  </div>  
+                  <div class="panel-body">
+                    <p><strong>Name:</strong> {{this.name}}</p>
+                    <p><strong>Email:</strong> {{this.email}}</p>
+                    <p><strong>Department:</strong> {{card.department}}</p>
+                    <p><strong>Phone:</strong> {{card.phone}}</p>
+                   </div>
+            </div> 
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

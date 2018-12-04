@@ -50,6 +50,20 @@
                 </div>
               </div>
               <mat-progress-bar class="progress" mode="determinate" value={{this.temp}}></mat-progress-bar>
+
+              <div class="combine">
+                <div class = 'view'>
+                  <a href="#"></a>
+                  <button mat-button (click)="view()">Visiting Card</button>
+                </div>
+
+                <div class = 'resume'>
+                  <a href="#"></a>
+                  <button mat-button (click)="resume()">Resume</button>
+                </div>
+              </div>
+
+              
               <mat-grid-list cols="2" rowHeight="2rem">
                 <mat-grid-tile  *ngFor="let card of cards | async" [colspan]="card.cols" [rowspan]="card.rows">
                   <mat-card class="dashboard-card" *ngIf="card.contents.length!=='0'">

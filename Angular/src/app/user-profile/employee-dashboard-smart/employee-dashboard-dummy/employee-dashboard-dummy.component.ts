@@ -21,10 +21,12 @@ import { LocationChicklets } from 'src/app/add-module/location-dialog/domain/chi
 import { CurrentLocation } from 'src/app/add-module/location-dialog/domain/currentlocation';
 import { LocationSection } from 'src/app/add-module/location-dialog/domain/section';
 import { PastLocation } from 'src/app/add-module/location-dialog/domain/pastlocation';
-import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MatDialogRef, MAT_DIALOG_DATA, MatDialogConfig } from '@angular/material/dialog';
 import { CertificatedialogComponent } from 'src/app/add-module/certificate-dialog/certificatedialog.component';
 import { RefreshService } from 'src/app/add-module/service/refresh.service';
 import { MatDialog } from '@angular/material/dialog';
+import { PortfolioComponent } from '../portfolio/portfolio.component';
+import { ResumeComponent } from '../resume/resume.component';
 
 @Component({
   selector: 'app-employee-dashboard-dummy',
@@ -516,6 +518,22 @@ export class EmployeeDashboardDummyComponent implements OnInit {
   logout() {
     this.tokenstorageservice.signOut();
     window.location.reload();
+  }
+
+  view() {
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.disableClose = false;
+    dialogConfig.autoFocus = true;
+    dialogConfig.width = '30%';
+    this.dialog.open(PortfolioComponent, dialogConfig);
+  }
+
+  resume() {
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.disableClose = false;
+    dialogConfig.autoFocus = true;
+    dialogConfig.width = '60%';
+    this.dialog.open(ResumeComponent, dialogConfig);
   }
 
   onDelete(content, title) {
