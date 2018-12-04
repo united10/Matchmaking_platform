@@ -1,4 +1,4 @@
-import { Component, OnInit, Inject } from '@angular/core';
+import { Component, OnInit, Inject, Output, EventEmitter } from '@angular/core';
 import { FormGroup, FormArray, FormControl, FormBuilder, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Certificate } from '../certificate-dialog/domain/certificate';
@@ -10,11 +10,16 @@ import { TokenStorageService } from 'src/app/login/service/token-storage.service
 import { Certi } from './domain/Certi';
 import { debounceTime, tap, switchMap, finalize } from 'rxjs/operators';
 import { Authority } from './domain/Authority';
+import { DateAdapter, MAT_DATE_FORMATS } from '@angular/material';
+import { AppDateAdapter, APP_DATE_FORMATS } from '../class/date-adapter';
+import { RefreshService } from '../service/refresh.service';
 
 @Component({
   selector: 'app-certificatedialog',
   templateUrl: './certificatedialog.component.html',
-  styleUrls: ['./certificatedialog.component.css']
+  styleUrls: ['./certificatedialog.component.css'],
+  providers: [{provide: DateAdapter, useClass: AppDateAdapter},
+    {provide: MAT_DATE_FORMATS, useValue: APP_DATE_FORMATS}]
 })
 export class CertificatedialogComponent implements OnInit {
   filteredCertificates: Certi[] = [];
@@ -24,20 +29,20 @@ export class CertificatedialogComponent implements OnInit {
   certificateName: string;
   certificateAuthority: string;
   licenseNumber: string;
-  fromDate: string;
-  toDate: string;
+  fromDate: Date;
+  toDate: Date;
   errorMessage: string;
   totalRow: number;
   dataJson: any;
   temp: FormArray;
   temp1: FormArray;
   json_url = 'assets/certificate.json';
-
   constructor(@Inject(MAT_DIALOG_DATA) private data: any,
   private certificateService: CertificateService, private readfromjsonService: ReadfromjsonService,
   private dialogRef: MatDialogRef<CertificatedialogComponent>,
   private fb: FormBuilder,
-  private token: TokenStorageService) {
+  private token: TokenStorageService,
+  private refreshService: RefreshService) {
 
 }
   ngOnInit() {
@@ -50,6 +55,9 @@ export class CertificatedialogComponent implements OnInit {
         this.dataJson = data;
       }
     );
+    this.dialogRef.afterClosed().subscribe(result => {
+      this.refreshService.refreshProfile();
+    });
   }
   onKeyUp(index: number) {
     this.temp = this.certificateForm.get('certificate') as FormArray;
@@ -119,8 +127,11 @@ if (authority) {
     const chicklets = new Array<CertificateChicklets>();
     for (let i = 0; i < arr.length; i++) {
       const row = arr.at(i);
-      const certificateDetails = new Certificate(row.value.certificateName.name, row.value.certificateAuthority.name,
-        row.value.licenseNumber, row.value.fromDate, row.value.toDate);
+      const certificateDetails = new Certificate(row.value.certificateName,
+        row.value.certificateAuthority.name,
+        row.value.licenseNumber,
+        `${row.value.fromDate.getDate()}-${row.value.fromDate.getMonth() + 1}-${row.value.fromDate.getFullYear()}`,
+        `${row.value.toDate.getDate()}-${row.value.toDate.getMonth() + 1}-${row.value.toDate.getFullYear()}`);
       const chicklet = new CertificateChicklets(certificateDetails);
       chicklets.push(chicklet);
     }

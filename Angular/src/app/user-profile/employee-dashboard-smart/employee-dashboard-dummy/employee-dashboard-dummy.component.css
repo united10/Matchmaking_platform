@@ -1,6 +1,6 @@
 @import url("https://fonts.googleapis.com/css?family=Nunito+Sans");
 .body{
-  background-color:#b0b0b0;
+  background-color:#b7bcc2;
   padding-bottom: 5%; 
   font-family: 'Nunito Sans', sans-serif;
 }
@@ -41,7 +41,7 @@
   flex-direction: row;
   flex-wrap: wrap;
   align-items: flex-end;
-  background-color: #0D9965;
+  background-image: linear-gradient(to bottom right,#6fe0c2,#087a5e);
   height: 20rem;
 }
 /*
@@ -147,10 +147,6 @@ mat-icon{
  
 }
 
-.dashboard-card-content{
-  
-} 
-
 .more-button {
   position: absolute;
   top: 5px;
@@ -183,11 +179,11 @@ mat-icon{
   
 }
 ::ng-deep .mat-progress-bar-fill::after {
-  background-color: #003d99;
+  background-color: #6D929B;
 }
 
 ::ng-deep .mat-progress-bar-buffer {
-  background: #ff3300;
+  background: #574d53;
 }
 
 ::ng-deep .mat-progress-bar {

@@ -15,6 +15,11 @@
                 </a>
               </li>
               <li class="nav-item">
+                <a class="nav-link">
+                  <button mat-stroked-button (click)="openDialog()"><b>Basic Info</b></button>
+                </a>
+              </li>
+              <li class="nav-item">
                 <a class="nav-link" href="#">
                   <button mat-stroked-button (click)="logout()"><b>Logout</b></button>
                 </a>
@@ -22,30 +27,44 @@
             </ul>
           </div>
       </nav>
-      <app-employee-dashboard-smart
-      (employeeEmit)=setEmployees($event)
-      >
+      <app-employee-dashboard-smart (employeeEmit)=setEmployees($event)>
       </app-employee-dashboard-smart>
       <div class="content">
           <div class="dummy"></div>
           <div class="grid-container">
               <div class="basic-detail">
-                <div class="user-pic">
-                  <img src="/src/assets/images/user-pic-unavailable.png" class="rounded-circle" alt="profilePic">
+                <div >
+                  <div class="user-pic" *ngIf="isPhotoSelected; else DummyImage">
+                    <img class="rounded-circle pic" src="data:image/jpg;base64,{{receivedFile}}" alt="Image">
+                  </div>
+                  
+                  <ng-template #DummyImage>
+                    <img class="rounded-circle pic" src="/src/assets/images/user-pic-unavailable.png">
+                  </ng-template>
                 </div>
                 <div  class="user-detail">
                   <h6>Basic Details</h6>                 
-
                   <hr/>
                   <h6 *ngIf="basicLength!==0">{{basicInfo.contents.employeeName}}</h6>
-                  <h6 *ngIf="basicLength!==0">Email Id: {{basicInfo.contents.email}}</h6>
+                  <h6 *ngIf="basicLength!==0">{{basicInfo.contents.email}}</h6>
+                </div>
+              </div>
+              <mat-progress-bar class="progress" mode="determinate" value={{this.temp}}></mat-progress-bar>
+
+              <div class="combine">
+                <div class = 'view'>
+                  <a href="#"></a>
+                  <button mat-button (click)="view()">Visiting Card</button>
                 </div>
 
-           
-                <mat-progress-bar class="progress" mode="determinate" value={{this.temp}}></mat-progress-bar>
-                
+                <div class = 'resume'>
+                  <a href="#"></a>
+                  <button mat-button (click)="resume()">Resume</button>
+                </div>
               </div>
-              <mat-grid-list cols="2" rowHeight="3rem">
+
+              
+              <mat-grid-list cols="2" rowHeight="2rem">
                 <mat-grid-tile  *ngFor="let card of cards | async" [colspan]="card.cols" [rowspan]="card.rows">
                   <mat-card class="dashboard-card" *ngIf="card.contents.length!=='0'">
                     
@@ -59,7 +78,7 @@
                         <div *ngFor="let content of card.contents;let i = index; last as isLast">
                           <div class="title-row">
                             <div class="title">
-                              <h4>{{content.qualification}}</h4>
+                              <h6><b>{{content.qualification}}</b></h6>
                             </div>
                             <div class="add-delete">
                               <mat-icon>edit</mat-icon>
@@ -67,7 +86,7 @@
                             </div>
                           </div>
                           <div class="card-content">
-                            <h5>Institute: {{content.institution}}</h5>
+                            <h6>Institute: {{content.institution}}</h6>
                             <h6>Duration: {{content.startDate}} - {{content.endDate}}</h6>
                           </div>
                           <div *ngIf="!isLast">
@@ -81,7 +100,7 @@
                             <div *ngFor="let content of card.contents;let i = index; last as isLast">
                                 <div class="title-row">
                                   <div class="title">
-                                    <h4>{{content.skillName}}</h4>
+                                    <h6><b>{{content.skillName}}</b></h6>
                                   </div>
                                   <div class="add-delete">
                                     <mat-icon>edit</mat-icon>
@@ -89,7 +108,7 @@
                                   </div>
                                 </div>
                                 <div class="card-content">
-                                  <h5>Skill Level: {{content.skillLevel}}</h5>
+                                  <h6>Skill Level: {{content.skillLevel}}</h6>
                                 </div>
                                 <div *ngIf="!isLast">
                                   <hr class="card-rule"/>
@@ -102,18 +121,18 @@
                               <div *ngFor="let content of card.contents;let i = index; last as isLast">
                                   <div class="title-row">
                                     <div class="title">
-                                      <h4>{{content.title}}</h4>
+                                      <h6><b>{{content.title}}</b></h6>
                                     </div>
                                     <div class="add-delete">
                                       <mat-icon>edit</mat-icon>
                                       <mat-icon (click)=onDelete(content,card.title)>delete</mat-icon>
                                     </div>
                                   </div>
-                                  <div class="card-content">
-                                    <h5>Role: {{content.role}}</h5>
+                                  <div>
+                                    <h6>Role: {{content.role}}</h6>
                                     <h6>Project Url: <a href="{{content.projectUrl}}">{{content.projectUrl}}</a></h6>
                                     <h6>Duration: {{content.fromDate}} - {{content.toDate}}</h6>
-                                    <p>{{content.description}}</p>
+                                    <p style="word-wrap: break-word">{{content.description}}</p>
                                     <div *ngFor= "let skills of content.technologiesUsed">
                                           {{skills.skill}}                                        
                                     </div>
@@ -129,7 +148,7 @@
                               <div *ngFor="let content of card.contents;let i = index; last as isLast">
                                   <div class="title-row">
                                     <div class="title">
-                                      <h4>{{content.currentCityName}}</h4>
+                                      <h6><b>{{content.currentCityName}}</b></h6>
                                     </div>
                                     <div class="add-delete">
                                       <mat-icon>edit</mat-icon>
@@ -137,8 +156,8 @@
                                     </div>
                                   </div>
                                   <div class="card-content">
-                                    <h5>State: {{content.currentStateName}}</h5>
-                                    <p>Past City:</p> 
+                                    <h6>State: {{content.currentStateName}}</h6>
+                                    <h6>Past Cities:</h6> 
                                       <div *ngFor= "let pastLocation of content.pastLocation">
                                           {{pastLocation.cityName}} ( {{pastLocation.stateName}} )
                                       </div>
@@ -154,7 +173,7 @@
                                 <div *ngFor="let content of card.contents;let i = index; last as isLast">
                                     <div class="title-row">
                                       <div class="title">
-                                        <h4>{{content.certificateName}}</h4>
+                                        <h6><b>{{content.certificateName}}</b></h6>
                                       </div>
                                       <div class="add-delete">
                                         <mat-icon>edit</mat-icon>
@@ -162,8 +181,8 @@
                                       </div>
                                     </div>
                                     <div class="card-content">
-                                      <h5>Certified by: {{content.certificateAuthority}}</h5>
-                                      <h5>License Number: {{content.licenseNumber}}</h5>
+                                      <h6>Certified by: {{content.certificateAuthority}}</h6>
+                                      <h6>License Number: {{content.licenseNumber}}</h6>
                                       <h6>Duration: {{content.fromDate}} - {{content.toDate}}</h6>
                                     </div>
                                     <div *ngIf="!isLast">
@@ -177,7 +196,7 @@
                                 <div *ngFor="let content of card.contents;let i = index; last as isLast">
                                     <div class="title-row">
                                       <div class="title">
-                                        <h4>{{content.organisation}}</h4>
+                                        <h6><b>{{content.organisation}}</b></h6>
                                       </div>
                                       <div class="add-delete">
                                         <mat-icon>edit</mat-icon>
@@ -185,8 +204,8 @@
                                       </div>
                                     </div>
                                     <div class="card-content">
-                                      <h5>Role: {{content.role}}</h5>
-                                      <h5>Duration: {{content.fromDate}} - {{content.toDate}}</h5>
+                                      <h6>Role: {{content.role}}</h6>
+                                      <h6>Duration: {{content.fromDate}}-{{content.fromMonth}}-{{content.fromYear}} - {{content.toDate}}-{{content.toMonth}}-{{content.toYear}}</h6>
                                     </div>
                                     <div *ngIf="!isLast">
                                       <hr class="card-rule"/>
