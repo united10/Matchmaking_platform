@@ -1,0 +1,15 @@
+.container1 {
+    display: flex;
+    flex-wrap : wrap;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+.container {
+    background-color:coral;
+}
+
+.combine {
+    display: flex;
+    align-content: center;
+}

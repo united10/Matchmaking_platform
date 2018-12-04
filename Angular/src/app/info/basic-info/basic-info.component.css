@@ -8,3 +8,7 @@
 .main {
     display: flex;
 }
+
+.pic {
+    margin-right: 20px;
+}

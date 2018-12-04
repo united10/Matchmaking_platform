@@ -3,6 +3,7 @@ package com.stackroute.controller;
 import com.stackroute.domain.User;
 import com.stackroute.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.*;
 
 // Authorization using jwt token and updating user details.
@@ -13,6 +14,8 @@ import org.springframework.web.bind.annotation.*;
 public class SecureController {
 
    private UserService userService;
+    @Value("${securecontroller.message.return}")
+    private String returnmessage;
 
     @Autowired
     public SecureController(UserService userService) {
@@ -21,20 +24,17 @@ public class SecureController {
 
     @RequestMapping("/user/users")
     public String loginSuccess() {
-        return "Login Successful!";
+        return returnmessage;
     }
 
     @RequestMapping(value = "/user/email", method = RequestMethod.POST)
     public User findByEmail(@RequestBody String email)
     {
-        System.out.println("secure");
-        System.out.println(userService.findByEmail(email));
         return userService.findByEmail(email);
     }
 
     @RequestMapping(value = "/user/update", method = RequestMethod.POST)
     public User updateUser(@RequestBody User user) {
-        System.out.println(user);
         return userService.save(user);
     }
 }

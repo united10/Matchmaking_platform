@@ -3,6 +3,7 @@ import { FormGroup, FormBuilder, FormControl } from '@angular/forms';
 import { Component, OnInit, Inject } from '@angular/core';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA, MatOption} from '@angular/material';
 import { TokenStorageService } from 'src/app/login/service/token-storage.service';
+import { BasicInfo } from './basic-info';
 
 @Component({
   selector: 'app-basic-info',
@@ -17,12 +18,12 @@ export class BasicInfoComponent implements OnInit {
   receivedFile: string;
   gender: any;
   dob: string;
-  selected: any;
   contactNo: string;
   linkedinUrl: string;
   githubUrl: string;
   name: string;
   email: string;
+  basicInfo: BasicInfo;
 
   constructor(
     public dialogRef: MatDialogRef<BasicInfoComponent>,
@@ -84,15 +85,16 @@ export class BasicInfoComponent implements OnInit {
   }
 
   onUpdate() {
+    // const basicInfo = new BasicInfo;
+
       this.dob = this.basicInformationForm.get('dob').value as string;
       this.contactNo = this.basicInformationForm.get('contactNo').value as string;
       this.linkedinUrl = this.basicInformationForm.get('linkedinUrl').value as string;
       this.githubUrl = this.basicInformationForm.get('githubUrl').value as string;
-      console.log(this.selected);
-      console.log(this.dob);
-      console.log(this.contactNo);
-      console.log(this.linkedinUrl);
-      console.log(this.githubUrl);
+      this.basicInfo = new BasicInfo(this.gender, this.dob, this.contactNo, this.linkedinUrl, this.githubUrl);
+      this.uploadService.basicInfoSending(this.token.getEmail(), this.basicInfo).subscribe(data =>{
+        console.log(data);
+      });
   }
 
 

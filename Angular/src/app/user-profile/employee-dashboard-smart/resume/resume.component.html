@@ -1,0 +1,49 @@
+<div ng-app="mainApp">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4" ng-controller="Resume">
+          <div class="panel panel-info" ng-model="card">
+            <div class="panel-heading">
+                <!-- <p><strong>Resume:</strong> {{this.name}}</p> -->
+              <div class = 'container1'>
+                  <app-employee-dashboard-smart (employeeEmit) = "onReciving($event)"></app-employee-dashboard-smart>
+                  <div class="panel-body">
+                    <div class = "Education">
+                      <div>
+                        <p><strong>Education:</strong></p>
+                      </div>
+                      <div>
+                        <p>College Name : {{this.institutionName}}</p>
+                        <p>Degree : {{this.title}}</p>
+                      </div>
+                      </div>
+                    </div>  
+                   
+                   <div class="skills">
+                     <div>
+                      <p><strong>Skill:</strong></p>
+                    </div>
+                    <div>
+                        <p>SkillName : {{this.skillName}}</p>
+                        <p>level: {{this.skillLevel}}</p>
+                      </div>
+                  </div>         
+                  
+                  <div class="Certificate">
+                    <div>
+                     <p><strong>Certificates:</strong></p>
+                   </div>
+                   <div>
+                       <p>certificateName : {{this.certificateName}}</p>
+                       <p>organization: {{this.certificateAuthority}}</p>
+                     </div>
+                 </div>      
+                    <p><strong>Projects:</strong> {{card.department}}</p>
+                    <p><strong>Experience:</strong> {{card.phone}}</p>
+                   </div>
+            </div> 
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
