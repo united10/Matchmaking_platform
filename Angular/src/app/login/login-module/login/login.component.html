@@ -10,10 +10,10 @@
       <form class="login-form" [formGroup]="loginForm" (ngSubmit)="loginForm.valid && onLoginSubmit()" #f="ngForm"  novalidate>
           <mat-form-field class="custom-row" appearance="outline">
             <mat-icon matPrefix style="color:white">person</mat-icon>
-            <input matInput class='formfield 'type="text"  formControlName="email" [(ngModel)]="user.email" placeholder=" Enter your email"/>
+            <input matInput class='formfield 'type="text" name="email"  formControlName="email" [(ngModel)]="user.email" placeholder=" Enter your email"/>
           </mat-form-field>
           <mat-form-field  class="custom-row" appearance="outline">
-            <input matInput class='formfield'
+            <input matInput class='formfield' name="password"
               formControlName="password"
               [(ngModel)]="user.password"
               placeholder=" Enter your password"
