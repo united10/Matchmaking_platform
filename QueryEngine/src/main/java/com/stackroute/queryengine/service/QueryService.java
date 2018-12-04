@@ -100,7 +100,7 @@ public class QueryService {
 
 
                 String str = experience.getExperience().isEmpty() ? "" : " -[r:works_in{duration:'"
-                        + experience.getExperience().get(0) + "'}]->(o:Organization)";
+                        + experience.getExperience().get(0) + " year'}]->(o:Organization)";
 
 
                 if (educationArray.isEmpty() && !locationArray.isEmpty()) {
