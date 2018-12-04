@@ -1,0 +1,37 @@
+import { HttpClient } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+
+@Injectable({
+  providedIn: 'root'
+})
+export class BasicInfoService {
+
+  private post_url = 'http://localhost:8095/api/v1/uploadFile/';
+  private get_url = 'http://localhost:8095/api/v1/downloadFile/';
+  private getFileName_url = 'http://localhost:8095/api/v1/downloadFileType/';
+  private getFileExists_url = 'http://localhost:8095/api/v1/fileExists/';
+
+  constructor(private http: HttpClient) {}
+
+  uploadFile(fd: FormData, userId: String) {
+    console.log('service component working');
+    return this.http.post(this.post_url + userId, fd, {
+      reportProgress: true,
+      responseType: 'text'
+    });
+  }
+
+  downloadFile(userId: String) {
+    console.log('download service component working');
+    return this.http.get(this.get_url + userId, {responseType: 'arraybuffer'});
+  }
+
+  downloadFileName(userId: String) {
+    console.log('download service component working');
+    return this.http.get(this.getFileName_url + userId, {responseType: 'text'});
+  }
+
+  fileExists(userId: String) {
+    return this.http.get<boolean>(this.getFileExists_url + userId);
+  }
+}
