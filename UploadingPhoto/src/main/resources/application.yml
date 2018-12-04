@@ -1,10 +1,10 @@
 server:
-    port: 8095
+    port: 8096
 spring:
     datasource:
-        url: jdbc:mysql://localhost:3306/db?useSSL=false
+        url: jdbc:mysql://localhost:3306/userpic
         username: root
-        password: Vi7897527880
+        password: password
     servlet:
         multipart:
             enabled: true
