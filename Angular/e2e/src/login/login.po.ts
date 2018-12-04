@@ -12,7 +12,7 @@ export class LoginPage {
     }
 
     getForm() {
-        return element(by.css('#loginForm'));
+        return element(by.css('.login-form'));
     }
 
     getSubmitButton() {
@@ -21,5 +21,8 @@ export class LoginPage {
 
     getErrorMessage() {
         return element(by.className('alert')).getText();
+    }
+    getregisterlink() {
+        return element(by.tagName('a'));
     }
 }

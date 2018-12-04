@@ -59,11 +59,11 @@ export class EmployeeDashboardDummyComponent implements OnInit {
     if (this.tokenstorageservice.getToken()) {
       this.isLoggedIn = true;
     }
-    // this.refreshService.refresh.subscribe(result => {
-    //   if (result) {
-    //     this.refresh();
-    //   }
-    // });
+    this.refreshService.refresh.subscribe(result => {
+      if (result) {
+        this.refresh();
+      }
+    });
 
     this.uploadService.fileExists(this.tokenstorageservice.getEmail()).subscribe(data => {
       this.isPhotoSelected = data;
@@ -104,6 +104,7 @@ export class EmployeeDashboardDummyComponent implements OnInit {
     });
   }
   refresh() {
+    console.log(`refreshed`);
     this.downstreamBackendService.getEmployee(this.tokenstorageservice.getEmail()).subscribe((data) => {
       this.setEmployees(data);
     });
