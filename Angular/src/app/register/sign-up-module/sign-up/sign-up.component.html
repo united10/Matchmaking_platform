@@ -10,7 +10,7 @@
       <form class="login-form"
       [formGroup]="registerForm"
       *ngIf="!submitted"
-      (ngSubmit)="registerForm.valid && onRegisterSubmit()"
+      (ngSubmit)="registerForm.valid && onRegisterSubmit()" #f="ngForm"
       novalidate>
         <mat-form-field class="custom-row" appearance="outline">
           <mat-icon matPrefix style="color:white">person</mat-icon>
@@ -43,6 +43,9 @@
           [disabled]="!registerForm.valid">
           Register
         </button>
+        <div *ngIf="f.submitted" class="alert alert-danger">
+          {{ errorMessage }}
+        </div>
       </form>
       <div class="form-container">
         <span class="suggest mt-1">

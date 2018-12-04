@@ -14,6 +14,8 @@ import { CardsModule } from '../add-module/cards.module';
 import { MaterialModule } from '../login/login-module/material.module';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { InfoModule } from './../info/info.module';
+import { PortfolioComponent } from './employee-dashboard-smart/portfolio/portfolio.component';
+import { ResumeComponent } from './employee-dashboard-smart/resume/resume.component';
 
 @NgModule({
   imports: [
@@ -34,8 +36,9 @@ import { InfoModule } from './../info/info.module';
   declarations: [
     EmployeeDashboardDummyComponent,
     EmployeeDashboardSmartComponent,
+    PortfolioComponent , ResumeComponent
   ],
-  entryComponents: [BasicInfoComponent],
+  entryComponents: [BasicInfoComponent , PortfolioComponent , ResumeComponent],
   providers: []
 })
 export class UserProfileModule { }

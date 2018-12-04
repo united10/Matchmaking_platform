@@ -8,16 +8,16 @@ import { Injectable } from '@angular/core';
 export class BasicInfoService {
 
   private post_url = 'http://localhost:8095/api/v1/uploadFile/';
-  private get_url = 'http://localhost:8095/api/v1/downloadFile/';
-  private getFileName_url = 'http://localhost:8095/api/v1/downloadFileType/';
-  private getFileExists_url = 'http://localhost:8095/api/v1/fileExists/';
-  private basic_url = 'https://matchmaker-zuul.stackroute.in/downstream-service/matchmaker/v1/employees/';
+  private get_url = 'https://matchmaker-zuul.stackroute.in/uploadpic-service/api/v1/downloadFile/';
+  private getFileName_url = 'https://matchmaker-zuul.stackroute.in/uploadpic-service/api/v1/downloadFileType/';
+  private getFileExists_url = 'https://matchmaker-zuul.stackroute.in/uploadpic-service/api/v1/fileExists/';
+  private basic_url = 'https://matchmaker-zuul.stackroute.in/uploadpic-service/api/v1/uploadFile/';
 
   constructor(private http: HttpClient) {}
 
   uploadFile(fd: FormData, userId: String) {
     console.log('service component working');
-    return this.http.post(this.post_url + userId, fd, {
+    return this.http.post(this.basic_url + userId, fd, {
       reportProgress: true,
       responseType: 'text'
     });

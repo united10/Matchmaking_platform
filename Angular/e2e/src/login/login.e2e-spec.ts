@@ -1,8 +1,14 @@
 import { LoginPage } from './login.po';
+import { Dashboard } from '../dashboard/dashboard.po';
+import { Register } from '../register/register.po';
 describe('Login tests', () => {
     let page: LoginPage;
+    let dashboard: Dashboard;
+    let register: Register;
     beforeEach(() => {
         page = new LoginPage();
+        dashboard = new Dashboard();
+        register = new Register();
         page.navigateTo();
     });
     it('Login form should be valid', () => {
@@ -32,11 +38,14 @@ describe('Login tests', () => {
         page.getSubmitButton().click();
         expect(page.getErrorMessage()).toEqual('Invalid Login.Please check your email and password');
     });
-       it('when login is successful — he should redirect to default “dashboard” page', () => {
+    it('when user click on register — he should redirect to “registration” page', () => {
+        page.getregisterlink().click();
+        expect(register.getParagraphText()).toEqual('Already registered? Login');
+     });
+       it('when login is successful — he should redirect to “dashboard” page', () => {
         page.getEmailTextbox().sendKeys('info@stackroute.com');
-        page.getPasswordTextbox().sendKeys('1234567');
+        page.getPasswordTextbox().sendKeys('123456');
         page.getSubmitButton().click();
-        expect(page.getErrorMessage()).toEqual('Basic Details');
-       });
-
+        expect(dashboard.getPageTitleText()).toEqual('Basic Details');
+    });
 });
