@@ -1,3 +1,4 @@
+import { BasicInfo } from './basic-info/basic-info';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
@@ -10,6 +11,7 @@ export class BasicInfoService {
   private get_url = 'http://localhost:8095/api/v1/downloadFile/';
   private getFileName_url = 'http://localhost:8095/api/v1/downloadFileType/';
   private getFileExists_url = 'http://localhost:8095/api/v1/fileExists/';
+  private basic_url = 'https://matchmaker-zuul.stackroute.in/downstream-service/matchmaker/v1/employees/';
 
   constructor(private http: HttpClient) {}
 
@@ -33,5 +35,9 @@ export class BasicInfoService {
 
   fileExists(userId: String) {
     return this.http.get<boolean>(this.getFileExists_url + userId);
+  }
+
+  basicInfoSending(userId: String, basicInfo: BasicInfo) {
+    return this.http.post(this.basic_url + userId, basicInfo);
   }
 }
