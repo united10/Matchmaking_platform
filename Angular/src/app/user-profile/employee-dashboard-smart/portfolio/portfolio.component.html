@@ -1,19 +1,19 @@
+<body>
 <div ng-app="mainApp">
-    <div class="container">
+    <div class="container" #container>
       <div class="row">
         <div class="col-md-4" ng-controller="businessCard">
           <div class="panel panel-info" ng-model="card">
             <div class="panel-heading">
-              <h6>VisitingCard</h6>
               <div class = 'container1'>
                   <app-employee-dashboard-smart (employeeEmit) = "onReciving($event)"></app-employee-dashboard-smart>
-                 <div class = "userpic">
+                 <!-- <div class = "userpic">
                     <img src="/src/assets/images/user-pic-unavailable.png" class="rounded-circle" alt="profilePic">
-                  </div>  
+                  </div>   -->
                   <div class="panel-body">
-                    <p><strong>Name:</strong> {{this.name}}</p>
-                    <p><strong>Email:</strong> {{this.email}}</p>
-                    <p><strong>Department:</strong> {{card.department}}</p>
+                    <p>{{this.name}}</p>
+                    <p> {{this.email}}</p>
+                    <p><strong>Address:</strong> {{card.address}}</p>
                     <p><strong>Phone:</strong> {{card.phone}}</p>
                    </div>
             </div> 
@@ -22,3 +22,7 @@
       </div>
     </div>
   </div>
+
+  <button (click)="downloadPDF()">Download Card</button>
+  </div>
+</body>
