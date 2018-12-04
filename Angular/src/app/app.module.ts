@@ -8,7 +8,6 @@ import { RoutingModule } from './routing/routing.module';
 import { UserProfileModule } from './user-profile/user-profile.module';
 import { LoginModule } from './login/login-module/login.module';
 import { SignUpModule } from './register/sign-up-module/sign-up.module';
-import { FooterModule } from './footer/footer.module';
 import { SearchModule } from './search/search-module/search.module';
 
 
@@ -24,7 +23,6 @@ import { SearchModule } from './search/search-module/search.module';
     SearchModule,
     LoginModule,
     SignUpModule,
-    FooterModule
   ],
   providers: [],
   bootstrap: [AppComponent]

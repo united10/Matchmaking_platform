@@ -36,7 +36,6 @@ public class UserServiceImpl implements UserService {
 @KafkaListener(topics = "${kafka.listeningTopic}" ,groupId = "${kafka.groupId}",
         containerFactory="${kafka.containerFactory}")
     public void getUserFrmTopic(@Payload User user) {
-        System.out.println("Consumed Json Message: "+ user.toString());
        user.setRole("consumer");
         userRepository.save(user);
     }

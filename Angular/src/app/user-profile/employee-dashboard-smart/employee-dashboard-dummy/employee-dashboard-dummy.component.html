@@ -9,6 +9,18 @@
         </button>
         <div class="collapse navbar-collapse" id="navToggle" [ngbCollapse]="isCollapsed">
             <ul class="navbar-nav ml-auto">
+              
+                <li class="nav-item">
+                    <a class="nav-link">
+                    <button mat-stroked-button (click)="view()"><b>Visiting Card</b></button>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link">
+                  
+                    <button mat-stroked-button (click)="resume()"><b>Resume</b></button>
+                  </a>
+                  </li>
               <li class="nav-item">
                 <a class="nav-link"  href="#">
                   <button mat-stroked-button routerLink="/Communities"><b>Your Communities</b></button>
@@ -24,6 +36,7 @@
                   <button mat-stroked-button (click)="logout()"><b>Logout</b></button>
                 </a>
               </li>
+            
             </ul>
           </div>
       </nav>
@@ -43,13 +56,17 @@
                   </ng-template>
                 </div>
                 <div  class="user-detail">
-                  <h6>Basic Details</h6>                 
+                  <h6 class="titlee">Basic Details</h6>                 
                   <hr/>
                   <h6 *ngIf="basicLength!==0">{{basicInfo.contents.employeeName}}</h6>
                   <h6 *ngIf="basicLength!==0">{{basicInfo.contents.email}}</h6>
                 </div>
               </div>
               <mat-progress-bar class="progress" mode="determinate" value={{this.temp}}></mat-progress-bar>
+              <h4>Profile completion: {{this.temp}}%</h4>
+
+
+              
               <mat-grid-list cols="2" rowHeight="2rem">
                 <mat-grid-tile  *ngFor="let card of cards | async" [colspan]="card.cols" [rowspan]="card.rows">
                   <mat-card class="dashboard-card" *ngIf="card.contents.length!=='0'">

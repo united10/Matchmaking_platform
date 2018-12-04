@@ -1,5 +1,5 @@
 <section class="main" [formGroup]="basicInformationForm" >
-  <div><br>
+  <div class="pic"><br>
       <div *ngIf="isPhotoSelected; else DummyImage">
           <img (click)="working.click()" class="image" src="data:image/jpg;base64,{{receivedFile}}" alt="Image">
         </div>
@@ -15,7 +15,7 @@
   <p>Email   :   {{email}}</p>
   <p>Gender :
       <mat-form-field>
-          <mat-select [(value)]="selected" required>
+          <mat-select [(value)]="gender" required>
             <mat-option value="Male">Male</mat-option>
             <mat-option value="Female">Female</mat-option>
             <mat-option value="Other">Other</mat-option>

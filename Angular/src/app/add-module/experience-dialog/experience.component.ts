@@ -55,6 +55,7 @@ export class ExperienceComponent implements OnInit {
       experience: this.fb.array([this.initItemRow()])
     });
     this.dialogRef.afterClosed().subscribe(result => {
+      console.log(`experience add`);
       this.refreshService.refreshProfile();
     });
   }
