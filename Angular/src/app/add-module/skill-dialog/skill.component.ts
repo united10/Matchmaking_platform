@@ -10,6 +10,7 @@ import { ReadfromjsonService } from './../service/readfromjson.service';
 import { TokenStorageService } from 'src/app/login/service/token-storage.service';
 import { Skillauto } from './domain/skillauto';
 import { debounceTime, tap, switchMap, finalize } from 'rxjs/operators';
+import { RefreshService } from '../service/refresh.service';
 
 @Component({
   selector: 'app-skill',
@@ -33,7 +34,8 @@ export class SkillComponent implements OnInit {
   constructor(@Inject(MAT_DIALOG_DATA) private data: any,
     private dialogRef: MatDialogRef<SkillComponent>, private readfromjsonService: ReadfromjsonService,
     private skillService: SkillService, private fb: FormBuilder,
-    private token: TokenStorageService) {
+    private token: TokenStorageService,
+    private refreshService: RefreshService) {
 
   }
 
@@ -47,6 +49,9 @@ export class SkillComponent implements OnInit {
         this.dataJson = data;
       }
     );
+    this.dialogRef.afterClosed().subscribe(result => {
+      this.refreshService.refreshProfile();
+    });
   }
 
   onKeyUp(index: number) {
