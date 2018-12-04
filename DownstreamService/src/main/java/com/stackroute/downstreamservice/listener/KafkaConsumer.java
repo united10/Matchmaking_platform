@@ -151,8 +151,13 @@ public class KafkaConsumer {
         Chicklets[] chicklets=locationSection.getChicklets();
         for(Chicklets chicklet:chicklets){
             CurrentLocation currentLocation=chicklet.getCurrentLocation();
-            PastLocation[] pastLocation=chicklet.getPastLocation();
-            List<PastLocation> pastLocations= Arrays.asList(pastLocation);
+            PastLocation[] pastLocation;
+            List<PastLocation> pastLocations=new ArrayList<>();
+            if(chicklet.getPastLocation()!=null) {
+                 pastLocation= chicklet.getPastLocation();
+                pastLocations= Arrays.asList(pastLocation);
+            }
+
             location.setCurrentLocation(currentLocation);
             location.setPastLocation(pastLocations);
         }
