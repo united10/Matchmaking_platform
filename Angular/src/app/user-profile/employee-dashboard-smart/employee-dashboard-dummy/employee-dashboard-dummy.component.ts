@@ -1,3 +1,5 @@
+import { BasicInfoComponent } from './../../../info/basic-info/basic-info.component';
+import { BasicInfoService } from './../../../info/basic-info.service';
 import { Component, Input, OnInit, Inject } from '@angular/core';
 import { map } from 'rxjs/operators';
 import { Breakpoints, BreakpointObserver } from '@angular/cdk/layout';
@@ -22,6 +24,7 @@ import { PastLocation } from 'src/app/add-module/location-dialog/domain/pastloca
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { CertificatedialogComponent } from 'src/app/add-module/certificate-dialog/certificatedialog.component';
 import { RefreshService } from 'src/app/add-module/service/refresh.service';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-employee-dashboard-dummy',
@@ -38,12 +41,16 @@ export class EmployeeDashboardDummyComponent implements OnInit {
   temp = 0;
   isLoggedIn = false;
   basicInfo;
+  isPhotoSelected: Boolean = false;
+  receivedFile: string;
   educationLength: number;
   public isCollapsed = false;
   constructor(private breakpointObserver: BreakpointObserver,
               private tokenstorageservice: TokenStorageService,
               private downstreamBackendService: DownstreamBackendService,
-              private refreshService: RefreshService) {}
+              private refreshService: RefreshService,
+              private uploadService: BasicInfoService,
+              public dialog: MatDialog) {}
 
 
   ngOnInit() {
@@ -55,7 +62,44 @@ export class EmployeeDashboardDummyComponent implements OnInit {
         this.refresh();
       }
     });
+
+    this.uploadService.fileExists(this.tokenstorageservice.getEmail()).subscribe(data => {
+      this.isPhotoSelected = data;
+    });
+
+    this.uploadService.downloadFile(this.tokenstorageservice.getEmail()).subscribe(data => {
+      let binary = '';
+  const bytes = new Uint8Array( data );
+  const len = bytes.byteLength;
+  for (let i = 0; i < len; i++) {
+      binary += String.fromCharCode( bytes[ i ] );
+  this.receivedFile = window.btoa(binary);
   }
+    });
+  }
+
+  openDialog(): void {
+    const dialogRef = this.dialog.open(BasicInfoComponent, {
+      width: '590px'
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+
+      this.uploadService.fileExists(this.tokenstorageservice.getEmail()).subscribe(data => {
+        this.isPhotoSelected = data;
+      });
+
+      this.uploadService.downloadFile(this.tokenstorageservice.getEmail()).subscribe(data => {
+        let binary = '';
+    const bytes = new Uint8Array( data );
+    const len = bytes.byteLength;
+    for (let i = 0; i < len; i++) {
+        binary += String.fromCharCode( bytes[ i ] );
+    }
+    this.receivedFile = window.btoa(binary);
+      });
+    });
 
   refresh() {
     this.downstreamBackendService.getEmployee(this.tokenstorageservice.getEmail()).subscribe((data) => {

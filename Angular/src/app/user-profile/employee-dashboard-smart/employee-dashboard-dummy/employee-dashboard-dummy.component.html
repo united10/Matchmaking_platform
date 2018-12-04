@@ -15,6 +15,11 @@
                 </a>
               </li>
               <li class="nav-item">
+                <a class="nav-link">
+                  <button mat-stroked-button (click)="openDialog()"><b>Basic Info</b></button>
+                </a>
+              </li>
+              <li class="nav-item">
                 <a class="nav-link" href="#">
                   <button mat-stroked-button (click)="logout()"><b>Logout</b></button>
                 </a>
@@ -28,8 +33,14 @@
           <div class="dummy"></div>
           <div class="grid-container">
               <div class="basic-detail">
-                <div class="user-pic">
-                  <img src="/src/assets/images/user-pic-unavailable.png" class="rounded-circle" alt="profilePic">
+                <div >
+                  <div class="user-pic" *ngIf="isPhotoSelected; else DummyImage">
+                    <img class="rounded-circle pic" src="data:image/jpg;base64,{{receivedFile}}" alt="Image">
+                  </div>
+                  
+                  <ng-template #DummyImage>
+                    <img class="rounded-circle pic" src="/src/assets/images/user-pic-unavailable.png">
+                  </ng-template>
                 </div>
                 <div  class="user-detail">
                   <h6>Basic Details</h6>                 
