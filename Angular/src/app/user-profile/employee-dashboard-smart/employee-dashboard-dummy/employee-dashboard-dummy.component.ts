@@ -57,11 +57,11 @@ export class EmployeeDashboardDummyComponent implements OnInit {
     if (this.tokenstorageservice.getToken()) {
       this.isLoggedIn = true;
     }
-    this.refreshService.refresh.subscribe(result => {
-      if (result) {
-        this.refresh();
-      }
-    });
+    // this.refreshService.refresh.subscribe(result => {
+    //   if (result) {
+    //     this.refresh();
+    //   }
+    // });
 
     this.uploadService.fileExists(this.tokenstorageservice.getEmail()).subscribe(data => {
       this.isPhotoSelected = data;
