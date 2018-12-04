@@ -100,7 +100,7 @@ export class EmployeeDashboardDummyComponent implements OnInit {
     this.receivedFile = window.btoa(binary);
       });
     });
-
+  }
   refresh() {
     this.downstreamBackendService.getEmployee(this.tokenstorageservice.getEmail()).subscribe((data) => {
       this.setEmployees(data);
