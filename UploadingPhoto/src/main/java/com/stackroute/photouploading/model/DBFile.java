@@ -8,6 +8,7 @@ import javax.persistence.*;
 @Table(name = "files")
 public class DBFile {
     @Id
+    @Column(length=200)
     private String id;
 
     private String fileName;

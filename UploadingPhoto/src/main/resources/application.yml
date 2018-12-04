@@ -10,3 +10,13 @@ spring:
             enabled: true
             file-size-threshold: 2KB
             max-file-size: 200MB
+
+    jpa:
+        openInView: false
+        show_sql: true
+        generate-ddl: false
+        hibernate:
+            ddl-auto: create
+        properties:
+            hibernate:
+                dialect: org.hibernate.dialect.MySQL5Dialect
