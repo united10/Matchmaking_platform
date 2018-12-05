@@ -1,22 +1,20 @@
-package com.stackroute.tokenizer.domain;
-
+package com.stackroute.queryengine.domain;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
 import org.springframework.stereotype.Component;
 
 import java.util.List;
 
-@Component
+
 @Data
+@Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@Builder
-public class Output {
-    List<String> educations;
-    List<String> skills;
-    List<String> experiences;
-    List<String> locations;
+public class Education {
+
+    private List<String> name;
 }
