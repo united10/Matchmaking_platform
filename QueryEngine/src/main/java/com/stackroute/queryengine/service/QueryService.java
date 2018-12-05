@@ -202,7 +202,7 @@ public class QueryService {
                     SockJsClient sockJsClient = new SockJsClient(transports);
                     WebSocketStompClient stompClient = new WebSocketStompClient(sockJsClient);
                     stompClient.setMessageConverter(new MappingJackson2MessageConverter());
-                    String url = "ws://172.23.239.189:8069/socket";
+                    String url = "ws://localhost:8069/socket";
                     String userId = "search" +
                             ThreadLocalRandom.current().nextInt(1, 99);
                     StompSessionHandler sessionHandler = new MyStompSessionHandler(userId);
