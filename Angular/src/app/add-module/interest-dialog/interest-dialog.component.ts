@@ -1,12 +1,14 @@
+import { InterestService } from './../service/interest.service';
 import { Component, OnInit, Inject, Renderer2 } from '@angular/core';
 
 // import { InterestsService } from 'src/app/cards/service/interests.service';
-import { Output } from '../outputclass/output';
+import { Output } from './domain/output';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { FormGroup, FormArray, FormControl, FormBuilder, Validators } from '@angular/forms';
 import { InterestsSection } from './domain/section';
 import { Chicklets } from './domain/chicklets';
 import { TokenStorageService } from 'src/app/login/service/token-storage.service';
+import { RefreshService } from '../service/refresh.service';
 
 
 @Component({
@@ -29,13 +31,18 @@ export class InterestDialogComponent implements OnInit {
   constructor(@Inject(MAT_DIALOG_DATA) private data: any,
     private dialogRef: MatDialogRef<InterestDialogComponent>,
     private fb: FormBuilder,
-    private token: TokenStorageService) {
+    private token: TokenStorageService,
+    private interestService: InterestService,
+    private refreshService: RefreshService) {
 
   }
 
   ngOnInit() {
     this.interestsForm = this.fb.group({
       interests: this.fb.array([this.initItemRow()])
+    });
+    this.dialogRef.afterClosed().subscribe(result => {
+      this.refreshService.refreshProfile();
     });
   }
 
@@ -73,16 +80,18 @@ export class InterestDialogComponent implements OnInit {
 
 
     const section = new InterestsSection('Interests', this.token.getEmail(), 'add', chicklets);
-    // this.interestsService.addInterestsDetails(section).subscribe(
-    //   data => {
-    //     this.output = data;
-    //     console.log(this.output);
-    //     this.dialogRef.close();
-    //   },
-    //   error => {
-    //     this.errorMessage = error;
-    //   }
-    // );
+
+
+    this.interestService.addInterestsDetails(section).subscribe(
+      data => {
+        this.output = data;
+        console.log(this.output);
+        this.dialogRef.close();
+      },
+      error => {
+        this.errorMessage = error;
+      }
+    );
   }
 
   onClose() {

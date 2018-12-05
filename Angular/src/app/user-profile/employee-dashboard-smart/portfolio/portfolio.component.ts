@@ -1,6 +1,7 @@
 import { FormArray } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialogRef, MatDialog } from '@angular/material/dialog';
-import { Component, OnInit, Inject } from '@angular/core';
+import { Component, OnInit, Inject, ViewChild, ElementRef } from '@angular/core';
+import * as jsPDF from 'jspdf';
 
 @Component({
   selector: 'app-portfolio',
@@ -8,6 +9,7 @@ import { Component, OnInit, Inject } from '@angular/core';
   styleUrls: ['./portfolio.component.css']
 })
 export class PortfolioComponent implements OnInit {
+  @ViewChild('container') container: ElementRef;
 
   name: string;
   temp: FormArray;
@@ -25,5 +27,21 @@ export class PortfolioComponent implements OnInit {
       this.name = employee.name;
       this.email = employee.email;
       console.log(this.name);
+  }
+  public downloadPDF() {
+    var doc = new jsPDF("l", "mm", "a7");
+    let specialElementHandlers = {
+      '#editor':function(element, renderer)  {
+        return true;
+      }
+    };
+
+    let container= this.container.nativeElement;
+    doc.fromHTML(container.innerHTML, 15, 0, {
+     'width': 40,
+     'elementHandlers': specialElementHandlers
+    });
+    doc.save('testing.pdf');
+    // return xepOnline.Formatter.format('container2', {render: 'download'});
   }
 }

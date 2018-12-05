@@ -1,4 +1,4 @@
-<div class="body">
+<div class="user-profile">
     <nav *ngIf="isLoggedIn" class="navbar fixed-top navbar-expand-sm navbar-dark  main-nav">
         <a class="navbar-brand" href="#">
           <img src="/src/assets/images/nav-logo.png" class="d-inline-block align-top" alt="">
@@ -9,6 +9,18 @@
         </button>
         <div class="collapse navbar-collapse" id="navToggle" [ngbCollapse]="isCollapsed">
             <ul class="navbar-nav ml-auto">
+              
+                <li class="nav-item">
+                    <a class="nav-link">
+                    <button mat-stroked-button (click)="view()"><b>Visiting Card</b></button>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link">
+                  
+                    <button mat-stroked-button (click)="resume()"><b>Resume</b></button>
+                  </a>
+                  </li>
               <li class="nav-item">
                 <a class="nav-link"  href="#">
                   <button mat-stroked-button routerLink="/Communities"><b>Your Communities</b></button>
@@ -24,6 +36,7 @@
                   <button mat-stroked-button (click)="logout()"><b>Logout</b></button>
                 </a>
               </li>
+            
             </ul>
           </div>
       </nav>
@@ -33,8 +46,8 @@
           <div class="dummy"></div>
           <div class="grid-container">
               <div class="basic-detail">
-                <div >
-                  <div class="user-pic" *ngIf="isPhotoSelected; else DummyImage">
+                <div class="user-pic">
+                  <div *ngIf="isPhotoSelected; else DummyImage">
                     <img class="rounded-circle pic" src="data:image/jpg;base64,{{receivedFile}}" alt="Image">
                   </div>
                   
@@ -43,112 +56,54 @@
                   </ng-template>
                 </div>
                 <div  class="user-detail">
-                  <h6>Basic Details</h6>                 
+                  <h6 class="title">Basic Details</h6>                 
                   <hr/>
                   <h6 *ngIf="basicLength!==0">{{basicInfo.contents.employeeName}}</h6>
                   <h6 *ngIf="basicLength!==0">{{basicInfo.contents.email}}</h6>
                 </div>
               </div>
               <mat-progress-bar class="progress" mode="determinate" value={{this.temp}}></mat-progress-bar>
+              <!-- <h4>Profile completion: {{this.temp}}%</h4> -->
 
-              <div class="combine">
-                <div class = 'view'>
-                  <a href="#"></a>
-                  <button mat-button (click)="view()">Visiting Card</button>
-                </div>
 
-                <div class = 'resume'>
-                  <a href="#"></a>
-                  <button mat-button (click)="resume()">Resume</button>
-                </div>
-              </div>
-
-              
-              <mat-grid-list cols="2" rowHeight="2rem">
-                <mat-grid-tile  *ngFor="let card of cards | async" [colspan]="card.cols" [rowspan]="card.rows">
-                  <mat-card class="dashboard-card" *ngIf="card.contents.length!=='0'">
-                    
-                      <mat-card-title class="mb-5">
-                        <h2 class="mat-h1">{{card.title}}</h2>
+              <div class="card-area">
+                <mat-grid-list  cols="2" rowHeight="2rem">
+                  <mat-grid-tile  *ngFor="let card of cards | async" [colspan]="card.cols" [rowspan]="card.rows">
+                    <mat-card class="dashboard-card" *ngIf="card.contents.length!=='0'">
                       
-                      </mat-card-title>
-                    
-                    <mat-card-content class="dashboard-card-content" *ngIf="isTitle(card.title,'Education')" >
-                      <div class ="Wrapper">
-                        <div *ngFor="let content of card.contents;let i = index; last as isLast">
-                          <div class="title-row">
-                            <div class="title">
-                              <h6><b>{{content.qualification}}</b></h6>
+                        <mat-card-title class="mb-5">
+                          <h2 class="mat-h1">{{card.title}}</h2>
+                        
+                        </mat-card-title>
+                      
+                      <mat-card-content class="dashboard-card-content" *ngIf="isTitle(card.title,'Education')" >
+                        <div class ="Wrapper">
+                          <div *ngFor="let content of card.contents;let i = index; last as isLast">
+                            <div class="title-row">
+                              <div class="title">
+                                <h6><b>{{content.qualification}}</b></h6>
+                              </div>
+                              <div class="add-delete">
+                                <mat-icon>edit</mat-icon>
+                                <mat-icon (click)=onDelete(content,card.title)>delete</mat-icon>
+                              </div>
                             </div>
-                            <div class="add-delete">
-                              <mat-icon>edit</mat-icon>
-                              <mat-icon (click)=onDelete(content,card.title)>delete</mat-icon>
+                            <div class="card-content">
+                              <h6>Institute: {{content.institution}}</h6>
+                              <h6>Duration: {{content.startDate}} - {{content.endDate}}</h6>
                             </div>
-                          </div>
-                          <div class="card-content">
-                            <h6>Institute: {{content.institution}}</h6>
-                            <h6>Duration: {{content.startDate}} - {{content.endDate}}</h6>
-                          </div>
-                          <div *ngIf="!isLast">
-                            <hr class="card-rule"/>
+                            <div *ngIf="!isLast">
+                              <hr class="card-rule"/>
+                            </div>
                           </div>
                         </div>
-                      </div>
-                    </mat-card-content>
-                    <mat-card-content class="dashboard-card-content" *ngIf="isTitle(card.title,'Skills')" >
-                        <div class ="Wrapper">
-                            <div *ngFor="let content of card.contents;let i = index; last as isLast">
-                                <div class="title-row">
-                                  <div class="title">
-                                    <h6><b>{{content.skillName}}</b></h6>
-                                  </div>
-                                  <div class="add-delete">
-                                    <mat-icon>edit</mat-icon>
-                                    <mat-icon (click)=onDelete(content,card.title)>delete</mat-icon>
-                                  </div>
-                                </div>
-                                <div class="card-content">
-                                  <h6>Skill Level: {{content.skillLevel}}</h6>
-                                </div>
-                                <div *ngIf="!isLast">
-                                  <hr class="card-rule"/>
-                                </div>
-                              </div>
-                          </div>
                       </mat-card-content>
-                      <mat-card-content class="dashboard-card-content" *ngIf="isTitle(card.title,'Project')" >
+                      <mat-card-content class="dashboard-card-content" *ngIf="isTitle(card.title,'Skills')" >
                           <div class ="Wrapper">
                               <div *ngFor="let content of card.contents;let i = index; last as isLast">
                                   <div class="title-row">
                                     <div class="title">
-                                      <h6><b>{{content.title}}</b></h6>
-                                    </div>
-                                    <div class="add-delete">
-                                      <mat-icon>edit</mat-icon>
-                                      <mat-icon (click)=onDelete(content,card.title)>delete</mat-icon>
-                                    </div>
-                                  </div>
-                                  <div>
-                                    <h6>Role: {{content.role}}</h6>
-                                    <h6>Project Url: <a href="{{content.projectUrl}}">{{content.projectUrl}}</a></h6>
-                                    <h6>Duration: {{content.fromDate}} - {{content.toDate}}</h6>
-                                    <p style="word-wrap: break-word">{{content.description}}</p>
-                                    <div *ngFor= "let skills of content.technologiesUsed">
-                                          {{skills.skill}}                                        
-                                    </div>
-                                  </div>
-                                  <div *ngIf="!isLast">
-                                    <hr class="card-rule"/>
-                                  </div>
-                                </div>
-                            </div>
-                        </mat-card-content>
-                        <mat-card-content class="dashboard-card-content" *ngIf="isTitle(card.title,'Location')" >
-                          <div class ="Wrapper">
-                              <div *ngFor="let content of card.contents;let i = index; last as isLast">
-                                  <div class="title-row">
-                                    <div class="title">
-                                      <h6><b>{{content.currentCityName}}</b></h6>
+                                      <h6><b>{{content.skillName}}</b></h6>
                                     </div>
                                     <div class="add-delete">
                                       <mat-icon>edit</mat-icon>
@@ -156,11 +111,7 @@
                                     </div>
                                   </div>
                                   <div class="card-content">
-                                    <h6>State: {{content.currentStateName}}</h6>
-                                    <h6>Past Cities:</h6> 
-                                      <div *ngFor= "let pastLocation of content.pastLocation">
-                                          {{pastLocation.cityName}} ( {{pastLocation.stateName}} )
-                                      </div>
+                                    <h6>Skill Level: {{content.skillLevel}}</h6>
                                   </div>
                                   <div *ngIf="!isLast">
                                     <hr class="card-rule"/>
@@ -168,57 +119,110 @@
                                 </div>
                             </div>
                         </mat-card-content>
-                        <mat-card-content class="dashboard-card-content" *ngIf="isTitle(card.title,'Certificate')" >
+                        <mat-card-content class="dashboard-card-content" *ngIf="isTitle(card.title,'Project')" >
                             <div class ="Wrapper">
                                 <div *ngFor="let content of card.contents;let i = index; last as isLast">
                                     <div class="title-row">
                                       <div class="title">
-                                        <h6><b>{{content.certificateName}}</b></h6>
+                                        <h6><b>{{content.title}}</b></h6>
                                       </div>
                                       <div class="add-delete">
                                         <mat-icon>edit</mat-icon>
                                         <mat-icon (click)=onDelete(content,card.title)>delete</mat-icon>
                                       </div>
                                     </div>
-                                    <div class="card-content">
-                                      <h6>Certified by: {{content.certificateAuthority}}</h6>
-                                      <h6>License Number: {{content.licenseNumber}}</h6>
-                                      <h6>Duration: {{content.fromDate}} - {{content.toDate}}</h6>
-                                    </div>
-                                    <div *ngIf="!isLast">
-                                      <hr class="card-rule"/>
-                                    </div>
-                                  </div>                            
-                              </div>
-                          </mat-card-content>
-                        <mat-card-content class="dashboard-card-content" *ngIf="isTitle(card.title,'Experience')" >
-                            <div class ="Wrapper">
-                                <div *ngFor="let content of card.contents;let i = index; last as isLast">
-                                    <div class="title-row">
-                                      <div class="title">
-                                        <h6><b>{{content.organisation}}</b></h6>
-                                      </div>
-                                      <div class="add-delete">
-                                        <mat-icon>edit</mat-icon>
-                                        <mat-icon (click)=onDelete(content,card.title)>delete</mat-icon>
-                                      </div>
-                                    </div>
-                                    <div class="card-content">
+                                    <div>
                                       <h6>Role: {{content.role}}</h6>
-                                      <h6>Duration: {{content.fromDate}}-{{content.fromMonth}}-{{content.fromYear}} - {{content.toDate}}-{{content.toMonth}}-{{content.toYear}}</h6>
+                                      <h6>Project Url: <a href="{{content.projectUrl}}">{{content.projectUrl}}</a></h6>
+                                      <h6>Duration: {{content.fromDate}} - {{content.toDate}}</h6>
+                                      <p style="word-wrap: break-word">{{content.description}}</p>
+                                      <div *ngFor= "let skills of content.technologiesUsed">
+                                            {{skills.skill}}                                        
+                                      </div>
                                     </div>
                                     <div *ngIf="!isLast">
                                       <hr class="card-rule"/>
                                     </div>
                                   </div>
-                            </div>
+                              </div>
                           </mat-card-content>
-                  </mat-card>
-                </mat-grid-tile>
-              </mat-grid-list>
+                          <mat-card-content class="dashboard-card-content" *ngIf="isTitle(card.title,'Location')" >
+                            <div class ="Wrapper">
+                                <div *ngFor="let content of card.contents;let i = index; last as isLast">
+                                    <div class="title-row">
+                                      <div class="title">
+                                        <h6><b>{{content.currentCityName}}</b></h6>
+                                      </div>
+                                      <div class="add-delete">
+                                        <mat-icon>edit</mat-icon>
+                                        <mat-icon (click)=onDelete(content,card.title)>delete</mat-icon>
+                                      </div>
+                                    </div>
+                                    <div class="card-content">
+                                      <h6>State: {{content.currentStateName}}</h6>
+                                      <h6>Past Cities:</h6> 
+                                        <div *ngFor= "let pastLocation of content.pastLocation">
+                                            {{pastLocation.cityName}} ( {{pastLocation.stateName}} )
+                                        </div>
+                                    </div>
+                                    <div *ngIf="!isLast">
+                                      <hr class="card-rule"/>
+                                    </div>
+                                  </div>
+                              </div>
+                          </mat-card-content>
+                          <mat-card-content class="dashboard-card-content" *ngIf="isTitle(card.title,'Certificate')" >
+                              <div class ="Wrapper">
+                                  <div *ngFor="let content of card.contents;let i = index; last as isLast">
+                                      <div class="title-row">
+                                        <div class="title">
+                                          <h6><b>{{content.certificateName}}</b></h6>
+                                        </div>
+                                        <div class="add-delete">
+                                          <mat-icon>edit</mat-icon>
+                                          <mat-icon (click)=onDelete(content,card.title)>delete</mat-icon>
+                                        </div>
+                                      </div>
+                                      <div class="card-content">
+                                        <h6>Certified by: {{content.certificateAuthority}}</h6>
+                                        <h6>License Number: {{content.licenseNumber}}</h6>
+                                        <h6>Duration: {{content.fromDate}} - {{content.toDate}}</h6>
+                                      </div>
+                                      <div *ngIf="!isLast">
+                                        <hr class="card-rule"/>
+                                      </div>
+                                    </div>                            
+                                </div>
+                            </mat-card-content>
+                          <mat-card-content class="dashboard-card-content" *ngIf="isTitle(card.title,'Experience')" >
+                              <div class ="Wrapper">
+                                  <div *ngFor="let content of card.contents;let i = index; last as isLast">
+                                      <div class="title-row">
+                                        <div class="title">
+                                          <h6><b>{{content.organisation}}</b></h6>
+                                        </div>
+                                        <div class="add-delete">
+                                          <mat-icon>edit</mat-icon>
+                                          <mat-icon (click)=onDelete(content,card.title)>delete</mat-icon>
+                                        </div>
+                                      </div>
+                                      <div class="card-content">
+                                        <h6>Role: {{content.role}}</h6>
+                                        <h6>Duration: {{content.fromDate}}-{{content.fromMonth}}-{{content.fromYear}} - {{content.toDate}}-{{content.toMonth}}-{{content.toYear}}</h6>
+                                      </div>
+                                      <div *ngIf="!isLast">
+                                        <hr class="card-rule"/>
+                                      </div>
+                                    </div>
+                              </div>
+                            </mat-card-content>
+                    </mat-card>
+                  </mat-grid-tile>
+                </mat-grid-list>
+              </div>
             </div>
-            <app-card class="fab-button"></app-card>
+          <div class="dummy"></div>
       </div>
-      
+      <app-card class="fab-button"></app-card>
 </div>
 
