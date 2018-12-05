@@ -56,6 +56,7 @@ export class ProjectService {
       tap((response: OrganisationResponse) => {
         response.organizations = response.organizations
           .map(organisation => new Organisation(organisation.name, organisation.id))
+          .filter(organisation => organisation.name.includes(filter.name));
         return response;
       })
       );
@@ -65,7 +66,8 @@ export class ProjectService {
     .pipe(
       tap((response: ClientResponse) => {
         response.organizations = response.organizations
-          .map(client => new Client(client.name, client.id));
+          .map(client => new Client(client.name, client.id))
+          .filter(client => client.name.includes(filter.name));
         return response;
       })
       );
