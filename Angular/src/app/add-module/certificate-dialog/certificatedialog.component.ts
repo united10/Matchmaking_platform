@@ -127,11 +127,20 @@ if (authority) {
     const chicklets = new Array<CertificateChicklets>();
     for (let i = 0; i < arr.length; i++) {
       const row = arr.at(i);
-      const certificateDetails = new Certificate(row.value.certificateName,
-        row.value.certificateAuthority.name,
-        row.value.licenseNumber,
-        `${row.value.fromDate.getDate()}-${row.value.fromDate.getMonth() + 1}-${row.value.fromDate.getFullYear()}`,
-        `${row.value.toDate.getDate()}-${row.value.toDate.getMonth() + 1}-${row.value.toDate.getFullYear()}`);
+      let certificateDetails;
+      if  (row.value.certificateAuthority.name === undefined) {
+        certificateDetails = new Certificate(row.value.certificateName,
+          row.value.certificateAuthority,
+          row.value.licenseNumber,
+          `${row.value.fromDate.getDate()}-${row.value.fromDate.getMonth() + 1}-${row.value.fromDate.getFullYear()}`,
+          `${row.value.toDate.getDate()}-${row.value.toDate.getMonth() + 1}-${row.value.toDate.getFullYear()}`);
+      } else {
+        certificateDetails = new Certificate(row.value.certificateName,
+          row.value.certificateAuthority.name,
+          row.value.licenseNumber,
+          `${row.value.fromDate.getDate()}-${row.value.fromDate.getMonth() + 1}-${row.value.fromDate.getFullYear()}`,
+          `${row.value.toDate.getDate()}-${row.value.toDate.getMonth() + 1}-${row.value.toDate.getFullYear()}`);
+      }
       const chicklet = new CertificateChicklets(certificateDetails);
       chicklets.push(chicklet);
     }

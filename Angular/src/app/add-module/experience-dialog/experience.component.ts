@@ -123,15 +123,27 @@ displayFn(organisation: Organisation) {
       this.toDay = toDate.getDate();
       this.toYear = toDate.getFullYear();
       this.toMonth = toDate.getMonth() + 1;
+      let experienceDetails;
 
-      const experienceDetails = new ExperienceDetails(row.value.organisation.name,
-                                  row.value.role,
-                                  this.fromDay,
-                                  this.fromMonth,
-                                  this.fromYear,
-                                  this.toDay,
-                                  this.toMonth,
-                                  this.toYear);
+      if (row.value.organisation.name === undefined) {
+        experienceDetails = new ExperienceDetails(row.value.organisation,
+          row.value.role,
+          this.fromDay,
+          this.fromMonth,
+          this.fromYear,
+          this.toDay,
+          this.toMonth,
+          this.toYear);
+      } else {
+        experienceDetails = new ExperienceDetails(row.value.organisation.name,
+          row.value.role,
+          this.fromDay,
+          this.fromMonth,
+          this.fromYear,
+          this.toDay,
+          this.toMonth,
+          this.toYear);
+      }
       const chicklet = new Chicklets(experienceDetails);
       chicklets.push(chicklet);
     }

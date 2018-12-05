@@ -6,9 +6,23 @@ import org.neo4j.driver.v1.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.messaging.simp.stomp.StompSession;
+import org.springframework.messaging.simp.stomp.StompSessionHandler;
+import org.springframework.messaging.simp.stomp.StompSessionHandlerAdapter;
 import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.ThreadLocalRandom;
+
+import org.springframework.web.socket.client.WebSocketClient;
+import org.springframework.web.socket.client.standard.StandardWebSocketClient;
+import org.springframework.web.socket.sockjs.client.WebSocketTransport;
+import org.springframework.web.socket.sockjs.client.Transport;
+import org.springframework.web.socket.sockjs.client.SockJsClient;
+import org.springframework.messaging.converter.MappingJackson2MessageConverter;
+import org.springframework.web.socket.messaging.WebSocketStompClient;
+
 
 
 @Service
@@ -17,6 +31,16 @@ public class QueryService {
 
     @Autowired
     private FetchJson fetchJson;
+    static public  class MyStompSessionHandler
+            extends StompSessionHandlerAdapter {
+        private String userId;
+
+        public MyStompSessionHandler(String userId)
+        {
+            this.userId = userId;
+        }
+
+    }
     public void runquery(Driver driver, Output output) {
         try (Session session = driver.session()) {
             List<String> user = new ArrayList<>();
@@ -158,7 +182,6 @@ public class QueryService {
                             " RETURN m.userId as name1";
 
                 }
-                System.out.println(k);
 
 
                 try (Transaction tx = session.beginTransaction()) {
@@ -171,10 +194,36 @@ public class QueryService {
                     tx.success();  // Mark this write as successful.
                 }
 
+                try {
+                    WebSocketClient simpleWebSocketClient = new StandardWebSocketClient();
+
+                    List<Transport> transports = new ArrayList<>(1);
+                    transports.add(new WebSocketTransport(simpleWebSocketClient));
+                    SockJsClient sockJsClient = new SockJsClient(transports);
+                    WebSocketStompClient stompClient = new WebSocketStompClient(sockJsClient);
+                    stompClient.setMessageConverter(new MappingJackson2MessageConverter());
+                    String url = "ws://localhost:8069/socket";
+                    String userId = "search" +
+                            ThreadLocalRandom.current().nextInt(1, 99);
+                    StompSessionHandler sessionHandler = new MyStompSessionHandler(userId);
+                    StompSession session1 = stompClient.connect(url, sessionHandler)
+                            .get();
+
+
                 for (int i = 0; i < user.size(); i++) {
-                   // Employee employee = new Employee();
-                    //employee = fetchJson.getAllData(user.get(i));
-                    LOGGER.info("Employee {}" + user.get(i));
+                   Employee employee = new Employee();
+                    employee = fetchJson.getAllData(user.get(i));
+                    Message message=Message.builder().from("search").employee(employee)
+                            .build();
+                    session1.send("/channel/socket/messages",message);
+                    LOGGER.info("Employee {}" + employee);
+                }
+
+                }catch (InterruptedException exception){
+                    LOGGER.info(exception.getMessage());
+
+                }catch(ExecutionException eexp){
+                    LOGGER.info(eexp.getMessage());
                 }
 
             }

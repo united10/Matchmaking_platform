@@ -1,10 +1,13 @@
 .header-spacer {
     flex: 1 1 auto;
   }
-
+.container1{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
 .container {
   display: flex;
-  align-items: center;
   background-color: #DDE1E6;
   p {
     width: 20%;

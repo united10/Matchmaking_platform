@@ -5,6 +5,8 @@ import { MaterialModule } from 'src/app/login/login-module/material.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { SpeechModule } from '../lib';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { DisplayCardsComponent } from './display-cards/display-cards.component';
+import { MatCardModule } from '@angular/material';
 @NgModule({
   imports: [
     CommonModule,
@@ -12,11 +14,13 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     BrowserModule,
     SpeechModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatCardModule
   ],
   providers: [
     { provide: 'SPEECH_LANG', useValue: 'en-US' }
   ],
-  declarations: [SearchComponent]
+  declarations: [SearchComponent,DisplayCardsComponent],
+  entryComponents:[DisplayCardsComponent]
 })
 export class SearchModule { }

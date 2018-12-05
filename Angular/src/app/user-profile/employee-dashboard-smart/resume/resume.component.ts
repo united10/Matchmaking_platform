@@ -1,3 +1,4 @@
+import { Organisation } from './../../../add-module/project-dialog/domain/organisation';
 import { Certificate } from './../../../add-module/certificate-dialog/domain/certificate';
 import { Skill } from './../../../add-module/skill-dialog/domain/skill';
 import { Qualification } from 'src/app/add-module/education-dialog/domain/qualification';
@@ -14,7 +15,7 @@ import * as jsPDF from 'jspdf';
   styleUrls: ['./resume.component.css']
 })
 export class ResumeComponent implements OnInit {
-  @ViewChild('container') container: ElementRef;
+  @ViewChild('body') body: ElementRef;
 temp: FormArray;
 temp2: any;
   institutionName: string;
@@ -23,6 +24,16 @@ temp2: any;
   skillLevel: string;
   certificateName: String;
   certificateAuthority: String;
+  name: String;
+  email: String;
+  cityName: String;
+  stateName: String;
+  organisation: String;
+  role: String;
+  description: String;
+  projectUrl: String;
+  skill: String;
+  level: String;
 
   constructor() { }
 
@@ -30,6 +41,8 @@ temp2: any;
   }
   onReciving(employee: any) {
     console.log(employee);
+    this.name = employee.name;
+    this.email = employee.email;
 
     // // this.institutionName = employee.educations.institution.institutionName;
     // this.temp = employee.educations;
@@ -59,11 +72,29 @@ temp2: any;
     }
 
 
-    for (const Certificates of employee.Certificate) {
-      this.certificateAuthority = Certificates.certificateName;
-      this.certificateName = Certificates.certificateName;
-      console.log('x' + Certificates.certificateName);
+    for (const certificate of employee.certificates) {
+      this.certificateName = certificate.certificateName;
+      this.certificateAuthority = certificate.certificateAuthority;
+      console.log('x' + certificate.certificateName);
     }
+
+    for (const experience of employee.experiences) {
+      this.organisation = experience.organisation;
+      this.role = experience.role;
+    }
+
+
+    for (const project of employee.projects) {
+      this.title = project.title;
+      this.description = project.description;
+      this.projectUrl = project.projectUrl;
+      this.role = project.role;
+      this.skill = project.technologiesUsed.skill;
+      this.level = project.technologiesUsed.level;
+    }
+
+    this.cityName = employee.location.currentLocation.cityName;
+    this.stateName = employee.location.currentLocation.stateName;
   }
   public downloadPDF() {
     var doc = new jsPDF("p", "mm", "a4");
@@ -73,12 +104,11 @@ temp2: any;
       }
     };
 
-    let container= this.container.nativeElement;
-    doc.fromHTML(container.innerHTML, 15, 15, {
-     'width': 40,
+    let body = this.body.nativeElement;
+    doc.fromHTML(body.innerHTML, 15, 15, {
+     'width': 150,
      'elementHandlers': specialElementHandlers
     });
-    doc.save('testing.pdf');
-    // return xepOnline.Formatter.format('container2', {render: 'download'});
+    doc.save('resume.pdf');
   }
 }

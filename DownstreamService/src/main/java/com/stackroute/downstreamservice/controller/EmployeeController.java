@@ -1,6 +1,7 @@
 package com.stackroute.downstreamservice.controller;
 
 
+import com.stackroute.downstreamservice.domain.BasicInfo;
 import com.stackroute.downstreamservice.domain.Employee;
 
 import com.stackroute.downstreamservice.exceptions.EmployeeAlreadyExistsException;
@@ -58,9 +59,26 @@ public class EmployeeController {
     public ResponseEntity<?> addEmployee(@RequestBody Employee employee){
         ResponseEntity responseEntity;
         try{
-            employeeService.saveEmployee(employee);
+                   Employee employee1=Employee.builder().userId(employee.getEmail())
+                .email(employee.getEmail()).name(employee.getName())
+                .build();
+            employeeService.saveEmployee(employee1);
             responseEntity=new ResponseEntity<String>("Successfully created", HttpStatus.OK);
         }catch(EmployeeAlreadyExistsException exception){
+            responseEntity=new ResponseEntity<String>(exception.getMessage(),HttpStatus.CONFLICT);
+        }catch(Exception exception){
+            responseEntity=new ResponseEntity<String>(exception.getMessage(),HttpStatus.BAD_REQUEST);
+        }
+        return responseEntity;
+    }
+
+    @PostMapping("${controller.employee}")
+    public ResponseEntity<?> addBasicData(@PathVariable("id") String userId, @RequestBody BasicInfo basicInfo){
+        ResponseEntity responseEntity;
+        try{
+            employeeService.updateData(userId,basicInfo);
+            responseEntity=new ResponseEntity<String>("Successfully created", HttpStatus.OK);
+        }catch(EmployeeNotFoundException exception){
             responseEntity=new ResponseEntity<String>(exception.getMessage(),HttpStatus.CONFLICT);
         }catch(Exception exception){
             responseEntity=new ResponseEntity<String>(exception.getMessage(),HttpStatus.BAD_REQUEST);
