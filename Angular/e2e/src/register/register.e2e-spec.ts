@@ -29,7 +29,7 @@ describe('Registration tests', () => {
     });
     it('when user trying to register with already registered mail he should stay on “register” page and see error notification', () => {
         page.getNameTextbox().sendKeys('stackroute');
-        page.getEmailTextbox().sendKeys('stackroute1@gmail.com');
+        page.getEmailTextbox().sendKeys('stackroute@gmail.com');
         page.getPasswordTextbox().sendKeys('123456');
         page.getSubmitButton().click();
         expect(page.getErrorMessage()).toEqual('User already exists, Please Login');
@@ -40,7 +40,7 @@ describe('Registration tests', () => {
     });
     it('when registration is successful — he should redirect to “login” page', () => {
             page.getNameTextbox().sendKeys('stackroute');
-            page.getEmailTextbox().sendKeys('stackroute3@gmail.com');
+            page.getEmailTextbox().sendKeys('stackroute5@gmail.com');
             page.getPasswordTextbox().sendKeys('123456');
             page.getSubmitButton().click();
             expect(login.getParagraphText()).toEqual('Not on match maker yet? Register');
