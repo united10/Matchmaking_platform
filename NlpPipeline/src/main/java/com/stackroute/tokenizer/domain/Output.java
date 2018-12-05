@@ -19,5 +19,4 @@ public class Output {
     List<String> skills;
     List<String> experiences;
     List<String> locations;
-
 }

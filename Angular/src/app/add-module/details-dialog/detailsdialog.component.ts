@@ -31,7 +31,7 @@ export class DetailsdialogComponent implements OnInit {
     const dialogConfig = new MatDialogConfig();
     dialogConfig.disableClose = false;
     dialogConfig.autoFocus = true;
-    dialogConfig.width = '40%';
+    dialogConfig.width = '600px';
     this.dialog.open(EducationdialogComponent, dialogConfig);
   }
 
@@ -40,7 +40,7 @@ export class DetailsdialogComponent implements OnInit {
     const dialogConfig = new MatDialogConfig();
     dialogConfig.disableClose = false;
     dialogConfig.autoFocus = true;
-    dialogConfig.width = '40%';
+    dialogConfig.width = '600px';
     this.dialog.open(ExperienceComponent, dialogConfig);
   }
 
@@ -49,7 +49,7 @@ export class DetailsdialogComponent implements OnInit {
     const dialogConfig = new MatDialogConfig();
     dialogConfig.disableClose = false;
     dialogConfig.autoFocus = true;
-    dialogConfig.width = '40%';
+    dialogConfig.width = '600px';
     this.dialog.open(InterestDialogComponent, dialogConfig);
   }
 
@@ -58,7 +58,7 @@ export class DetailsdialogComponent implements OnInit {
     const dialogConfig = new MatDialogConfig();
     dialogConfig.disableClose = false;
     dialogConfig.autoFocus = true;
-    dialogConfig.width = '40%';
+    dialogConfig.width = '600px';
     this.dialog.open(SkillComponent, dialogConfig);
   }
   projectClick() {
@@ -66,7 +66,7 @@ export class DetailsdialogComponent implements OnInit {
     const dialogConfig = new MatDialogConfig();
     dialogConfig.disableClose = false;
     dialogConfig.autoFocus = true;
-    dialogConfig.width = '40%';
+    dialogConfig.width = '700px';
     this.dialog.open(ProjectdialogComponent, dialogConfig);
   }
 
@@ -75,7 +75,7 @@ export class DetailsdialogComponent implements OnInit {
     const dialogConfig = new MatDialogConfig();
     dialogConfig.disableClose = false;
     dialogConfig.autoFocus = true;
-    dialogConfig.width = '40%';
+    dialogConfig.width = '700px';
     this.dialog.open(CertificatedialogComponent, dialogConfig);
   }
   locationClick() {
@@ -83,7 +83,7 @@ export class DetailsdialogComponent implements OnInit {
     const dialogConfig = new MatDialogConfig();
     dialogConfig.disableClose = false;
     dialogConfig.autoFocus = true;
-    dialogConfig.width = '40%';
+    dialogConfig.width = '700px';
     this.dialog.open(LocationdialogComponent, dialogConfig);
   }
 }
