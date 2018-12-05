@@ -63,6 +63,6 @@ import { EditSkillDialogComponent } from './edit-skill-dialog/edit-skill-dialog.
                     InterestDialogComponent,
                     EditSkillDialogComponent],
   providers: [EducationService],
-  exports: [CardComponent]
+  exports: [CardComponent, CertificatedialogComponent]
 })
 export class CardsModule { }

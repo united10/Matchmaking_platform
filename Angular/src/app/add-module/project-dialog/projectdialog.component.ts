@@ -15,6 +15,7 @@ import { Tech } from './domain/tech';
 import { debounceTime, tap, switchMap, finalize } from 'rxjs/operators';
 import { DateAdapter, MAT_DATE_FORMATS } from '@angular/material';
 import { AppDateAdapter, APP_DATE_FORMATS } from '../class/date-adapter';
+import { RefreshService } from '../service/refresh.service';
 
 @Component({
   selector: 'app-projectdialog',
@@ -57,7 +58,8 @@ export class ProjectdialogComponent implements OnInit {
   private dialogRef: MatDialogRef<ProjectdialogComponent>,
   private fb: FormBuilder, private projectService: ProjectService,
   private readfromjsonService: ReadfromjsonService,
-  private token: TokenStorageService) { }
+  private token: TokenStorageService,
+  private refreshService: RefreshService) { }
 
   ngOnInit() {
     const regForUrl = '(https?://)?([\\da-z.-]+)\\.([a-z.]{2,6})[/\\w .-]*/?';
@@ -79,6 +81,9 @@ export class ProjectdialogComponent implements OnInit {
         this.dataJson = data;
       }
     );
+    this.dialogRef.afterClosed().subscribe(result => {
+      this.refreshService.refreshProfile();
+    });
   }
   onKeyUp(index: number) {
     this.projectForm.get('domain').valueChanges.pipe(

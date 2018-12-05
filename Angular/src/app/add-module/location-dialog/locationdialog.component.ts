@@ -16,6 +16,7 @@ import { state } from '@angular/animations';
 import { Observable } from 'rxjs';
 import { States } from './domain/states';
 import { Paststates } from './domain/paststates';
+import { RefreshService } from '../service/refresh.service';
 
 @Component({
   selector: 'app-locationdialog',
@@ -110,7 +111,8 @@ export class LocationdialogComponent implements OnInit {
     constructor(@Inject(MAT_DIALOG_DATA) private data: any,
       private dialogRef: MatDialogRef<LocationdialogComponent>,
       private locationService: LocationService, private fb: FormBuilder,
-      private token: TokenStorageService) {
+      private token: TokenStorageService,
+      private refreshService: RefreshService) {
     }
 
     ngOnInit() {
@@ -120,6 +122,9 @@ export class LocationdialogComponent implements OnInit {
         currentStateName: new FormControl(''),
         currentPincode: new FormControl(''),
         pastLocation: this.fb.array([this.initItemRow()])
+      });
+      this.dialogRef.afterClosed().subscribe(result => {
+        this.refreshService.refreshProfile();
       });
 
       this.locationForm.get('currentCityName').valueChanges.pipe(

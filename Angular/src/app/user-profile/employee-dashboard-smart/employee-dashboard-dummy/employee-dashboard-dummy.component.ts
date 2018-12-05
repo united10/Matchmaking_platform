@@ -1,4 +1,6 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { BasicInfoComponent } from './../../../info/basic-info/basic-info.component';
+import { BasicInfoService } from './../../../info/basic-info.service';
+import { Component, Input, OnInit, Inject } from '@angular/core';
 import { map } from 'rxjs/operators';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { Breakpoints, BreakpointObserver } from '@angular/cdk/layout';
@@ -22,10 +24,14 @@ import { LocationSection } from 'src/app/add-module/location-dialog/domain/secti
 import { PastLocation } from 'src/app/add-module/location-dialog/domain/pastlocation';
 import { EditSkillDialogComponent } from 'src/app/add-module/edit-skill-dialog/edit-skill-dialog.component';
 import { DownstreamService } from 'src/app/add-module/service/downstream.service';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { CertificatedialogComponent } from 'src/app/add-module/certificate-dialog/certificatedialog.component';
+import { RefreshService } from 'src/app/add-module/service/refresh.service';
+
 @Component({
   selector: 'app-employee-dashboard-dummy',
   templateUrl: './employee-dashboard-dummy.component.html',
-  styleUrls: ['./employee-dashboard-dummy.component.css'],
+  styleUrls: ['./employee-dashboard-dummy.component.css']
 })
 export class EmployeeDashboardDummyComponent implements OnInit {
   /** Based on the screen size, switch from standard to one column per row */
@@ -37,18 +43,72 @@ export class EmployeeDashboardDummyComponent implements OnInit {
   temp = 0;
   isLoggedIn = false;
   basicInfo;
+  isPhotoSelected: Boolean = false;
+  receivedFile: string;
   educationLength: number;
   public isCollapsed = false;
-  constructor(private breakpointObserver: BreakpointObserver, private dialog: MatDialog , private downstream: DownstreamService,
-    private tokenstorageservice: TokenStorageService , private downstreamBackendService: DownstreamBackendService) {}
+  constructor(private breakpointObserver: BreakpointObserver,
+              private tokenstorageservice: TokenStorageService,
+              private downstreamBackendService: DownstreamBackendService,
+              private downstream: DownstreamService,
+              private refreshService: RefreshService,
+              private uploadService: BasicInfoService,
+              public dialog: MatDialog) {}
 
 
   ngOnInit() {
     if (this.tokenstorageservice.getToken()) {
       this.isLoggedIn = true;
     }
+    this.refreshService.refresh.subscribe(result => {
+      if (result) {
+        this.refresh();
+      }
+    });
+
+    this.uploadService.fileExists(this.tokenstorageservice.getEmail()).subscribe(data => {
+      this.isPhotoSelected = data;
+    });
+
+    this.uploadService.downloadFile(this.tokenstorageservice.getEmail()).subscribe(data => {
+      let binary = '';
+  const bytes = new Uint8Array( data );
+  const len = bytes.byteLength;
+  for (let i = 0; i < len; i++) {
+      binary += String.fromCharCode( bytes[ i ] );
+  this.receivedFile = window.btoa(binary);
+  }
+    });
   }
 
+  openDialog(): void {
+    const dialogRef = this.dialog.open(BasicInfoComponent, {
+      width: '590px'
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+
+      this.uploadService.fileExists(this.tokenstorageservice.getEmail()).subscribe(data => {
+        this.isPhotoSelected = data;
+      });
+
+      this.uploadService.downloadFile(this.tokenstorageservice.getEmail()).subscribe(data => {
+        let binary = '';
+    const bytes = new Uint8Array( data );
+    const len = bytes.byteLength;
+    for (let i = 0; i < len; i++) {
+        binary += String.fromCharCode( bytes[ i ] );
+    }
+    this.receivedFile = window.btoa(binary);
+      });
+    });
+  }
+  refresh() {
+    this.downstreamBackendService.getEmployee(this.tokenstorageservice.getEmail()).subscribe((data) => {
+      this.setEmployees(data);
+    });
+  }
   setEmployees(employees: any) {
 
     this.cards = this.breakpointObserver.observe(Breakpoints.Handset).pipe(
@@ -265,7 +325,7 @@ export class EmployeeDashboardDummyComponent implements OnInit {
                     count++;
                   }
                   if (projectArr[x].description != null) {
-                    count = count + 2;
+                    count = count + 3;
                   }
                   if (projectArr[x].fromDate != null || projectArr[x].toDate != null) {
                     count++;
@@ -475,7 +535,7 @@ export class EmployeeDashboardDummyComponent implements OnInit {
       .subscribe(
         (data) => {
           console.log(data);
-          location.reload();
+          this.refresh();
         }
       );
     } else if (title === 'Skills') {
@@ -486,7 +546,7 @@ export class EmployeeDashboardDummyComponent implements OnInit {
       .subscribe(
         (data) => {
           console.log(data);
-          location.reload();
+          this.refresh();
         }
       );
     }    else if (title === 'Project') {
@@ -497,7 +557,7 @@ export class EmployeeDashboardDummyComponent implements OnInit {
       .subscribe(
         (data) => {
           console.log(data);
-          location.reload();
+          this.refresh();
         }
       );
     }    else if (title === 'Certificate') {
@@ -508,7 +568,7 @@ export class EmployeeDashboardDummyComponent implements OnInit {
       .subscribe(
         (data) => {
           console.log(data);
-          location.reload();
+          this.refresh();
         }
       );
     }    else if (title === 'Experience') {
@@ -521,7 +581,7 @@ export class EmployeeDashboardDummyComponent implements OnInit {
       .subscribe(
         (data) => {
           console.log(data);
-          location.reload();
+          this.refresh();
         }
       );
     }
@@ -539,7 +599,7 @@ export class EmployeeDashboardDummyComponent implements OnInit {
     .subscribe(
       (data) => {
         console.log(data);
-        location.reload();
+        this.refresh();
       }
     );
 
@@ -559,7 +619,7 @@ export class EmployeeDashboardDummyComponent implements OnInit {
     .subscribe(
       (data) => {
         console.log(data);
-        location.reload();
+        this.refresh();
       }
     );
 
@@ -649,7 +709,6 @@ export class EmployeeDashboardDummyComponent implements OnInit {
     );
 
   }
-
   onUpdatePastLocation(pastLocation) {
     const deleteLocation = Array<PastLocation>();
     const locationData = new PastLocation(pastLocation.pastLocationId, pastLocation.cityName,

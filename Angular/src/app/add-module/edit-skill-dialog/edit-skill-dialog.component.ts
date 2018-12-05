@@ -8,10 +8,7 @@ import { FormBuilder , FormControl, Validators , FormArray } from '@angular/form
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { Skillauto } from '../skill-dialog/domain/skillauto';
 import { debounceTime, tap, switchMap, finalize } from 'rxjs/operators';
-
-
-
-
+import { RefreshService } from '../service/refresh.service';
 
 @Component({
   selector: 'app-edit-skill-dialog',
@@ -25,8 +22,8 @@ export class EditSkillDialogComponent extends SkillComponent implements OnInit {
   constructor(@Inject(MAT_DIALOG_DATA) protected data: any,
   protected dialogRef: MatDialogRef<SkillComponent>, protected readfromjsonService: ReadfromjsonService,
   protected skillService: SkillService, protected fb: FormBuilder,
-  protected token: TokenStorageService, private downstream: DownstreamService ) {
-    super(data, dialogRef, readfromjsonService, skillService, fb, token);
+  protected token: TokenStorageService, protected refreshService: RefreshService, private downstream: DownstreamService ) {
+    super(data, dialogRef, readfromjsonService, skillService, fb, token ,  refreshService);
    }
 
   ngOnInit() {

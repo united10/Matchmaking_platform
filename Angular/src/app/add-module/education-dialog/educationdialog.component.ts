@@ -14,6 +14,7 @@ import { IQualificationResponse, Qualificationn } from './domain/qualificationn'
 import { Institute } from './domain/institute';
 import { DateAdapter, MAT_DATE_FORMATS } from '@angular/material';
 import { AppDateAdapter, APP_DATE_FORMATS } from '../class/date-adapter';
+import { RefreshService } from '../service/refresh.service';
 
 @Component({
   selector: 'app-educationdialog',
@@ -45,7 +46,8 @@ export class EducationdialogComponent implements OnInit {
     private dialogRef: MatDialogRef<EducationdialogComponent>,
     private educationService: EducationService, private fb: FormBuilder,
     private readfromjsonService: ReadfromjsonService,
-    private token: TokenStorageService) {
+    private token: TokenStorageService,
+    private refreshService: RefreshService) {
 
   }
 
@@ -59,7 +61,10 @@ export class EducationdialogComponent implements OnInit {
         this.dataJson = data;
       }
     );
-    }
+    this.dialogRef.afterClosed().subscribe(result => {
+      this.refreshService.refreshProfile();
+    });
+  }
   onKeyUp(index: number) {
     this.temp = this.educationForm.get('education') as FormArray;
     this.temp.at(index).get('qualification').valueChanges.pipe(
