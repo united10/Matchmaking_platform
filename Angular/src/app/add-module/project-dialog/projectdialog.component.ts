@@ -189,17 +189,37 @@ displayFn3(tech: Tech) {
     this.startDate = this.projectForm.get('startDate').value as Date;
     this.endDate = this.projectForm.get('endDate').value as Date;
     this.url = this.projectForm.get('url').value as string;
-    this.domain = this.projectForm.get('domain').value.name as string;
     this.role = this.projectForm.get('role').value as string;
-    this.company = this.projectForm.get('company').value.name as string;
-    this.client = this.projectForm.get('client').value.name as string;
     this.description = this.projectForm.get('description').value as string;
 
+    if (this.projectForm.get('domain').value.name === undefined) {
+      this.domain = this.projectForm.get('domain').value as string;
+    } else {
+      this.domain = this.projectForm.get('domain').value.name as string;
+    }
+
+    if (this.projectForm.get('company').value.name === undefined) {
+      this.company = this.projectForm.get('company').value as string;
+    } else {
+      this.company = this.projectForm.get('company').value.name as string;
+    }
+
+    if (this.projectForm.get('client').value.name === undefined) {
+      this.client = this.projectForm.get('client').value as string;
+    } else {
+      this.client = this.projectForm.get('client').value.name as string;
+    }
     const technologies = new Array<Skill>();
       const arr = this.projectForm.get('technologiesUsed') as FormArray;
       const values = arr.value;
       for (const row of values) {
-        const technology = new Skill(row.skill.name , row.level);
+        let technology;
+        if (row.skill.name === undefined) {
+          technology = new Skill(row.skill , row.level);
+        } else {
+          technology = new Skill(row.skill.name , row.level);
+        }
+
         technologies.push(technology);
       }
 
@@ -216,7 +236,7 @@ displayFn3(tech: Tech) {
     const chicklets = new Array<ProjectChicklets>();
     const chicklet = new ProjectChicklets(project);
     chicklets.push(chicklet);
-    const section = new ProjectSection('sectionId', this.token.getEmail(), 'add', chicklets);
+    const section = new ProjectSection('Project', this.token.getEmail(), 'add', chicklets);
     console.log(section);
     this.projectService.addProjectDetails(section).subscribe(
       data => {

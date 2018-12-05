@@ -30,6 +30,8 @@ zuul:
                url: http://localhost:8008
            uploadpic-service:
                url: http://localhost:8096
+            websocket-service:
+               url: http://localhost:8069
 
 
 #eureka:         #tells about the Eureka server details and its refresh time

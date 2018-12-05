@@ -44,7 +44,8 @@ export class ExperienceService {
     .pipe(
       tap((response: OrganisationResponse) => {
         response.organizations = response.organizations
-          .map(organisation => new Organisation(organisation.name, organisation.id));
+          .map(organisation => new Organisation(organisation.name, organisation.id))
+          .filter(organisation => organisation.name.includes(filter.name));
         return response;
       })
       );

@@ -45,8 +45,7 @@ export class EducationService {
     .pipe(
       tap((response: IQualificationResponse) => {
         response.qualifications = response.qualifications
-          .map(qualification => new Qualificationn(qualification.id, qualification.name))
-          .filter(qualification => qualification.name.includes(filter.name));
+          .map(qualification => new Qualificationn(qualification.id, qualification.name));
         return response;
       })
       );
@@ -56,8 +55,7 @@ export class EducationService {
     .pipe(
       tap((response: InstituteResponse) => {
         response.educations = response.educations
-          .map(institute => new Institute(institute.id, institute.name))
-          .filter(institute => institute.name.includes(filter.name));
+          .map(institute => new Institute(institute.id, institute.name));
         return response;
       })
       );
