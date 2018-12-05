@@ -1,6 +1,6 @@
 
 .main {
-  background-image:  linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('src\assets\images\bg2.png');
+  background-image:  linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('src\assets\images\bg2.webp');
   background-repeat:no-repeat;
   background-position:center;
   height: 100%;
@@ -72,7 +72,7 @@
 
 @media only screen and (max-width: 720px) and (min-width: 525px) {
   .main {
-    background-image:  linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('src\assets\images\bg2.png');
+    background-image:  linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('src\assets\images\bg2.webp');
     background-repeat:no-repeat;
     background-position:center;
     height: 100%;
@@ -87,7 +87,7 @@
     height: 100%;
     display: inline-flex;
     flex-direction: column;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     justify-content: center;
     align-items: center;
   }
@@ -144,7 +144,7 @@
 
 @media only screen and (max-width: 525px) and (min-width: 400px) {
   .main {
-    background-image:  linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('src\assets\images\bg2.png');
+    background-image:  linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('src\assets\images\bg2.webp');
     background-repeat:no-repeat;
     background-position:center;
     height: 100%;
@@ -159,7 +159,7 @@
     height: 100%;
     display: inline-flex;
     flex-direction: column;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     justify-content: center;
     align-items: center;
   }
@@ -216,7 +216,7 @@
 
 @media only screen and (max-width: 400px) and (min-width: 300px) {
   .main {
-    background-image:  linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('src\assets\images\bg2.png');
+    background-image:  linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('src\assets\images\bg2.webp');
     background-repeat:no-repeat;
     background-position:center;
     height: 100%;
@@ -231,7 +231,7 @@
     height: 100%;
     display: inline-flex;
     flex-direction: column;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     justify-content: center;
     align-items: center;
   }
