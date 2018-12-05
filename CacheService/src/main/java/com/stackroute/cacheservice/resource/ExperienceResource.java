@@ -363,8 +363,9 @@ public class ExperienceResource {
 
         Output output = Output.builder().education(redisEducationList)
                                         .locations(redisLocationList)
-                                        .skills(redisSkillList).Organisations(redisOrganizationList)
+                                        .skills(redisSkillList)
                                         .Organisations(redisOrganizationList)
+
                                         .build();
        System.out.println(output);
        return output;

@@ -1,4 +1,19 @@
-<body>
+<div class = "body">
+  <div class = "container" #container>
+      <app-employee-dashboard-smart (employeeEmit) = "onReciving($event)"></app-employee-dashboard-smart>
+    <p class = "name"><b>{{this.name}}</b></p>
+    <p class = "email"><b><i>{{this.email}}</i></b></p>
+    <p class = "Address"><strong></strong> Koramangala 5th Block Koramangala Industrial Layout, Near JNC College Rd,, Bengaluru, Karnataka 560095</p>
+    <p class = "phone"><b><i>+91-88888888</i></b></p>
+  <!-- </div>
+  <button (click)="downloadPDF()">Download Card</button>
+</div> -->
+</div>
+<i class="material-icons" (click)="downloadPDF()">
+    get_app
+    </i>
+
+<!-- <body>
 <div ng-app="mainApp">
     <div class="container" #container>
       <div class="row">
@@ -7,12 +22,10 @@
             <div class="panel-heading">
               <div class = 'container1'>
                   <app-employee-dashboard-smart (employeeEmit) = "onReciving($event)"></app-employee-dashboard-smart>
-                 <!-- <div class = "userpic">
-                    <img src="/src/assets/images/user-pic-unavailable.png" class="rounded-circle" alt="profilePic">
-                  </div>   -->
+                 
                   <div class="panel-body">
-                    <p>{{this.name}}</p>
-                    <p> {{this.email}}</p>
+                    <p class = "name">{{this.name}}</p>
+                    <p class = "emia"> {{this.email}}</p>
                     <p><strong>Address:</strong> {{card.address}}</p>
                     <p><strong>Phone:</strong> {{card.phone}}</p>
                    </div>
@@ -25,4 +38,4 @@
 
   <button (click)="downloadPDF()">Download Card</button>
   </div>
-</body>
+</body> -->
