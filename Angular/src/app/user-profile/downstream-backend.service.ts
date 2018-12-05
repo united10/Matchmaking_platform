@@ -62,8 +62,6 @@ delete_url5= 'https://matchmaker-zuul.stackroute.in/upstream-service/api/v1/cert
     return this.httpClient.post<any>(this.delete_url4, section, httpOptions).pipe(catchError(this.errorHandler));
   }
 
-  
-
   updateEducationDetails(section: EducationSection){
     return this.httpClient.post<any>(this.delete_url, section, httpOptions).pipe(catchError(this.errorHandler));
   }

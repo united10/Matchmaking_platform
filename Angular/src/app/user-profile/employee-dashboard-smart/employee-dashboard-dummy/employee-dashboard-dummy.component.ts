@@ -31,6 +31,12 @@ import { RefreshService } from 'src/app/add-module/service/refresh.service';
 import { MatDialog } from '@angular/material/dialog';
 import { PortfolioComponent } from '../portfolio/portfolio.component';
 import { ResumeComponent } from '../resume/resume.component';
+import { EditSkillDialogComponent } from 'src/app/add-module/edit-skill-dialog/edit-skill-dialog.component';
+import { SharedService } from 'src/app/add-module/service/shared.service';
+import { EditEducationDialogComponent } from 'src/app/add-module/edit-education-dialog/edit-education-dialog.component';
+
+
+
 
 @Component({
   selector: 'app-employee-dashboard-dummy',
@@ -51,14 +57,14 @@ export class EmployeeDashboardDummyComponent implements OnInit {
   receivedFile: string;
   educationLength: number;
   public isCollapsed = false;
-  constructor(
-    private breakpointObserver: BreakpointObserver,
-    private tokenstorageservice: TokenStorageService,
-    private downstreamBackendService: DownstreamBackendService,
-    private refreshService: RefreshService,
-    private uploadService: BasicInfoService,
-    public dialog: MatDialog
-  ) {}
+  constructor(private breakpointObserver: BreakpointObserver,
+              private tokenstorageservice: TokenStorageService,
+              private downstreamBackendService: DownstreamBackendService,
+              private refreshService: RefreshService,
+              private uploadService: BasicInfoService,
+              private shared: SharedService,
+              public dialog: MatDialog) {}
+
 
   ngOnInit() {
     if (this.tokenstorageservice.getToken()) {
@@ -840,21 +846,36 @@ export class EmployeeDashboardDummyComponent implements OnInit {
       pastLocation.pinCode
     );
     deleteLocation.push(locationData);
-    const locationChicklet = new LocationChicklets(null, deleteLocation);
-    const chicklets = Array<LocationChicklets>();
-    chicklets.push(locationChicklet);
+     const locationChicklet = new LocationChicklets(null, deleteLocation);
+     const chicklets = Array<LocationChicklets>();
+     chicklets.push(locationChicklet);
 
-    const locationSection = new LocationSection(
-      'Location',
-      this.tokenstorageservice.getEmail(),
-      'update',
-      chicklets
-    );
-    this.downstreamBackendService
-      .updateLocationDetails(locationSection)
-      .subscribe(data => {
-        console.log(data);
-        location.reload();
-      });
+     const locationSection = new LocationSection('Location', this.tokenstorageservice.getEmail(), 'update', chicklets);
+     this.downstreamBackendService.updateLocationDetails(locationSection)
+     .subscribe(
+       (data) => {
+         console.log(data);
+         location.reload();
+       }
+     );
+
+   }
+  editskilldialog(content) {
+    const dialogConfig = new MatDialogConfig();
+    this.shared.subject.next(content);
+    dialogConfig.disableClose = false;
+    dialogConfig.autoFocus = true;
+    dialogConfig.width = '50%';
+    this.dialog.open(EditSkillDialogComponent, dialogConfig);
   }
+
+  editeducationdialog(content) {
+    const dialogConfig = new MatDialogConfig();
+    this.shared.subject.next(content);
+    dialogConfig.disableClose = false;
+    dialogConfig.autoFocus = true;
+    dialogConfig.width = '50%';
+    this.dialog.open(EditEducationDialogComponent, dialogConfig);
+  }
+
 }

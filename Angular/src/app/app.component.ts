@@ -22,8 +22,9 @@ export class AppComponent {
     } else if ( tokenStorageService.getRole() === 'recruiter') {
        router.navigate(['/search']);
      }
-  } else {
-      router.navigate(['']);
-    }
+  }
+  // else {
+  //     router.navigate(['']);
+  //   }
 }
 }
