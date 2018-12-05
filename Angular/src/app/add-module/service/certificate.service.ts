@@ -52,8 +52,7 @@ export class CertificateService {
     .pipe(
       tap((response: AuthorityResponse) => {
         response.organizations = response.organizations
-          .map(authority => new Authority(authority.name, authority.id))
-          .filter(authority => authority.name.includes(filter.name));
+          .map(authority => new Authority(authority.name, authority.id));
         return response;
       })
       );
