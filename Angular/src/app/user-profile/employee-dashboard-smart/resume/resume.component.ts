@@ -1,3 +1,4 @@
+import { Organisation } from './../../../add-module/project-dialog/domain/organisation';
 import { Certificate } from './../../../add-module/certificate-dialog/domain/certificate';
 import { Skill } from './../../../add-module/skill-dialog/domain/skill';
 import { Qualification } from 'src/app/add-module/education-dialog/domain/qualification';
@@ -27,6 +28,12 @@ temp2: any;
   email: String;
   cityName: String;
   stateName: String;
+  organisation: String;
+  role: String;
+  description: String;
+  projectUrl: String;
+  skill: String;
+  level: String;
 
   constructor() { }
 
@@ -71,6 +78,21 @@ temp2: any;
       console.log('x' + certificate.certificateName);
     }
 
+    for (const experience of employee.experiences) {
+      this.organisation = experience.organisation;
+      this.role = experience.role;
+    }
+
+
+    for (const project of employee.projects) {
+      this.title = project.title;
+      this.description = project.description;
+      this.projectUrl = project.projectUrl;
+      this.role = project.role;
+      this.skill = project.technologiesUsed.skill;
+      this.level = project.technologiesUsed.level;
+    }
+
     this.cityName = employee.location.currentLocation.cityName;
     this.stateName = employee.location.currentLocation.stateName;
   }
@@ -84,10 +106,9 @@ temp2: any;
 
     let body = this.body.nativeElement;
     doc.fromHTML(body.innerHTML, 15, 15, {
-     'width': 40,
+     'width': 150,
      'elementHandlers': specialElementHandlers
     });
-    doc.save('testing.pdf');
-    // return xepOnline.Formatter.format('container2', {render: 'download'});
+    doc.save('resume.pdf');
   }
 }

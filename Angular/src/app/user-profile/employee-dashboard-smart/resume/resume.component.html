@@ -1,7 +1,8 @@
-<div class = "body" #body>
+<div class = "body" #body >
   <div class="header">
     <h4><b>{{this.name}}</b></h4>
     <h6><i>{{this.email}}</i></h6>
+    <h6><i>+91-88888888</i></h6>
   </div>
   <div>
     
@@ -27,40 +28,67 @@
                         <p>Degree : {{this.title}}</p>
                       </div>
                       </div>
+                      <hr/>
                     
-                   
+
                    <div class="skills">
                      <div class = "left">
                       <p><strong>Skill:</strong></p>
                     </div>
                     <div class = "right">
-                        <p>SkillName : {{this.skillName}}</p>
-                        <p>level: {{this.skillLevel}}</p>
+                        <p>Skill : {{this.skillName}}</p>
+                        <p>Level: {{this.skillLevel}}</p>
                       </div>
-                  </div>         
-                  
+                  </div>          
+                 <hr/>
                 <div class="Certificate">
                     <div class = "left">
                      <p><strong>Certificates:</strong></p>
                    </div>
                    <div class =  "right">
-                       <p>certificateName : {{this.certificateName}}</p>
-                       <p>organization: {{this.certificateAuthority}}</p>
+                       <p>Certification : {{this.certificateName}}</p>
+                       <p>Organization: {{this.certificateAuthority}}</p>
                     </div>
-                </div>      
+                </div> 
+                <hr/>
 
                 <div class="Location">
                     <div class = "left">
                      <p><strong>Locations:</strong></p>
                    </div>
                    <div class =  "right">
-                       <p>cityname : {{this.cityName}}</p>
-                       <p>statename: {{this.stateName}}</p>
+                       <p>City : {{this.cityName}}</p>
+                       <p>State: {{this.stateName}}</p>
                     </div>
                 </div>
+                <hr/>
+
+
+                <div class="Experience">
+                    <div class = "left">
+                     <p><strong>Experience:</strong></p>
+                   </div>
+                   <div class =  "right">
+                       <p>Organisation : {{this.organisation}}</p>
+                       <p>Role: {{this.role}}</p>
+                    </div>
+                </div>
+                <hr/>
+
+                <div class="Projects">
+                    <div class = "left">
+                     <p><strong>Projects:</strong></p>
+                   </div>
+                   <div class =  "right">
+                      <p> Title :{{this.title}}</p>
+                      <p>Url: {{this.projectUrl}}</p>
+                      <p>Role: {{this.role}}</p>
+                      <!-- <p>technologies Used:{{this.skill}}</p>
+                      <p>skill level: {{this.level}}</p> -->
+                    </div>
+                </div>
+                
           </div>   
-                    <p><strong>Projects:</strong> {{card.department}}</p>
-                    <p><strong>Experience:</strong> {{card.phone}}</p>
                    </div>
             </div> 
             <div>
@@ -73,6 +101,10 @@
     
     
   </div>
-  <button (click)="downloadPDF()">Download Resume</button>
+  
+  <i class="material-icons" (click)="downloadPDF()">
+      get_app
+      </i>
       <!-- <button (click)="downloadPDF()">Download Resume</button> -->
   </div>
+  
