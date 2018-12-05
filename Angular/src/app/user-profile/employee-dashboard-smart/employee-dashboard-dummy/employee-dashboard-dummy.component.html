@@ -127,7 +127,7 @@
                                         <h6><b>{{content.title}}</b></h6>
                                       </div>
                                       <div class="add-delete">
-                                        <mat-icon>edit</mat-icon>
+                                        <mat-icon (click) = editprojectdialog(content)>edit</mat-icon>
                                         <mat-icon (click)=onDelete(content,card.title)>delete</mat-icon>
                                       </div>
                                     </div>
@@ -154,7 +154,7 @@
                                         <h6><b>{{content.currentCityName}}</b></h6>
                                       </div>
                                       <div class="add-delete">
-                                        <mat-icon>edit</mat-icon>
+                                        <mat-icon (click) =editlocationdialog()>edit</mat-icon>
                                         <mat-icon (click)=onDelete(content,card.title)>delete</mat-icon>
                                       </div>
                                     </div>
@@ -179,7 +179,7 @@
                                           <h6><b>{{content.certificateName}}</b></h6>
                                         </div>
                                         <div class="add-delete">
-                                          <mat-icon>edit</mat-icon>
+                                          <mat-icon (click)= editcertificatedialog(content)>edit</mat-icon>
                                           <mat-icon (click)=onDelete(content,card.title)>delete</mat-icon>
                                         </div>
                                       </div>
@@ -202,7 +202,7 @@
                                           <h6><b>{{content.organisation}}</b></h6>
                                         </div>
                                         <div class="add-delete">
-                                          <mat-icon>edit</mat-icon>
+                                          <mat-icon (click) = editexperiencedialog(content)>edit</mat-icon>
                                           <mat-icon (click)=onDelete(content,card.title)>delete</mat-icon>
                                         </div>
                                       </div>

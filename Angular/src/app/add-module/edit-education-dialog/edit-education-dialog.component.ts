@@ -1,15 +1,13 @@
-import { Component, OnInit, Inject, Renderer2 } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import { ReadfromjsonService } from './../service/readfromjson.service';
 import { Qualification } from '../education-dialog/domain/qualification';
 import { Institution } from '../education-dialog/domain/institution';
 import { EducationChicklets } from '../education-dialog/domain/educationchicklets';
 import { EducationService } from 'src/app/add-module/service/education.service';
-import { Output } from '../outputclass/output';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { FormGroup, FormArray, FormControl, FormBuilder, Validators } from '@angular/forms';
+import { FormArray, FormControl, FormBuilder, Validators } from '@angular/forms';
 import { EducationSection } from '../education-dialog/domain/educationsection';
 import { TokenStorageService } from 'src/app/login/service/token-storage.service';
-import { debounceTime, tap, switchMap, finalize } from 'rxjs/operators';
 import { DateAdapter, MAT_DATE_FORMATS } from '@angular/material';
 import { AppDateAdapter, APP_DATE_FORMATS } from '../class/date-adapter';
 import { RefreshService } from '../service/refresh.service';
@@ -20,7 +18,9 @@ import { DownstreamBackendService} from '../../user-profile/downstream-backend.s
 @Component({
   selector: 'app-edit-education-dialog',
   templateUrl: './edit-education-dialog.component.html',
-  styleUrls: ['./edit-education-dialog.component.css']
+  styleUrls: ['./edit-education-dialog.component.css'],
+  providers: [{provide: DateAdapter, useClass: AppDateAdapter},
+    {provide: MAT_DATE_FORMATS, useValue: APP_DATE_FORMATS}]
 })
 export class EditEducationDialogComponent extends EducationdialogComponent implements OnInit {
   public employeeData: any;
@@ -55,10 +55,10 @@ ngOnInit() {
 
 initItemRow() {
   return this.fb.group({
-    qualification: new FormControl('', Validators.required),
-    institute: new FormControl('', Validators.required),
-    startDate: new FormControl('', Validators.required),
-    endDate: new FormControl('', Validators.required)
+    qualification: new FormControl(this.employeeData.qualification, Validators.required),
+    institute: new FormControl(this.employeeData.institution, Validators.required),
+    startDate: new FormControl(this.employeeData.startDate, Validators.required),
+    endDate: new FormControl(this.employeeData.endDate, Validators.required)
   });
 }
 

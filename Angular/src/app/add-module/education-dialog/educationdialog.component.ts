@@ -10,7 +10,7 @@ import { FormGroup, FormArray, FormControl, FormBuilder, Validators } from '@ang
 import { EducationSection } from '../education-dialog/domain/educationsection';
 import { TokenStorageService } from 'src/app/login/service/token-storage.service';
 import { debounceTime, tap, switchMap, finalize } from 'rxjs/operators';
-import { IQualificationResponse, Qualificationn } from './domain/qualificationn';
+import { Qualificationn } from './domain/qualificationn';
 import { Institute } from './domain/institute';
 import { DateAdapter, MAT_DATE_FORMATS } from '@angular/material';
 import { AppDateAdapter, APP_DATE_FORMATS } from '../class/date-adapter';

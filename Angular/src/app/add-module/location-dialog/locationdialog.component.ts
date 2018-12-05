@@ -108,11 +108,11 @@ export class LocationdialogComponent implements OnInit {
     ];
     filteredPastOptions: Observable<Paststates[]>;
     filteredOptions: Observable<States[]>;
-    constructor(@Inject(MAT_DIALOG_DATA) private data: any,
-      private dialogRef: MatDialogRef<LocationdialogComponent>,
-      private locationService: LocationService, private fb: FormBuilder,
-      private token: TokenStorageService,
-      private refreshService: RefreshService) {
+    constructor(@Inject(MAT_DIALOG_DATA) protected data: any,
+      protected dialogRef: MatDialogRef<LocationdialogComponent>,
+      protected locationService: LocationService, protected fb: FormBuilder,
+      protected token: TokenStorageService,
+      protected refreshService: RefreshService) {
     }
 
     ngOnInit() {
@@ -172,7 +172,7 @@ export class LocationdialogComponent implements OnInit {
       return state ? state.name : undefined;
     }
 
-    private _filter(name: string): States[] {
+    protected _filter(name: string): States[] {
       const filterValue = name.toLowerCase();
 
       return this.options.filter(option => option.name.toLowerCase().indexOf(filterValue) === 0);
@@ -182,7 +182,7 @@ export class LocationdialogComponent implements OnInit {
       return state ? state.name : undefined;
     }
 
-    private _filter1(name: string): States[] {
+    protected _filter1(name: string): States[] {
       const filterValue = name.toLowerCase();
 
       return this.pastoptions.filter(option => option.name.toLowerCase().indexOf(filterValue) === 0);

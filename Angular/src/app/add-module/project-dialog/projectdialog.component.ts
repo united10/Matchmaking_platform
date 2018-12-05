@@ -54,12 +54,12 @@ export class ProjectdialogComponent implements OnInit {
   temp: FormArray;
   options: string[] = ['Beginner', 'Intermediate', 'Advance'];
 
-  constructor(@Inject(MAT_DIALOG_DATA) private data: any,
-  private dialogRef: MatDialogRef<ProjectdialogComponent>,
-  private fb: FormBuilder, private projectService: ProjectService,
-  private readfromjsonService: ReadfromjsonService,
-  private token: TokenStorageService,
-  private refreshService: RefreshService) { }
+  constructor(@Inject(MAT_DIALOG_DATA) protected data: any,
+  protected dialogRef: MatDialogRef<ProjectdialogComponent>,
+  protected fb: FormBuilder, protected projectService: ProjectService,
+  protected readfromjsonService: ReadfromjsonService,
+  protected token: TokenStorageService,
+  protected refreshService: RefreshService) { }
 
   ngOnInit() {
     const regForUrl = '(https?://)?([\\da-z.-]+)\\.([a-z.]{2,6})[/\\w .-]*/?';
