@@ -42,12 +42,12 @@ export class EducationdialogComponent implements OnInit {
   json_url = 'assets/education.json';
   temp: FormArray;
   temp1: FormArray;
-  constructor(@Inject(MAT_DIALOG_DATA) private data: any,
-    private dialogRef: MatDialogRef<EducationdialogComponent>,
-    private educationService: EducationService, private fb: FormBuilder,
-    private readfromjsonService: ReadfromjsonService,
-    private token: TokenStorageService,
-    private refreshService: RefreshService) {
+  constructor(@Inject(MAT_DIALOG_DATA) protected data: any,
+    protected dialogRef: MatDialogRef<EducationdialogComponent>,
+    protected educationService: EducationService, protected fb: FormBuilder,
+    protected readfromjsonService: ReadfromjsonService,
+    protected token: TokenStorageService,
+    protected refreshService: RefreshService) {
 
   }
 
