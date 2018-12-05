@@ -645,6 +645,7 @@ export class EmployeeDashboardDummyComponent implements OnInit {
       );
     } else if (title === 'Skills') {
       const skillChicklet = new SkillChicklets(content.skill);
+      console.log(content.skill);
       const chicklets = [skillChicklet];
       const skillSection = new SkillSection('Skills', this.tokenstorageservice.getEmail(), 'update', chicklets);
       this.downstreamBackendService.updateSkillsDetails(skillSection)
