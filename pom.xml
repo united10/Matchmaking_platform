@@ -44,6 +44,7 @@
         <module>IndexerService</module>
         <module>QueryService</module>
         <module>UploadingPhoto</module>
+        <module>QueryEngine</module>
 
     </modules>
 
