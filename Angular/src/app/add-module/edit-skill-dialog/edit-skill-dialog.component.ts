@@ -35,7 +35,6 @@ export class EditSkillDialogComponent extends SkillComponent implements OnInit {
   ngOnInit() {
     this.shared.subject.subscribe(data => this.employeeData = data);
     console.log(this.employeeData.skillName);
-    // this.filteredSkills[0].name = this.employeeData.skillName;
     this.skillForm = this.fb.group({
       skills: this.fb.array([this.initItemRow()])
     });
@@ -56,27 +55,7 @@ export class EditSkillDialogComponent extends SkillComponent implements OnInit {
     });
   }
 
-  displayFn(skill: Skillauto) {
-    if (skill) {
-      return skill.name; }
-  }
 
-  onKeyUp(index: number) {
-    this.temp = this.skillForm.get('skills') as FormArray;
-    console.log(this.temp);
-    this.temp.at(index).get('skillName').valueChanges.pipe(
-      debounceTime(300),
-      tap(() => this.isLoading = true),
-      switchMap(value =>
-        this.skillService.searchskills({name: value}, 1)
-      .pipe(
-        finalize(() => this.isLoading = false),
-        )
-      )
-    )
-    .subscribe(Iskills => this.filteredSkills = Iskills.skills);
-
- }
  onSave() {
   const arr = this.skillForm.get('skills') as FormArray;
     const chicklets = new Array<SkillChicklets>();

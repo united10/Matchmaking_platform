@@ -37,12 +37,12 @@ export class CertificatedialogComponent implements OnInit {
   temp: FormArray;
   temp1: FormArray;
   json_url = 'assets/certificate.json';
-  constructor(@Inject(MAT_DIALOG_DATA) private data: any,
-  private certificateService: CertificateService, private readfromjsonService: ReadfromjsonService,
-  private dialogRef: MatDialogRef<CertificatedialogComponent>,
-  private fb: FormBuilder,
-  private token: TokenStorageService,
-  private refreshService: RefreshService) {
+  constructor(@Inject(MAT_DIALOG_DATA) protected data: any,
+  protected certificateService: CertificateService, protected readfromjsonService: ReadfromjsonService,
+  protected dialogRef: MatDialogRef<CertificatedialogComponent>,
+  protected fb: FormBuilder,
+  protected token: TokenStorageService,
+  protected refreshService: RefreshService) {
 
 }
   ngOnInit() {
