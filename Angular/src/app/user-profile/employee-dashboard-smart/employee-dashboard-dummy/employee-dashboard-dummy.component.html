@@ -103,7 +103,7 @@
                               <div *ngFor="let content of card.contents;let i = index; last as isLast">
                                   <div class="title-row">
                                     <div class="title">
-                                      <h6><b>{{content.skillName}}</b></h6>
+                                      <h6><b class="skillname">{{content.skillName}}</b></h6>
                                     </div>
                                     <div class="add-delete">
                                       <mat-icon>edit</mat-icon>
@@ -111,7 +111,7 @@
                                     </div>
                                   </div>
                                   <div class="card-content">
-                                    <h6>Skill Level: {{content.skillLevel}}</h6>
+                                    <h6 class="skilllevel">Skill Level: {{content.skillLevel}}</h6>
                                   </div>
                                   <div *ngIf="!isLast">
                                     <hr class="card-rule"/>
