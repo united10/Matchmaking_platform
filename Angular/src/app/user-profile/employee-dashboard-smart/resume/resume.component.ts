@@ -5,7 +5,8 @@ import { Institute } from './../../../add-module/education-dialog/domain/institu
 import { FormArray, FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
 import { Institution } from 'src/app/add-module/education-dialog/domain/institution';
 import { EducationChicklets } from './../../../add-module/education-dialog/domain/educationchicklets';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject, ViewChild, ElementRef } from '@angular/core';
+import * as jsPDF from 'jspdf';
 
 @Component({
   selector: 'app-resume',
@@ -13,6 +14,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./resume.component.css']
 })
 export class ResumeComponent implements OnInit {
+  @ViewChild('container') container: ElementRef;
 temp: FormArray;
 temp2: any;
   institutionName: string;
@@ -62,5 +64,21 @@ temp2: any;
       this.certificateName = Certificates.certificateName;
       console.log('x' + Certificates.certificateName);
     }
+  }
+  public downloadPDF() {
+    var doc = new jsPDF("p", "mm", "a4");
+    let specialElementHandlers = {
+      '#editor':function(element, renderer)  {
+        return true;
+      }
+    };
+
+    let container= this.container.nativeElement;
+    doc.fromHTML(container.innerHTML, 15, 15, {
+     'width': 40,
+     'elementHandlers': specialElementHandlers
+    });
+    doc.save('testing.pdf');
+    // return xepOnline.Formatter.format('container2', {render: 'download'});
   }
 }

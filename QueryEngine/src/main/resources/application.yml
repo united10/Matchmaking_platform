@@ -1,0 +1,7 @@
+kafka:
+  ipAddress: localhost:9092
+  groupId: biswas
+  listeningTopic: token
+  containerFactory: userKafkaListenerFactory
+server:
+  port: 7001

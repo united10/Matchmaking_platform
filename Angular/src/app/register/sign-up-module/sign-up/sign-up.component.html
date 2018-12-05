@@ -10,25 +10,25 @@
       <form class="login-form"
       [formGroup]="registerForm"
       *ngIf="!submitted"
-      (ngSubmit)="registerForm.valid && onRegisterSubmit()"
+      (ngSubmit)="registerForm.valid && onRegisterSubmit()" #f="ngForm"
       novalidate>
         <mat-form-field class="custom-row" appearance="outline">
           <mat-icon matPrefix style="color:white">person</mat-icon>
-          <input matInput
+          <input matInput name="Name" class='formfield'
             formControlName="name"
             [(ngModel)]="user.name"
             placeholder=" Enter your name"/>
         </mat-form-field>
         <mat-form-field  class="custom-row" appearance="outline">
-          <input matInput
+          <input matInput name="email" class='formfield'
           formControlName="email"
           [(ngModel)]="user.email"
           placeholder=" Enter your email"/>
           <mat-icon style="color:white" matPrefix>mail</mat-icon>
         </mat-form-field>
         <mat-form-field  class="custom-row" appearance="outline">
-          <input matInput
-          formControlName="password"
+          <input matInput name="password"
+          formControlName="password" class='formfield'
           [(ngModel)]="user.password"
           placeholder=" Enter your password"
           [type]="hide ? 'password' : 'text'"/>
@@ -43,6 +43,9 @@
           [disabled]="!registerForm.valid">
           Register
         </button>
+        <div *ngIf="f.submitted" class="alert alert-danger">
+          {{ errorMessage }}
+        </div>
       </form>
       <div class="form-container">
         <span class="suggest mt-1">

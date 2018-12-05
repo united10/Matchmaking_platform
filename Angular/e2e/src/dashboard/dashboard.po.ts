@@ -4,6 +4,6 @@ export class Dashboard {
         return browser.get('/home/user');
     }
     getPageTitleText() {
-        return element(by.css('h6.user-detail')).getText();
+        return element(by.className('title')).getText();
       }
 }

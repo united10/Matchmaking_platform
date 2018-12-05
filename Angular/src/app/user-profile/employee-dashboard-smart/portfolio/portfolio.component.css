@@ -5,11 +5,15 @@
     justify-content: flex-start;
 }
 
-.container {
+/* .container {
     background-color:coral;
-}
+} */
 
 .combine {
     display: flex;
     align-content: center;
+}
+body{
+    /* background-image: url("/home/cgi/Documents/visitingcard.jpg"); */
+    background-color: cornflowerblue;
 }
