@@ -8,9 +8,11 @@ import org.springframework.messaging.handler.annotation.SendTo;
 import org.springframework.messaging.simp.SimpMessagingTemplate;
 import org.springframework.stereotype.Controller;
 import com.example.WebsocketService.domain.Message;
+import org.springframework.web.bind.annotation.CrossOrigin;
 
 import java.util.Date;
 
+@CrossOrigin("*")
 @Controller
 public class WebSocketController {
     private final SimpMessagingTemplate template;
