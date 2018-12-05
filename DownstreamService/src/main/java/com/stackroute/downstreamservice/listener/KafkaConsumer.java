@@ -35,24 +35,24 @@ public class KafkaConsumer {
     }
 
     //Method for listening to user topic and saving
-    @KafkaListener(topics = "${kafka.listeningTopic1}" ,groupId = "${kafka.groupId}",
-    containerFactory="${kafka.containerFactory}")
-    public void consumeJson(@Payload Employee employee) {
-        Employee employee1=Employee.builder().userId(employee.getEmail())
-                .email(employee.getEmail()).name(employee.getName())
-                .build();
-        if(logger.isDebugEnabled()) {
-            logger.debug(String.format("${kafka.consumed}: %s", employee1));
-        }
-        try {
-            employeeService.saveEmployee(employee1);
-            logger.info("${kafka.success}");
-        }catch (EmployeeAlreadyExistsException exception){
-            logger.error(exception.getMessage());
-        }catch(Exception exp){
-            logger.error(exp.getMessage());
-        }
-    }
+//    @KafkaListener(topics = "${kafka.listeningTopic1}" ,groupId = "${kafka.groupId}",
+//    containerFactory="${kafka.containerFactory}")
+//    public void consumeJson(@Payload Employee employee) {
+//        Employee employee1=Employee.builder().userId(employee.getEmail())
+//                .email(employee.getEmail()).name(employee.getName())
+//                .build();
+//        if(logger.isDebugEnabled()) {
+//            logger.debug(String.format("${kafka.consumed}: %s", employee1));
+//        }
+//        try {
+//            employeeService.saveEmployee(employee1);
+//            logger.info("${kafka.success}");
+//        }catch (EmployeeAlreadyExistsException exception){
+//            logger.error(exception.getMessage());
+//        }catch(Exception exp){
+//            logger.error(exp.getMessage());
+//        }
+//    }
 
     //Method for listening to  education topic and using it for saving/updating/deleting
     @KafkaListener(topics = "${kafka.listeningTopic2}" ,groupId = "${kafka.groupId}",
