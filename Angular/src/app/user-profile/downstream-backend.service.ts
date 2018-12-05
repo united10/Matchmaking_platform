@@ -69,6 +69,7 @@ delete_url5 = 'https://matchmaker-zuul.stackroute.in/upstream-service/api/v1/cer
   }
 
   updateSkillsDetails(section: SkillSection){
+    console.log("Section : "+section);
     return this.httpClient.post<any>(this.delete_url1, section, httpOptions).pipe(catchError(this.errorHandler));
   }
   updateExperienceDetails(section: ExperienceSection){

@@ -4,11 +4,15 @@ import { DownstreamService } from '../service/downstream.service';
 import { ReadfromjsonService } from './../service/readfromjson.service';
 import { TokenStorageService } from 'src/app/login/service/token-storage.service';
 import { SkillService } from '../service/skill.service';
+import { Skill } from '../skill-dialog/domain/skill';
 import { FormBuilder , FormControl, Validators , FormArray } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { Skillauto } from '../skill-dialog/domain/skillauto';
 import { debounceTime, tap, switchMap, finalize } from 'rxjs/operators';
 import { RefreshService } from '../service/refresh.service';
+import { SkillChicklets } from '../skill-dialog/domain/skillchicklets';
+import { SkillSection } from '../skill-dialog/domain/skillsection';
+import { DownstreamBackendService } from '../../user-profile/downstream-backend.service';
 
 @Component({
   selector: 'app-edit-skill-dialog',
@@ -22,8 +26,10 @@ export class EditSkillDialogComponent extends SkillComponent implements OnInit {
   constructor(@Inject(MAT_DIALOG_DATA) protected data: any,
   protected dialogRef: MatDialogRef<SkillComponent>, protected readfromjsonService: ReadfromjsonService,
   protected skillService: SkillService, protected fb: FormBuilder,
-  protected token: TokenStorageService, protected refreshService: RefreshService, private downstream: DownstreamService ) {
-    super(data, dialogRef, readfromjsonService, skillService, fb, token ,  refreshService);
+  protected token: TokenStorageService, protected refreshService: RefreshService,
+  private downstreamBackendService: DownstreamBackendService,
+  private downstream: DownstreamService ) {
+    super(data, dialogRef, readfromjsonService, skillService, fb, token , refreshService);
    }
 
   ngOnInit() {
@@ -68,5 +74,22 @@ export class EditSkillDialogComponent extends SkillComponent implements OnInit {
     .subscribe(Iskills => this.filteredSkills = Iskills.skills);
 
  }
-
+ onSave() {
+  const arr = this.skillForm.get('skills') as FormArray;
+    const chicklets = new Array<SkillChicklets>();
+    for (let i = 0; i < arr.length; i++) {
+      const row = arr.at(i);
+      const skill = new Skill('skillId', row.value.skillName.name, row.value.skillLevel);
+      const chicklet = new SkillChicklets(skill);
+      chicklets.push(chicklet);
+    }
+    const section = new SkillSection('Skill', this.token.getEmail(), 'update', chicklets);
+      this.downstreamBackendService.updateSkillsDetails(section)
+      .subscribe(
+        (data) => {
+          console.log(data);
+          location.reload();
+        }
+      );
+    }
 }
