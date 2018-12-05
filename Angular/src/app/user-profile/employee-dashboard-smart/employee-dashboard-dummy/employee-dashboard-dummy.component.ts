@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { map } from 'rxjs/operators';
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { Breakpoints, BreakpointObserver } from '@angular/cdk/layout';
 import { TokenStorageService } from 'src/app/login/service/token-storage.service';
 import { EducationChicklets } from 'src/app/add-module/education-dialog/domain/educationchicklets';
@@ -19,6 +20,8 @@ import { LocationChicklets } from 'src/app/add-module/location-dialog/domain/chi
 import { CurrentLocation } from 'src/app/add-module/location-dialog/domain/currentlocation';
 import { LocationSection } from 'src/app/add-module/location-dialog/domain/section';
 import { PastLocation } from 'src/app/add-module/location-dialog/domain/pastlocation';
+import { EditSkillDialogComponent } from 'src/app/add-module/edit-skill-dialog/edit-skill-dialog.component';
+import { DownstreamService } from 'src/app/add-module/service/downstream.service';
 @Component({
   selector: 'app-employee-dashboard-dummy',
   templateUrl: './employee-dashboard-dummy.component.html',
@@ -36,7 +39,7 @@ export class EmployeeDashboardDummyComponent implements OnInit {
   basicInfo;
   educationLength: number;
   public isCollapsed = false;
-  constructor(private breakpointObserver: BreakpointObserver,
+  constructor(private breakpointObserver: BreakpointObserver, private dialog: MatDialog , private downstream: DownstreamService,
     private tokenstorageservice: TokenStorageService , private downstreamBackendService: DownstreamBackendService) {}
 
 
@@ -666,4 +669,13 @@ export class EmployeeDashboardDummyComponent implements OnInit {
      );
 
    }
+
+   editskilldialog(content) {
+    const dialogConfig = new MatDialogConfig();
+    this.downstream.subject.next(content);
+    dialogConfig.disableClose = false;
+    dialogConfig.autoFocus = true;
+    dialogConfig.width = '50%';
+    this.dialog.open(EditSkillDialogComponent, dialogConfig);
+  }
 }

@@ -28,5 +28,6 @@ import { SearchModule } from './search/search-module/search.module';
   ],
   providers: [],
   bootstrap: [AppComponent]
+
 })
 export class AppModule { }

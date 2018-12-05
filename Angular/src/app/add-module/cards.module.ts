@@ -21,6 +21,7 @@ import { MatAutocompleteModule, MatProgressSpinnerModule } from '@angular/materi
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { EducationService } from './service/education.service';
+import { EditSkillDialogComponent } from './edit-skill-dialog/edit-skill-dialog.component';
 
 @NgModule({
   imports: [
@@ -48,7 +49,9 @@ import { EducationService } from './service/education.service';
                   LocationdialogComponent,
                   ExperienceComponent,
                   ProjectdialogComponent,
-                  InterestDialogComponent],
+                  InterestDialogComponent,
+                  EditSkillDialogComponent
+                    ],
 
   entryComponents: [DetailsdialogComponent,
                     EducationdialogComponent,
@@ -57,7 +60,8 @@ import { EducationService } from './service/education.service';
                     ExperienceComponent,
                     LocationdialogComponent,
                     ProjectdialogComponent,
-                    InterestDialogComponent],
+                    InterestDialogComponent,
+                    EditSkillDialogComponent],
   providers: [EducationService],
   exports: [CardComponent]
 })

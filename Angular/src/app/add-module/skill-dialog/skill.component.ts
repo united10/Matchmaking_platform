@@ -30,10 +30,10 @@ export class SkillComponent implements OnInit {
   temp: FormArray;
   options: string[] = ['Beginner', 'Intermediate', 'Advance'];
 
-  constructor(@Inject(MAT_DIALOG_DATA) private data: any,
-    private dialogRef: MatDialogRef<SkillComponent>, private readfromjsonService: ReadfromjsonService,
-    private skillService: SkillService, private fb: FormBuilder,
-    private token: TokenStorageService) {
+  constructor(@Inject(MAT_DIALOG_DATA) protected data: any,
+    protected dialogRef: MatDialogRef<SkillComponent>, protected readfromjsonService: ReadfromjsonService,
+    protected skillService: SkillService, protected fb: FormBuilder,
+    protected token: TokenStorageService) {
 
   }
 
