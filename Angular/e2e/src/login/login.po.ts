@@ -22,7 +22,10 @@ export class LoginPage {
     getErrorMessage() {
         return element(by.className('alert')).getText();
     }
-    getregisterlink() {
+    getRegisterLink() {
         return element(by.tagName('a'));
+    }
+    getParagraphText() {
+        return element(by.css('.suggest')).getText();
     }
 }
