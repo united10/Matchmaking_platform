@@ -29,7 +29,7 @@ export class PortfolioComponent implements OnInit {
       console.log(this.name);
   }
   public downloadPDF() {
-    var doc = new jsPDF("l", "mm", "a7");
+    var doc = new jsPDF("l", "mm", "a6");
     let specialElementHandlers = {
       '#editor':function(element, renderer)  {
         return true;
@@ -37,11 +37,11 @@ export class PortfolioComponent implements OnInit {
     };
 
     let container= this.container.nativeElement;
-    doc.fromHTML(container.innerHTML, 15, 0, {
-     'width': 40,
+    doc.fromHTML(container.innerHTML, 5, 0, {
+     'width': 150,
      'elementHandlers': specialElementHandlers
     });
-    doc.save('testing.pdf');
+    doc.save('visiting-card.pdf');
     // return xepOnline.Formatter.format('container2', {render: 'download'});
   }
 }

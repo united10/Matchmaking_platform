@@ -43,8 +43,7 @@ export class SkillService {
     .pipe(
       tap((response: SkillResponse) => {
         response.skills = response.skills
-          .map(skill => new Skillauto(skill.name, skill.id))
-          .filter(skill => skill.name.includes(filter.name));
+          .map(skill => new Skillauto(skill.name, skill.id));
         return response;
       })
       );

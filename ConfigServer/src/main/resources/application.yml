@@ -21,5 +21,3 @@ eureka:         #tells about the Eureka server details and its refresh time
             defaultZone: http://localhost:8091/eureka/
         healthcheck:
             enabled: true
-        lease:
-            duration: 5

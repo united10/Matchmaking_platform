@@ -17,6 +17,7 @@ import { Observable } from 'rxjs';
 import { States } from './domain/states';
 import { Paststates } from './domain/paststates';
 import { RefreshService } from '../service/refresh.service';
+import { Md5 } from 'ts-md5';
 
 @Component({
   selector: 'app-locationdialog',
@@ -250,19 +251,47 @@ displayFn1(pastcity: Pastcities) {
       }
     }
   onSave() {
-    this.currentId = this.locationForm.get('currentId').value as string;
-    this.currentCityName = this.locationForm.get('currentCityName').value.name as string;
-    this.currentStateName = this.locationForm.get('currentStateName').value.name as string;
-    this.currentPincode = this.locationForm.get('currentPincode').value as string;
 
+    this.currentPincode = this.locationForm.get('currentPincode').value as string;
+    if (this.locationForm.get('currentCityName').value.name === undefined) {
+      this.currentCityName = this.locationForm.get('currentCityName').value as string;
+    } else {
+      this.currentCityName = this.locationForm.get('currentCityName').value.name as string;
+    }
+
+    if (this.locationForm.get('currentCityName').value.id === undefined) {
+      this.currentId = Md5.hashStr(this.token.getEmail() + this.locationForm.get('currentId').value as string, false).toString();
+    } else {
+      this.currentId = this.locationForm.get('currentCityName').value.id as string;
+    }
+
+    if (this.locationForm.get('currentStateName').value.name === undefined) {
+      this.currentStateName = this.locationForm.get('currentStateName').value as string;
+    } else {
+      this.currentStateName = this.locationForm.get('currentStateName').value.name as string;
+    }
       const arr = this.locationForm.get('pastLocation') as FormArray;
       const values = arr.value;
       const currentlocation = new CurrentLocation(this.currentId, this.currentCityName, this.currentStateName, this.currentPincode);
       const chicklets = new Array<LocationChicklets>();
       const pastLocations = new Array<PastLocation>();
       for (const row of values) {
-        const pastlocation = new PastLocation(
-          row.pastId , row.pastCityName.name, row.pastStateName.name , row.pastPincode);
+        let pastlocation;
+        if (row.pastCityName.name === undefined && row.pastStateName.name === undefined) {
+          pastlocation = new PastLocation(
+            Md5.hashStr(this.token.getEmail() + row.pastCityName).toString() ,
+            row.pastCityName, row.pastStateName , row.pastPincode);
+        } else if (row.pastCityName.name === undefined && row.pastStateName.name !== undefined) {
+          pastlocation = new PastLocation(
+            Md5.hashStr(this.token.getEmail() + row.pastCityName).toString() ,
+            row.pastCityName, row.pastStateName.name , row.pastPincode);
+        } else if (row.pastCityName.name !== undefined && row.pastStateName.name === undefined) {
+          pastlocation = new PastLocation(
+            row.pastCityName.id , row.pastCityName.name, row.pastStateName , row.pastPincode);
+        } else {
+          pastlocation = new PastLocation(
+            row.pastCityName.id , row.pastCityName.name, row.pastStateName.name , row.pastPincode);
+        }
           console.log(pastlocation);
         pastLocations.push(pastlocation);
         console.log(chicklets);
@@ -271,7 +300,7 @@ displayFn1(pastcity: Pastcities) {
         console.log(chicklet);
         chicklets.push(chicklet);
 
-      const section = new LocationSection('sectionId', this.token.getEmail(), 'add', chicklets);
+      const section = new LocationSection('Location', this.token.getEmail(), 'add', chicklets);
       this.locationService.addLocationDetails(section).subscribe(
         data => {
           this.output = data;
