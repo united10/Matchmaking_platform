@@ -47,8 +47,7 @@ export class LocationService {
     .pipe(
       tap((response: CurrentCityResponse) => {
         response.locations = response.locations
-          .map(currentcities => new Currentcities(currentcities.name, currentcities.id))
-          .filter(currentcities => currentcities.name.includes(filter.name));
+          .map(currentcities => new Currentcities(currentcities.name, currentcities.id));
         return response;
       })
       );
@@ -58,8 +57,7 @@ export class LocationService {
     .pipe(
       tap((response: PastCityResponse) => {
         response.locations = response.locations
-          .map(pastcities => new Pastcities(pastcities.name, pastcities.id))
-          .filter(pastcities => pastcities.name.includes(filter.name));
+          .map(pastcities => new Pastcities(pastcities.name, pastcities.id));
         return response;
       })
       );

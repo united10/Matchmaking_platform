@@ -27,6 +27,12 @@ import { RefreshService } from 'src/app/add-module/service/refresh.service';
 import { MatDialog } from '@angular/material/dialog';
 import { PortfolioComponent } from '../portfolio/portfolio.component';
 import { ResumeComponent } from '../resume/resume.component';
+import { EditSkillDialogComponent } from 'src/app/add-module/edit-skill-dialog/edit-skill-dialog.component';
+import { SharedService } from 'src/app/add-module/service/shared.service';
+import { EditEducationDialogComponent } from 'src/app/add-module/edit-education-dialog/edit-education-dialog.component';
+
+
+
 
 @Component({
   selector: 'app-employee-dashboard-dummy',
@@ -52,6 +58,7 @@ export class EmployeeDashboardDummyComponent implements OnInit {
               private downstreamBackendService: DownstreamBackendService,
               private refreshService: RefreshService,
               private uploadService: BasicInfoService,
+              private shared: SharedService,
               public dialog: MatDialog) {}
 
 
@@ -744,4 +751,22 @@ export class EmployeeDashboardDummyComponent implements OnInit {
      );
 
    }
+  editskilldialog(content) {
+    const dialogConfig = new MatDialogConfig();
+    this.shared.subject.next(content);
+    dialogConfig.disableClose = false;
+    dialogConfig.autoFocus = true;
+    dialogConfig.width = '50%';
+    this.dialog.open(EditSkillDialogComponent, dialogConfig);
+  }
+
+  editeducationdialog(content) {
+    const dialogConfig = new MatDialogConfig();
+    this.shared.subject.next(content);
+    dialogConfig.disableClose = false;
+    dialogConfig.autoFocus = true;
+    dialogConfig.width = '50%';
+    this.dialog.open(EditEducationDialogComponent, dialogConfig);
+  }
+
 }
