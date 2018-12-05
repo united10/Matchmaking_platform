@@ -14,7 +14,7 @@ import * as jsPDF from 'jspdf';
   styleUrls: ['./resume.component.css']
 })
 export class ResumeComponent implements OnInit {
-  @ViewChild('container') container: ElementRef;
+  @ViewChild('body') body: ElementRef;
 temp: FormArray;
 temp2: any;
   institutionName: string;
@@ -23,6 +23,10 @@ temp2: any;
   skillLevel: string;
   certificateName: String;
   certificateAuthority: String;
+  name: String;
+  email: String;
+  cityName: String;
+  stateName: String;
 
   constructor() { }
 
@@ -30,6 +34,8 @@ temp2: any;
   }
   onReciving(employee: any) {
     console.log(employee);
+    this.name = employee.name;
+    this.email = employee.email;
 
     // // this.institutionName = employee.educations.institution.institutionName;
     // this.temp = employee.educations;
@@ -59,11 +65,14 @@ temp2: any;
     }
 
 
-    for (const Certificates of employee.Certificate) {
-      this.certificateAuthority = Certificates.certificateName;
-      this.certificateName = Certificates.certificateName;
-      console.log('x' + Certificates.certificateName);
+    for (const certificate of employee.certificates) {
+      this.certificateName = certificate.certificateName;
+      this.certificateAuthority = certificate.certificateAuthority;
+      console.log('x' + certificate.certificateName);
     }
+
+    this.cityName = employee.location.currentLocation.cityName;
+    this.stateName = employee.location.currentLocation.stateName;
   }
   public downloadPDF() {
     var doc = new jsPDF("p", "mm", "a4");
@@ -73,8 +82,8 @@ temp2: any;
       }
     };
 
-    let container= this.container.nativeElement;
-    doc.fromHTML(container.innerHTML, 15, 15, {
+    let body = this.body.nativeElement;
+    doc.fromHTML(body.innerHTML, 15, 15, {
      'width': 40,
      'elementHandlers': specialElementHandlers
     });
