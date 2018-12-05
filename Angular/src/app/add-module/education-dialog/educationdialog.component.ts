@@ -15,6 +15,7 @@ import { Institute } from './domain/institute';
 import { DateAdapter, MAT_DATE_FORMATS } from '@angular/material';
 import { AppDateAdapter, APP_DATE_FORMATS } from '../class/date-adapter';
 import { RefreshService } from '../service/refresh.service';
+import {Md5} from 'ts-md5/dist/md5';
 
 @Component({
   selector: 'app-educationdialog',
@@ -42,6 +43,8 @@ export class EducationdialogComponent implements OnInit {
   json_url = 'assets/education.json';
   temp: FormArray;
   temp1: FormArray;
+  qualificationId: string;
+  institutionId: string;
   constructor(@Inject(MAT_DIALOG_DATA) private data: any,
     private dialogRef: MatDialogRef<EducationdialogComponent>,
     private educationService: EducationService, private fb: FormBuilder,
@@ -133,11 +136,27 @@ if (institute) {
     for (let i = 0; i < arr.length; i++) {
       const row = arr.at(i);
       const temp = row.value.startDate;
-      const qualification = new Qualification('qualificationId', row.value.qualification.name);
-      const institution = new Institution('institutionId',
+      let qualification;
+      let institution;
+
+      if ( row.value.qualification.name === undefined) {
+        this.qualificationId = Md5.hashStr(this.token.getEmail() + row.value.qualification, false).toString();
+        qualification = new Qualification(this.qualificationId, row.value.qualification);
+      } else {
+        qualification = new Qualification(row.value.qualification.id, row.value.qualification.name);
+      }
+
+      if (row.value.institute.name === undefined) {
+        institution = new Institution('institutionId',
+          row.value.institute,
+          row.value.startDate.getDate() + '-' + (row.value.startDate.getMonth() + 1) + '-' + row.value.startDate.getFullYear(),
+          row.value.endDate.getDate() + '-' + (row.value.endDate.getMonth() + 1) + '-' + row.value.endDate.getFullYear());
+      } else {
+        institution = new Institution(row.value.institute.id,
         row.value.institute.name,
         row.value.startDate.getDate() + '-' + (row.value.startDate.getMonth() + 1) + '-' + row.value.startDate.getFullYear(),
         row.value.endDate.getDate() + '-' + (row.value.endDate.getMonth() + 1) + '-' + row.value.endDate.getFullYear());
+      }
       const chicklet = new EducationChicklets(qualification, institution, this.summary);
       chicklets.push(chicklet);
     }

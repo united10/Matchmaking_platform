@@ -11,6 +11,7 @@ import { TokenStorageService } from 'src/app/login/service/token-storage.service
 import { Skillauto } from './domain/skillauto';
 import { debounceTime, tap, switchMap, finalize } from 'rxjs/operators';
 import { RefreshService } from '../service/refresh.service';
+import { Md5 } from 'ts-md5';
 
 @Component({
   selector: 'app-skill',
@@ -29,6 +30,7 @@ export class SkillComponent implements OnInit {
   dataJson: any;
   json_url = 'assets/skill.json';
   temp: FormArray;
+  skillId: string;
   options: string[] = ['Beginner', 'Intermediate', 'Advance'];
 
   constructor(@Inject(MAT_DIALOG_DATA) private data: any,
@@ -101,7 +103,13 @@ displayFn(skill: Skillauto) {
     const chicklets = new Array<SkillChicklets>();
     for (let i = 0; i < arr.length; i++) {
       const row = arr.at(i);
-      const skill = new Skill('skillId', row.value.skillName.name, row.value.skillLevel);
+      let skill;
+      if (row.value.skillName.name === undefined) {
+        this.skillId = Md5.hashStr(this.token.getEmail() + row.value.skillName, false).toString();
+        skill = new Skill(this.skillId, row.value.skillName, row.value.skillLevel);
+      } else {
+        skill = new Skill(row.value.skillName.id, row.value.skillName.name, row.value.skillLevel);
+      }
       const chicklet = new SkillChicklets(skill);
       chicklets.push(chicklet);
     }
