@@ -42,7 +42,10 @@ public class EmployeeService {
         Employee employee;
         if (employeeRepository.existsById(employeeId)) {
             employee = employeeRepository.findById(employeeId).get();
-            BasicInfo basicInfo1=employee.getBasicInfo();
+            BasicInfo basicInfo1=BasicInfo.builder().build();
+            if(employee.getBasicInfo()!=null) {
+                basicInfo1 = employee.getBasicInfo();
+            }
             if(basicInfo.getContactNo()!=null){
                 basicInfo1.setContactNo(basicInfo.getContactNo());
             }
