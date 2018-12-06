@@ -18,9 +18,5 @@ public class FetchJson {
         logger.info("Fetched Json: {}",result);
         return result;
     }
-
-   // public static void main(String[] args) {
-       // Employee employee=new FetchJson().getAllData("palashmoon8@gmail.com");
-   // }
 }
 

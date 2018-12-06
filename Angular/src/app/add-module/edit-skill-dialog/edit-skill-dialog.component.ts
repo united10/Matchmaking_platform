@@ -34,7 +34,7 @@ export class EditSkillDialogComponent extends SkillComponent implements OnInit {
 
   ngOnInit() {
     this.shared.subject.subscribe(data => this.employeeData = data);
-    console.log(this.employeeData.skillName);
+
     this.skillForm = this.fb.group({
       skills: this.fb.array([this.initItemRow()])
     });

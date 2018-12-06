@@ -6,9 +6,11 @@ import org.neo4j.driver.v1.GraphDatabase;
 
 public class DriverInit {
     Driver driver;
-    public DriverInit(String uri,String user,String password)
+    public DriverInit()
     {
-        driver = GraphDatabase.driver(uri, AuthTokens.basic(user, password));
+
+        driver = GraphDatabase.driver("bolt://13.233.180.226",
+                AuthTokens.basic("neo4j", "123456"));
     }
 
     public Driver getDriver() {
