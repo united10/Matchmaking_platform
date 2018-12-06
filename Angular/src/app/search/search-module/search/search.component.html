@@ -1,39 +1,22 @@
 <mat-toolbar *ngIf="isLoggedIn">
-    <span>MatchMaking Platform</span>
+    <h1>MatchMaking Platform</h1>
     <span class="header-spacer"></span>
     <button class="btn default" (click)="logout()">Logout</button>
   </mat-toolbar>
 
 
   <!--search box with mic and search button-->
-
-    <mat-form-field [formGroup]="queryForm"  fxLayout="row" fxLayoutAlign="center center" class="searchInput">
-      
-        
-        <input matInput formControlName="query"  placeholder="Enter your Query" [(ngModel)]="msg" color="primary" name="search" (keyup.enter)="search($event)" required>
-      </mat-form-field>
-        <mat-card-actions fxLayout="row" fxLayoutAlign="space-between center">
-            <button class="btn btn-info" (click)="toggleVoiceRecognition()"><mat-icon *ngIf="!started">mic_none</mat-icon> <mat-icon *ngIf="started">mic</mat-icon></button>
-            <button class="btn btn-primary" (click)="submitQuery()">Search</button>
-        </mat-card-actions>
+    <mat-form-field [formGroup]="queryForm" class="searchInput">
+        <input matInput formControlName="query"  placeholder="Enter your Query" [(ngModel)]="msg" color="primary" name="search" (keyup.enter)="submitQuery($event)" required>
+    </mat-form-field>
+    <mat-card-actions>
+        <button id = "mic" class="btn btn-info" (click)="toggleVoiceRecognition()"><mat-icon *ngIf="!started">mic_none</mat-icon> <mat-icon *ngIf="started">mic</mat-icon></button>
+        <button id = "search" class="btn btn-primary" (click)="submitQuery()">Search</button>
+    </mat-card-actions>
           
 
-   
-  
-        <!-- <textarea class="form-control" formControlName="query" rows="2" 
-        placeholder="Write your query..." [(ngModel)]="msg"></textarea>
-    
-  <div class="butt">
-  <button   id = "mic"   (click)="toggleVoiceRecognition()"><mat-icon *ngIf="!started">mic_none</mat-icon> <mat-icon *ngIf="started">mic</mat-icon></button>
-
-
-  <button id = "search" class="btn btn-primary" type="button" (click)="submitQuery()">Search </button>
-</div>
-
-
-
- Use ng-template to ensure that the generated components end up in the right place -->
-  <div>
+ <!-- Use ng-template to ensure that the generated components end up in the right place -->
+<div>
   <ng-template class="container1" #container>
 
   </ng-template>

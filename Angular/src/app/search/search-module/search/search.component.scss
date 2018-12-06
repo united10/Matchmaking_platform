@@ -1,6 +1,13 @@
 .header-spacer {
     flex: 1 1 auto;
   }
+
+mat-toolbar {
+  background-color: #57574d;
+  h1 {
+    color: white;
+  }
+}
 .container1{
   display: flex;
   flex-direction: row;
@@ -8,47 +15,34 @@
 }
 
 .searchInput {
+  display: inline-block;
   width: 80%;
 }
-//   display: flex;
-//   align-items: center;
-//   justify-content: center;
-//   margin: auto;
-//   color: black;
-//  }
 
+#mic {
+  margin: 1rem;
+  width : 45px;
+  height : 2.5rem;
+}
 
-//  mat-card-actions {
-//    display: flex;
-//    justify-content: center;
-//    margin: auto;
-//  }
-// section {
-//   display: flex;
-//   flex-wrap: wrap;
-//   align-content: space-between;
-// }
-
-// section .butt {
-//  align-content: center;
-// }
-// .container {
-//   display: flex;
-//   background-color: #DDE1E6;
-
-//   fieldset {
-//     width :80%;
-//     margin :1rem;
-//   }
-//   #mic {
-//       width: 4%;
-//       margin: auto;
-//       height : 2.5rem;
-//   }
-//   #search {
-//       width : 16%;
-//       height : 2.5rem;
-//       margin: auto;
-//   }
+#search {
+  width : 100px;
+  height : 2.5rem;
+}
+@media screen and (max-width: 800px) {
+  .searchInput {
+    display: inline;
+  }
+  mat-card-actions {
+    display: flex;
+    justify-content: center;
+  }
+  #mic {
+    margin : 0 2rem;
+    width : 45px;
+  }
   
-// }
+  #search {
+    width : 100px;
+  }
+}

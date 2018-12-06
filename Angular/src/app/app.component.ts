@@ -16,8 +16,6 @@ export class AppComponent {
       router.navigate(['home/user']);
     } else if ( tokenStorageService.getRole() === 'recruiter') {
        router.navigate(['/search']);
-     } else {
-      router.navigate(['']);
     }
   }
 }
