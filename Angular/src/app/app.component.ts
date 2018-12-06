@@ -18,5 +18,8 @@ export class AppComponent {
        router.navigate(['/search']);
     }
   }
+  else {
+    router.navigate(['']);
+  }
 }
 }
