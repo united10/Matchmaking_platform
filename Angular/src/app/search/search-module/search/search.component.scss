@@ -6,26 +6,49 @@
   flex-direction: row;
   flex-wrap: wrap;
 }
-.container {
-  display: flex;
-  background-color: #DDE1E6;
-  p {
-    width: 20%;
-    padding: 0.5rem;
-  }
-  fieldset {
-    width :60%;
-    margin :1rem;
-  }
-  #mic {
-      width: 4%;
-      margin-right: 1rem;
-      height : 2.5rem;
-  }
-  #search {
-      width : 16%;
-      height : 2.5rem;
-      margin-right: 2rem;
-  }
-  
+
+.searchInput {
+  width: 80%;
 }
+//   display: flex;
+//   align-items: center;
+//   justify-content: center;
+//   margin: auto;
+//   color: black;
+//  }
+
+
+ mat-card-actions {
+   display: flex;
+   justify-content: center;
+   margin: auto;
+ }
+// section {
+//   display: flex;
+//   flex-wrap: wrap;
+//   align-content: space-between;
+// }
+
+// section .butt {
+//  align-content: center;
+// }
+// .container {
+//   display: flex;
+//   background-color: #DDE1E6;
+
+//   fieldset {
+//     width :80%;
+//     margin :1rem;
+//   }
+//   #mic {
+//       width: 4%;
+//       margin: auto;
+//       height : 2.5rem;
+//   }
+//   #search {
+//       width : 16%;
+//       height : 2.5rem;
+//       margin: auto;
+//   }
+  
+// }

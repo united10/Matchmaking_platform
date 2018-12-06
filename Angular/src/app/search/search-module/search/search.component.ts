@@ -22,7 +22,7 @@ import { componentNeedsResolution } from '@angular/core/src/metadata/resource_lo
   styleUrls: ['./search.component.scss']
 })
 export class SearchComponent implements OnInit, OnDestroy {
-  private serverUrl = 'https://matchmaker-zuul.stackroute.in/websocket-service/socket'
+  private serverUrl = 'https://matchmaker-zuul.stackroute.in/websocket-service/socket';
   private title = 'WebSockets chat';
   private stompClient;
   @ViewChild('container', {read: ViewContainerRef}) container: ViewContainerRef;
@@ -88,7 +88,6 @@ constructor(private tokenstorageservice: TokenStorageService,
     ).subscribe(started => this.started = started);
 
 
-    
   }
 
 ngOnDestroy(): void {
@@ -97,7 +96,7 @@ ngOnDestroy(): void {
     this.subscription.unsubscribe();
 }
 
-initializeWebSocketConnection(){
+initializeWebSocketConnection() {
   // const componentFactory = this.componentFactoryResolver.resolveComponentFactory(this.draggableComponentClass);
   // const component = this.container.createComponent(componentFactory).instance;
   // component.employeeName=this.employeeName;

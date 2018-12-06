@@ -5,25 +5,40 @@
   </mat-toolbar>
 
 
+  <!--search box with mic and search button-->
+
+    <mat-form-field [formGroup]="queryForm"  fxLayout="row" fxLayoutAlign="center center" class="searchInput">
+      
+        
+        <input matInput formControlName="query"  placeholder="Enter your Query" type="search" [(ngModel)]="msg" color="primary" name="search" (keyup.enter)="search($event)" required>
+      </mat-form-field>
+        <mat-card-actions fxLayout="row" fxLayoutAlign="space-between center">
+            <button class="btn btn-info" (click)="toggleVoiceRecognition()"><mat-icon *ngIf="!started">mic_none</mat-icon> <mat-icon *ngIf="started">mic</mat-icon></button>
+            <button class="btn btn-primary" (click)="submitQuery()">Search</button>
+        </mat-card-actions>
+          
+
+   
   
+        <!-- <textarea class="form-control" formControlName="query" rows="2" 
+        placeholder="Write your query..." [(ngModel)]="msg"></textarea>
+    
+  <div class="butt">
+  <button   id = "mic"   (click)="toggleVoiceRecognition()"><mat-icon *ngIf="!started">mic_none</mat-icon> <mat-icon *ngIf="started">mic</mat-icon></button>
 
-<section class="container" [formGroup]="queryForm">
-    <p text-align="center">Search for people with your requirements here</p>
-     <fieldset >
-                <textarea class="form-control" formControlName="query" rows="2" placeholder="Write your query..." [(ngModel)]="msg">
-                </textarea>
-      </fieldset>
-  <button id = "mic"  class="btn btn-info" (click)="toggleVoiceRecognition()"><mat-icon *ngIf="!started">mic_none</mat-icon> <mat-icon *ngIf="started">mic</mat-icon></button>
+
   <button id = "search" class="btn btn-primary" type="button" (click)="submitQuery()">Search </button>
+</div>
 
-</section>
 
-<div>
-  <!-- Use ng-template to ensure that the generated components end up in the right place -->
+
+ Use ng-template to ensure that the generated components end up in the right place -->
+  <div>
   <ng-template class="container1" #container>
 
   </ng-template>
 </div>
+
 
 
 

@@ -67,7 +67,7 @@ onSave() {
     const chicklets = new Array<EducationChicklets>();
     for (let i = 0; i < arr.length; i++) {
       const row = arr.at(i);
-      const qualification = new Qualification('qualificationId', row.value.qualification.name);
+      const qualification = new Qualification(this.employeeData.id, row.value.qualification.name);
       const institution = new Institution('institutionId',
         row.value.institute.name,
         row.value.startDate.getDate() + '-' + (row.value.startDate.getMonth() + 1) + '-' + row.value.startDate.getFullYear(),
