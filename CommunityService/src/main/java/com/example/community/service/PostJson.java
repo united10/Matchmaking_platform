@@ -11,7 +11,7 @@ import javax.validation.constraints.NotNull;
 @Component
 public class PostJson {
 
-        private final static  String url="http://10.20.1.211:8097/downstream-service/matchmaker/v1/employees/";
+        private final static  String url="http://10.20.1.211:8097/downstream-service/matchmaker/v1/community/employees/";
         // This hardcode is for testing
 
         public void sendAllData(Community_user community_user){

@@ -362,7 +362,23 @@ public class EmployeeService {
         if (employeeRepository.existsById(userId)) {
             Employee employee = employeeRepository.findById(userId).get();
             Location fetchLocation = employee.getLocation();
-            Location newLocation = Location.builder().pastLocation(fetchLocation.getPastLocation()).build();
+            CurrentLocation currentLocation1=CurrentLocation.builder().build();
+            Location newLocation = Location.builder().currentLocation(currentLocation1).pastLocation(fetchLocation.getPastLocation()).build();
+            employee.setLocation(newLocation);
+            employeeRepository.save(employee);
+            return true;
+
+        } else {
+            throw new EmployeeAlreadyExistsException(environment.getProperty("errors.employeeNotFound"));
+        }
+    }
+
+
+    public boolean deleteLocationData(String userId) throws EmployeeAlreadyExistsException {
+
+        if (employeeRepository.existsById(userId)) {
+            Employee employee = employeeRepository.findById(userId).get();
+              Location newLocation = Location.builder().build();
             employee.setLocation(newLocation);
             employeeRepository.save(employee);
             return true;
@@ -555,6 +571,21 @@ public class EmployeeService {
             throw new EmployeeAlreadyExistsException(environment.getProperty("errors.employeeNotFound"));
         }
 
+    }
+
+    public void saveCommunity(String employeeId,String community) throws EmployeeNotFoundException {
+
+        if (employeeRepository.existsById(employeeId)) {
+            Employee employee = employeeRepository.findById(employeeId).get();
+            List<String> communities=new ArrayList<>();
+            if(employee.getCommunities()!=null){
+                communities=employee.getCommunities();
+            }
+            communities.add(community);
+            employee.setCommunities(communities);
+        } else {
+            throw new EmployeeNotFoundException(environment.getProperty("errors.emptyDatabase"));
+        }
     }
 
 

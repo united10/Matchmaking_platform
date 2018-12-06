@@ -33,6 +33,7 @@ controller:
     base: /matchmaker/v1
     employees: /employees
     employee: /employees/{id}
+    community: /community/employees
 
 kafka:
     ipAddress: localhost:9092
