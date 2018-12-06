@@ -21,12 +21,7 @@ import { LocationChicklets } from 'src/app/add-module/location-dialog/domain/chi
 import { CurrentLocation } from 'src/app/add-module/location-dialog/domain/currentlocation';
 import { LocationSection } from 'src/app/add-module/location-dialog/domain/section';
 import { PastLocation } from 'src/app/add-module/location-dialog/domain/pastlocation';
-import {
-  MatDialogRef,
-  MAT_DIALOG_DATA,
-  MatDialogConfig
-} from '@angular/material/dialog';
-import { CertificatedialogComponent } from 'src/app/add-module/certificate-dialog/certificatedialog.component';
+import {MatDialogConfig} from '@angular/material/dialog';
 import { RefreshService } from 'src/app/add-module/service/refresh.service';
 import { MatDialog } from '@angular/material/dialog';
 import { PortfolioComponent } from '../portfolio/portfolio.component';
@@ -34,8 +29,10 @@ import { ResumeComponent } from '../resume/resume.component';
 import { EditSkillDialogComponent } from 'src/app/add-module/edit-skill-dialog/edit-skill-dialog.component';
 import { SharedService } from 'src/app/add-module/service/shared.service';
 import { EditEducationDialogComponent } from 'src/app/add-module/edit-education-dialog/edit-education-dialog.component';
-
-
+import { EditExperienceDialogComponent } from 'src/app/add-module/edit-experience-dialog/edit-experience-dialog.component';
+import { EditLocationDialogComponent } from 'src/app/add-module/edit-location-dialog/edit-location-dialog.component';
+import { EditProjectDialogComponent } from 'src/app/add-module/edit-project-dialog/edit-project-dialog.component';
+import { EditCertificateDialogComponent } from 'src/app/add-module/edit-certificate-dialog/edit-certificate-dialog.component';
 
 
 @Component({
@@ -561,7 +558,8 @@ export class EmployeeDashboardDummyComponent implements OnInit {
     const dialogConfig = new MatDialogConfig();
     dialogConfig.disableClose = false;
     dialogConfig.autoFocus = true;
-    dialogConfig.width = '90%';
+    dialogConfig.width = '50%';
+    dialogConfig.height = '80%';
     this.dialog.open(ResumeComponent, dialogConfig);
   }
 
@@ -716,150 +714,6 @@ export class EmployeeDashboardDummyComponent implements OnInit {
       });
   }
 
-  onUpdate(content, title) {
-    if (title === 'Education') {
-      const qualification = new Qualification(
-        content.id,
-        content.qualification
-      );
-      const institution = new Institution(
-        content.institutionId,
-        content.institution,
-        content.startDate,
-        content.endDate
-      );
-      const educationChicklets = new EducationChicklets(
-        qualification,
-        institution,
-        content.summary
-      );
-      const chicklets = new Array<EducationChicklets>();
-      chicklets.push(educationChicklets);
-      const educationSection = new EducationSection(
-        'Education',
-        this.tokenstorageservice.getEmail(),
-        'update',
-        chicklets
-      );
-      console.log(educationSection);
-      this.downstreamBackendService
-        .updateEducationDetails(educationSection)
-        .subscribe(data => {
-          console.log(data);
-          location.reload();
-        });
-    } else if (title === 'Skills') {
-      const skillChicklet = new SkillChicklets(content.skill);
-      const chicklets = [skillChicklet];
-      const skillSection = new SkillSection(
-        'Skills',
-        this.tokenstorageservice.getEmail(),
-        'update',
-        chicklets
-      );
-      this.downstreamBackendService
-        .updateSkillsDetails(skillSection)
-        .subscribe(data => {
-          console.log(data);
-          location.reload();
-        });
-    } else if (title === 'Project') {
-      const projectChicklet = new ProjectChicklets(content.project);
-      const chicklets = [projectChicklet];
-      const projectSection = new ProjectSection(
-        'Project',
-        this.tokenstorageservice.getEmail(),
-        'update',
-        chicklets
-      );
-      this.downstreamBackendService
-        .updateProjectDetails(projectSection)
-        .subscribe(data => {
-          console.log(data);
-          location.reload();
-        });
-    } else if (title === 'Certificate') {
-      const certificateChicklet = new CertificateChicklets(content.certificate);
-      const chicklets = [certificateChicklet];
-      const certificateSection = new CertificateSection(
-        'Certificate',
-        this.tokenstorageservice.getEmail(),
-        'update',
-        chicklets
-      );
-      this.downstreamBackendService
-        .updateCerificateDetails(certificateSection)
-        .subscribe(data => {
-          console.log(data);
-          location.reload();
-        });
-    } else if (title === 'Experience') {
-      const experienceChicklet = new Chicklets(content.experience);
-      const chicklets = Array<Chicklets>();
-      chicklets.push(experienceChicklet);
-
-      const experienceSection = new ExperienceSection(
-        'Experience',
-        this.tokenstorageservice.getEmail(),
-        'update',
-        chicklets
-      );
-      this.downstreamBackendService
-        .updateExperienceDetails(experienceSection)
-        .subscribe(data => {
-          console.log(data);
-          location.reload();
-        });
-    }
-  }
-
-  onUpdateCurrentLocation(content) {
-    const currentLocation = new CurrentLocation(
-      content.currentLocationId,
-      content.currentcontent.currentCityName,
-      content.currentStateName,
-      content.currentPinCode
-    );
-    const locationChicklet = new LocationChicklets(currentLocation, null);
-    const chicklets = Array<LocationChicklets>();
-    chicklets.push(locationChicklet);
-
-    const locationSection = new LocationSection(
-      'Location',
-      this.tokenstorageservice.getEmail(),
-      'update',
-      chicklets
-    );
-    this.downstreamBackendService
-      .updateLocationDetails(locationSection)
-      .subscribe(data => {
-        console.log(data);
-        location.reload();
-      });
-  }
-  onUpdatePastLocation(pastLocation) {
-    const deleteLocation = Array<PastLocation>();
-    const locationData = new PastLocation(
-      pastLocation.pastLocationId,
-      pastLocation.cityName,
-      pastLocation.stateName,
-      pastLocation.pinCode
-    );
-    deleteLocation.push(locationData);
-     const locationChicklet = new LocationChicklets(null, deleteLocation);
-     const chicklets = Array<LocationChicklets>();
-     chicklets.push(locationChicklet);
-
-     const locationSection = new LocationSection('Location', this.tokenstorageservice.getEmail(), 'update', chicklets);
-     this.downstreamBackendService.updateLocationDetails(locationSection)
-     .subscribe(
-       (data) => {
-         console.log(data);
-         location.reload();
-       }
-     );
-
-   }
   editskilldialog(content) {
     const dialogConfig = new MatDialogConfig();
     this.shared.subject.next(content);
@@ -878,4 +732,39 @@ export class EmployeeDashboardDummyComponent implements OnInit {
     this.dialog.open(EditEducationDialogComponent, dialogConfig);
   }
 
+  editexperiencedialog(content) {
+    const dialogConfig = new MatDialogConfig();
+    this.shared.subject.next(content);
+    dialogConfig.disableClose = false;
+    dialogConfig.autoFocus = true;
+    dialogConfig.width = '50%';
+    this.dialog.open(EditExperienceDialogComponent, dialogConfig);
+  }
+
+  editlocationdialog(content) {
+    const dialogConfig = new MatDialogConfig();
+    this.shared.subject.next(content);
+    dialogConfig.disableClose = false;
+    dialogConfig.autoFocus = true;
+    dialogConfig.width = '50%';
+    this.dialog.open(EditLocationDialogComponent, dialogConfig);
+  }
+
+  editprojectdialog(content) {
+    const dialogConfig = new MatDialogConfig();
+    this.shared.subject.next(content);
+    dialogConfig.disableClose = false;
+    dialogConfig.autoFocus = true;
+    dialogConfig.width = '50%';
+    this.dialog.open(EditProjectDialogComponent, dialogConfig);
+  }
+
+  editcertificatedialog(content) {
+    const dialogConfig = new MatDialogConfig();
+    this.shared.subject.next(content);
+    dialogConfig.disableClose = false;
+    dialogConfig.autoFocus = true;
+    dialogConfig.width = '50%';
+    this.dialog.open(EditCertificateDialogComponent, dialogConfig);
+  }
 }

@@ -3,7 +3,6 @@
 <section class="main" [formGroup]="skillForm" >
   <div class="card-title">
     <h2>{{dataJson?.heading}}</h2>
-    <mat-icon color="primary" (click)="addRow()" style="cursor:pointer">add</mat-icon>
   </div>
   
   <mat-dialog-content formGroupName="skills">
@@ -13,7 +12,6 @@
           <input matInput name="skillName" formControlName="skillName" [matAutocomplete]="auto" (keyup)="onKeyUp(i)" required />
         </mat-form-field>     
          <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn"> 
-            <!-- <mat-autocomplete #auto="matAutocomplete"> -->
 
          <mat-option *ngIf="isLoading" class="is-loading"><mat-spinner diameter="50"></mat-spinner></mat-option>
          <ng-container *ngIf="!isLoading">
@@ -34,7 +32,6 @@
         {{dataJson?.level}}
       </p>
       
-      <mat-icon color="primary" (click)="deleteRow(i)" style="cursor:pointer">delete</mat-icon>
     </div>
   </mat-dialog-content>
   <div class="button-row">

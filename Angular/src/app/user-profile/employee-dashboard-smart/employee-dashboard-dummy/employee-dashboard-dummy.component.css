@@ -93,7 +93,7 @@ hr{
   border-top: 2px solid #ccc;
 }
 .card-area{
-  background-image:  linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('src\assets\images\bg5.jpg');
+  background-image:  linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('src\assets\images\bg5.webp');
 }
 .title-row{
   display: flex;

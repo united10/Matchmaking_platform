@@ -42,11 +42,11 @@ export class ExperienceComponent implements OnInit {
   toMonth: string;
   toYear: string;
   temp: FormArray;
-  constructor(@Inject(MAT_DIALOG_DATA) private data: any,
-    private dialogRef: MatDialogRef<ExperienceComponent>,
-    private experienceService: ExperienceService, private fb: FormBuilder,
-    private token: TokenStorageService,
-    private refreshService: RefreshService) {
+  constructor(@Inject(MAT_DIALOG_DATA) protected data: any,
+    protected dialogRef: MatDialogRef<ExperienceComponent>,
+    protected experienceService: ExperienceService, protected fb: FormBuilder,
+    protected token: TokenStorageService,
+    protected refreshService: RefreshService) {
 
   }
 

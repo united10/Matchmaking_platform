@@ -10,7 +10,7 @@ import { FormGroup, FormArray, FormControl, FormBuilder, Validators } from '@ang
 import { EducationSection } from '../education-dialog/domain/educationsection';
 import { TokenStorageService } from 'src/app/login/service/token-storage.service';
 import { debounceTime, tap, switchMap, finalize } from 'rxjs/operators';
-import { IQualificationResponse, Qualificationn } from './domain/qualificationn';
+import { Qualificationn } from './domain/qualificationn';
 import { Institute } from './domain/institute';
 import { DateAdapter, MAT_DATE_FORMATS } from '@angular/material';
 import { AppDateAdapter, APP_DATE_FORMATS } from '../class/date-adapter';
@@ -45,12 +45,12 @@ export class EducationdialogComponent implements OnInit {
   temp1: FormArray;
   qualificationId: string;
   institutionId: string;
-  constructor(@Inject(MAT_DIALOG_DATA) private data: any,
-    private dialogRef: MatDialogRef<EducationdialogComponent>,
-    private educationService: EducationService, private fb: FormBuilder,
-    private readfromjsonService: ReadfromjsonService,
-    private token: TokenStorageService,
-    private refreshService: RefreshService) {
+  constructor(@Inject(MAT_DIALOG_DATA) protected data: any,
+    protected dialogRef: MatDialogRef<EducationdialogComponent>,
+    protected educationService: EducationService, protected fb: FormBuilder,
+    protected readfromjsonService: ReadfromjsonService,
+    protected token: TokenStorageService,
+    protected refreshService: RefreshService) {
 
   }
 
