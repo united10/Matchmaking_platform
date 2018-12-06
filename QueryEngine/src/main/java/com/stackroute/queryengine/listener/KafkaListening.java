@@ -16,7 +16,7 @@ public class KafkaListening {
 
     Logger logger = LoggerFactory.getLogger(KafkaListening.class);
 
-    private DriverInit driver = new DriverInit("bolt://0.0.0.0","neo4j","123456");
+    private DriverInit driver = new DriverInit();
 
 
     @Autowired
