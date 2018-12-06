@@ -22,7 +22,7 @@ import { componentNeedsResolution } from '@angular/core/src/metadata/resource_lo
   styleUrls: ['./search.component.scss']
 })
 export class SearchComponent implements OnInit, OnDestroy {
-  private serverUrl = 'https://matchmaker-zuul.stackroute.in/websocket-service/socket'
+  private serverUrl = 'http://13.233.180.226:8069/socket';
   private title = 'WebSockets chat';
   private stompClient;
   @ViewChild('container', {read: ViewContainerRef}) container: ViewContainerRef;
@@ -31,7 +31,9 @@ constructor(private tokenstorageservice: TokenStorageService,
     private fb: FormBuilder,
     private searchService: SearchService,
     public speech: SpeechService,
-    private componentFactoryResolver: ComponentFactoryResolver) { }
+    private componentFactoryResolver: ComponentFactoryResolver) { 
+      this.initializeWebSocketConnection();
+    }
 
   queryForm: FormGroup;
   userId: string;
@@ -58,7 +60,7 @@ constructor(private tokenstorageservice: TokenStorageService,
   }
 
   submitQuery() {
-    this.initializeWebSocketConnection();
+   this.container.clear();
   const queryData = new QueryData(this.userId, this.queryForm.get('query').value , this.timeStamp);
   this.searchService.submitQueryDetails(queryData).subscribe(
     data => {
