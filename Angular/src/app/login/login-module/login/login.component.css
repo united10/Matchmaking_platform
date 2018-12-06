@@ -1,7 +1,18 @@
-
+/* @-moz-document{
+  .main {
+    background-image:  linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('src\assets\images\bg2.png');
+    background-repeat:no-repeat;
+    background-size: cover;
+    background-position:center;
+    height: 100%;
+    text-align: center;
+    padding: 2%;
+  }
+} */
 .main {
-  background-image:  linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('src\assets\images\bg2.png');
+  background-image:  linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('src\assets\images\bg2.webp');
   background-repeat:no-repeat;
+  background-size: cover;
   background-position:center;
   height: 100%;
   text-align: center;
@@ -15,7 +26,7 @@
   height: 100%;
   display: inline-flex;
   flex-direction: column;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   justify-content: center;
   align-items: center;
 }
@@ -72,9 +83,10 @@
 
 @media only screen and (max-width: 720px) and (min-width: 525px) {
   .main {
-    background-image:  linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('src\assets\images\bg2.png');
+    background-image:  linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('src\assets\images\bg2.webp');
     background-repeat:no-repeat;
     background-position:center;
+    background-size: cover;
     height: 100%;
     text-align: center;
     padding: 2%;
@@ -87,7 +99,7 @@
     height: 100%;
     display: inline-flex;
     flex-direction: column;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     justify-content: center;
     align-items: center;
   }
@@ -144,8 +156,9 @@
 
 @media only screen and (max-width: 525px) and (min-width: 400px) {
   .main {
-    background-image:  linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('src\assets\images\bg2.png');
+    background-image:  linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('src\assets\images\bg2.webp');
     background-repeat:no-repeat;
+    background-size: cover;
     background-position:center;
     height: 100%;
     text-align: center;
@@ -159,7 +172,7 @@
     height: 100%;
     display: inline-flex;
     flex-direction: column;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     justify-content: center;
     align-items: center;
   }
@@ -216,8 +229,9 @@
 
 @media only screen and (max-width: 400px) and (min-width: 300px) {
   .main {
-    background-image:  linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('src\assets\images\bg2.png');
+    background-image:  linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('src\assets\images\bg2.webp');
     background-repeat:no-repeat;
+    background-size: cover;
     background-position:center;
     height: 100%;
     text-align: center;
@@ -231,7 +245,7 @@
     height: 100%;
     display: inline-flex;
     flex-direction: column;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     justify-content: center;
     align-items: center;
   }

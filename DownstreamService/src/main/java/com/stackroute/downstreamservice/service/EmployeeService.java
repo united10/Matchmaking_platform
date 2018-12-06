@@ -38,6 +38,36 @@ public class EmployeeService {
         }
     }
 
+    public boolean updateData(String employeeId,BasicInfo basicInfo) throws EmployeeNotFoundException{
+        Employee employee;
+        if (employeeRepository.existsById(employeeId)) {
+            employee = employeeRepository.findById(employeeId).get();
+            BasicInfo basicInfo1=employee.getBasicInfo();
+            if(basicInfo.getContactNo()!=null){
+                basicInfo1.setContactNo(basicInfo.getContactNo());
+            }
+            if(basicInfo.getDob()!=null){
+                basicInfo1.setDob(basicInfo.getDob());
+            }
+            if(basicInfo.getContactNo()!=null){
+                basicInfo1.setGender(basicInfo.getGender());
+            }
+            if(basicInfo.getGithubUrl()!=null){
+                basicInfo1.setGithubUrl(basicInfo.getGithubUrl());
+            }
+            if(basicInfo.getLinkedinUrl()!=null){
+                basicInfo1.setLinkedinUrl(basicInfo.getLinkedinUrl());
+            }
+
+            employee.setBasicInfo(basicInfo1);
+            employeeRepository.save(employee);
+            return true;
+        } else {
+            throw new EmployeeNotFoundException(environment.getProperty("errors.employeeNotFound"));
+        }
+
+    }
+
     //    Method for getting all employees from the Employees Document of MongoDB
     public List<Employee> getAllEmployee() throws EmployeeNotFoundException {
         List<Employee> employees = employeeRepository.findAll();
@@ -370,7 +400,7 @@ public class EmployeeService {
             Employee employee = employeeRepository.findById(userId).get();
             List<Skills> fetchSkills = employee.getSkills();
             for (Skills tempSkills : fetchSkills) {
-                if (tempSkills.getSkillId().toString().equals(skills.getSkillId().toString())) {
+                if (tempSkills.getSkillId().equals(skills.getSkillId())) {
                     fetchSkills.remove(tempSkills);
                     fetchSkills.add(i,skills);
                     break;
