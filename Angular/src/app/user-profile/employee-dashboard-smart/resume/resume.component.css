@@ -4,7 +4,8 @@
     height: 100%;
     display: flex;
     flex-direction: column;
-    flex-wrap: nowrap;   
+    flex-wrap: nowrap;
+    overflow-x: hidden;
   }
   .header{
     display: flex;
@@ -90,7 +91,7 @@
     justify-content: space-around;
   }
   
-  @media only screen and (max-width: 430px) {
+  /* @media only screen and (max-width: 430px) {
     .left,
     .right {
       display: none;
@@ -99,4 +100,4 @@
       width: 100%;
       margin-left: 10px;
     }
-  }
+  } */

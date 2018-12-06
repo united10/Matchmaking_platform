@@ -2,13 +2,7 @@ package com.example.community.service;
 
 
 
-import com.example.community.domain.Community;
-
-import com.example.community.domain.Interest;
-
-import com.example.community.domain.Location;
-
-import com.example.community.domain.User;
+import com.example.community.domain.*;
 
 import org.neo4j.driver.v1.*;
 
@@ -19,7 +13,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.stereotype.Service;
-
+import org.springframework.web.client.RestTemplate;
 
 
 import java.util.ArrayList;
@@ -39,12 +33,11 @@ public class QueryService {
     private static final Logger LOGGER = LoggerFactory.getLogger(QueryService.class);
 
     @Autowired
-
     InterestService interestService;
-
     @Autowired
-
     LocationService locationService;
+    @Autowired
+    PostJson postJson;
 
     public void runquery(Driver driver) {
 
@@ -67,29 +60,18 @@ public class QueryService {
             int count = 0;
 
             int i = 0;
-
+            RestTemplate restTemplate = new RestTemplate();
             for (Location location : allLocation) {
 
                 for (Interest interest : allInterest) {
-
-
-
                     String q = "MATCH (A:Location {name:'" + location.getName() + "'}),(S:Interest{name:'" + interest.getName() + "'}), p=(A)-[r]-(K),q=(S)-[t]-(K) RETURN count(K.userId) as name1";
 
-
-
                     try (Transaction tx = session.beginTransaction()) {
-
                         StatementResult result = tx.run(q);
-
                         while (result.hasNext()) {
-
                             Record record = result.next();
-
                             count = record.get("name1").asInt();
-
                             if (count > 0) {
-
                                 Community community = new Community();
                                 System.out.println(count);
 //                                System.out.println(location);
@@ -97,15 +79,9 @@ public class QueryService {
                                 community.setLocation(location);
                                 community.setInterest(interest);
                                 map.put(i, community);
-
                                 i = i +1;
-
                                 System.out.println("communities:"+map);
-
                             }
-
-
-
                         }
 
 
@@ -164,6 +140,13 @@ public class QueryService {
                                         + " create(c)<-[r:is_in]-(u)" +
                                         "return r as name5";
                                 StatementResult result5 = tx.run(q2);
+                                Community_user community_user = new Community_user();
+                                community_user.setCommunityName(inter_loc);
+                                community_user.setUserId(record.get("name1").asString());
+                                postJson.sendAllData(community_user);
+
+
+
 
 
                             }
@@ -187,6 +170,11 @@ public class QueryService {
                                         + " create(c)<-[r:is_in]-(u)" +
                                         "return r as name5";
                                 StatementResult result5 = tx.run(q2);
+                                Community_user community_user = new Community_user();
+                                community_user.setCommunityName(inter_loc);
+                                community_user.setUserId(record.get("name1").asString());
+                                postJson.sendAllData(community_user);
+
 
 
                             }

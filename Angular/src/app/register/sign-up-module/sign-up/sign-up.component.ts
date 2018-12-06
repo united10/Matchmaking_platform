@@ -17,6 +17,7 @@ export class SignUpComponent implements OnInit {
   errorMsg = '';
   model: String;
   errorMessage = '';
+  status: number;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -51,6 +52,7 @@ export class SignUpComponent implements OnInit {
       },
       error => {
         if (error.status === 409) {
+          this.status= 409;
           this.errorMessage = 'User already exists, Please Login';
         }
       }
