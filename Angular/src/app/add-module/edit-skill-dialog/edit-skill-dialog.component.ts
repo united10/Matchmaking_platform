@@ -34,7 +34,7 @@ export class EditSkillDialogComponent extends SkillComponent implements OnInit {
 
   ngOnInit() {
     this.shared.subject.subscribe(data => this.employeeData = data);
-    console.log(this.employeeData.skillName);
+
     this.skillForm = this.fb.group({
       skills: this.fb.array([this.initItemRow()])
     });
@@ -62,7 +62,7 @@ export class EditSkillDialogComponent extends SkillComponent implements OnInit {
     for (let i = 0; i < arr.length; i++) {
       const row = arr.at(i);
       console.log(this.employeeData.skillId);
-      const skill = new Skill('skillId', row.value.skillName.name, row.value.skillLevel);
+      const skill = new Skill(this.employeeData.skill.skillId, row.value.skillName.name, row.value.skillLevel);
       const chicklet = new SkillChicklets(skill);
       chicklets.push(chicklet);
     }
