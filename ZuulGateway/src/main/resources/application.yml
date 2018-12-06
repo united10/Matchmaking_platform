@@ -30,7 +30,7 @@ zuul:
                url: http://localhost:8008
            uploadpic-service:
                url: http://localhost:8096
-            websocket-service:
+           websocket-service:
                url: http://localhost:8069
 
 
