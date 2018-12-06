@@ -15,34 +15,33 @@ mat-toolbar {
 }
 
 .searchInput {
-  display: inline-block;
+  display: block;
+  margin-left: 150px;
   width: 80%;
+  input{
+    height: 3rem;
+  }
 }
-
+mat-card-actions {
+  display: flex;
+  justify-content: center;
+}
 #mic {
-  margin: 1rem;
+  margin : 0 1rem;
   width : 45px;
-  height : 2.5rem;
 }
 
 #search {
   width : 100px;
-  height : 2.5rem;
 }
 @media screen and (max-width: 800px) {
   .searchInput {
-    display: inline;
-  }
-  mat-card-actions {
-    display: flex;
-    justify-content: center;
-  }
-  #mic {
-    margin : 0 2rem;
-    width : 45px;
+    display: inline-block;
+    width: 90%;    
+    margin: 0 2rem;
   }
   
-  #search {
-    width : 100px;
+  #mic {
+    margin : 0 2rem;
   }
 }
