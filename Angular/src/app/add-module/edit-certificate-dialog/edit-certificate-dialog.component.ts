@@ -55,7 +55,7 @@ initItemRow() {
   return this.fb.group({
     certificateName: new FormControl(this.employeeData.certificateName, Validators.required),
     certificateAuthority: new FormControl('', Validators.required),
-    licenseNumber: new FormControl(this.employeeData.licenseNumber, Validators.required),
+    // licenseNumber: new FormControl(this.employeeData.licenseNumber, Validators.required),
     fromDate: new FormControl('', Validators.required),
     toDate: new FormControl('', Validators.required)
   });

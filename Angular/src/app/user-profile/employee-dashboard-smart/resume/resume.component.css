@@ -6,18 +6,21 @@
     flex-direction: column;
     flex-wrap: nowrap;
     overflow-x: hidden;
+
   }
   .header{
+    
     display: flex;
     flex-direction: column;
-    flex-wrap: wrap;
-    justify-content: center;
+    flex-wrap: nowrap;
+    /* justify-content: center; */
     align-items: flex-start;
     color: black;
+    padding-bottom: 70px;
   }
   hr{
     display: block;
-    width: 100%;
+    width: 80%;
     height:1px;
     border:0;
     margin: 1em 0;
