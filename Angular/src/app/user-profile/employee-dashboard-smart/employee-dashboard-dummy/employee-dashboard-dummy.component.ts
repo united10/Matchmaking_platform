@@ -547,23 +547,6 @@ export class EmployeeDashboardDummyComponent implements OnInit {
     window.location.reload();
   }
 
-  view() {
-    const dialogConfig = new MatDialogConfig();
-    dialogConfig.disableClose = false;
-    dialogConfig.autoFocus = true;
-    dialogConfig.width = '30%';
-    this.dialog.open(PortfolioComponent, dialogConfig);
-  }
-
-  resume() {
-    const dialogConfig = new MatDialogConfig();
-    dialogConfig.disableClose = false;
-    dialogConfig.autoFocus = true;
-    dialogConfig.width = '50%';
-    dialogConfig.height = '80%';
-    this.dialog.open(ResumeComponent, dialogConfig);
-  }
-
   onDelete(content, title) {
     if (title === 'Education') {
       const qualification = new Qualification(
@@ -716,13 +699,30 @@ export class EmployeeDashboardDummyComponent implements OnInit {
       });
   }
 
+  view() {
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.disableClose = false;
+    dialogConfig.autoFocus = true;
+    dialogConfig.width = '500px';
+    this.dialog.open(PortfolioComponent, dialogConfig);
+  }
+
+  resume() {
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.disableClose = false;
+    dialogConfig.autoFocus = true;
+    dialogConfig.width = '500px';
+    dialogConfig.height = '70%';
+    this.dialog.open(ResumeComponent, dialogConfig);
+  }
+
   editskilldialog(content) {
     const dialogConfig = new MatDialogConfig();
     console.log('sending data ..', content);
     this.shared.subject.next(content);
     dialogConfig.disableClose = false;
     dialogConfig.autoFocus = true;
-    dialogConfig.width = '50%';
+    dialogConfig.width = '500px';
     this.dialog.open(EditSkillDialogComponent, dialogConfig);
   }
 
@@ -731,7 +731,7 @@ export class EmployeeDashboardDummyComponent implements OnInit {
     this.shared.subject.next(content);
     dialogConfig.disableClose = false;
     dialogConfig.autoFocus = true;
-    dialogConfig.width = '50%';
+    dialogConfig.width = '500px';
     this.dialog.open(EditEducationDialogComponent, dialogConfig);
   }
 
@@ -740,7 +740,7 @@ export class EmployeeDashboardDummyComponent implements OnInit {
     this.shared.subject.next(content);
     dialogConfig.disableClose = false;
     dialogConfig.autoFocus = true;
-    dialogConfig.width = '50%';
+    dialogConfig.width = '500px';
     this.dialog.open(EditExperienceDialogComponent, dialogConfig);
   }
 
@@ -749,7 +749,7 @@ export class EmployeeDashboardDummyComponent implements OnInit {
     this.shared.subject.next(content);
     dialogConfig.disableClose = false;
     dialogConfig.autoFocus = true;
-    dialogConfig.width = '50%';
+    dialogConfig.width = '500px';
     this.dialog.open(EditLocationDialogComponent, dialogConfig);
   }
 
@@ -758,7 +758,7 @@ export class EmployeeDashboardDummyComponent implements OnInit {
     this.shared.subject.next(content);
     dialogConfig.disableClose = false;
     dialogConfig.autoFocus = true;
-    dialogConfig.width = '50%';
+    dialogConfig.width = '700px';
     this.dialog.open(EditProjectDialogComponent, dialogConfig);
   }
 
@@ -767,7 +767,7 @@ export class EmployeeDashboardDummyComponent implements OnInit {
     this.shared.subject.next(content);
     dialogConfig.disableClose = false;
     dialogConfig.autoFocus = true;
-    dialogConfig.width = '50%';
+    dialogConfig.width = '500px';
     this.dialog.open(EditCertificateDialogComponent, dialogConfig);
   }
 }

@@ -7,17 +7,13 @@ import lombok.NoArgsConstructor;
 import org.neo4j.ogm.annotation.NodeEntity;
 import org.springframework.stereotype.Component;
 
-
-
 @Data
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
 @NodeEntity
 @Component
-public class Community{
-
-    Location location;
-    Interest interest;
-
+public class Community_user {
+    public String communityName;
+    public String userId;
 }

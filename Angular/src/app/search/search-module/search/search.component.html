@@ -1,29 +1,27 @@
 <mat-toolbar *ngIf="isLoggedIn">
-    <span>MatchMaking Platform</span>
+    <h1>MatchMaking Platform</h1>
     <span class="header-spacer"></span>
     <button class="btn default" (click)="logout()">Logout</button>
-  </mat-toolbar>
+</mat-toolbar>
 
 
-  
+  <!--search box with mic and search button-->
+    <mat-form-field [formGroup]="queryForm" class="searchInput">
+        <input matInput formControlName="query"  placeholder="Enter your Query" [(ngModel)]="msg" color="primary" name="search" (keyup.enter)="submitQuery($event)" required>
+    </mat-form-field>
+    <mat-card-actions>
+        <button id = "mic" class="btn btn-info" (click)="toggleVoiceRecognition()"><mat-icon *ngIf="!started">mic_none</mat-icon> <mat-icon *ngIf="started">mic</mat-icon></button>
+        <button id = "search" class="btn btn-primary" (click)="submitQuery()">Search</button>
+    </mat-card-actions>
+          
 
-<section class="container" [formGroup]="queryForm">
-    <p text-align="center">Search for people with your requirements here</p>
-     <fieldset >
-                <textarea class="form-control" formControlName="query" rows="2" placeholder="Write your query..." [(ngModel)]="msg">
-                </textarea>
-      </fieldset>
-  <button id = "mic"  class="btn btn-info" (click)="toggleVoiceRecognition()"><mat-icon *ngIf="!started">mic_none</mat-icon> <mat-icon *ngIf="started">mic</mat-icon></button>
-  <button id = "search" class="btn btn-primary" type="button" (click)="submitQuery()">Search </button>
-
-</section>
-
+ <!-- Use ng-template to ensure that the generated components end up in the right place -->
 <div>
-  <!-- Use ng-template to ensure that the generated components end up in the right place -->
   <ng-template class="container1" #container>
 
   </ng-template>
 </div>
+
 
 
 
