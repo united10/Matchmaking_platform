@@ -558,8 +558,8 @@ export class EmployeeDashboardDummyComponent implements OnInit {
     const dialogConfig = new MatDialogConfig();
     dialogConfig.disableClose = false;
     dialogConfig.autoFocus = true;
-    dialogConfig.width = '50%';
-    dialogConfig.height = '80%';
+    dialogConfig.width = '30%';
+    dialogConfig.height = '70%';
     this.dialog.open(ResumeComponent, dialogConfig);
   }
 
