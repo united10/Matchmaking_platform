@@ -31,6 +31,8 @@ public class QueryService {
 
     @Autowired
     private FetchJson fetchJson;
+
+
     static public  class MyStompSessionHandler
             extends StompSessionHandlerAdapter {
         private String userId;
@@ -41,6 +43,8 @@ public class QueryService {
         }
 
     }
+
+
     public void runquery(Driver driver, Output output) {
         try (Session session = driver.session()) {
             List<String> user = new ArrayList<>();
@@ -169,7 +173,8 @@ public class QueryService {
                 if(skill.getSkill().isEmpty() && education.getName().isEmpty() && location.getName().isEmpty()
                         && !experience.getExperience().isEmpty())
                 {
-                    k=str + "RETURN u.userId as name1";
+                    k=" MATCH (m:User) " + str + "RETURN m.userId as name1";
+                    //user=queryRepository.getUserExp(str);
                 }
                 else
                     {
@@ -180,7 +185,10 @@ public class QueryService {
                             " MATCH (m:User) " + str +
                             " WHERE " + skillAll + locationAll + educationAll +
                             " RETURN m.userId as name1";
-
+//                    user=queryRepository.getUser(skillArray,locationArray,educationArray,skillParam,locationParam,
+//                            educationParam,skillWhere,locationWhere,educationWhere,skillWith,locationWith,
+//                            educationWith,str,skillAll,locationAll,educationAll);
+                    LOGGER.info("After query run");
                 }
 
 
@@ -228,11 +236,5 @@ public class QueryService {
 
             }
         }
-    }
-
-    public void close(Driver driver) {
-        // Closing a driver immediately shuts down all open connections.
-        LOGGER.info("Closing Driver Session");
-        driver.close();
     }
 }

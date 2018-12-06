@@ -1,9 +1,11 @@
 package com.stackroute.queryengine.listener;
 
 import com.stackroute.queryengine.domain.Output;
-import com.stackroute.queryengine.service.DriverInit;
+
 import com.stackroute.queryengine.service.QueryService;
+import org.neo4j.driver.v1.AuthTokens;
 import org.neo4j.driver.v1.Driver;
+import org.neo4j.driver.v1.GraphDatabase;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,9 +18,6 @@ public class KafkaListening {
 
     Logger logger = LoggerFactory.getLogger(KafkaListening.class);
 
-    private DriverInit driver = new DriverInit();
-
-
     @Autowired
     QueryService queryService;
 
@@ -27,7 +26,9 @@ public class KafkaListening {
 
     public void consumeJson(@Payload Output output) {
         logger.info("kafka listend output: {}", output);
-        Driver drive = driver.getDriver();
+        Driver drive = GraphDatabase.driver("bolt://127.0.0.1:7687",
+                AuthTokens.basic("",""));
         queryService.runquery(drive,output);
+
     }
 }
