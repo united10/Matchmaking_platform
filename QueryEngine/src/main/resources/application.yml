@@ -5,11 +5,3 @@ kafka:
   containerFactory: userKafkaListenerFactory
 server:
   port: 7001
-  neo4j:
-    scheme: bolt
-    host: localhost
-    port: 7687
-    auth:
-      type: basic
-      username: neo4j
-      password: 123456
