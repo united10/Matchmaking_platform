@@ -27,7 +27,7 @@ public class KafkaListening {
     public void consumeJson(@Payload Output output) {
         logger.info("kafka listend output: {}", output);
         Driver drive = GraphDatabase.driver("bolt://127.0.0.1:7687",
-                AuthTokens.basic("",""));
+                AuthTokens.basic("neo4j","123456"));
         queryService.runquery(drive,output);
 
     }
