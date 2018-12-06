@@ -39,6 +39,7 @@ public class Employee {
     private List<Certificate> certificates;
     private String interest;
     private BasicInfo basicInfo;
+    private List<String> communities;
 
    /* String[] skills;
     String[] experience;

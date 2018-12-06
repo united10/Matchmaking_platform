@@ -12,8 +12,9 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 
 import java.util.Date;
 
-@CrossOrigin("*")
+
 @Controller
+@CrossOrigin()
 public class WebSocketController {
     private final SimpMessagingTemplate template;
 
