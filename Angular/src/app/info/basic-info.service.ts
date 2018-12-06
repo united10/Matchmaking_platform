@@ -11,7 +11,7 @@ export class BasicInfoService {
   private get_url = 'https://matchmaker-zuul.stackroute.in/uploadpic-service/api/v1/downloadFile/';
   private getFileName_url = 'https://matchmaker-zuul.stackroute.in/uploadpic-service/api/v1/downloadFileType/';
   private getFileExists_url = 'https://matchmaker-zuul.stackroute.in/uploadpic-service/api/v1/fileExists/';
-  private basic_url = 'https://matchmaker-zuul.stackroute.in/uploadpic-service/api/v1/uploadFile/';
+  private basic_url = 'https://matchmaker-zuul.stackroute.in/downstream-service/matchmaker/v1/employees/';
 
   constructor(private http: HttpClient) {}
 

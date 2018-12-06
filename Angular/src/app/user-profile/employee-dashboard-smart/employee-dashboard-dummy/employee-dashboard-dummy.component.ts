@@ -216,8 +216,9 @@ export class EmployeeDashboardDummyComponent implements OnInit {
           cards[i] = projectInfo;
           i++;
         }
-        if (employees.location != null && employees.location.length !== 0) {
+        if (employees.location != null && employees.location.currentLocation != null && employees.location.length !== 0) {
           const j = 0;
+          console.log('data %o', employees.location);
           locationInfo = {
             title: 'Location',
             contents: [
@@ -665,10 +666,11 @@ export class EmployeeDashboardDummyComponent implements OnInit {
   onDeleteCurrentLocation(content) {
     const currentLocation = new CurrentLocation(
       content.currentLocationId,
-      content.currentcontent.currentCityName,
+      content.currentCityName,
       content.currentStateName,
       content.currentPinCode
     );
+    console.log('current location %o',content);
     const locationChicklet = new LocationChicklets(currentLocation, null);
     const chicklets = Array<LocationChicklets>();
     chicklets.push(locationChicklet);
@@ -679,12 +681,12 @@ export class EmployeeDashboardDummyComponent implements OnInit {
       'delete',
       chicklets
     );
-    this.downstreamBackendService
-      .deleteLocationDetails(locationSection)
-      .subscribe(data => {
-        console.log(data);
-        this.refresh();
-      });
+    // this.downstreamBackendService
+    //   .deleteLocationDetails(locationSection)
+    //   .subscribe(data => {
+    //     console.log(data);
+    //     this.refresh();
+    //   });
   }
 
   onDeletePastLocation(pastLocation) {

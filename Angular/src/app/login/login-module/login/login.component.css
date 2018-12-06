@@ -15,6 +15,7 @@
   background-size: cover;
   background-position:center;
   height: 100%;
+  overflow: visible;
   text-align: center;
   padding: 2%;
 }
