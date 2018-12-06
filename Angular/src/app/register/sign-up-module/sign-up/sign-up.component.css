@@ -1,12 +1,15 @@
 @media only screen and (min-width: 720px) {
+  
   .main {
     background-image:  linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('src\assets\images\bg2.webp');
     background-repeat:no-repeat;
+    background-size: cover;
     background-position:center;
     height: 100%;
     text-align: center;
     padding: 2%;
   }
+  
   .login-section{
     background-color: transparent;
     z-index: +2;
@@ -73,6 +76,7 @@
   .main {
     background-image:  linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('src\assets\images\bg2.webp');
     background-repeat:no-repeat;
+    background-size: cover;
     background-position:center;
     height: 100%;
     text-align: center;
@@ -145,6 +149,7 @@
   .main {
     background-image:  linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('src\assets\images\bg2.webp');
     background-repeat:no-repeat;
+    background-size: cover;
     background-position:center;
     height: 100%;
     text-align: center;
@@ -217,6 +222,7 @@
   .main {
     background-image:  linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('src\assets\images\bg2.webp');
     background-repeat:no-repeat;
+    background-size: cover;
     background-position:center;
     height: 100%;
     text-align: center;
