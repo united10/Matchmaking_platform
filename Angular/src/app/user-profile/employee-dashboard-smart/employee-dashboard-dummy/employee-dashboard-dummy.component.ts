@@ -716,6 +716,7 @@ export class EmployeeDashboardDummyComponent implements OnInit {
 
   editskilldialog(content) {
     const dialogConfig = new MatDialogConfig();
+    console.log('sending data ..', content);
     this.shared.subject.next(content);
     dialogConfig.disableClose = false;
     dialogConfig.autoFocus = true;
