@@ -94,7 +94,8 @@ hr{
 }
 .card-area{
   background-image:  linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('src\assets\images\bg5.webp');
-}
+  background-image:    -moz-linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('src\assets\images\bg5.png');
+}  
 .title-row{
   display: flex;
   flex-direction: row;

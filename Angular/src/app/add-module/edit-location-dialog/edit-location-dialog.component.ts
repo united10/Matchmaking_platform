@@ -106,7 +106,7 @@ export class EditLocationDialogComponent extends LocationdialogComponent impleme
     }
 
     onSave() {
-      this.currentId = this.locationForm.get('currentId').value as string;
+      this.currentId = this.employeeData.currentLocationId;
       this.currentCityName = this.locationForm.get('currentCityName').value.name as string;
       this.currentStateName = this.locationForm.get('currentStateName').value.name as string;
       this.currentPincode = this.locationForm.get('currentPincode').value as string;
