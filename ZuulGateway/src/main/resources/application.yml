@@ -32,6 +32,8 @@ zuul:
                url: http://localhost:8096
            websocket-service:
                url: http://localhost:8069
+           search:
+               path: /**
 
 
 #eureka:         #tells about the Eureka server details and its refresh time
