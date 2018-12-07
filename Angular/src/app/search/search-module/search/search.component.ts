@@ -23,7 +23,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./search.component.scss']
 })
 export class SearchComponent implements OnInit, OnDestroy {
-  private serverUrl = 'https://matchmaker-zuul.stackroute.in/websocket-service/socket';
+  private serverUrl = 'http://13.233.180.226:8069/socket';
   private title = 'WebSockets chat';
   private stompClient;
   @ViewChild('container', {read: ViewContainerRef}) container: ViewContainerRef;
