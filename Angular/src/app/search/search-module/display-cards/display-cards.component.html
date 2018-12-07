@@ -18,9 +18,9 @@
     <p _ngcontent-c22="" *ngIf="location!=null">
       Location: {{location}}
     </p>
-    <div *ngIf="location!=null">
+    <div *ngIf="skills!=null">
     <p _ngcontent-c22="" *ngFor="let skill of skills">
-      Skills: {{skill}}
+      Skills: {{skill.skillName}}
     </p>
     </div>
   </mat-card-content>

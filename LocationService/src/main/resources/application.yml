@@ -5,7 +5,10 @@ management:
   security:
     enabled: false
 
-eureka:         #tells about the Eureka server details and its refresh time
+eureka:
+  instance:
+    leaseRenewalIntervalInSeconds: 1
+    leaseExpirationDurationInSeconds: 1
   client:
     serviceUrl:
       defaultZone: http://localhost:8091/eureka/

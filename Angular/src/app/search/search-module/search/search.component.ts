@@ -17,13 +17,14 @@ import * as SockJS from 'sockjs-client';
 import $ from 'jquery';
 import { componentNeedsResolution } from '@angular/core/src/metadata/resource_loading';
 import { Router } from '@angular/router';
+import { SkillSection } from 'src/app/add-module/skill-dialog/domain/skillsection';
 @Component({
   selector: 'app-search',
   templateUrl: './search.component.html',
   styleUrls: ['./search.component.scss']
 })
 export class SearchComponent implements OnInit, OnDestroy {
-  private serverUrl = 'https://matchmaker-zuul.stackroute.in/websocket-service/socket';
+  private serverUrl = 'http://13.233.180.226:8069/socket';
   private title = 'WebSockets chat';
   private stompClient;
   @ViewChild('container', {read: ViewContainerRef}) container: ViewContainerRef;
@@ -54,7 +55,7 @@ constructor(private tokenstorageservice: TokenStorageService,
   employeeName: any;
   email: any;
   location:any;
-  skills:any;
+  skills:Array<string>;
   draggableComponentClass = DisplayCardsComponent;
   emply: any;
   private _destroyed = new Subject<void>();
@@ -122,8 +123,21 @@ initializeWebSocketConnection() {
           console.log(employees.name);
           that.employeeName = employees.name;
           that.email = employees.email;
-          // that.location=employees.location.curren
-          // that.employeeName=message.body.employee.name;
+          let skills=new Array<string>();
+        
+          if(employees.location!=null){
+          that.location=employees.location.currentLocation.cityName;
+          }else{
+            that.location=null;
+          }
+          if(employees.skills!=null){
+          for(let skill of employees.skills){
+              skills.push(skill);
+          }
+          that.skills=skills;
+        }else{
+          that.skills=null;
+        }
          that.addComponent(that.draggableComponentClass);
         }
       });
@@ -149,6 +163,12 @@ toggleVoiceRecognition(): void {
     const component = this.container.createComponent(componentFactory).instance;
     component.employeeName = this.employeeName;
     component.email = this.email;
+    if(this.location!=null){
+      component.location=this.location;
+    }
+    if(this.skills!=null){
+      component.skills=this.skills;
+    }
     // Push the component so that we can keep track of which components are created
     this.components.push(component);
   }
