@@ -14,12 +14,12 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Builder
 public class CommonOutput {
-
     private String operationType;
     private String sourceNode;
-    private String sourceNodeProperties;
-    private String terminalNode;
-    private String terminalNodeProperties;
-    private Relationships relationships;
-
+    private String sourceNodeProperty;
+    private String targetNode;
+    private TargetNodeProperty[] targetNodeProperty;
+    private String relationships;
+    private Property[] properties;
+}
 }
