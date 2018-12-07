@@ -219,8 +219,7 @@ public class QueryService {
 
 
                 for (int i = 0; i < user.size(); i++) {
-                   Employee employee = new Employee();
-                    employee = fetchJson.getAllData(user.get(i));
+                   Employee employee = fetchJson.getAllData(user.get(i));
                     Message message=Message.builder().from("search").employee(employee)
                             .build();
                     session1.send("/channel/socket/messages",message);

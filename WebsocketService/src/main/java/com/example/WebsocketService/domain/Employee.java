@@ -4,13 +4,12 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
-import javax.validation.constraints.NotNull;
 import java.util.List;
 
 /* This is domain class for modelling the employee documents
 in the database
  */
+
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -18,6 +17,7 @@ in the database
 public class Employee {
 
     private String userId;
+
     private String email;
     private String name;
 
@@ -29,4 +29,7 @@ public class Employee {
     private List<Experience> experiences;
     private List<ProjectDetails> projects;
     private List<Certificate> certificates;
+    private String interest;
+    private BasicInfo basicInfo;
+    private List<String> communities;
 }

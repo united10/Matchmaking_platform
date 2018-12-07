@@ -1,7 +1,9 @@
 
 <mat-card _ngcontent-c22="" class="example-card mat-card">
   <mat-card-header _ngcontent-c22="" class="mat-card-header">
-      <img _ngcontent-c22="" alt="Photo of a employeeName" class="mat-card-image" mat-card-image="" src="">
+      <div>
+        <img class="rounded-circle pic" src="/src/assets/images/user-pic-unavailable.png">
+      </div>
     <div class="mat-card-header-text">
 
       <mat-card-title _ngcontent-c22="" class="mat-card-title">
@@ -13,13 +15,18 @@
     </div>
   </mat-card-header> 
   <mat-card-content _ngcontent-c22="" class="mat-card-content">
-    <p _ngcontent-c22="">
-      I have experience blah blah
+    <p _ngcontent-c22="" *ngIf="location!=null">
+      Location: {{location}}
     </p>
+    <div *ngIf="skills!=null">
+    <p _ngcontent-c22="" *ngFor="let skill of skills">
+      Skills: {{skill.skillName}}
+    </p>
+    </div>
   </mat-card-content>
   <mat-card-actions _ngcontent-c22="" class="mat-card-actions">
     <button _ngcontent-c22="" mat-button="" class="mat-button">
-      <span class="mat-button-wrapper">LIKE</span>
+      <span class="mat-button-wrapper">Add to shortlist</span>
       <div class="mat-button-ripple mat-ripple" matripple="">
 
       </div>
@@ -28,7 +35,7 @@
       </div>
     </button>
     <button _ngcontent-c22="" mat-button="" class="mat-button">
-      <span class="mat-button-wrapper">SHARE</span>
+      <span class="mat-button-wrapper">Contact</span>
       <div class="mat-button-ripple mat-ripple" matripple=""></div>
       <div class="mat-button-focus-overlay"></div>
     </button>
