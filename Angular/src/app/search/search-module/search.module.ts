@@ -7,6 +7,7 @@ import { SpeechModule } from '../lib';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DisplayCardsComponent } from './display-cards/display-cards.component';
 import { MatCardModule } from '@angular/material';
+import { NgbCollapse, NgbCollapseModule, NgbModule } from '@ng-bootstrap/ng-bootstrap';
 @NgModule({
   imports: [
     CommonModule,
@@ -15,7 +16,8 @@ import { MatCardModule } from '@angular/material';
     SpeechModule,
     FormsModule,
     ReactiveFormsModule,
-    MatCardModule
+    MatCardModule,
+    NgbModule
   ],
   providers: [
     { provide: 'SPEECH_LANG', useValue: 'en-US' }
