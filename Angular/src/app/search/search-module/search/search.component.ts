@@ -54,6 +54,8 @@ constructor(private tokenstorageservice: TokenStorageService,
   components = [];
   employeeName: any;
   email: any;
+  location:any;
+  skills:any;
   draggableComponentClass = DisplayCardsComponent;
   emply: any;
   private _destroyed = new Subject<void>();
@@ -121,6 +123,7 @@ initializeWebSocketConnection() {
           console.log(employees.name);
           that.employeeName = employees.name;
           that.email = employees.email;
+          // that.location=employees.location.curren
           // that.employeeName=message.body.employee.name;
          that.addComponent(that.draggableComponentClass);
         }

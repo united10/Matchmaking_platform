@@ -1,9 +1,10 @@
 .example-card[_ngcontent-c22] {
-    display: flex;
+    display: inline-flex;
     flex-direction: column;
     flex-wrap: nowrap;
     justify-content: baseline;
     align-items: center;
+    margin: 2%;
     flex: 1;
 }
 

@@ -10,6 +10,8 @@ export class DisplayCardsComponent implements OnInit {
 
   @Input() employeeName:any;
   @Input() email:any;
+  @Input() skills:any;
+  @Input() location:any;
 
   constructor() { }
 
