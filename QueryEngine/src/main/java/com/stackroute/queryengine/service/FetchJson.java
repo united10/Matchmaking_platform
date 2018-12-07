@@ -11,6 +11,7 @@ public class FetchJson {
     private final static  String url="http://10.20.1.211:8090/matchmaker/v1/employees/";     // This hardcode is for testing
 
     Logger logger = LoggerFactory.getLogger(FetchJson.class);
+
     public Employee getAllData(String userId){
         logger.info("----------------------------Fetching JSON --------------------------------");
         RestTemplate restTemplate = new RestTemplate();

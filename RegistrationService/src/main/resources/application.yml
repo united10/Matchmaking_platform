@@ -13,9 +13,16 @@ server:
   port: 8086
 
 eureka:
+  instance:
+    leaseRenewalIntervalInSeconds: 1
+    leaseExpirationDurationInSeconds: 1
   client:
     serviceUrl:
-      defaultZone: http://127.0.0.1:8091/eureka/
+      defaultZone: http://localhost:8091/eureka/
+    healthcheck:
+      enabled: true
+    lease:
+      duration: 5
 
 controller:
   base: /api/v1/registration
