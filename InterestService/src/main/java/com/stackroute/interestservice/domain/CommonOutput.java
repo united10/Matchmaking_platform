@@ -22,4 +22,3 @@ public class CommonOutput {
     private String relationships;
     private Property[] properties;
 }
-}

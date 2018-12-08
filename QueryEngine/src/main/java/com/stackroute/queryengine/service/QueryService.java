@@ -109,7 +109,7 @@ public class QueryService {
                     locationParam = locationArray.length() == 0 ? "" : "(l:Location),";
                     locationWhere = locationParam.length() == 0 ? "" : " AND l.name in locations";
                     locationWith = locationWhere.length() == 0 ? "" : " collect(l) AS location,";
-                    locationAll = locationWith.length() == 0 ? "" : " AND (ALL(l in location WHERE (l)<-[:lives_in]-(m)))";
+                    locationAll = locationWith.length() == 0 ? "" : " AND (ALL(l in location WHERE (l)<-[*1..2]-(m)))";
 
                 }
 
@@ -127,8 +127,8 @@ public class QueryService {
                 }
 
 
-                String str = experience.getExperience().isEmpty() ? "" : " -[r:works_in{duration:'"
-                        + experience.getExperience().get(0) + " year'}]->(o:Organization)";
+                String str = experience.getExperience().isEmpty() ? "" : " -[r:works_in]->(o:Organization) " +
+                        "where r.duration >='" + experience.getExperience().get(0) + "'";
 
 
                 if (educationArray.isEmpty() && !locationArray.isEmpty()) {
