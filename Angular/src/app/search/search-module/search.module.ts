@@ -6,8 +6,9 @@ import { BrowserModule } from '@angular/platform-browser';
 import { SpeechModule } from '../lib';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DisplayCardsComponent } from './display-cards/display-cards.component';
-import { MatCardModule } from '@angular/material';
+import { MatCardModule, MatDialogContent, MatDialogModule } from '@angular/material';
 import { NgbCollapse, NgbCollapseModule, NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { ProfileComponent } from './profile/profile.component';
 @NgModule({
   imports: [
     CommonModule,
@@ -17,12 +18,13 @@ import { NgbCollapse, NgbCollapseModule, NgbModule } from '@ng-bootstrap/ng-boot
     FormsModule,
     ReactiveFormsModule,
     MatCardModule,
-    NgbModule
+    NgbModule,
+    MatDialogModule
   ],
   providers: [
     { provide: 'SPEECH_LANG', useValue: 'en-US' }
   ],
-  declarations: [SearchComponent,DisplayCardsComponent],
-  entryComponents:[DisplayCardsComponent]
+  declarations: [SearchComponent,DisplayCardsComponent, ProfileComponent],
+  entryComponents:[DisplayCardsComponent,ProfileComponent]
 })
 export class SearchModule { }

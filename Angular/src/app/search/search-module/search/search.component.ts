@@ -125,6 +125,7 @@ initializeWebSocketConnection() {
           console.log(employees.name);
           that.employeeName = employees.name;
           that.email = employees.email;
+          that.emply=employees;
           let skills = new Array<string>();
           if (employees.location != null) {
           that.location = employees.location.currentLocation.cityName;
@@ -170,6 +171,7 @@ toggleVoiceRecognition(): void {
     if (this.skills != null) {
       component.skills = this.skills;
     }
+    component.employees=this.emply;
     // Push the component so that we can keep track of which components are created
     this.components.push(component);
   }
