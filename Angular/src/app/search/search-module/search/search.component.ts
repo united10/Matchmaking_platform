@@ -18,6 +18,7 @@ import $ from 'jquery';
 import { componentNeedsResolution } from '@angular/core/src/metadata/resource_loading';
 import { Router } from '@angular/router';
 import { SkillSection } from 'src/app/add-module/skill-dialog/domain/skillsection';
+import { Timestamp } from 'rxjs/internal/operators/timestamp';
 @Component({
   selector: 'app-search',
   templateUrl: './search.component.html',
@@ -34,7 +35,7 @@ constructor(private tokenstorageservice: TokenStorageService,
     private searchService: SearchService,
     public speech: SpeechService,
     private componentFactoryResolver: ComponentFactoryResolver,
-    private router: Router) { 
+    private router: Router) {
       this.initializeWebSocketConnection();
     }
 
@@ -43,7 +44,7 @@ constructor(private tokenstorageservice: TokenStorageService,
   queryForm: FormGroup;
   userId: string;
   query: string;
-  timeStamp: string;
+  timeStamp: Timestamp<any>;
   errorMessage = '';
   isLoggedIn = false;
   msg = '';
@@ -54,8 +55,8 @@ constructor(private tokenstorageservice: TokenStorageService,
   components = [];
   employeeName: any;
   email: any;
-  location:any;
-  skills:Array<string>;
+  location: any;
+  skills: Array<string>;
   draggableComponentClass = DisplayCardsComponent;
   emply: any;
   private _destroyed = new Subject<void>();
@@ -82,6 +83,7 @@ constructor(private tokenstorageservice: TokenStorageService,
     if (this.tokenstorageservice.getToken()) {
         this.isLoggedIn = true;
       }
+    this.userId = this.tokenstorageservice.getEmail();
 
     this.queryForm = this.createFormData();
     this.speech.start();
@@ -123,20 +125,20 @@ initializeWebSocketConnection() {
           console.log(employees.name);
           that.employeeName = employees.name;
           that.email = employees.email;
-          let skills=new Array<string>();
-        
-          if(employees.location!=null){
-          that.location=employees.location.currentLocation.cityName;
-          }else{
-            that.location=null;
+          that.emply=employees;
+          let skills = new Array<string>();
+          if (employees.location != null) {
+          that.location = employees.location.currentLocation.cityName;
+          } else {
+            that.location = null;
           }
-          if(employees.skills!=null){
-          for(let skill of employees.skills){
+          if (employees.skills != null) {
+          for (let skill of employees.skills) {
               skills.push(skill);
           }
-          that.skills=skills;
-        }else{
-          that.skills=null;
+          that.skills = skills;
+        } else {
+          that.skills = null;
         }
          that.addComponent(that.draggableComponentClass);
         }
@@ -163,12 +165,13 @@ toggleVoiceRecognition(): void {
     const component = this.container.createComponent(componentFactory).instance;
     component.employeeName = this.employeeName;
     component.email = this.email;
-    if(this.location!=null){
-      component.location=this.location;
+    if (this.location != null) {
+      component.location = this.location;
     }
-    if(this.skills!=null){
-      component.skills=this.skills;
+    if (this.skills != null) {
+      component.skills = this.skills;
     }
+    component.employees=this.emply;
     // Push the component so that we can keep track of which components are created
     this.components.push(component);
   }

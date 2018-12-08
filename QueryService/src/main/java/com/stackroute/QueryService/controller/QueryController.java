@@ -8,6 +8,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.sql.Timestamp;
+
 /*
 Controller class for handling post request from search page
  */
@@ -28,6 +30,8 @@ public class QueryController {
     @PostMapping("${controller.search}")
     public ResponseEntity<QueryData> addQueryData(@RequestBody QueryData queryData)
     {
+        Timestamp timestamp = new Timestamp(System.currentTimeMillis());
+        queryData.setTimeStamp(timestamp);
         ResponseEntity responseEntity = new ResponseEntity(queryData, HttpStatus.OK);
         queryService.addQueryData(queryData);
         queryResource.postQuery(queryData);
