@@ -30,7 +30,7 @@ public class IndexResource {
     /*
      *  Used to send data(CommonOutput) to indexer topic.
      */
-    public void postDate(CommonOutput commonOutput)
+    public void postData(CommonOutput commonOutput)
     {
         kafkaTemplate.send(kafkaProperties.getOutputTopic(),commonOutput);
     }
