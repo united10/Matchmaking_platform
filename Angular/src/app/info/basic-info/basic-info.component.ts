@@ -94,6 +94,7 @@ export class BasicInfoComponent implements OnInit {
       this.basicInfo = new BasicInfo(this.gender, this.dob, this.contactNo, this.linkedinUrl, this.githubUrl);
       this.uploadService.basicInfoSending(this.token.getEmail(), this.basicInfo).subscribe(data =>{
         console.log(data);
+        this.dialogRef.close();
       });
   }
 
