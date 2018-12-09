@@ -109,7 +109,7 @@ public class QueryService {
                     locationParam = locationArray.length() == 0 ? "" : "(l:Location),";
                     locationWhere = locationParam.length() == 0 ? "" : " AND l.name in locations";
                     locationWith = locationWhere.length() == 0 ? "" : " collect(l) AS location,";
-                    locationAll = locationWith.length() == 0 ? "" : " AND (ALL(l in location WHERE (l)<-[*1..2]-(m)))";
+                    locationAll = locationWith.length() == 0 ? "" : " AND (ALL(l in location WHERE (l)-[*1..2]-(m)))";
 
                 }
 
