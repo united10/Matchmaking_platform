@@ -1,5 +1,4 @@
 {
-	"heading": "Add Project",
 	"title": {
 		"text": "The title of my project is",
 		"error": "Title cannot be empty"

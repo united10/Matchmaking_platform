@@ -1,6 +1,8 @@
 package com.stackroute.downstreamservice.controller;
 
 
+import com.stackroute.downstreamservice.domain.BasicInfo;
+import com.stackroute.downstreamservice.domain.Community_user;
 import com.stackroute.downstreamservice.domain.Employee;
 
 import com.stackroute.downstreamservice.exceptions.EmployeeAlreadyExistsException;
@@ -11,6 +13,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /*This is the rest controller class to handle rest api calls from the frontend
@@ -58,9 +61,41 @@ public class EmployeeController {
     public ResponseEntity<?> addEmployee(@RequestBody Employee employee){
         ResponseEntity responseEntity;
         try{
-            employeeService.saveEmployee(employee);
+                   Employee employee1=Employee.builder().userId(employee.getEmail())
+                .email(employee.getEmail()).name(employee.getName())
+                .build();
+            employeeService.saveEmployee(employee1);
             responseEntity=new ResponseEntity<String>("Successfully created", HttpStatus.OK);
         }catch(EmployeeAlreadyExistsException exception){
+            responseEntity=new ResponseEntity<String>(exception.getMessage(),HttpStatus.CONFLICT);
+        }catch(Exception exception){
+            responseEntity=new ResponseEntity<String>(exception.getMessage(),HttpStatus.BAD_REQUEST);
+        }
+        return responseEntity;
+    }
+
+    @PostMapping("${controller.employee}")
+    public ResponseEntity<?> addBasicData(@PathVariable("id") String userId, @RequestBody BasicInfo basicInfo){
+        ResponseEntity responseEntity;
+        try{
+            employeeService.updateData(userId,basicInfo);
+            responseEntity=new ResponseEntity<String>("Successfully created", HttpStatus.OK);
+        }catch(EmployeeNotFoundException exception){
+            responseEntity=new ResponseEntity<String>(exception.getMessage(),HttpStatus.CONFLICT);
+        }catch(Exception exception){
+            responseEntity=new ResponseEntity<String>(exception.getMessage(),HttpStatus.BAD_REQUEST);
+        }
+        return responseEntity;
+    }
+
+    @PostMapping("${controller.community}")
+    public ResponseEntity<?> addCommunityData( @RequestBody Community_user community_user){
+        ResponseEntity responseEntity;
+        try{
+
+            employeeService.saveCommunity(community_user.getUserId(),community_user.getCommunityName());
+            responseEntity=new ResponseEntity<String>("Successfully created", HttpStatus.OK);
+        }catch(EmployeeNotFoundException exception){
             responseEntity=new ResponseEntity<String>(exception.getMessage(),HttpStatus.CONFLICT);
         }catch(Exception exception){
             responseEntity=new ResponseEntity<String>(exception.getMessage(),HttpStatus.BAD_REQUEST);

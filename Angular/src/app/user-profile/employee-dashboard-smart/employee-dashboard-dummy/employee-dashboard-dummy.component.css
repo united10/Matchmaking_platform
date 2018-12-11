@@ -1,8 +1,9 @@
 @import url("https://fonts.googleapis.com/css?family=Nunito+Sans");
-.body{
-  background-color:#b0b0b0;
+.user-profile{
+  background-color:#e7e7e7;
   padding-bottom: 5%; 
   font-family: 'Nunito Sans', sans-serif;
+  height: 100%;
 }
 /*
   design of nav bar
@@ -24,24 +25,26 @@
 */
 .dummy{
   flex: 1;
+  background-color:#e7e7e7;
 }
 /*
   design of card division
 */
 .grid-container {
-  flex: 10;
+  flex: 16;
   background-color: #e7e7e7;
   padding-bottom: 5%;
 }
 /*
   design of basic detail
+  background-image: linear-gradient(to bottom right,#6fe0c2,#087a5e);
 */
 .basic-detail{
   display: flex;
   flex-direction: row;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   align-items: flex-end;
-  background-color: #0D9965;
+  background-image: url('src\assets\images\bg6.png');
   height: 20rem;
 }
 /*
@@ -52,9 +55,11 @@
   padding: 5px;
 }
 
-.user-pic>img{
-  width: 100%;
+.pic{
+  min-width: 200px;
+  min-height: 200px;
   max-width: 220px;
+  max-height: 220px;
 }
 
 .user-detail{
@@ -87,6 +92,10 @@ hr{
   padding: 0;
   border-top: 2px solid #ccc;
 }
+.card-area{
+  background-image:  linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('src\assets\images\bg5.webp');
+  background-image:    -moz-linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('src\assets\images\bg5.png');
+}  
 .title-row{
   display: flex;
   flex-direction: row;
@@ -111,14 +120,20 @@ mat-icon{
     flex: 10;
   }
   .user-pic{
-    flex-basis: 40%;
+    flex-basis: 30%;
   }
   .user-detail{
-    flex-basis: 60%;
+    flex-basis: 70%;
   }
   .user-detail>h6{
     font-size: 1.1em;
     font-weight: 500;
+  }
+  .pic{
+    min-width: 150px;
+    min-height: 150px;
+    max-width: 180px;
+    max-height: 180px;
   }
   hr{
     width: 60%;
@@ -146,10 +161,6 @@ mat-icon{
   right: 5px;
  
 }
-
-.dashboard-card-content{
-  
-} 
 
 .more-button {
   position: absolute;
@@ -183,11 +194,11 @@ mat-icon{
   
 }
 ::ng-deep .mat-progress-bar-fill::after {
-  background-color: #003d99;
+  background-color: rgb(8, 190, 114);
 }
 
 ::ng-deep .mat-progress-bar-buffer {
-  background: #ff3300;
+  background: #cf3d3d;
 }
 
 ::ng-deep .mat-progress-bar {

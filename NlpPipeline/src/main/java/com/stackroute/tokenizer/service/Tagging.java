@@ -72,6 +72,15 @@ public class Tagging {
 
             for (String word: inputTokens){
                 word=word.toLowerCase();
+                int x=0;
+                try {
+                    x= Integer.parseInt(word);
+                    if(!experiences.contains(word)) {
+                        experiences.add(word);
+                    }
+                }catch (NumberFormatException e) {
+                    e.printStackTrace();
+                }
                 if (cacheMap.containsKey(word)){
                     String tag = cacheMap.get(word);
                     if (tag.equals("education")){

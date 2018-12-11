@@ -5,6 +5,10 @@ import { MaterialModule } from 'src/app/login/login-module/material.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { SpeechModule } from '../lib';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { DisplayCardsComponent } from './display-cards/display-cards.component';
+import { MatCardModule, MatDialogContent, MatDialogModule } from '@angular/material';
+import { NgbCollapse, NgbCollapseModule, NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { ProfileComponent } from './profile/profile.component';
 @NgModule({
   imports: [
     CommonModule,
@@ -12,11 +16,15 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     BrowserModule,
     SpeechModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatCardModule,
+    NgbModule,
+    MatDialogModule
   ],
   providers: [
     { provide: 'SPEECH_LANG', useValue: 'en-US' }
   ],
-  declarations: [SearchComponent]
+  declarations: [SearchComponent,DisplayCardsComponent, ProfileComponent],
+  entryComponents:[DisplayCardsComponent,ProfileComponent]
 })
 export class SearchModule { }

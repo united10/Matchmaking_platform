@@ -43,6 +43,10 @@
         <module>CacheService</module>
         <module>IndexerService</module>
         <module>QueryService</module>
+        <module>UploadingPhoto</module>
+        <module>QueryEngine</module>
+        <module>WebsocketService</module>
+        <module>CommunityService</module>
 
     </modules>
 

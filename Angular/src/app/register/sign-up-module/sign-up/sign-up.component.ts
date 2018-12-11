@@ -16,6 +16,8 @@ export class SignUpComponent implements OnInit {
   submitted = false;
   errorMsg = '';
   model: String;
+  errorMessage = '';
+  status: number;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -37,11 +39,23 @@ export class SignUpComponent implements OnInit {
   onRegisterSubmit() {
     console.log(this.registerForm.value);
     this._registerService.submit(this.registerForm.value).subscribe(
-        data => {
-          this.model = data;
-          console.log(this.model);
-          this.router.navigate([``]);
+      data => {
+        this.model = data;
+        if (this.model === 'Successfully created') {
+          this._registerService.submit1(this.registerForm.value).subscribe(
+            data1 => {
+              this.model = data1;
+              this.router.navigate([``]);
+            },
+        );
         }
-    );
+      },
+      error => {
+        if (error.status === 409) {
+          this.status= 409;
+          this.errorMessage = 'User already exists, Please Login';
+        }
+      }
+      );
   }
 }

@@ -10,13 +10,19 @@ import { FormGroup, FormArray, FormControl, FormBuilder, Validators } from '@ang
 import { EducationSection } from '../education-dialog/domain/educationsection';
 import { TokenStorageService } from 'src/app/login/service/token-storage.service';
 import { debounceTime, tap, switchMap, finalize } from 'rxjs/operators';
-import { IQualificationResponse, Qualificationn } from './domain/qualificationn';
+import { Qualificationn } from './domain/qualificationn';
 import { Institute } from './domain/institute';
+import { DateAdapter, MAT_DATE_FORMATS } from '@angular/material';
+import { AppDateAdapter, APP_DATE_FORMATS } from '../class/date-adapter';
+import { RefreshService } from '../service/refresh.service';
+import {Md5} from 'ts-md5/dist/md5';
 
 @Component({
   selector: 'app-educationdialog',
   templateUrl: './educationdialog.component.html',
-  styleUrls: ['./educationdialog.component.css']
+  styleUrls: ['./educationdialog.component.css'],
+  providers: [{provide: DateAdapter, useClass: AppDateAdapter},
+    {provide: MAT_DATE_FORMATS, useValue: APP_DATE_FORMATS}]
 })
 export class EducationdialogComponent implements OnInit {
   filteredQualifications: Qualificationn[] = [];
@@ -26,21 +32,25 @@ export class EducationdialogComponent implements OnInit {
   educationForm: FormGroup;
   qualification: string;
   institute: string;
-  startDate: string;
-  endDate: string;
+  startDate: Date;
+  endDate: Date;
   summary: string;
   output: Output;
   errorMessage: string;
   totalRow: number;
   dataJson: any;
+  startDatePicker: string;
   json_url = 'assets/education.json';
   temp: FormArray;
   temp1: FormArray;
-  constructor(@Inject(MAT_DIALOG_DATA) private data: any,
-    private dialogRef: MatDialogRef<EducationdialogComponent>,
-    private educationService: EducationService, private fb: FormBuilder,
-    private readfromjsonService: ReadfromjsonService,
-    private token: TokenStorageService) {
+  qualificationId: string;
+  institutionId: string;
+  constructor(@Inject(MAT_DIALOG_DATA) protected data: any,
+    protected dialogRef: MatDialogRef<EducationdialogComponent>,
+    protected educationService: EducationService, protected fb: FormBuilder,
+    protected readfromjsonService: ReadfromjsonService,
+    protected token: TokenStorageService,
+    protected refreshService: RefreshService) {
 
   }
 
@@ -54,7 +64,10 @@ export class EducationdialogComponent implements OnInit {
         this.dataJson = data;
       }
     );
-    }
+    this.dialogRef.afterClosed().subscribe(result => {
+      this.refreshService.refreshProfile();
+    });
+  }
   onKeyUp(index: number) {
     this.temp = this.educationForm.get('education') as FormArray;
     this.temp.at(index).get('qualification').valueChanges.pipe(
@@ -122,11 +135,28 @@ if (institute) {
     const chicklets = new Array<EducationChicklets>();
     for (let i = 0; i < arr.length; i++) {
       const row = arr.at(i);
-      const qualification = new Qualification('qualificationId', row.value.qualification.name);
-      const institution = new Institution('institutionId',
+      const temp = row.value.startDate;
+      let qualification;
+      let institution;
+
+      if ( row.value.qualification.name === undefined) {
+        this.qualificationId = Md5.hashStr(this.token.getEmail() + row.value.qualification, false).toString();
+        qualification = new Qualification(this.qualificationId, row.value.qualification);
+      } else {
+        qualification = new Qualification(row.value.qualification.id, row.value.qualification.name);
+      }
+
+      if (row.value.institute.name === undefined) {
+        institution = new Institution('institutionId',
+          row.value.institute,
+          row.value.startDate.getDate() + '-' + (row.value.startDate.getMonth() + 1) + '-' + row.value.startDate.getFullYear(),
+          row.value.endDate.getDate() + '-' + (row.value.endDate.getMonth() + 1) + '-' + row.value.endDate.getFullYear());
+      } else {
+        institution = new Institution(row.value.institute.id,
         row.value.institute.name,
-        row.value.startDate,
-        row.value.endDate);
+        row.value.startDate.getDate() + '-' + (row.value.startDate.getMonth() + 1) + '-' + row.value.startDate.getFullYear(),
+        row.value.endDate.getDate() + '-' + (row.value.endDate.getMonth() + 1) + '-' + row.value.endDate.getFullYear());
+      }
       const chicklet = new EducationChicklets(qualification, institution, this.summary);
       chicklets.push(chicklet);
     }

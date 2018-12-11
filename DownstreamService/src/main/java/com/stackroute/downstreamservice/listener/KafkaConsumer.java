@@ -35,24 +35,24 @@ public class KafkaConsumer {
     }
 
     //Method for listening to user topic and saving
-    @KafkaListener(topics = "${kafka.listeningTopic1}" ,groupId = "${kafka.groupId}",
-    containerFactory="${kafka.containerFactory}")
-    public void consumeJson(@Payload Employee employee) {
-        Employee employee1=Employee.builder().userId(employee.getEmail())
-                .email(employee.getEmail()).name(employee.getName())
-                .build();
-        if(logger.isDebugEnabled()) {
-            logger.debug(String.format("${kafka.consumed}: %s", employee1));
-        }
-        try {
-            employeeService.saveEmployee(employee1);
-            logger.info("${kafka.success}");
-        }catch (EmployeeAlreadyExistsException exception){
-            logger.error(exception.getMessage());
-        }catch(Exception exp){
-            logger.error(exp.getMessage());
-        }
-    }
+//    @KafkaListener(topics = "${kafka.listeningTopic1}" ,groupId = "${kafka.groupId}",
+//    containerFactory="${kafka.containerFactory}")
+//    public void consumeJson(@Payload Employee employee) {
+//        Employee employee1=Employee.builder().userId(employee.getEmail())
+//                .email(employee.getEmail()).name(employee.getName())
+//                .build();
+//        if(logger.isDebugEnabled()) {
+//            logger.debug(String.format("${kafka.consumed}: %s", employee1));
+//        }
+//        try {
+//            employeeService.saveEmployee(employee1);
+//            logger.info("${kafka.success}");
+//        }catch (EmployeeAlreadyExistsException exception){
+//            logger.error(exception.getMessage());
+//        }catch(Exception exp){
+//            logger.error(exp.getMessage());
+//        }
+//    }
 
     //Method for listening to  education topic and using it for saving/updating/deleting
     @KafkaListener(topics = "${kafka.listeningTopic2}" ,groupId = "${kafka.groupId}",
@@ -151,8 +151,13 @@ public class KafkaConsumer {
         Chicklets[] chicklets=locationSection.getChicklets();
         for(Chicklets chicklet:chicklets){
             CurrentLocation currentLocation=chicklet.getCurrentLocation();
-            PastLocation[] pastLocation=chicklet.getPastLocation();
-            List<PastLocation> pastLocations= Arrays.asList(pastLocation);
+            PastLocation[] pastLocation;
+            List<PastLocation> pastLocations=new ArrayList<>();
+            if(chicklet.getPastLocation()!=null) {
+                 pastLocation= chicklet.getPastLocation();
+                pastLocations= Arrays.asList(pastLocation);
+            }
+
             location.setCurrentLocation(currentLocation);
             location.setPastLocation(pastLocations);
         }
@@ -163,11 +168,13 @@ public class KafkaConsumer {
             if(operation.equals("add")) {
             employeeService.addLocationData(location, userId);
             }else if(operation.equals("delete")){
-                if(location.getCurrentLocation()==null) {
+               /* if(location.getCurrentLocation()==null) {
                     employeeService.deletePastLocation(location.getPastLocation().get(0), userId);
                 }else {
                     employeeService.deleteCurrentLocationData(location.getCurrentLocation(), userId);
-                }
+                }*/
+               employeeService.deleteLocationData(userId);
+
             }else if(operation.equals("update")){
                 if(location.getCurrentLocation()==null) {
                     employeeService.updatePastLocation(location.getPastLocation().get(0), userId);

@@ -21,6 +21,12 @@ import { MatAutocompleteModule, MatProgressSpinnerModule } from '@angular/materi
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { EducationService } from './service/education.service';
+import { EditSkillDialogComponent } from './edit-skill-dialog/edit-skill-dialog.component';
+import { EditEducationDialogComponent } from './edit-education-dialog/edit-education-dialog.component';
+import { EditExperienceDialogComponent } from './edit-experience-dialog/edit-experience-dialog.component';
+import { EditLocationDialogComponent } from './edit-location-dialog/edit-location-dialog.component';
+import { EditProjectDialogComponent } from './edit-project-dialog/edit-project-dialog.component';
+import { EditCertificateDialogComponent } from './edit-certificate-dialog/edit-certificate-dialog.component';
 
 @NgModule({
   imports: [
@@ -48,7 +54,13 @@ import { EducationService } from './service/education.service';
                   LocationdialogComponent,
                   ExperienceComponent,
                   ProjectdialogComponent,
-                  InterestDialogComponent],
+                  InterestDialogComponent,
+                  EditSkillDialogComponent,
+                  EditEducationDialogComponent,
+                  EditExperienceDialogComponent,
+                  EditLocationDialogComponent,
+                  EditProjectDialogComponent,
+                  EditCertificateDialogComponent],
 
   entryComponents: [DetailsdialogComponent,
                     EducationdialogComponent,
@@ -57,8 +69,14 @@ import { EducationService } from './service/education.service';
                     ExperienceComponent,
                     LocationdialogComponent,
                     ProjectdialogComponent,
-                    InterestDialogComponent],
+                    InterestDialogComponent,
+                    EditSkillDialogComponent,
+                  EditEducationDialogComponent,
+                EditExperienceDialogComponent,
+              EditLocationDialogComponent,
+              EditProjectDialogComponent,
+            EditCertificateDialogComponent],
   providers: [EducationService],
-  exports: [CardComponent]
+  exports: [CardComponent, CertificatedialogComponent]
 })
 export class CardsModule { }

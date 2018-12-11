@@ -13,12 +13,16 @@ import { Organisation } from './domain/organisation';
 import { Client } from './domain/client';
 import { Tech } from './domain/tech';
 import { debounceTime, tap, switchMap, finalize } from 'rxjs/operators';
-
+import { DateAdapter, MAT_DATE_FORMATS } from '@angular/material';
+import { AppDateAdapter, APP_DATE_FORMATS } from '../class/date-adapter';
+import { RefreshService } from '../service/refresh.service';
 
 @Component({
   selector: 'app-projectdialog',
   templateUrl: './projectdialog.component.html',
-  styleUrls: ['./projectdialog.component.css']
+  styleUrls: ['./projectdialog.component.css'],
+  providers: [{provide: DateAdapter, useClass: AppDateAdapter},
+    {provide: MAT_DATE_FORMATS, useValue: APP_DATE_FORMATS}]
 })
 
 
@@ -33,8 +37,8 @@ export class ProjectdialogComponent implements OnInit {
   isLoading2 = false;
   isLoading3 = false;
   title: string;
-  startDate: string;
-  endDate: string;
+  startDate: Date;
+  endDate: Date;
   url: string;
   domain: string;
   role: string;
@@ -50,11 +54,12 @@ export class ProjectdialogComponent implements OnInit {
   temp: FormArray;
   options: string[] = ['Beginner', 'Intermediate', 'Advance'];
 
-  constructor(@Inject(MAT_DIALOG_DATA) private data: any,
-  private dialogRef: MatDialogRef<ProjectdialogComponent>,
-  private fb: FormBuilder, private projectService: ProjectService,
-  private readfromjsonService: ReadfromjsonService,
-  private token: TokenStorageService) { }
+  constructor(@Inject(MAT_DIALOG_DATA) protected data: any,
+  protected dialogRef: MatDialogRef<ProjectdialogComponent>,
+  protected fb: FormBuilder, protected projectService: ProjectService,
+  protected readfromjsonService: ReadfromjsonService,
+  protected token: TokenStorageService,
+  protected refreshService: RefreshService) { }
 
   ngOnInit() {
     const regForUrl = '(https?://)?([\\da-z.-]+)\\.([a-z.]{2,6})[/\\w .-]*/?';
@@ -76,6 +81,9 @@ export class ProjectdialogComponent implements OnInit {
         this.dataJson = data;
       }
     );
+    this.dialogRef.afterClosed().subscribe(result => {
+      this.refreshService.refreshProfile();
+    });
   }
   onKeyUp(index: number) {
     this.projectForm.get('domain').valueChanges.pipe(
@@ -178,30 +186,57 @@ displayFn3(tech: Tech) {
 
   onSave() {
     this.title = this.projectForm.get('title').value as string;
-    this.startDate = this.projectForm.get('startDate').value as string;
-    this.endDate = this.projectForm.get('endDate').value as string;
+    this.startDate = this.projectForm.get('startDate').value as Date;
+    this.endDate = this.projectForm.get('endDate').value as Date;
     this.url = this.projectForm.get('url').value as string;
-    this.domain = this.projectForm.get('domain').value.name as string;
     this.role = this.projectForm.get('role').value as string;
-    this.company = this.projectForm.get('company').value.name as string;
-    this.client = this.projectForm.get('client').value.name as string;
     this.description = this.projectForm.get('description').value as string;
 
+    if (this.projectForm.get('domain').value.name === undefined) {
+      this.domain = this.projectForm.get('domain').value as string;
+    } else {
+      this.domain = this.projectForm.get('domain').value.name as string;
+    }
+
+    if (this.projectForm.get('company').value.name === undefined) {
+      this.company = this.projectForm.get('company').value as string;
+    } else {
+      this.company = this.projectForm.get('company').value.name as string;
+    }
+
+    if (this.projectForm.get('client').value.name === undefined) {
+      this.client = this.projectForm.get('client').value as string;
+    } else {
+      this.client = this.projectForm.get('client').value.name as string;
+    }
     const technologies = new Array<Skill>();
       const arr = this.projectForm.get('technologiesUsed') as FormArray;
       const values = arr.value;
       for (const row of values) {
-        const technology = new Skill(row.skill.name , row.level);
+        let technology;
+        if (row.skill.name === undefined) {
+          technology = new Skill(row.skill , row.level);
+        } else {
+          technology = new Skill(row.skill.name , row.level);
+        }
+
         technologies.push(technology);
       }
 
-    const project = new Project(this.title, this.startDate, this.endDate,
-       this.url, this.domain, this.role , this.company, this.client ,
-        technologies , this.description );
+    const project = new Project(this.title,
+      `${this.startDate.getDate()}-${this.startDate.getMonth() + 1}-${this.startDate.getFullYear()}`,
+      `${this.endDate.getDate()}-${this.endDate.getMonth() + 1}-${this.endDate.getFullYear()}`,
+       this.url,
+       this.domain,
+       this.role,
+       this.company,
+       this.client,
+       technologies,
+       this.description );
     const chicklets = new Array<ProjectChicklets>();
     const chicklet = new ProjectChicklets(project);
     chicklets.push(chicklet);
-    const section = new ProjectSection('sectionId', this.token.getEmail(), 'add', chicklets);
+    const section = new ProjectSection('Project', this.token.getEmail(), 'add', chicklets);
     console.log(section);
     this.projectService.addProjectDetails(section).subscribe(
       data => {

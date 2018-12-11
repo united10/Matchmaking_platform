@@ -125,6 +125,18 @@ services:
       - "8088:8088"
     expose:
       - 8088
+  uploadpic-service:
+    image: uploadpic-service:v1
+    build: UploadingPhoto/
+    restart: always
+    container_name: uploadpic-container
+    network_mode: host
+    depends_on:
+      - mysql
+    ports:
+      - "8096:8096"
+    expose:
+      - 8096
   registration-service:
     image: registration-service:v1
     build: RegistrationService/
@@ -300,6 +312,7 @@ services:
     image: neo4j:3.0
     ports:
       - "7474:7474"
+      - "7687:7687"
     expose:
       - 7474
     volumes:
@@ -322,3 +335,32 @@ services:
       - "8099:8099"
     expose:
       - "8099"
+
+  websocket-service:
+    image: websocket-service:v1
+    build: WebsocketService/
+    restart: always
+    container_name: websocket-container
+    network_mode: host
+    depends_on:
+    - kafka
+    - eureka
+    - config-server
+    ports:
+    - "8069:8069"
+    expose:
+    - "8069"
+
+  search-engine-service:
+    image: search-engine-service:v1
+    build: QueryEngine/
+    restart: always
+    container_name: search-engine-container
+    network_mode: host
+    depends_on:
+    - kafka
+    - neo4jdb
+    ports:
+    - "7001:7001"
+    expose:
+    - "7001"

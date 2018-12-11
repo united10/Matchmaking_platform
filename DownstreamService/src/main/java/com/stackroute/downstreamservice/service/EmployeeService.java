@@ -38,6 +38,39 @@ public class EmployeeService {
         }
     }
 
+    public boolean updateData(String employeeId,BasicInfo basicInfo) throws EmployeeNotFoundException{
+        Employee employee;
+        if (employeeRepository.existsById(employeeId)) {
+            employee = employeeRepository.findById(employeeId).get();
+            BasicInfo basicInfo1=BasicInfo.builder().build();
+            if(employee.getBasicInfo()!=null) {
+                basicInfo1 = employee.getBasicInfo();
+            }
+            if(basicInfo.getContactNo()!=null){
+                basicInfo1.setContactNo(basicInfo.getContactNo());
+            }
+            if(basicInfo.getDob()!=null){
+                basicInfo1.setDob(basicInfo.getDob());
+            }
+            if(basicInfo.getContactNo()!=null){
+                basicInfo1.setGender(basicInfo.getGender());
+            }
+            if(basicInfo.getGithubUrl()!=null){
+                basicInfo1.setGithubUrl(basicInfo.getGithubUrl());
+            }
+            if(basicInfo.getLinkedinUrl()!=null){
+                basicInfo1.setLinkedinUrl(basicInfo.getLinkedinUrl());
+            }
+
+            employee.setBasicInfo(basicInfo1);
+            employeeRepository.save(employee);
+            return true;
+        } else {
+            throw new EmployeeNotFoundException(environment.getProperty("errors.employeeNotFound"));
+        }
+
+    }
+
     //    Method for getting all employees from the Employees Document of MongoDB
     public List<Employee> getAllEmployee() throws EmployeeNotFoundException {
         List<Employee> employees = employeeRepository.findAll();
@@ -329,7 +362,23 @@ public class EmployeeService {
         if (employeeRepository.existsById(userId)) {
             Employee employee = employeeRepository.findById(userId).get();
             Location fetchLocation = employee.getLocation();
-            Location newLocation = Location.builder().pastLocation(fetchLocation.getPastLocation()).build();
+            CurrentLocation currentLocation1=CurrentLocation.builder().build();
+            Location newLocation = Location.builder().currentLocation(currentLocation1).pastLocation(fetchLocation.getPastLocation()).build();
+            employee.setLocation(newLocation);
+            employeeRepository.save(employee);
+            return true;
+
+        } else {
+            throw new EmployeeAlreadyExistsException(environment.getProperty("errors.employeeNotFound"));
+        }
+    }
+
+
+    public boolean deleteLocationData(String userId) throws EmployeeAlreadyExistsException {
+
+        if (employeeRepository.existsById(userId)) {
+            Employee employee = employeeRepository.findById(userId).get();
+              Location newLocation = Location.builder().build();
             employee.setLocation(newLocation);
             employeeRepository.save(employee);
             return true;
@@ -370,7 +419,7 @@ public class EmployeeService {
             Employee employee = employeeRepository.findById(userId).get();
             List<Skills> fetchSkills = employee.getSkills();
             for (Skills tempSkills : fetchSkills) {
-                if (tempSkills.getSkillId().toString().equals(skills.getSkillId().toString())) {
+                if (tempSkills.getSkillId().equals(skills.getSkillId())) {
                     fetchSkills.remove(tempSkills);
                     fetchSkills.add(i,skills);
                     break;
@@ -522,6 +571,21 @@ public class EmployeeService {
             throw new EmployeeAlreadyExistsException(environment.getProperty("errors.employeeNotFound"));
         }
 
+    }
+
+    public void saveCommunity(String employeeId,String community) throws EmployeeNotFoundException {
+
+        if (employeeRepository.existsById(employeeId)) {
+            Employee employee = employeeRepository.findById(employeeId).get();
+            List<String> communities=new ArrayList<>();
+            if(employee.getCommunities()!=null){
+                communities=employee.getCommunities();
+            }
+            communities.add(community);
+            employee.setCommunities(communities);
+        } else {
+            throw new EmployeeNotFoundException(environment.getProperty("errors.emptyDatabase"));
+        }
     }
 
 
